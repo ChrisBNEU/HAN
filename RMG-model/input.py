@@ -30,10 +30,44 @@ species(
 )
 
 species(
-    label='CH4',
-    reactive=True,
-    structure=SMILES("[CH4]"),
+    label = 'NH2NHOOH',
+    reactive = True,
+    structure=SMILES('NNOO')
 )
+
+species(
+    label='NH2OH',
+    reactive=True,
+    structure=SMILES("NO"),
+)
+
+species(
+    label='HNO3',
+    reactive=True,
+    structure=SMILES("[O-][N+](=O)O"),
+)
+
+species(
+    label='CH3OH',
+    reactive=True,
+    structure=SMILES("CO"),
+)
+
+
+species(
+    label='H2O',
+    reactive=True,
+    structure=SMILES("O"),
+)
+
+## Other things for naming purposes
+
+species(
+    label='Ar',
+    reactive=False,
+    structure=SMILES("[Ar]"),
+)
+
 species(
    label='O2',
    reactive=True,
@@ -45,26 +79,9 @@ species(
 )
 
 species(
-    label='Ar',
-    reactive=False,
-    structure=SMILES("[Ar]"),
-)
-
-species(
     label='CO2',
     reactive=True,
     structure=SMILES("O=C=O"),
-)
-
-species(
-    label = 'NH2NHOOH',
-    reactive = True,
-    structure=SMILES('NNOO')
-)
-species(
-    label='H2O',
-    reactive=True,
-    structure=SMILES("O"),
 )
 
 species(
@@ -116,12 +133,6 @@ species(
 )
 
 species(
-    label='CH3OH',
-    reactive=True,
-    structure=SMILES("CO"),
-)
-
-species(
     label='HCO',
     reactive=True,
     structure=SMILES("[CH]=O"),
@@ -147,80 +158,25 @@ species(
 
 #----------
 # Reaction systems
-surfaceReactor(
-    temperature=(400,'K'),
-    initialPressure=(1.0, 'bar'),
-    initialGasMoleFractions={
-        "CH4": 0.041866,
-        "O2": 0.03488,
-        "Ar": 0.131246,
-        'NH2NHOOH': 0.04,
-    },
-    initialSurfaceCoverages={
-        "X": 1.0,
-    },
-    surfaceVolumeRatio=(1.e5, 'm^-1'),
-    terminationConversion = { "NH2NHOOH":0.95,},
-    terminationTime=(10., 's'),
-#    terminationConversion={'O2': 0.99,},
-    terminationRateRatio=0.01
-)
 
 surfaceReactor(
-    temperature=(400,'K'),
+    temperature=[(400,'K'),(2400,'K')],
     initialPressure=(1.0, 'bar'),
+    nSims = 6,
     initialGasMoleFractions={
-        "CH4": 0.108574,
-        "O2": 0.02088,
-        "Ar": 0.78547,
-        'NH2NHOOH': 0.1,
+        'NH2NHOOH': 0.14,
+        'NH2OH': 0.3,
+        'HNO3': 0.3,
+        'CH3OH': 0.16,
+        'H2O': 0.04,
     },
     initialSurfaceCoverages={
         "X": 1.0,
     },
     surfaceVolumeRatio=(1.e5, 'm^-1'),
-    terminationConversion = { "NH2NHOOH":0.95,},
+    terminationConversion = { "CH3OH": 0.95,},
     terminationTime=(10., 's'),
-#    terminationConversion={'O2': 0.99,},
-    terminationRateRatio=0.01
-)
-
-surfaceReactor(
-    temperature=(1000,'K'),
-    initialPressure=(1.0, 'bar'),
-    initialGasMoleFractions={
-        "CH4": 0.041866,
-        "O2": 0.03488,
-        "Ar": 0.131246,
-        'NH2NHOOH': 0.04,
-    },
-    initialSurfaceCoverages={
-        "X": 1.0,
-    },
-    surfaceVolumeRatio=(1.e5, 'm^-1'),
-    terminationConversion = { "NH2NHOOH":0.95,},
-    terminationTime=(10., 's'),
-#    terminationConversion={'O2': 0.99,},
-    terminationRateRatio=0.01
-)
-    
-surfaceReactor(
-    temperature=(800,'K'),
-    initialPressure=(1.0, 'bar'),
-    initialGasMoleFractions={
-        "CH4": 0.108574,
-        "O2": 0.02088,
-        "Ar": 0.78547,
-        'NH2NHOOH': 0.1,
-    },  
-    initialSurfaceCoverages={
-        "X": 1.0,
-    },
-    surfaceVolumeRatio=(1.e5, 'm^-1'),
-    terminationConversion = { "NH2NHOOH":0.95,},
-    terminationTime=(10., 's'),
-#    terminationConversion={'O2': 0.99,},
-    terminationRateRatio=0.01
+    terminationRateRatio=0.01,
 )
 
 simulator(
@@ -241,8 +197,8 @@ model(
 # prune rxns from edge that dont move into core
     minSpeciesExistIterationsForPrune=2,
 # FILTERING: set so threshold is slightly larger than max rate constants
-#    filterReactions=True,
-#    filterThreshold=5e8, # default value
+    filterReactions=True,
+    filterThreshold=5e8, # default value
 )
 
 options(
