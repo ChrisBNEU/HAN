@@ -197,7 +197,7 @@ model(
 # prune rxns from edge that dont move into core
     minSpeciesExistIterationsForPrune=2,
 # FILTERING: set so threshold is slightly larger than max rate constants
-    filterReactions=True,
+    filterReactions=False, # NotImplementedError: filterReactions=True for SurfaceReactor
     filterThreshold=5e8, # default value
 )
 
