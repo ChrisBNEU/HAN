@@ -10,7 +10,7 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --ntasks=1
 
-/shared/centos7/anaconda3/3.7/bin/conda activate rmg3
+source activate rmg3
 export RMGpy=/scratch/r.west/RMG-Py
 python $RMGpy/rmg.py -p -n4 input.py
 
