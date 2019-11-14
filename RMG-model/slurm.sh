@@ -11,6 +11,7 @@
 #SBATCH --mem-per-cpu=4Gb
 #SBATCH --ntasks=1
 
-source activate rmg_env
+conda activate rmg3
+export RMGpy=/scratch/r.west/RMG-Py
 python $RMGpy/rmg.py -p input.py
 
