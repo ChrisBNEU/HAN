@@ -8,7 +8,7 @@ longDesc = """
 """
 entry(
     index = 0,
-    label = "sp0",
+    label = "N[N]OO",
     molecule = 
 """
 multiplicity 2
@@ -22,25 +22,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.90867,0.00573133,8.30176e-05,-1.90464e-07,1.27575e-10,24255.8,8.93979], Tmin=(10,'K'), Tmax=(519.336,'K')),
-            NASAPolynomial(coeffs=[4.60119,0.019672,-1.2918e-05,4.15107e-09,-5.11772e-13,23924,3.55004], Tmin=(519.336,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.90299,0.00614381,8.55768e-05,-2.00625e-07,1.36698e-10,23854.5,8.94714], Tmin=(10,'K'), Tmax=(512.97,'K')),
+            NASAPolynomial(coeffs=[4.76276,0.0196367,-1.2938e-05,4.16178e-09,-5.13339e-13,23500.6,2.78305], Tmin=(512.97,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (201.647,'kJ/mol'),
+        E0 = (198.31,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 51.1 kcal/mol   or 213.8 kJ/mol
 """,
 )
 
 entry(
     index = 1,
-    label = "sp1",
+    label = "NON(OO)N",
     molecule = 
 """
 1  O u0 p2 c0 {4,S} {6,S}
@@ -57,25 +60,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.81824,0.0127238,0.000162037,-4.29662e-07,3.34596e-10,21340.7,10.5734], Tmin=(10,'K'), Tmax=(442.88,'K')),
-            NASAPolynomial(coeffs=[4.55787,0.036859,-2.40761e-05,7.60041e-09,-9.17367e-13,20973,4.19564], Tmin=(442.88,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.80702,0.0135751,0.000165803,-4.47096e-07,3.51964e-10,20642.8,10.5924], Tmin=(10,'K'), Tmax=(440.597,'K')),
+            NASAPolynomial(coeffs=[4.80426,0.0369686,-2.43043e-05,7.69984e-09,-9.3153e-13,20240,3.02463], Tmin=(440.597,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (177.421,'kJ/mol'),
+        E0 = (171.619,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (257.749,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 46.0 kcal/mol   or 192.3 kJ/mol
 """,
 )
 
 entry(
     index = 2,
-    label = "sp2",
+    label = "[N-][N+](=O)OO",
     molecule = 
 """
 multiplicity 2
@@ -88,25 +94,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.8948,0.00706787,8.17335e-05,-2.11748e-07,1.56769e-10,39009.6,10.0594], Tmin=(10,'K'), Tmax=(475.479,'K')),
-            NASAPolynomial(coeffs=[4.78719,0.0183472,-1.31158e-05,4.33678e-09,-5.36245e-13,38712.3,4.18442], Tmin=(475.479,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.88826,0.00755756,8.34898e-05,-2.20531e-07,1.65413e-10,38767,10.07], Tmin=(10,'K'), Tmax=(471.937,'K')),
+            NASAPolynomial(coeffs=[4.94591,0.0182781,-1.31503e-05,4.36651e-09,-5.41527e-13,38447.9,3.43909], Tmin=(471.937,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (324.325,'kJ/mol'),
+        E0 = (322.308,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 80.8 kcal/mol   or 337.9 kJ/mol
 """,
 )
 
 entry(
     index = 3,
-    label = "sp3",
+    label = "NNO[O]",
     molecule = 
 """
 multiplicity 2
@@ -120,25 +129,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.92947,0.00598499,8.57166e-05,-2.54169e-07,2.38314e-10,26288.5,9.44943], Tmin=(10,'K'), Tmax=(332.625,'K')),
-            NASAPolynomial(coeffs=[3.19279,0.0214175,-1.35216e-05,4.14396e-09,-4.89115e-13,26301.2,11.646], Tmin=(332.625,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.91846,0.0067813,8.21289e-05,-2.38829e-07,2.15453e-10,25873.9,9.46799], Tmin=(10,'K'), Tmax=(353.25,'K')),
+            NASAPolynomial(coeffs=[3.29178,0.0216229,-1.37818e-05,4.24654e-09,-5.0273e-13,25869.9,11.1553], Tmin=(353.25,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (218.587,'kJ/mol'),
+        E0 = (215.139,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 55.0 kcal/mol   or 230.3 kJ/mol
 """,
 )
 
 entry(
     index = 4,
-    label = "sp4",
+    label = "[O-][N+]=O",
     molecule = 
 """
 multiplicity 2
@@ -148,25 +160,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.03014,-0.00192172,1.57933e-05,-1.87729e-08,7.1058e-12,5204.3,5.85505], Tmin=(10,'K'), Tmax=(831.639,'K')),
-            NASAPolynomial(coeffs=[2.96996,0.00605899,-3.79847e-06,1.09869e-09,-1.20232e-13,5280.99,10.1753], Tmin=(831.639,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.03052,-0.00198698,1.67501e-05,-2.04844e-08,7.97573e-12,5126.84,5.85518], Tmin=(10,'K'), Tmax=(811.143,'K')),
+            NASAPolynomial(coeffs=[3.01319,0.00609918,-3.87926e-06,1.13566e-09,-1.25553e-13,5190.91,9.9278], Tmin=(811.143,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (43.2788,'kJ/mol'),
+        E0 = (42.6345,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (58.2013,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 12.6 kcal/mol   or 52.8 kJ/mol
 """,
 )
 
 entry(
     index = 5,
-    label = "sp5",
+    label = "ON=N[O]",
     molecule = 
 """
 multiplicity 2
@@ -178,25 +193,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.95513,0.00269641,4.87838e-05,-1.00861e-07,6.19633e-11,20287.4,8.6229], Tmin=(10,'K'), Tmax=(549.181,'K')),
-            NASAPolynomial(coeffs=[3.73876,0.0142058,-9.78395e-06,3.17163e-09,-3.882e-13,20161.4,8.17325], Tmin=(549.181,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.95162,0.00292566,5.02665e-05,-1.05936e-07,6.59968e-11,20072,8.62838], Tmin=(10,'K'), Tmax=(545.381,'K')),
+            NASAPolynomial(coeffs=[3.86994,0.0141443,-9.79656e-06,3.18687e-09,-3.91012e-13,19923,7.52503], Tmin=(545.381,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (168.662,'kJ/mol'),
+        E0 = (166.871,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 43.0 kcal/mol   or 180.0 kJ/mol
 """,
 )
 
 entry(
     index = 6,
-    label = "sp6",
+    label = "OONN=O",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {5,S}
@@ -209,25 +227,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.8489,0.0116957,8.7501e-05,-2.69991e-07,2.33881e-10,16204.7,9.51649], Tmin=(10,'K'), Tmax=(407.529,'K')),
-            NASAPolynomial(coeffs=[4.65345,0.0216422,-1.47854e-05,4.77417e-09,-5.83119e-13,15990.9,4.53929], Tmin=(407.529,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.83954,0.0124711,8.74357e-05,-2.74397e-07,2.3922e-10,15861.2,9.53011], Tmin=(10,'K'), Tmax=(407.675,'K')),
+            NASAPolynomial(coeffs=[4.79174,0.0217127,-1.49471e-05,4.84854e-09,-5.93916e-13,15629.1,3.8966], Tmin=(407.675,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (134.735,'kJ/mol'),
+        E0 = (131.879,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 35.6 kcal/mol   or 148.8 kJ/mol
 """,
 )
 
 entry(
     index = 7,
-    label = "sp7",
+    label = "O=NO[N+](=O)[O-]",
     molecule = 
 """
 1 O u0 p2 c0 {5,S} {6,S}
@@ -239,25 +260,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.71715,0.03077,-5.62817e-05,7.8946e-08,-5.07555e-11,6554.66,10.7229], Tmin=(10,'K'), Tmax=(367.323,'K')),
-            NASAPolynomial(coeffs=[4.62884,0.0208421,-1.57401e-05,5.36588e-09,-6.76951e-13,6487.68,7.23762], Tmin=(367.323,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.72078,0.0308655,-5.14459e-05,6.11841e-08,-3.33456e-11,6365.47,10.7384], Tmin=(10,'K'), Tmax=(427.342,'K')),
+            NASAPolynomial(coeffs=[4.81046,0.0206659,-1.56447e-05,5.3332e-09,-6.72195e-13,6272.34,6.40778], Tmin=(427.342,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (54.5201,'kJ/mol'),
+        E0 = (52.9511,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 16.9 kcal/mol   or 70.6 kJ/mol
 """,
 )
 
 entry(
     index = 8,
-    label = "sp8",
+    label = "NO",
     molecule = 
 """
 1 O u0 p2 c0 {2,S} {5,S}
@@ -268,25 +292,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.03041,-0.00235534,3.36665e-05,-4.82382e-08,2.31733e-11,-5187.63,4.78781], Tmin=(10,'K'), Tmax=(575.929,'K')),
-            NASAPolynomial(coeffs=[2.22466,0.0115079,-5.88258e-06,1.52666e-09,-1.58382e-13,-5001.55,12.3129], Tmin=(575.929,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.03072,-0.00243896,3.5739e-05,-5.27946e-08,2.6162e-11,-5532.33,4.78721], Tmin=(10,'K'), Tmax=(559.827,'K')),
+            NASAPolynomial(coeffs=[2.24421,0.0117544,-6.11851e-06,1.60954e-09,-1.68711e-13,-5354.69,12.1698], Tmin=(559.827,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-43.13,'kJ/mol'),
+        E0 = (-45.9966,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -8.4 kcal/mol   or -35.1 kJ/mol
 """,
 )
 
 entry(
     index = 9,
-    label = "sp9",
+    label = "O=NN=O",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,D}
@@ -296,25 +323,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.92662,0.00554874,4.84543e-05,-1.63925e-07,1.51689e-10,26248.2,7.23457], Tmin=(10,'K'), Tmax=(396.097,'K')),
-            NASAPolynomial(coeffs=[4.85041,0.00799164,-5.37608e-06,1.70724e-09,-2.07066e-13,26082.7,2.46764], Tmin=(396.097,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.92296,0.00588847,4.92178e-05,-1.70783e-07,1.60943e-10,26140.3,7.23998], Tmin=(10,'K'), Tmax=(390.39,'K')),
+            NASAPolynomial(coeffs=[4.88719,0.00806713,-5.48488e-06,1.75233e-09,-2.13179e-13,25973.1,2.31826], Tmin=(390.39,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (218.244,'kJ/mol'),
+        E0 = (217.347,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 55.1 kcal/mol   or 230.7 kJ/mol
 """,
 )
 
 entry(
     index = 10,
-    label = "sp10",
+    label = "OCNC=O",
     molecule = 
 """
 1  C u0 p0 c0 {2,S} {4,S} {5,S} {6,S}
@@ -330,25 +360,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.87594,0.0110074,6.71121e-05,-1.36857e-07,8.60574e-11,-45931.6,9.49612], Tmin=(10,'K'), Tmax=(412.454,'K')),
-            NASAPolynomial(coeffs=[1.36479,0.0353609,-2.14567e-05,6.30197e-09,-7.15762e-13,-45724.4,19.387], Tmin=(412.454,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.85594,0.0122743,6.15621e-05,-1.19353e-07,6.78774e-11,-46612.7,9.53201], Tmin=(10,'K'), Tmax=(548.543,'K')),
+            NASAPolynomial(coeffs=[1.75657,0.0350756,-2.12766e-05,6.22493e-09,-7.03358e-13,-46495.1,17.3721], Tmin=(548.543,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-381.905,'kJ/mol'),
+        E0 = (-387.58,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (232.805,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -88.6 kcal/mol   or -370.7 kJ/mol
 """,
 )
 
 entry(
     index = 11,
-    label = "sp11",
+    label = "CO",
     molecule = 
 """
 1 O u0 p2 c0 {2,S} {6,S}
@@ -360,25 +393,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.02121,-0.00137827,3.11305e-05,-3.61302e-08,1.36009e-11,-24845.3,5.05106], Tmin=(10,'K'), Tmax=(693.442,'K')),
-            NASAPolynomial(coeffs=[0.826531,0.0170506,-8.73537e-06,2.19821e-09,-2.17951e-13,-24402.3,19.2939], Tmin=(693.442,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.02178,-0.00144007,3.30595e-05,-3.95611e-08,1.53708e-11,-25281.9,5.04853], Tmin=(10,'K'), Tmax=(671.149,'K')),
+            NASAPolynomial(coeffs=[0.853887,0.0174384,-9.12921e-06,2.34152e-09,-2.36148e-13,-24856.7,19.0689], Tmin=(671.149,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-206.57,'kJ/mol'),
+        E0 = (-210.201,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -47.5 kcal/mol   or -198.9 kJ/mol
 """,
 )
 
 entry(
     index = 12,
-    label = "sp12",
+    label = "NNNN",
     molecule = 
 """
 1  N u0 p1 c0 {2,S} {3,S} {5,S}
@@ -394,25 +430,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.9499,0.00310087,9.98092e-05,-1.91764e-07,1.16934e-10,34521.1,8.52612], Tmin=(10,'K'), Tmax=(502.215,'K')),
-            NASAPolynomial(coeffs=[1.34531,0.0335609,-2.01852e-05,6.042e-09,-7.07358e-13,34660.2,18.0781], Tmin=(502.215,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.9436,0.00348848,0.0001028,-2.00204e-07,1.22884e-10,33770.7,8.53211], Tmin=(10,'K'), Tmax=(506.626,'K')),
+            NASAPolynomial(coeffs=[1.5395,0.0337975,-2.04764e-05,6.14837e-09,-7.20708e-13,33868.9,17.061], Tmin=(506.626,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (287.009,'kJ/mol'),
+        E0 = (280.768,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (232.805,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 70.9 kcal/mol   or 296.6 kJ/mol
 """,
 )
 
 entry(
     index = 13,
-    label = "sp13",
+    label = "N[NH]",
     molecule = 
 """
 multiplicity 2
@@ -424,25 +463,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.05304,-0.00460318,4.98303e-05,-8.20295e-08,4.59227e-11,26626.4,5.25444], Tmin=(10,'K'), Tmax=(514.102,'K')),
-            NASAPolynomial(coeffs=[2.34637,0.0116193,-6.09098e-06,1.6245e-09,-1.73026e-13,26763,11.9743], Tmin=(514.102,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.05353,-0.0047661,5.29897e-05,-9.00223e-08,5.20435e-11,26291.3,5.25509], Tmin=(10,'K'), Tmax=(498.25,'K')),
+            NASAPolynomial(coeffs=[2.36308,0.0118724,-6.33535e-06,1.71123e-09,-1.83936e-13,26421.7,11.8508], Tmin=(498.25,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (221.385,'kJ/mol'),
+        E0 = (218.598,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 54.9 kcal/mol   or 229.5 kJ/mol
 """,
 )
 
 entry(
     index = 14,
-    label = "sp14",
+    label = "[NH-][NH+]=O",
     molecule = 
 """
 1 N u0 p0 c+1 {2,S} {3,D} {4,S}
@@ -453,25 +495,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.08126,-0.00540497,4.23117e-05,-5.11936e-08,2.01322e-11,15370.2,6.45057], Tmin=(10,'K'), Tmax=(782.331,'K')),
-            NASAPolynomial(coeffs=[1.35043,0.0148271,-8.50102e-06,2.3503e-09,-2.51577e-13,15605.6,17.7287], Tmin=(782.331,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.08219,-0.00558402,4.4875e-05,-5.58868e-08,2.26221e-11,15071.4,6.44971], Tmin=(10,'K'), Tmax=(761.909,'K')),
+            NASAPolynomial(coeffs=[1.41903,0.0150247,-8.74536e-06,2.44708e-09,-2.64541e-13,15284.8,17.3114], Tmin=(761.909,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (127.813,'kJ/mol'),
+        E0 = (125.328,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 32.5 kcal/mol   or 135.8 kJ/mol
 """,
 )
 
 entry(
     index = 15,
-    label = "sp15",
+    label = "[NH]OCO",
     molecule = 
 """
 multiplicity 2
@@ -486,25 +531,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.96063,0.00250194,8.17043e-05,-1.62663e-07,1.03e-10,-11437.8,9.22334], Tmin=(10,'K'), Tmax=(479.988,'K')),
-            NASAPolynomial(coeffs=[1.91816,0.0267215,-1.64796e-05,4.95247e-09,-5.76167e-13,-11324.6,16.7141], Tmin=(479.988,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.95488,0.00285179,8.36406e-05,-1.68034e-07,1.06429e-10,-11960.7,9.23096], Tmin=(10,'K'), Tmax=(488.948,'K')),
+            NASAPolynomial(coeffs=[2.07134,0.0269182,-1.67504e-05,5.05963e-09,-5.90408e-13,-11880,15.912], Tmin=(488.948,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-95.1089,'kJ/mol'),
+        E0 = (-99.4586,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -20.3 kcal/mol   or -84.8 kJ/mol
 """,
 )
 
 entry(
     index = 16,
-    label = "sp16",
+    label = "[O]O",
     molecule = 
 """
 multiplicity 2
@@ -514,25 +562,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.02905,-0.00171431,1.02164e-05,-1.02522e-08,3.36031e-12,845.158,4.66116], Tmin=(10,'K'), Tmax=(933.741,'K')),
-            NASAPolynomial(coeffs=[3.02733,0.00428315,-2.15917e-06,5.40642e-10,-5.33264e-14,957.846,9.02691], Tmin=(933.741,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.02939,-0.00177212,1.08504e-05,-1.12259e-08,3.79676e-12,721.889,4.66014], Tmin=(10,'K'), Tmax=(904.176,'K')),
+            NASAPolynomial(coeffs=[3.03647,0.00437111,-2.24528e-06,5.71189e-10,-5.71528e-14,829.883,8.95465], Tmin=(904.176,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (7.03482,'kJ/mol'),
+        E0 = (6.00998,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (58.2013,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 3.8 kcal/mol   or 16.0 kJ/mol
 """,
 )
 
 entry(
     index = 17,
-    label = "sp17",
+    label = "[CH2]",
     molecule = 
 """
 multiplicity 3
@@ -542,25 +593,28 @@ multiplicity 3
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.00372,-0.000186539,3.18681e-06,-2.19173e-09,4.54452e-13,44984.3,0.592882], Tmin=(10,'K'), Tmax=(906.903,'K')),
-            NASAPolynomial(coeffs=[3.25962,0.00260784,-6.28613e-07,2.01874e-11,8.12304e-15,45139.3,4.22058], Tmin=(906.903,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.00393,-0.00019779,3.40617e-06,-2.45227e-09,5.47486e-13,44837.8,0.591954], Tmin=(10,'K'), Tmax=(915.786,'K')),
+            NASAPolynomial(coeffs=[3.22363,0.00277554,-7.51684e-07,5.6009e-11,4.30117e-15,44998.9,4.38733], Tmin=(915.786,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (374.021,'kJ/mol'),
+        E0 = (372.804,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (58.2013,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 91.5 kcal/mol   or 382.9 kJ/mol
 """,
 )
 
 entry(
     index = 18,
-    label = "sp18",
+    label = "[N]=O",
     molecule = 
 """
 multiplicity 2
@@ -569,25 +623,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.50531,-0.000279995,5.61216e-07,1.50602e-09,-1.34656e-12,11006.1,4.72766], Tmin=(10,'K'), Tmax=(727.497,'K')),
-            NASAPolynomial(coeffs=[2.93031,0.00157053,-5.51196e-07,4.83157e-11,5.61617e-15,11124.5,7.55723], Tmin=(727.497,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.5056,-0.000299994,6.59625e-07,1.51624e-09,-1.43304e-12,10966.4,4.72781], Tmin=(10,'K'), Tmax=(712.48,'K')),
+            NASAPolynomial(coeffs=[2.91564,0.00166529,-6.42322e-07,8.11939e-11,1.49677e-15,11084.6,7.61395], Tmin=(712.48,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (91.5122,'kJ/mol'),
+        E0 = (91.182,'kJ/mol'),
         Cp0 = (29.1007,'J/(mol*K)'),
         CpInf = (37.4151,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 23.9 kcal/mol   or 99.8 kJ/mol
 """,
 )
 
 entry(
     index = 19,
-    label = "sp19",
+    label = "NN(N=O)OO",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {4,S}
@@ -602,25 +659,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.84547,0.0101957,0.000131293,-3.28318e-07,2.37487e-10,24871.2,10.1594], Tmin=(10,'K'), Tmax=(483.879,'K')),
-            NASAPolynomial(coeffs=[5.10796,0.0293637,-1.98995e-05,6.42744e-09,-7.87991e-13,24402.4,1.40384], Tmin=(483.879,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.83601,0.010907,0.000134719,-3.43837e-07,2.52496e-10,24376,10.1732], Tmin=(10,'K'), Tmax=(478.977,'K')),
+            NASAPolynomial(coeffs=[5.33533,0.0293495,-2.00047e-05,6.48205e-09,-7.96283e-13,23877.2,0.33577], Tmin=(478.977,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (206.759,'kJ/mol'),
+        E0 = (202.643,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (207.862,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 52.9 kcal/mol   or 221.4 kJ/mol
 """,
 )
 
 entry(
     index = 20,
-    label = "sp20",
+    label = "O=C[N+](=O)[O-]",
     molecule = 
 """
 1 O u0 p3 c-1 {4,S}
@@ -632,25 +692,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.88365,0.0111017,1.79579e-05,-3.85863e-08,1.94952e-11,-15248.3,9.38715], Tmin=(10,'K'), Tmax=(714.476,'K')),
-            NASAPolynomial(coeffs=[4.17478,0.0171198,-1.07331e-05,3.16695e-09,-3.56862e-13,-15485.1,6.71442], Tmin=(714.476,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.88092,0.0114878,1.85161e-05,-4.09094e-08,2.10747e-11,-15513.1,9.3916], Tmin=(10,'K'), Tmax=(705.713,'K')),
+            NASAPolynomial(coeffs=[4.32151,0.0171505,-1.08643e-05,3.22995e-09,-3.66013e-13,-15778.4,5.97994], Tmin=(705.713,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-126.792,'kJ/mol'),
+        E0 = (-128.994,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -27.3 kcal/mol   or -114.4 kJ/mol
 """,
 )
 
 entry(
     index = 21,
-    label = "sp21",
+    label = "ON=[N+]([O])[O-]",
     molecule = 
 """
 multiplicity 2
@@ -663,25 +726,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.94919,0.00293013,6.33523e-05,-1.20494e-07,6.86465e-11,12080.7,9.70657], Tmin=(10,'K'), Tmax=(579.595,'K')),
-            NASAPolynomial(coeffs=[2.96574,0.0215052,-1.52275e-05,4.98134e-09,-6.11041e-13,11996.7,12.2067], Tmin=(579.595,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.9444,0.00322112,6.53081e-05,-1.26524e-07,7.30069e-11,11823.7,9.71332], Tmin=(10,'K'), Tmax=(577.69,'K')),
+            NASAPolynomial(coeffs=[3.18743,0.0213455,-1.52042e-05,4.99277e-09,-6.1406e-13,11696.2,11.0893], Tmin=(577.69,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (100.423,'kJ/mol'),
+        E0 = (98.2843,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 26.8 kcal/mol   or 112.3 kJ/mol
 """,
 )
 
 entry(
     index = 22,
-    label = "sp22",
+    label = "[N-]([NH2+])OO",
     molecule = 
 """
 multiplicity 2
@@ -695,25 +761,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.91208,0.00564164,8.33826e-05,-1.95214e-07,1.34433e-10,24652.1,9.171], Tmin=(10,'K'), Tmax=(501.018,'K')),
-            NASAPolynomial(coeffs=[4.34828,0.0200001,-1.30192e-05,4.13399e-09,-5.03587e-13,24384.4,5.1334], Tmin=(501.018,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.90646,0.00605078,8.58346e-05,-2.05054e-07,1.43398e-10,24248.2,9.17785], Tmin=(10,'K'), Tmax=(495.894,'K')),
+            NASAPolynomial(coeffs=[4.50016,0.0200078,-1.30869e-05,4.16467e-09,-5.08001e-13,23958.8,4.40601], Tmin=(495.894,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (204.946,'kJ/mol'),
+        E0 = (201.588,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 51.9 kcal/mol   or 217.0 kJ/mol
 """,
 )
 
 entry(
     index = 23,
-    label = "sp23",
+    label = "O1NN1",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {4,S}
@@ -724,25 +793,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.10102,-0.00679999,4.96161e-05,-6.14618e-08,2.47004e-11,39357.8,6.48312], Tmin=(10,'K'), Tmax=(778.36,'K')),
-            NASAPolynomial(coeffs=[1.39329,0.0154203,-9.21048e-06,2.63179e-09,-2.88687e-13,39527.7,17.2518], Tmin=(778.36,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.10215,-0.00702705,5.26525e-05,-6.71541e-08,2.77884e-11,39067.8,6.48171], Tmin=(10,'K'), Tmax=(757.613,'K')),
+            NASAPolynomial(coeffs=[1.47837,0.0155775,-9.42991e-06,2.72321e-09,-3.01369e-13,39214.2,16.754], Tmin=(757.613,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (327.261,'kJ/mol'),
+        E0 = (324.849,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 80.1 kcal/mol   or 335.3 kJ/mol
 """,
 )
 
 entry(
     index = 24,
-    label = "sp24",
+    label = "[O-][NH+]=O",
     molecule = 
 """
 1 N u0 p0 c+1 {2,S} {3,D} {4,S}
@@ -752,25 +824,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.05983,-0.0036807,2.63459e-05,-2.91427e-08,1.03749e-11,-3633.66,5.62859], Tmin=(10,'K'), Tmax=(871.75,'K')),
-            NASAPolynomial(coeffs=[1.91505,0.0106917,-6.18098e-06,1.69447e-09,-1.78474e-13,-3431.89,14.6941], Tmin=(871.75,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.06061,-0.00380639,2.79624e-05,-3.18501e-08,1.16783e-11,-3823.94,5.6277], Tmin=(10,'K'), Tmax=(848.018,'K')),
+            NASAPolynomial(coeffs=[1.97005,0.010826,-6.35968e-06,1.7671e-09,-1.88301e-13,-3640.94,14.3573], Tmin=(848.018,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-30.1958,'kJ/mol'),
+        E0 = (-31.7782,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -5.2 kcal/mol   or -21.6 kJ/mol
 """,
 )
 
 entry(
     index = 25,
-    label = "sp25",
+    label = "C=C",
     molecule = 
 """
 1 C u0 p0 c0 {2,D} {3,S} {4,S}
@@ -782,25 +857,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.10242,-0.00693494,5.16364e-05,-6.17061e-08,2.43243e-11,6017.34,3.21987], Tmin=(10,'K'), Tmax=(759.078,'K')),
-            NASAPolynomial(coeffs=[0.490933,0.0180921,-9.66806e-06,2.54148e-09,-2.62694e-13,6392.87,18.5098], Tmin=(759.078,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.10346,-0.00715168,5.47077e-05,-6.72882e-08,2.73047e-11,5584.75,3.21758], Tmin=(10,'K'), Tmax=(738.508,'K')),
+            NASAPolynomial(coeffs=[0.53942,0.0184367,-1.00298e-05,2.67425e-09,-2.79621e-13,5939.79,18.1714], Tmin=(738.508,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (50.0528,'kJ/mol'),
+        E0 = (46.4546,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 13.6 kcal/mol   or 57.0 kJ/mol
 """,
 )
 
 entry(
     index = 26,
-    label = "sp26",
+    label = "[H][H]",
     molecule = 
 """
 1 H u0 p0 c0 {2,S}
@@ -808,25 +886,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.49863,8.10799e-05,-2.55729e-07,1.22397e-11,3.06213e-13,-444.075,-4.29116], Tmin=(10,'K'), Tmax=(610.591,'K')),
-            NASAPolynomial(coeffs=[3.68699,-0.000782705,9.56901e-07,-3.18866e-10,3.52533e-14,-473.978,-5.16347], Tmin=(610.591,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.49732,0.000137814,-6.65169e-07,9.25717e-10,-3.10184e-13,-529.691,-4.28924], Tmin=(10,'K'), Tmax=(1120.23,'K')),
+            NASAPolynomial(coeffs=[3.57713,-0.000555165,8.09041e-07,-2.76721e-10,3.07174e-14,-521.973,-4.56909], Tmin=(1120.23,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-3.69273,'kJ/mol'),
+        E0 = (-4.40473,'kJ/mol'),
         Cp0 = (29.1007,'J/(mol*K)'),
         CpInf = (37.4151,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 1.0 kcal/mol   or 4.3 kJ/mol
 """,
 )
 
 entry(
     index = 27,
-    label = "sp27",
+    label = "[OH]",
     molecule = 
 """
 multiplicity 2
@@ -835,25 +916,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.49685,0.000185054,-1.00604e-06,1.58683e-09,-6.18788e-13,4289.04,1.47312], Tmin=(10,'K'), Tmax=(981.579,'K')),
-            NASAPolynomial(coeffs=[3.44928,-0.000288198,7.36613e-07,-2.89136e-10,3.53523e-14,4330.52,1.86546], Tmin=(981.579,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.49677,0.000195375,-1.08774e-06,1.75854e-09,-7.05589e-13,4216.7,1.4728], Tmin=(10,'K'), Tmax=(958.045,'K')),
+            NASAPolynomial(coeffs=[3.42174,-0.000221542,7.08238e-07,-2.86738e-10,3.57125e-14,4264.59,2.00643], Tmin=(958.045,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (35.6601,'kJ/mol'),
+        E0 = (35.0586,'kJ/mol'),
         Cp0 = (29.1007,'J/(mol*K)'),
         CpInf = (37.4151,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 10.5 kcal/mol   or 43.7 kJ/mol
 """,
 )
 
 entry(
     index = 28,
-    label = "sp28",
+    label = "N=N",
     molecule = 
 """
 1 N u0 p1 c0 {2,D} {3,S}
@@ -863,25 +947,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.03138,-0.00190329,8.07556e-06,3.98804e-09,-8.29327e-12,24981.4,3.42235], Tmin=(10,'K'), Tmax=(599.191,'K')),
-            NASAPolynomial(coeffs=[1.53277,0.00883506,-3.93271e-06,7.99738e-10,-5.83487e-14,25387.5,15.087], Tmin=(599.191,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.03248,-0.00200048,8.83734e-06,3.64736e-09,-8.76239e-12,24738.6,3.42045], Tmin=(10,'K'), Tmax=(585.686,'K')),
+            NASAPolynomial(coeffs=[1.5148,0.00914966,-4.23847e-06,9.0981e-10,-7.22094e-14,25137.2,15.105], Tmin=(585.686,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (207.718,'kJ/mol'),
+        E0 = (205.699,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 51.5 kcal/mol   or 215.6 kJ/mol
 """,
 )
 
 entry(
     index = 29,
-    label = "sp29",
+    label = "ON(O)[O]",
     molecule = 
 """
 multiplicity 2
@@ -894,25 +981,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.91531,0.00585958,7.16283e-05,-1.86465e-07,1.41732e-10,-8812.71,9.19827], Tmin=(10,'K'), Tmax=(454.781,'K')),
-            NASAPolynomial(coeffs=[4.2804,0.0168242,-1.12919e-05,3.62713e-09,-4.41953e-13,-8992.51,6.11292], Tmin=(454.781,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.90971,0.00629089,7.30806e-05,-1.93877e-07,1.49234e-10,-9120.52,9.20419], Tmin=(10,'K'), Tmax=(451.629,'K')),
+            NASAPolynomial(coeffs=[4.39352,0.0168657,-1.13957e-05,3.67497e-09,-4.4896e-13,-9315.77,5.5769], Tmin=(451.629,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-73.2832,'kJ/mol'),
+        E0 = (-75.8422,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -14.6 kcal/mol   or -61.1 kJ/mol
 """,
 )
 
 entry(
     index = 30,
-    label = "sp30",
+    label = "[O-]C=[NH+]CO",
     molecule = 
 """
 1  C u0 p0 c0 {2,S} {4,S} {5,S} {6,S}
@@ -928,25 +1018,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.79369,0.0218444,7.14884e-06,-1.96803e-08,7.76045e-12,-44429,9.68382], Tmin=(10,'K'), Tmax=(990.518,'K')),
-            NASAPolynomial(coeffs=[4.5375,0.0274984,-1.45243e-05,3.731e-09,-3.7559e-13,-45001.1,3.95853], Tmin=(990.518,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.78971,0.0224984,7.45904e-06,-2.1285e-08,8.6293e-12,-45105,9.69015], Tmin=(10,'K'), Tmax=(966.596,'K')),
+            NASAPolynomial(coeffs=[4.68522,0.0278706,-1.49651e-05,3.89731e-09,-3.96844e-13,-45702.2,3.20658], Tmin=(966.596,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-369.401,'kJ/mol'),
+        E0 = (-375.02,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (232.805,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -85.3 kcal/mol   or -357.1 kJ/mol
 """,
 )
 
 entry(
     index = 31,
-    label = "sp31",
+    label = "[O-]N=[NH2+]",
     molecule = 
 """
 1 N u0 p0 c+1 {2,D} {3,S} {4,S}
@@ -957,25 +1050,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.94203,0.0069142,4.43662e-06,-8.15671e-09,2.95365e-12,9518.89,6.55472], Tmin=(10,'K'), Tmax=(1029.83,'K')),
-            NASAPolynomial(coeffs=[4.03132,0.0100163,-5.10519e-06,1.2722e-09,-1.2474e-13,9317.62,5.23342], Tmin=(1029.83,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.93909,0.00711848,4.73076e-06,-8.98138e-09,3.36716e-12,9242.95,6.56466], Tmin=(10,'K'), Tmax=(992.947,'K')),
+            NASAPolynomial(coeffs=[4.02795,0.0102797,-5.36108e-06,1.36366e-09,-1.36154e-13,9051.81,5.26302], Tmin=(992.947,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (79.149,'kJ/mol'),
+        E0 = (76.8546,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 21.4 kcal/mol   or 89.5 kJ/mol
 """,
 )
 
 entry(
     index = 32,
-    label = "sp32",
+    label = "ONC=O",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {4,S}
@@ -988,25 +1084,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.95334,0.00309543,7.47678e-05,-1.64622e-07,1.13593e-10,-23856.7,8.06877], Tmin=(10,'K'), Tmax=(459.213,'K')),
-            NASAPolynomial(coeffs=[2.84447,0.0213842,-1.31607e-05,3.95272e-09,-4.5984e-13,-23845.9,11.5647], Tmin=(459.213,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.94869,0.00340704,7.67231e-05,-1.71089e-07,1.18776e-10,-24283.7,8.07609], Tmin=(10,'K'), Tmax=(461.189,'K')),
+            NASAPolynomial(coeffs=[2.9527,0.0215834,-1.34165e-05,4.05361e-09,-4.73312e-13,-24293.3,11.0106], Tmin=(461.189,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-198.364,'kJ/mol'),
+        E0 = (-201.915,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -44.8 kcal/mol   or -187.6 kJ/mol
 """,
 )
 
 entry(
     index = 33,
-    label = "sp33",
+    label = "[NH2]",
     molecule = 
 """
 multiplicity 2
@@ -1016,25 +1115,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.00627,-0.000314294,1.21228e-06,1.4947e-09,-1.36594e-12,22575.6,0.598446], Tmin=(10,'K'), Tmax=(786.46,'K')),
-            NASAPolynomial(coeffs=[3.25219,0.00187325,1.82773e-07,-2.96661e-10,5.03469e-14,22745.1,4.37928], Tmin=(786.46,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.00668,-0.00033722,1.37598e-06,1.42413e-09,-1.39651e-12,22414.2,0.597446], Tmin=(10,'K'), Tmax=(780.506,'K')),
+            NASAPolynomial(coeffs=[3.19945,0.0020794,3.78643e-08,-2.56912e-10,4.64763e-14,22592.6,4.62751], Tmin=(780.506,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (187.706,'kJ/mol'),
+        E0 = (186.364,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (58.2013,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 46.9 kcal/mol   or 196.3 kJ/mol
 """,
 )
 
 entry(
     index = 34,
-    label = "sp34",
+    label = "[O-][N+](=[N])OO",
     molecule = 
 """
 multiplicity 2
@@ -1047,25 +1149,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.87245,0.00900814,8.51853e-05,-2.4479e-07,1.96584e-10,37727.1,10.1036], Tmin=(10,'K'), Tmax=(446.29,'K')),
-            NASAPolynomial(coeffs=[5.19848,0.017615,-1.26168e-05,4.18969e-09,-5.20615e-13,37404.7,2.48976], Tmin=(446.29,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.86508,0.00959879,8.65381e-05,-2.539e-07,2.06658e-10,37490.2,10.1149], Tmin=(10,'K'), Tmax=(442.636,'K')),
+            NASAPolynomial(coeffs=[5.3391,0.0175764,-1.26705e-05,4.22457e-09,-5.26374e-13,37151,1.84816], Tmin=(442.636,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (313.67,'kJ/mol'),
+        E0 = (311.7,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 78.4 kcal/mol   or 327.8 kJ/mol
 """,
 )
 
 entry(
     index = 35,
-    label = "sp35",
+    label = "N[O]",
     molecule = 
 """
 multiplicity 2
@@ -1076,25 +1181,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.93691,0.0052666,-8.58294e-06,1.62317e-08,-1.00651e-11,6465.9,4.95305], Tmin=(10,'K'), Tmax=(630.866,'K')),
-            NASAPolynomial(coeffs=[3.09252,0.00676891,-2.99711e-06,6.51318e-10,-5.58809e-14,6649.08,9.24526], Tmin=(630.866,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.93604,0.00543028,-9.14095e-06,1.77531e-08,-1.13081e-11,6241.36,4.95279], Tmin=(10,'K'), Tmax=(613.713,'K')),
+            NASAPolynomial(coeffs=[3.08942,0.00696953,-3.17835e-06,7.12165e-10,-6.31086e-14,6420.21,9.23438], Tmin=(613.713,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (53.757,'kJ/mol'),
+        E0 = (51.8907,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 15.1 kcal/mol   or 63.2 kJ/mol
 """,
 )
 
 entry(
     index = 36,
-    label = "sp36",
+    label = "[CH]=O",
     molecule = 
 """
 multiplicity 2
@@ -1104,25 +1212,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.01388,-0.000821535,4.65091e-06,-4.71206e-11,-2.51144e-12,4549.91,4.13336], Tmin=(10,'K'), Tmax=(627.753,'K')),
-            NASAPolynomial(coeffs=[2.73851,0.0046603,-2.12821e-06,4.40901e-10,-3.30386e-14,4762.14,10.1075], Tmin=(627.753,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.01436,-0.000862624,5.03655e-06,-3.18818e-10,-2.61454e-12,4438.24,4.13282], Tmin=(10,'K'), Tmax=(613.992,'K')),
+            NASAPolynomial(coeffs=[2.72707,0.00483137,-2.29652e-06,5.0154e-10,-4.06205e-14,4647.07,10.1286], Tmin=(613.992,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (37.8353,'kJ/mol'),
+        E0 = (36.9068,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (58.2013,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 11.2 kcal/mol   or 46.9 kJ/mol
 """,
 )
 
 entry(
     index = 37,
-    label = "sp37",
+    label = "O=C=O",
     molecule = 
 """
 1 O u0 p2 c0 {3,D}
@@ -1131,25 +1242,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.53581,-0.00347894,3.85413e-05,-6.93024e-08,4.08312e-11,-48328.5,5.37917], Tmin=(10,'K'), Tmax=(533.365,'K')),
-            NASAPolynomial(coeffs=[2.75585,0.00712913,-4.67508e-06,1.44258e-09,-1.69173e-13,-48313,8.01727], Tmin=(533.365,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.53549,-0.00354738,4.04383e-05,-7.43658e-08,4.47213e-11,-48428.9,5.38077], Tmin=(10,'K'), Tmax=(525.115,'K')),
+            NASAPolynomial(coeffs=[2.79356,0.00719226,-4.77369e-06,1.48564e-09,-1.75304e-13,-48421.1,7.81432], Tmin=(525.115,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-401.828,'kJ/mol'),
+        E0 = (-402.664,'kJ/mol'),
         Cp0 = (29.1007,'J/(mol*K)'),
         CpInf = (62.3585,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -94.0 kcal/mol   or -393.3 kJ/mol
 """,
 )
 
 entry(
     index = 38,
-    label = "sp38",
+    label = "[N-]=[N+]OO",
     molecule = 
 """
 multiplicity 2
@@ -1161,25 +1275,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.39551,0.0605281,-0.000257339,4.88393e-07,-3.33666e-10,467.625,10.5263], Tmin=(10,'K'), Tmax=(446.011,'K')),
-            NASAPolynomial(coeffs=[7.06723,0.00623164,-2.87167e-06,6.20365e-10,-5.0338e-14,352.622,-1.84059], Tmin=(446.011,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.38563,0.0619644,-0.000268072,5.1705e-07,-3.58758e-10,281.736,10.5635], Tmin=(10,'K'), Tmax=(439.777,'K')),
+            NASAPolynomial(coeffs=[7.05325,0.00643619,-3.06014e-06,6.85287e-10,-5.82187e-14,173.531,-1.68032], Tmin=(439.777,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (3.87576,'kJ/mol'),
+        E0 = (2.32985,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 5.0 kcal/mol   or 21.0 kJ/mol
 """,
 )
 
 entry(
     index = 39,
-    label = "sp39",
+    label = "[O-][N+](=O)CO",
     molecule = 
 """
 1 O u0 p2 c0 {5,S} {8,S}
@@ -1193,25 +1310,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.86213,0.013447,2.65019e-05,-5.01456e-08,2.3951e-11,-28886.1,9.47188], Tmin=(10,'K'), Tmax=(725.039,'K')),
-            NASAPolynomial(coeffs=[3.39318,0.0246915,-1.46722e-05,4.18239e-09,-4.60379e-13,-29045.6,10.0143], Tmin=(725.039,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.85736,0.013905,2.76198e-05,-5.37204e-08,2.62481e-11,-29358.1,9.48269], Tmin=(10,'K'), Tmax=(713.092,'K')),
+            NASAPolynomial(coeffs=[3.54627,0.0249049,-1.49863e-05,4.31217e-09,-4.78047e-13,-29549,9.2284], Tmin=(713.092,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-240.183,'kJ/mol'),
+        E0 = (-244.108,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -54.5 kcal/mol   or -228.2 kJ/mol
 """,
 )
 
 entry(
     index = 40,
-    label = "sp40",
+    label = "NNOO",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {5,S}
@@ -1225,25 +1345,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.92726,0.00449052,8.64753e-05,-1.81731e-07,1.15567e-10,10404.4,8.41935], Tmin=(10,'K'), Tmax=(524.002,'K')),
-            NASAPolynomial(coeffs=[3.36177,0.0244383,-1.53722e-05,4.77286e-09,-5.73836e-13,10249,8.73438], Tmin=(524.002,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.92183,0.00486119,8.92994e-05,-1.91351e-07,1.23508e-10,9881.58,8.42535], Tmin=(10,'K'), Tmax=(519.536,'K')),
+            NASAPolynomial(coeffs=[3.53367,0.0245036,-1.54954e-05,4.82131e-09,-5.80219e-13,9697.15,7.88072], Tmin=(519.536,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (86.483,'kJ/mol'),
+        E0 = (82.1357,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 23.3 kcal/mol   or 97.6 kJ/mol
 """,
 )
 
 entry(
     index = 41,
-    label = "sp41",
+    label = "[O-][N+](=O)[O]",
     molecule = 
 """
 multiplicity 2
@@ -1254,25 +1377,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.97503,0.00139309,3.27177e-05,-5.91586e-08,3.19146e-11,12494.6,7.87979], Tmin=(10,'K'), Tmax=(607.357,'K')),
-            NASAPolynomial(coeffs=[3.21427,0.0123869,-9.21122e-06,3.08513e-09,-3.82766e-13,12476.6,10.2622], Tmin=(607.357,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.97229,0.00155053,3.36936e-05,-6.20281e-08,3.38522e-11,12385.3,7.88315], Tmin=(10,'K'), Tmax=(607.663,'K')),
+            NASAPolynomial(coeffs=[3.36808,0.0122152,-9.13947e-06,3.07447e-09,-3.82673e-13,12335.3,9.48121], Tmin=(607.663,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (103.874,'kJ/mol'),
+        E0 = (102.965,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 27.5 kcal/mol   or 115.0 kJ/mol
 """,
 )
 
 entry(
     index = 42,
-    label = "sp42",
+    label = "C[O]",
     molecule = 
 """
 multiplicity 2
@@ -1284,25 +1410,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.02131,-0.00149006,2.85433e-05,-3.63578e-08,1.51891e-11,630.779,5.39026], Tmin=(10,'K'), Tmax=(620.664,'K')),
-            NASAPolynomial(coeffs=[1.74026,0.0132111,-6.98721e-06,1.80734e-09,-1.84095e-13,913.923,15.3069], Tmin=(620.664,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.0214,-0.0015237,3.01088e-05,-3.93438e-08,1.68268e-11,326.182,5.38905], Tmin=(10,'K'), Tmax=(574.815,'K')),
+            NASAPolynomial(coeffs=[1.76012,0.0135116,-7.29888e-06,1.92192e-09,-1.98696e-13,597.715,15.1469], Tmin=(574.815,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (5.24835,'kJ/mol'),
+        E0 = (2.71529,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 3.3 kcal/mol   or 13.7 kJ/mol
 """,
 )
 
 entry(
     index = 43,
-    label = "sp43",
+    label = "[NH]C=O",
     molecule = 
 """
 multiplicity 2
@@ -1314,25 +1443,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.98421,0.00102842,3.88118e-05,-7.6626e-08,4.97507e-11,7535.86,7.37236], Tmin=(10,'K'), Tmax=(394.321,'K')),
-            NASAPolynomial(coeffs=[2.77533,0.0132911,-7.83487e-06,2.23717e-09,-2.47968e-13,7631.19,12.0795], Tmin=(394.321,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.98455,0.00103187,4.13611e-05,-8.44372e-08,5.67781e-11,7273.43,7.36863], Tmin=(10,'K'), Tmax=(380.457,'K')),
+            NASAPolynomial(coeffs=[2.78933,0.013598,-8.18226e-06,2.37595e-09,-2.66947e-13,7364.38,11.9799], Tmin=(380.457,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (62.6525,'kJ/mol'),
+        E0 = (60.4719,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 17.4 kcal/mol   or 72.6 kJ/mol
 """,
 )
 
 entry(
     index = 44,
-    label = "sp44",
+    label = "[O-]N=[NH+]N",
     molecule = 
 """
 1 N u0 p0 c+1 {2,S} {3,D} {4,S}
@@ -1345,25 +1477,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.80738,0.0198584,-3.86972e-05,9.49541e-08,-8.53356e-11,20798.5,10.0678], Tmin=(10,'K'), Tmax=(413.952,'K')),
-            NASAPolynomial(coeffs=[2.80204,0.0211204,-1.26413e-05,3.66342e-09,-4.11107e-13,20954.2,14.9061], Tmin=(413.952,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.80575,0.0200661,-3.71651e-05,9.17985e-08,-8.4547e-11,20370.9,10.0889], Tmin=(10,'K'), Tmax=(404.992,'K')),
+            NASAPolynomial(coeffs=[2.86039,0.0214816,-1.30685e-05,3.83603e-09,-4.3481e-13,20512.5,14.5973], Tmin=(404.992,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (172.923,'kJ/mol'),
+        E0 = (169.368,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 44.1 kcal/mol   or 184.7 kJ/mol
 """,
 )
 
 entry(
     index = 45,
-    label = "sp45",
+    label = "NNN=O",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {4,S}
@@ -1376,25 +1511,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.80736,0.0198615,-3.87234e-05,9.5025e-08,-8.53983e-11,20798.3,10.0748], Tmin=(10,'K'), Tmax=(413.935,'K')),
-            NASAPolynomial(coeffs=[2.80196,0.0211206,-1.26414e-05,3.66345e-09,-4.1111e-13,20954,14.9136], Tmin=(413.935,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.80573,0.020069,-3.71896e-05,9.18646e-08,-8.46054e-11,20370.7,10.0959], Tmin=(10,'K'), Tmax=(404.981,'K')),
+            NASAPolynomial(coeffs=[2.8603,0.0214819,-1.30687e-05,3.83607e-09,-4.34815e-13,20512.2,14.6048], Tmin=(404.981,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (172.921,'kJ/mol'),
+        E0 = (169.366,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 44.1 kcal/mol   or 184.7 kJ/mol
 """,
 )
 
 entry(
     index = 46,
-    label = "sp46",
+    label = "[NH-][NH+]N[NH]",
     molecule = 
 """
 multiplicity 3
@@ -1409,25 +1547,28 @@ multiplicity 3
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.94056,0.00367523,8.40231e-05,-1.7105e-07,1.07242e-10,67341.3,8.87233], Tmin=(10,'K'), Tmax=(516.664,'K')),
-            NASAPolynomial(coeffs=[2.72311,0.0256152,-1.60063e-05,4.9018e-09,-5.8117e-13,67300.1,12.3254], Tmin=(516.664,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.93539,0.00401521,8.67286e-05,-1.79689e-07,1.14067e-10,66825.6,8.87799], Tmin=(10,'K'), Tmax=(514.491,'K')),
+            NASAPolynomial(coeffs=[2.8874,0.025741,-1.61994e-05,4.97829e-09,-5.91316e-13,66753.7,11.4911], Tmin=(514.491,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (559.888,'kJ/mol'),
+        E0 = (555.599,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 136.4 kcal/mol   or 570.7 kJ/mol
 """,
 )
 
 entry(
     index = 47,
-    label = "sp47",
+    label = "NO[O]",
     molecule = 
 """
 multiplicity 2
@@ -1439,25 +1580,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.9839,0.00659214,4.82439e-06,-7.802e-09,2.58573e-12,17684.9,7.43113], Tmin=(10,'K'), Tmax=(1155.11,'K')),
-            NASAPolynomial(coeffs=[4.80036,0.00858061,-4.01149e-06,9.06916e-10,-8.03076e-14,17175,1.98378], Tmin=(1155.11,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.97856,0.00681315,5.05116e-06,-8.4772e-09,2.9034e-12,17416,7.45033], Tmin=(10,'K'), Tmax=(1115.82,'K')),
+            NASAPolynomial(coeffs=[4.7175,0.00899146,-4.36648e-06,1.02673e-09,-9.46567e-14,16950.6,2.45782], Tmin=(1115.82,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (147.058,'kJ/mol'),
+        E0 = (144.822,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 37.6 kcal/mol   or 157.4 kJ/mol
 """,
 )
 
 entry(
     index = 48,
-    label = "sp48",
+    label = "CC=O",
     molecule = 
 """
 1 O u0 p2 c0 {3,D}
@@ -1470,25 +1614,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.97486,0.00132631,4.32701e-05,-6.37888e-08,3.03293e-11,-20691.2,7.09928], Tmin=(10,'K'), Tmax=(543.912,'K')),
-            NASAPolynomial(coeffs=[1.29636,0.0210244,-1.10536e-05,2.7954e-09,-2.75094e-13,-20399.9,18.3904], Tmin=(543.912,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.97472,0.00135676,4.58316e-05,-6.95672e-08,3.40711e-11,-21163.2,7.0971], Tmin=(10,'K'), Tmax=(527.935,'K')),
+            NASAPolynomial(coeffs=[1.30513,0.0215849,-1.16459e-05,3.01958e-09,-3.044e-13,-20881.3,18.2709], Tmin=(527.935,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-172.05,'kJ/mol'),
+        E0 = (-175.974,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -39.0 kcal/mol   or -163.3 kJ/mol
 """,
 )
 
 entry(
     index = 49,
-    label = "sp49",
+    label = "[N-]([NH+]=N)N",
     molecule = 
 """
 1 N u0 p0 c+1 {3,S} {4,D} {5,S}
@@ -1502,25 +1649,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.10496,-0.0106133,0.000147865,-2.81756e-07,1.75497e-10,45939.2,8.16915], Tmin=(10,'K'), Tmax=(507.887,'K')),
-            NASAPolynomial(coeffs=[1.68825,0.0267293,-1.64974e-05,4.97069e-09,-5.78188e-13,45948.6,15.8663], Tmin=(507.887,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.97042,0.0017367,7.29814e-05,-1.26697e-07,6.962e-11,45310.4,7.5346], Tmin=(10,'K'), Tmax=(532.78,'K')),
+            NASAPolynomial(coeffs=[0.8725,0.0298256,-1.97004e-05,6.29252e-09,-7.68671e-13,45572,19.8863], Tmin=(532.78,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (381.949,'kJ/mol'),
+        E0 = (376.72,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 93.4 kcal/mol   or 390.8 kJ/mol
 """,
 )
 
 entry(
     index = 50,
-    label = "sp51",
+    label = "[NH-][NH2+]",
     molecule = 
 """
 multiplicity 2
@@ -1532,25 +1682,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.05304,-0.00460301,4.98305e-05,-8.20318e-08,4.59252e-11,26626.4,5.25444], Tmin=(10,'K'), Tmax=(514.084,'K')),
-            NASAPolynomial(coeffs=[2.34642,0.0116192,-6.09089e-06,1.62447e-09,-1.73023e-13,26763,11.9741], Tmin=(514.084,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.05353,-0.0047659,5.29897e-05,-9.00241e-08,5.20456e-11,26291.2,5.25509], Tmin=(10,'K'), Tmax=(498.236,'K')),
+            NASAPolynomial(coeffs=[2.36313,0.0118722,-6.33524e-06,1.71119e-09,-1.83931e-13,26421.6,11.8506], Tmin=(498.236,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (221.385,'kJ/mol'),
+        E0 = (218.598,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 54.9 kcal/mol   or 229.5 kJ/mol
 """,
 )
 
 entry(
     index = 51,
-    label = "sp52",
+    label = "[O-]C=[NH+]O",
     molecule = 
 """
 1 N u0 p0 c+1 {2,D} {3,S} {4,S}
@@ -1563,25 +1716,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.95479,0.00286756,7.1155e-05,-1.47487e-07,9.52594e-11,-24482.9,8.07557], Tmin=(10,'K'), Tmax=(492.76,'K')),
-            NASAPolynomial(coeffs=[2.75683,0.0216152,-1.33816e-05,4.04529e-09,-4.73726e-13,-24474.4,11.8956], Tmin=(492.76,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.95041,0.00315426,7.32702e-05,-1.5419e-07,1.00512e-10,-24909.4,8.08234], Tmin=(10,'K'), Tmax=(493.03,'K')),
+            NASAPolynomial(coeffs=[2.87919,0.0217764,-1.36008e-05,4.13166e-09,-4.85171e-13,-24924.5,11.2687], Tmin=(493.03,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-203.574,'kJ/mol'),
+        E0 = (-207.122,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -46.1 kcal/mol   or -192.9 kJ/mol
 """,
 )
 
 entry(
     index = 52,
-    label = "sp53",
+    label = "[O]N=O",
     molecule = 
 """
 multiplicity 2
@@ -1591,25 +1747,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.03014,-0.00192175,1.57933e-05,-1.87728e-08,7.10572e-12,5204.3,5.85508], Tmin=(10,'K'), Tmax=(831.649,'K')),
-            NASAPolynomial(coeffs=[2.96998,0.00605894,-3.79842e-06,1.09867e-09,-1.20229e-13,5280.98,10.1752], Tmin=(831.649,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.03052,-0.001987,1.67501e-05,-2.04843e-08,7.97563e-12,5126.84,5.8552], Tmin=(10,'K'), Tmax=(811.154,'K')),
+            NASAPolynomial(coeffs=[3.01322,0.00609913,-3.87921e-06,1.13564e-09,-1.2555e-13,5190.9,9.92768], Tmin=(811.154,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (43.2788,'kJ/mol'),
+        E0 = (42.6345,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (58.2013,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 12.6 kcal/mol   or 52.8 kJ/mol
 """,
 )
 
 entry(
     index = 53,
-    label = "sp54",
+    label = "OCO",
     molecule = 
 """
 1 O u0 p2 c0 {3,S} {6,S}
@@ -1622,25 +1781,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.03028,-0.00293956,7.51984e-05,-1.30773e-07,7.46169e-11,-48452.5,6.35819], Tmin=(10,'K'), Tmax=(523.531,'K')),
-            NASAPolynomial(coeffs=[1.66171,0.021397,-1.24071e-05,3.54971e-09,-3.96628e-13,-48290,15.4357], Tmin=(523.531,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.02972,-0.00301927,7.94217e-05,-1.41678e-07,8.27682e-11,-48940.8,6.36051], Tmin=(10,'K'), Tmax=(515.307,'K')),
+            NASAPolynomial(coeffs=[1.73455,0.0217252,-1.27744e-05,3.6905e-09,-4.15246e-13,-48796.3,15.0191], Tmin=(515.307,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-402.862,'kJ/mol'),
+        E0 = (-406.923,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -94.2 kcal/mol   or -394.2 kJ/mol
 """,
 )
 
 entry(
     index = 54,
-    label = "sp55",
+    label = "[O]",
     molecule = 
 """
 multiplicity 3
@@ -1660,13 +1822,16 @@ multiplicity 3
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 59.6 kcal/mol   or 249.6 kJ/mol
 """,
 )
 
 entry(
     index = 55,
-    label = "sp56",
+    label = "NN",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {4,S}
@@ -1678,25 +1843,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.05688,-0.00445882,5.03934e-05,-7.23169e-08,3.49359e-11,11883,4.24408], Tmin=(10,'K'), Tmax=(582.706,'K')),
-            NASAPolynomial(coeffs=[1.49102,0.0157069,-8.08693e-06,2.10632e-09,-2.18939e-13,12138.7,14.8653], Tmin=(582.706,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.05735,-0.0046056,5.34589e-05,-7.9071e-08,3.93931e-11,11429.2,4.24356], Tmin=(10,'K'), Tmax=(565.68,'K')),
+            NASAPolynomial(coeffs=[1.51466,0.0160522,-8.42026e-06,2.22413e-09,-2.33671e-13,11674.1,14.6832], Tmin=(565.68,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (98.8055,'kJ/mol'),
+        E0 = (95.0316,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 25.4 kcal/mol   or 106.2 kJ/mol
 """,
 )
 
 entry(
     index = 56,
-    label = "sp57",
+    label = "N=O",
     molecule = 
 """
 1 O u0 p2 c0 {2,D}
@@ -1705,25 +1873,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.01515,-0.00084465,2.71567e-06,3.13571e-09,-3.77835e-12,13841.6,3.73823], Tmin=(10,'K'), Tmax=(674.766,'K')),
-            NASAPolynomial(coeffs=[2.54728,0.00452337,-1.80703e-06,2.82696e-10,-8.72927e-15,14115.6,10.8048], Tmin=(674.766,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.01584,-0.000896284,3.04035e-06,3.06515e-09,-3.99756e-12,13720.2,3.73773], Tmin=(10,'K'), Tmax=(660.578,'K')),
+            NASAPolynomial(coeffs=[2.52368,0.00473315,-2.00833e-06,3.54776e-10,-1.77269e-14,13991.6,10.8803], Tmin=(660.578,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (115.092,'kJ/mol'),
+        E0 = (114.082,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (58.2013,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 29.6 kcal/mol   or 124.0 kJ/mol
 """,
 )
 
 entry(
     index = 57,
-    label = "sp58",
+    label = "O",
     molecule = 
 """
 1 O u0 p2 c0 {2,S} {3,S}
@@ -1732,25 +1903,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.00474,-0.000240355,9.48148e-07,1.28423e-09,-1.11758e-12,-28362.6,-0.117025], Tmin=(10,'K'), Tmax=(774.343,'K')),
-            NASAPolynomial(coeffs=[3.50635,0.00114759,5.58031e-07,-3.58784e-10,5.17665e-14,-28249.9,2.38964], Tmin=(774.343,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.00508,-0.000259529,1.08197e-06,1.22882e-09,-1.14022e-12,-28544.3,-0.11789], Tmin=(10,'K'), Tmax=(770.071,'K')),
+            NASAPolynomial(coeffs=[3.46471,0.00130206,4.65821e-07,-3.37681e-10,5.00725e-14,-28424.1,2.58764], Tmin=(770.071,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-235.819,'kJ/mol'),
+        E0 = (-237.329,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (58.2013,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -54.4 kcal/mol   or -227.4 kJ/mol
 """,
 )
 
 entry(
     index = 58,
-    label = "sp59",
+    label = "OONNNNOO",
     molecule = 
 """
 1  N u0 p1 c0 {2,S} {3,S} {9,S}
@@ -1770,25 +1944,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.40639,0.056494,-4.10942e-05,1.43374e-08,-1.81638e-12,37460.8,13.7525], Tmin=(10,'K'), Tmax=(1210.27,'K')),
-            NASAPolynomial(coeffs=[12.4347,0.0316121,-1.63997e-05,4.11895e-09,-4.0468e-13,34912.4,-33.0269], Tmin=(1210.27,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.3713,0.0583534,-4.39548e-05,1.5892e-08,-2.07127e-12,36583.8,13.8718], Tmin=(10,'K'), Tmax=(1149.46,'K')),
+            NASAPolynomial(coeffs=[12.1608,0.0329594,-1.75928e-05,4.5325e-09,-4.55413e-13,34220.2,-31.2489], Tmin=(1149.46,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (311.431,'kJ/mol'),
+        E0 = (304.134,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (332.579,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 79.1 kcal/mol   or 331.1 kJ/mol
 """,
 )
 
 entry(
     index = 59,
-    label = "sp60",
+    label = "ONO",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {4,S}
@@ -1800,25 +1977,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.97024,0.00173296,4.77457e-05,-8.69504e-08,4.90906e-11,-12036.1,6.81994], Tmin=(10,'K'), Tmax=(562.056,'K')),
-            NASAPolynomial(coeffs=[2.75584,0.0170035,-1.06963e-05,3.34969e-09,-4.0662e-13,-12004.2,11.0477], Tmin=(562.056,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.96697,0.0019293,4.93082e-05,-9.13694e-08,5.21904e-11,-12421,6.82294], Tmin=(10,'K'), Tmax=(562.144,'K')),
+            NASAPolynomial(coeffs=[2.89717,0.016982,-1.07113e-05,3.3551e-09,-4.07216e-13,-12418.3,10.3222], Tmin=(562.144,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-100.086,'kJ/mol'),
+        E0 = (-103.288,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -21.6 kcal/mol   or -90.4 kJ/mol
 """,
 )
 
 entry(
     index = 60,
-    label = "sp61",
+    label = "[O-]N=[NH+]NOO",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {7,S}
@@ -1833,25 +2013,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.78696,0.0173587,9.62661e-05,-2.93632e-07,2.49174e-10,24142.2,10.5403], Tmin=(10,'K'), Tmax=(410.432,'K')),
-            NASAPolynomial(coeffs=[4.3076,0.0308364,-2.07911e-05,6.63275e-09,-8.02222e-13,23943.2,6.58866], Tmin=(410.432,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.77389,0.0184035,9.53708e-05,-2.94731e-07,2.4992e-10,23644.8,10.5637], Tmin=(10,'K'), Tmax=(414.553,'K')),
+            NASAPolynomial(coeffs=[4.51263,0.0309206,-2.10039e-05,6.73066e-09,-8.16325e-13,23414.8,5.61414], Tmin=(414.553,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (200.729,'kJ/mol'),
+        E0 = (196.592,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (207.862,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 51.6 kcal/mol   or 215.9 kJ/mol
 """,
 )
 
 entry(
     index = 61,
-    label = "sp62",
+    label = "[CH2]O",
     molecule = 
 """
 multiplicity 2
@@ -1863,25 +2046,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.98821,0.00066617,2.7538e-05,-4.40464e-08,2.28871e-11,-3102.11,5.10394], Tmin=(10,'K'), Tmax=(497.281,'K')),
-            NASAPolynomial(coeffs=[2.57029,0.0120625,-6.81044e-06,1.9652e-09,-2.25996e-13,-2960.98,10.9552], Tmin=(497.281,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.98829,0.000678672,2.92815e-05,-4.84709e-08,2.61194e-11,-3418.6,5.10133], Tmin=(10,'K'), Tmax=(479.677,'K')),
+            NASAPolynomial(coeffs=[2.59903,0.0122762,-7.0245e-06,2.04273e-09,-2.35951e-13,-3285.47,10.7816], Tmin=(479.677,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-25.7984,'kJ/mol'),
+        E0 = (-28.4294,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -4.0 kcal/mol   or -16.8 kJ/mol
 """,
 )
 
 entry(
     index = 62,
-    label = "sp63",
+    label = "N=C=O",
     molecule = 
 """
 1 O u0 p2 c0 {3,D}
@@ -1891,25 +2077,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.98557,0.00081614,2.39113e-05,-4.16647e-08,2.2422e-11,-15845.3,5.00016], Tmin=(10,'K'), Tmax=(585.9,'K')),
-            NASAPolynomial(coeffs=[3.22459,0.00927084,-6.07878e-06,1.95446e-09,-2.41511e-13,-15812.1,7.78719], Tmin=(585.9,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.98371,0.00092206,2.46493e-05,-4.36721e-08,2.37442e-11,-16025.2,5.00311], Tmin=(10,'K'), Tmax=(588.519,'K')),
+            NASAPolynomial(coeffs=[3.31771,0.00920577,-6.03988e-06,1.93979e-09,-2.39456e-13,-16011.9,7.31033], Tmin=(588.519,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-131.752,'kJ/mol'),
+        E0 = (-133.248,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -29.1 kcal/mol   or -121.8 kJ/mol
 """,
 )
 
 entry(
     index = 63,
-    label = "sp64",
+    label = "OONNN=O",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {6,S}
@@ -1924,25 +2113,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.74452,0.0219328,6.46753e-05,-2.15479e-07,1.83318e-10,26092.5,10.8391], Tmin=(10,'K'), Tmax=(418.732,'K')),
-            NASAPolynomial(coeffs=[4.42589,0.0305678,-2.0506e-05,6.50861e-09,-7.83785e-13,25902.7,6.55969], Tmin=(418.732,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.73105,0.0229851,6.33404e-05,-2.14534e-07,1.8167e-10,25600,10.8714], Tmin=(10,'K'), Tmax=(425.655,'K')),
+            NASAPolynomial(coeffs=[4.64738,0.0305988,-2.06651e-05,6.58477e-09,-7.94814e-13,25375,5.50674], Tmin=(425.655,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (216.941,'kJ/mol'),
+        E0 = (212.843,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (207.862,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 55.5 kcal/mol   or 232.4 kJ/mol
 """,
 )
 
 entry(
     index = 64,
-    label = "sp65",
+    label = "OC[N-][N+](=O)OO",
     molecule = 
 """
 1  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
@@ -1959,25 +2151,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.6007,0.0347162,6.138e-06,-5.02014e-08,3.2224e-11,-7439.18,11.3288], Tmin=(10,'K'), Tmax=(634.482,'K')),
-            NASAPolynomial(coeffs=[5.11114,0.0359991,-2.24403e-05,6.66761e-09,-7.59638e-13,-7848.34,3.01507], Tmin=(634.482,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.5876,0.0359393,5.01814e-06,-5.11539e-08,3.34291e-11,-8083.75,11.3569], Tmin=(10,'K'), Tmax=(634.013,'K')),
+            NASAPolynomial(coeffs=[5.40497,0.0360568,-2.26649e-05,6.77127e-09,-7.74313e-13,-8547.01,1.58123], Tmin=(634.013,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-61.9014,'kJ/mol'),
+        E0 = (-67.2626,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (257.749,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -10.8 kcal/mol   or -45.4 kJ/mol
 """,
 )
 
 entry(
     index = 65,
-    label = "sp66",
+    label = "OON=[N]",
     molecule = 
 """
 multiplicity 2
@@ -1989,25 +2184,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.2601,0.0800008,-0.000440643,9.88288e-07,-7.73052e-10,1015.81,12.4793], Tmin=(10,'K'), Tmax=(406.255,'K')),
-            NASAPolynomial(coeffs=[6.34073,0.00541748,-1.87445e-06,1.44996e-10,2.40375e-14,1130.67,4.88635], Tmin=(406.255,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.25556,0.0807108,-0.00044723,1.00952e-06,-7.94555e-10,841.424,12.5562], Tmin=(10,'K'), Tmax=(404.03,'K')),
+            NASAPolynomial(coeffs=[6.30236,0.0056828,-2.11999e-06,2.32412e-10,1.30385e-14,961.405,5.14994], Tmin=(404.03,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (8.42248,'kJ/mol'),
+        E0 = (6.97146,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (99.7737,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 6.1 kcal/mol   or 25.5 kJ/mol
 """,
 )
 
 entry(
     index = 66,
-    label = "sp67",
+    label = "[O][O]",
     molecule = 
 """
 multiplicity 3
@@ -2016,25 +2214,28 @@ multiplicity 3
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.507,-0.000405655,1.23223e-06,1.57366e-09,-2.02163e-12,-1252.36,4.69557], Tmin=(10,'K'), Tmax=(633.969,'K')),
-            NASAPolynomial(coeffs=[2.87702,0.00206506,-1.05487e-06,2.36436e-10,-1.85731e-14,-1142.25,7.68611], Tmin=(633.969,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.50726,-0.000428331,1.36598e-06,1.5945e-09,-2.19009e-12,-1286.12,4.69554], Tmin=(10,'K'), Tmax=(617.39,'K')),
+            NASAPolynomial(coeffs=[2.875,0.00213387,-1.1317e-06,2.66641e-10,-2.26025e-14,-1178.81,7.67773], Tmin=(617.39,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-10.4099,'kJ/mol'),
+        E0 = (-10.6906,'kJ/mol'),
         Cp0 = (29.1007,'J/(mol*K)'),
         CpInf = (37.4151,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -0.5 kcal/mol   or -2.0 kJ/mol
 """,
 )
 
 entry(
     index = 67,
-    label = "sp68",
+    label = "[N]O",
     molecule = 
 """
 multiplicity 3
@@ -2044,25 +2245,28 @@ multiplicity 3
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.03145,-0.00208283,1.38518e-05,-1.64262e-08,6.39762e-12,23881.9,4.89883], Tmin=(10,'K'), Tmax=(793.019,'K')),
-            NASAPolynomial(coeffs=[3.19168,0.0043187,-2.35309e-06,6.40517e-10,-6.83096e-14,23947,8.32615], Tmin=(793.019,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.0318,-0.00215323,1.47161e-05,-1.79918e-08,7.22873e-12,23763.6,4.898], Tmin=(10,'K'), Tmax=(769.268,'K')),
+            NASAPolynomial(coeffs=[3.20785,0.00438336,-2.42138e-06,6.65922e-10,-7.16365e-14,23823.7,8.22377], Tmin=(769.268,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (198.573,'kJ/mol'),
+        E0 = (197.589,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (58.2013,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 49.6 kcal/mol   or 207.6 kJ/mol
 """,
 )
 
 entry(
     index = 68,
-    label = "sp69",
+    label = "N1NNN1",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {4,S} {5,S}
@@ -2076,25 +2280,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.14115,-0.0102611,0.000100061,-1.37596e-07,6.10887e-11,67314.1,7.95342], Tmin=(10,'K'), Tmax=(705.727,'K')),
-            NASAPolynomial(coeffs=[-0.182616,0.0297995,-1.81462e-05,5.29836e-09,-5.93604e-13,67537,24.5619], Tmin=(705.727,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.14234,-0.0105951,0.00010604,-1.49982e-07,6.84608e-11,66755.1,7.95253], Tmin=(10,'K'), Tmax=(688.773,'K')),
+            NASAPolynomial(coeffs=[-0.00963099,0.0300607,-1.85282e-05,5.45977e-09,-6.16222e-13,66934.7,23.5867], Tmin=(688.773,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (559.701,'kJ/mol'),
+        E0 = (555.05,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 135.5 kcal/mol   or 567.0 kJ/mol
 """,
 )
 
 entry(
     index = 69,
-    label = "sp70",
+    label = "NCO",
     molecule = 
 """
 1 O u0 p2 c0 {3,S} {8,S}
@@ -2108,25 +2315,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.97549,0.00145082,6.29809e-05,-1.0761e-07,5.98527e-11,-24822.3,7.00875], Tmin=(10,'K'), Tmax=(463.471,'K')),
-            NASAPolynomial(coeffs=[1.18424,0.0255265,-1.48924e-05,4.33793e-09,-4.9697e-13,-24563.4,18.3301], Tmin=(463.471,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.9759,0.001465,6.70527e-05,-1.18586e-07,6.8409e-11,-25413.3,7.00237], Tmin=(10,'K'), Tmax=(446.977,'K')),
+            NASAPolynomial(coeffs=[1.23506,0.0260166,-1.54194e-05,4.54026e-09,-5.24014e-13,-25168.5,18.0156], Tmin=(446.977,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-206.396,'kJ/mol'),
+        E0 = (-211.307,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -47.2 kcal/mol   or -197.7 kJ/mol
 """,
 )
 
 entry(
     index = 70,
-    label = "sp71",
+    label = "OCONCO",
     molecule = 
 """
 1  O u0 p2 c0 {4,S} {6,S}
@@ -2145,25 +2355,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.7175,0.0344367,-2.82128e-06,-1.33476e-08,5.52134e-12,-49089.5,10.8137], Tmin=(10,'K'), Tmax=(1129.5,'K')),
-            NASAPolynomial(coeffs=[7.58732,0.032657,-1.62944e-05,3.95187e-09,-3.76545e-13,-50724.3,-11.6944], Tmin=(1129.5,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.70377,0.0355166,-3.20053e-06,-1.43658e-08,6.14675e-12,-50003.5,10.8536], Tmin=(10,'K'), Tmax=(1095.68,'K')),
+            NASAPolynomial(coeffs=[7.58164,0.0335273,-1.7135e-05,4.24794e-09,-4.12895e-13,-51583.7,-11.5422], Tmin=(1095.68,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-408.14,'kJ/mol'),
+        E0 = (-415.739,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (307.635,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -94.1 kcal/mol   or -393.9 kJ/mol
 """,
 )
 
 entry(
     index = 71,
-    label = "sp72",
+    label = "N",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {4,S}
@@ -2173,25 +2386,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.01913,-0.00112477,6.88054e-06,-1.26951e-09,-2.21548e-12,-4861.34,0.274982], Tmin=(10,'K'), Tmax=(654.712,'K')),
-            NASAPolynomial(coeffs=[2.40706,0.00563581,-1.53269e-06,9.23261e-11,1.57259e-14,-4584.06,7.87496], Tmin=(654.712,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.01978,-0.001173,7.45025e-06,-1.88758e-09,-2.0629e-12,-5152.31,0.271682], Tmin=(10,'K'), Tmax=(648.453,'K')),
+            NASAPolynomial(coeffs=[2.36238,0.00593012,-1.76211e-06,1.62222e-10,7.99592e-15,-4871.75,8.05563], Tmin=(648.453,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-40.4124,'kJ/mol'),
+        E0 = (-42.8315,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -7.8 kcal/mol   or -32.8 kJ/mol
 """,
 )
 
 entry(
     index = 72,
-    label = "sp73",
+    label = "OCN=[N+](OO)[O-]",
     molecule = 
 """
 1  C u0 p0 c0 {3,S} {4,S} {7,S} {8,S}
@@ -2208,25 +2424,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.62855,0.0321833,2.39169e-05,-9.05838e-08,6.15523e-11,-7360.29,11.2846], Tmin=(10,'K'), Tmax=(552.506,'K')),
-            NASAPolynomial(coeffs=[4.56292,0.0376343,-2.40464e-05,7.30658e-09,-8.48475e-13,-7649.99,5.64385], Tmin=(552.506,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.61391,0.0334555,2.24553e-05,-9.05761e-08,6.18814e-11,-8004.76,11.315], Tmin=(10,'K'), Tmax=(558.859,'K')),
+            NASAPolynomial(coeffs=[4.8753,0.0376355,-2.42155e-05,7.38823e-09,-8.6009e-13,-8352.01,4.11813], Tmin=(558.859,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-61.2405,'kJ/mol'),
+        E0 = (-66.6019,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (257.749,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -10.7 kcal/mol   or -44.8 kJ/mol
 """,
 )
 
 entry(
     index = 73,
-    label = "sp74",
+    label = "[NH][O]",
     molecule = 
 """
 multiplicity 3
@@ -2236,25 +2455,28 @@ multiplicity 3
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.02405,-0.00144034,9.54912e-06,-9.64149e-09,3.18486e-12,20336.2,4.71931], Tmin=(10,'K'), Tmax=(905.188,'K')),
-            NASAPolynomial(coeffs=[3.00353,0.00434083,-2.138e-06,5.17849e-10,-4.96041e-14,20468.9,9.25333], Tmin=(905.188,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.02435,-0.00148705,1.01249e-05,-1.05274e-08,3.58291e-12,20219.4,4.71855], Tmin=(10,'K'), Tmax=(878.336,'K')),
+            NASAPolynomial(coeffs=[3.01019,0.00444114,-2.23567e-06,5.51999e-10,-5.37871e-14,20347,9.19215], Tmin=(878.336,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (169.091,'kJ/mol'),
+        E0 = (168.12,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (58.2013,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 42.6 kcal/mol   or 178.1 kJ/mol
 """,
 )
 
 entry(
     index = 74,
-    label = "sp75",
+    label = "[NH-][NH+]OO",
     molecule = 
 """
 multiplicity 2
@@ -2268,25 +2490,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.9089,0.00656704,8.57739e-05,-2.27903e-07,1.80776e-10,29404.3,9.43343], Tmin=(10,'K'), Tmax=(426.245,'K')),
-            NASAPolynomial(coeffs=[3.88688,0.0207606,-1.33957e-05,4.18723e-09,-5.01434e-13,29279.1,8.03044], Tmin=(426.245,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.90234,0.00707925,8.72327e-05,-2.35562e-07,1.88629e-10,29000.8,9.43959], Tmin=(10,'K'), Tmax=(424.862,'K')),
+            NASAPolynomial(coeffs=[3.9976,0.0209121,-1.36094e-05,4.27524e-09,-5.13558e-13,28859.7,7.49703], Tmin=(424.862,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (244.478,'kJ/mol'),
+        E0 = (241.123,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 61.3 kcal/mol   or 256.7 kJ/mol
 """,
 )
 
 entry(
     index = 75,
-    label = "sp76",
+    label = "C",
     molecule = 
 """
 1 C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
@@ -2297,25 +2522,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.04166,-0.00250279,1.15444e-05,3.4541e-09,-9.37978e-12,-9324.7,-0.432707], Tmin=(10,'K'), Tmax=(613.213,'K')),
-            NASAPolynomial(coeffs=[0.694826,0.0117175,-4.62257e-06,7.8966e-10,-4.15934e-14,-8771.13,15.2439], Tmin=(613.213,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.0432,-0.0026308,1.26271e-05,2.72754e-09,-9.696e-12,-9703.63,-0.436126], Tmin=(10,'K'), Tmax=(601.439,'K')),
+            NASAPolynomial(coeffs=[0.649382,0.0122013,-5.06253e-06,9.40449e-10,-5.98451e-14,-9155.42,15.3752], Tmin=(601.439,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-77.5149,'kJ/mol'),
+        E0 = (-80.6656,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -16.9 kcal/mol   or -70.7 kJ/mol
 """,
 )
 
 entry(
     index = 76,
-    label = "sp77",
+    label = "O[N-][N+](=O)[O]",
     molecule = 
 """
 multiplicity 2
@@ -2328,25 +2556,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.94912,0.00293332,6.33245e-05,-1.20419e-07,6.85853e-11,12080.7,9.70671], Tmin=(10,'K'), Tmax=(579.813,'K')),
-            NASAPolynomial(coeffs=[2.96758,0.0214998,-1.52222e-05,4.97921e-09,-6.10742e-13,11996.2,12.1973], Tmin=(579.813,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.94444,0.00321957,6.53214e-05,-1.2656e-07,7.30364e-11,11823.6,9.71325], Tmin=(10,'K'), Tmax=(577.593,'K')),
+            NASAPolynomial(coeffs=[3.1865,0.0213482,-1.52067e-05,4.99376e-09,-6.14197e-13,11696.4,11.094], Tmin=(577.593,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (100.423,'kJ/mol'),
+        E0 = (98.2838,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 26.8 kcal/mol   or 112.3 kJ/mol
 """,
 )
 
 entry(
     index = 77,
-    label = "sp78",
+    label = "[NH]",
     molecule = 
 """
 multiplicity 3
@@ -2355,25 +2586,28 @@ multiplicity 3
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.49651,0.000235417,-1.43097e-06,2.53132e-09,-1.12358e-12,42441.9,1.81122], Tmin=(10,'K'), Tmax=(878.954,'K')),
-            NASAPolynomial(coeffs=[3.31981,5.15759e-05,5.68853e-07,-2.64365e-10,3.53385e-14,42511.1,2.85802], Tmin=(878.954,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.49646,0.000246946,-1.53786e-06,2.78813e-09,-1.27129e-12,42378.4,1.81088], Tmin=(10,'K'), Tmax=(858.808,'K')),
+            NASAPolynomial(coeffs=[3.29242,0.000132422,5.22071e-07,-2.54722e-10,3.4779e-14,42452.7,2.99283], Tmin=(858.808,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (352.881,'kJ/mol'),
+        E0 = (352.353,'kJ/mol'),
         Cp0 = (29.1007,'J/(mol*K)'),
         CpInf = (37.4151,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 86.3 kcal/mol   or 361.0 kJ/mol
 """,
 )
 
 entry(
     index = 78,
-    label = "sp79",
+    label = "ONCO",
     molecule = 
 """
 1 O u0 p2 c0 {4,S} {8,S}
@@ -2388,25 +2622,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.95154,0.00301781,9.15665e-05,-1.79265e-07,1.10846e-10,-28896.9,8.54114], Tmin=(10,'K'), Tmax=(499.489,'K')),
-            NASAPolynomial(coeffs=[1.73812,0.0302066,-1.8502e-05,5.57368e-09,-6.52169e-13,-28793.8,16.5014], Tmin=(499.489,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.94561,0.00338421,9.41836e-05,-1.8678e-07,1.16158e-10,-29531.4,8.54766], Tmin=(10,'K'), Tmax=(503.911,'K')),
+            NASAPolynomial(coeffs=[1.91705,0.0304094,-1.87769e-05,5.68061e-09,-6.66255e-13,-29465.6,15.5679], Tmin=(503.911,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-240.277,'kJ/mol'),
+        E0 = (-245.555,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (207.862,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -55.0 kcal/mol   or -230.2 kJ/mol
 """,
 )
 
 entry(
     index = 79,
-    label = "sp80",
+    label = "[NH]O",
     molecule = 
 """
 multiplicity 2
@@ -2417,25 +2654,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.04712,-0.00340059,2.75856e-05,-3.60946e-08,1.56723e-11,10979.2,5.05723], Tmin=(10,'K'), Tmax=(692.94,'K')),
-            NASAPolynomial(coeffs=[2.57443,0.00823098,-4.36964e-06,1.16872e-09,-1.23779e-13,11108.1,11.0796], Tmin=(692.94,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.04758,-0.00351274,2.92753e-05,-3.94701e-08,1.76656e-11,10748,5.05678], Tmin=(10,'K'), Tmax=(673.061,'K')),
+            NASAPolynomial(coeffs=[2.59657,0.00838092,-4.51942e-06,1.22258e-09,-1.30621e-13,10869.2,10.9323], Tmin=(673.061,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (91.2936,'kJ/mol'),
+        E0 = (89.3703,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 23.8 kcal/mol   or 99.7 kJ/mol
 """,
 )
 
 entry(
     index = 80,
-    label = "sp81",
+    label = "[NH-][NH+]=NN",
     molecule = 
 """
 1 N u0 p0 c+1 {3,D} {4,S} {5,S}
@@ -2449,25 +2689,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.97597,0.00154152,7.59757e-05,-1.44252e-07,8.97139e-11,47786.8,8.05092], Tmin=(10,'K'), Tmax=(413.129,'K')),
-            NASAPolynomial(coeffs=[1.3491,0.0269827,-1.64236e-05,4.89625e-09,-5.67083e-13,48003.8,18.4011], Tmin=(413.129,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.97692,0.00152672,8.11198e-05,-1.59581e-07,1.0306e-10,47240.6,8.04356], Tmin=(10,'K'), Tmax=(396.865,'K')),
+            NASAPolynomial(coeffs=[1.39501,0.0275236,-1.70395e-05,5.14331e-09,-6.01129e-13,47445.8,18.1163], Tmin=(396.865,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (397.316,'kJ/mol'),
+        E0 = (392.778,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 97.3 kcal/mol   or 406.9 kJ/mol
 """,
 )
 
 entry(
     index = 81,
-    label = "sp82",
+    label = "[O-][N+](=NN=O)OO",
     molecule = 
 """
 1 N u0 p0 c+1 {2,S} {3,D} {6,S}
@@ -2481,25 +2724,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.55138,0.040537,-4.47972e-05,2.58787e-08,-6.1088e-12,35641.1,11.3435], Tmin=(10,'K'), Tmax=(977.949,'K')),
-            NASAPolynomial(coeffs=[8.77818,0.0191585,-1.20065e-05,3.52544e-09,-3.94504e-13,34618.8,-13.7562], Tmin=(977.949,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.53709,0.0418306,-4.778e-05,2.85527e-08,-6.96715e-12,35318.8,11.3819], Tmin=(10,'K'), Tmax=(949.596,'K')),
+            NASAPolynomial(coeffs=[8.86668,0.0193807,-1.23176e-05,3.65623e-09,-4.12649e-13,34306.6,-14.0547], Tmin=(949.596,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (296.291,'kJ/mol'),
+        E0 = (293.609,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 75.2 kcal/mol   or 314.8 kJ/mol
 """,
 )
 
 entry(
     index = 82,
-    label = "sp83",
+    label = "[NH]NOO",
     molecule = 
 """
 multiplicity 2
@@ -2513,25 +2759,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.93085,0.0041429,7.49526e-05,-1.54086e-07,9.4416e-11,28220.6,8.90015], Tmin=(10,'K'), Tmax=(551.735,'K')),
-            NASAPolynomial(coeffs=[3.69308,0.0213867,-1.41222e-05,4.52774e-09,-5.5573e-13,28010.7,7.76512], Tmin=(551.735,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.92578,0.00448248,7.74176e-05,-1.62472e-07,1.01173e-10,27814.9,8.90642], Tmin=(10,'K'), Tmax=(546.268,'K')),
+            NASAPolynomial(coeffs=[3.87779,0.0213293,-1.41368e-05,4.53896e-09,-5.57537e-13,27574,6.85621], Tmin=(546.268,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (234.614,'kJ/mol'),
+        E0 = (231.239,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 58.8 kcal/mol   or 246.1 kJ/mol
 """,
 )
 
 entry(
     index = 83,
-    label = "sp84",
+    label = "[H]",
     molecule = 
 """
 multiplicity 2
@@ -2551,13 +2800,16 @@ multiplicity 2
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 52.1 kcal/mol   or 218.0 kJ/mol
 """,
 )
 
 entry(
     index = 84,
-    label = "sp85",
+    label = "OONNOO",
     molecule = 
 """
 1  O u0 p2 c0 {3,S} {5,S}
@@ -2573,25 +2825,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.84376,0.0101763,0.000142738,-3.43273e-07,2.41487e-10,11921.7,10.7821], Tmin=(10,'K'), Tmax=(491.612,'K')),
-            NASAPolynomial(coeffs=[4.65541,0.0340223,-2.29294e-05,7.37798e-09,-9.01002e-13,11473.9,3.70026], Tmin=(491.612,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.83357,0.0109122,0.00014652,-3.591e-07,2.56054e-10,11327.6,10.7962], Tmin=(10,'K'), Tmax=(487.736,'K')),
+            NASAPolynomial(coeffs=[4.93079,0.0339777,-2.30267e-05,7.43376e-09,-9.09933e-13,10839.2,2.38092], Tmin=(487.736,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (99.0868,'kJ/mol'),
+        E0 = (94.1471,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (232.805,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 27.1 kcal/mol   or 113.6 kJ/mol
 """,
 )
 
 entry(
     index = 85,
-    label = "sp86",
+    label = "[O-]O[N+]=O",
     molecule = 
 """
 multiplicity 2
@@ -2602,25 +2857,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.90162,0.00824235,4.54489e-05,-1.90624e-07,2.04745e-10,18674,8.64584], Tmin=(10,'K'), Tmax=(349.473,'K')),
-            NASAPolynomial(coeffs=[4.84872,0.00886217,-6.40066e-06,2.12101e-09,-2.6309e-13,18537.9,4.07106], Tmin=(349.473,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.89601,0.00877898,4.4239e-05,-1.91204e-07,2.07791e-10,18578.7,8.65317], Tmin=(10,'K'), Tmax=(347.85,'K')),
+            NASAPolynomial(coeffs=[4.8956,0.00891531,-6.50357e-06,2.16879e-09,-2.7009e-13,18438.8,3.8748], Tmin=(347.85,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (155.276,'kJ/mol'),
+        E0 = (154.484,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 40.2 kcal/mol   or 168.3 kJ/mol
 """,
 )
 
 entry(
     index = 86,
-    label = "sp87",
+    label = "[O-][NH+]=N",
     molecule = 
 """
 1 N u0 p0 c+1 {2,D} {3,S} {4,S}
@@ -2631,25 +2889,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.08108,-0.00552806,4.41924e-05,-5.50285e-08,2.23241e-11,18196.8,6.40014], Tmin=(10,'K'), Tmax=(757.328,'K')),
-            NASAPolynomial(coeffs=[1.43457,0.0147627,-8.49972e-06,2.36206e-09,-2.54262e-13,18416.7,17.2372], Tmin=(757.328,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.08196,-0.00570837,4.68514e-05,-6.00346e-08,2.50598e-11,17900.5,6.39957], Tmin=(10,'K'), Tmax=(737.981,'K')),
+            NASAPolynomial(coeffs=[1.50136,0.0149615,-8.74436e-06,2.45887e-09,-2.6723e-13,18099.4,16.8325], Tmin=(737.981,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (151.314,'kJ/mol'),
+        E0 = (148.849,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 38.1 kcal/mol   or 159.4 kJ/mol
 """,
 )
 
 entry(
     index = 87,
-    label = "sp89",
+    label = "[O-]C=[NH+]OCO",
     molecule = 
 """
 1  C u0 p0 c0 {4,S} {5,S} {6,S} {7,S}
@@ -2666,25 +2927,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.73871,0.0325937,-1.27753e-05,-1.37947e-09,1.48136e-12,-44770.2,10.5455], Tmin=(10,'K'), Tmax=(1283.91,'K')),
-            NASAPolynomial(coeffs=[9.6498,0.0223482,-1.03508e-05,2.31809e-09,-2.03724e-13,-46961.5,-22.0719], Tmin=(1283.91,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.72925,0.0336026,-1.37372e-05,-1.27973e-09,1.58644e-12,-45479.6,10.5695], Tmin=(10,'K'), Tmax=(1252.05,'K')),
+            NASAPolynomial(coeffs=[9.64271,0.0229947,-1.09533e-05,2.52248e-09,-2.27946e-13,-47609.7,-21.8818], Tmin=(1252.05,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-372.242,'kJ/mol'),
+        E0 = (-378.136,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (257.749,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -85.4 kcal/mol   or -357.5 kJ/mol
 """,
 )
 
 entry(
     index = 88,
-    label = "sp90",
+    label = "[O-][N+]=NO",
     molecule = 
 """
 multiplicity 2
@@ -2696,25 +2960,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.95512,0.00269693,4.8781e-05,-1.00855e-07,6.19582e-11,20287.4,8.62293], Tmin=(10,'K'), Tmax=(549.2,'K')),
-            NASAPolynomial(coeffs=[3.73901,0.0142051,-9.78323e-06,3.17135e-09,-3.8816e-13,20161.3,8.17204], Tmin=(549.2,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.95162,0.00292611,5.02643e-05,-1.05932e-07,6.59934e-11,20072,8.62841], Tmin=(10,'K'), Tmax=(545.392,'K')),
+            NASAPolynomial(coeffs=[3.87014,0.0141437,-9.79598e-06,3.18663e-09,-3.90979e-13,19923,7.52406], Tmin=(545.392,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (168.662,'kJ/mol'),
+        E0 = (166.871,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 43.0 kcal/mol   or 180.0 kJ/mol
 """,
 )
 
 entry(
     index = 89,
-    label = "sp91",
+    label = "[O]C=N",
     molecule = 
 """
 multiplicity 2
@@ -2726,25 +2993,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.06934,-0.00503397,4.37168e-05,-5.8824e-08,2.5864e-11,8851.01,7.16964], Tmin=(10,'K'), Tmax=(699.648,'K')),
-            NASAPolynomial(coeffs=[1.94593,0.01301,-7.62643e-06,2.16031e-09,-2.36832e-13,9003.63,15.6227], Tmin=(699.648,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.06996,-0.00519279,4.63082e-05,-6.40859e-08,2.89699e-11,8594.4,7.1695], Tmin=(10,'K'), Tmax=(682.656,'K')),
+            NASAPolynomial(coeffs=[2.00455,0.013179,-7.83623e-06,2.24387e-09,-2.48093e-13,8730.31,15.2754], Tmin=(682.656,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (73.6018,'kJ/mol'),
+        E0 = (71.4668,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (99.7737,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 19.6 kcal/mol   or 82.1 kJ/mol
 """,
 )
 
 entry(
     index = 90,
-    label = "sp92",
+    label = "NNCO",
     molecule = 
 """
 1  O u0 p2 c0 {4,S} {10,S}
@@ -2760,25 +3030,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.97079,0.00200828,0.000109474,-2.26086e-07,1.54654e-10,-11582.5,8.60636], Tmin=(10,'K'), Tmax=(373.562,'K')),
-            NASAPolynomial(coeffs=[0.940826,0.0344407,-2.07082e-05,6.15688e-09,-7.14462e-13,-11356.1,20.2418], Tmin=(373.562,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.95416,0.00294987,0.000106064,-2.11561e-07,1.3554e-10,-12325.7,8.63447], Tmin=(10,'K'), Tmax=(465.965,'K')),
+            NASAPolynomial(coeffs=[1.19477,0.0345008,-2.08155e-05,6.18425e-09,-7.16035e-13,-12153.9,18.9237], Tmin=(465.965,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-96.3018,'kJ/mol'),
+        E0 = (-102.492,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (232.805,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -20.7 kcal/mol   or -86.8 kJ/mol
 """,
 )
 
 entry(
     index = 91,
-    label = "sp93",
+    label = "O[N]N=O",
     molecule = 
 """
 multiplicity 2
@@ -2790,25 +3063,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.97413,0.00145195,4.27514e-05,-7.45458e-08,3.96654e-11,22585.3,8.40654], Tmin=(10,'K'), Tmax=(592.236,'K')),
-            NASAPolynomial(coeffs=[2.46612,0.0174346,-1.24126e-05,4.08009e-09,-5.0226e-13,22662.3,14.0335], Tmin=(592.236,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.97049,0.0016534,4.39638e-05,-7.78401e-08,4.17366e-11,22380.2,8.41049], Tmin=(10,'K'), Tmax=(598.178,'K')),
+            NASAPolynomial(coeffs=[2.66223,0.0172554,-1.23463e-05,4.07138e-09,-5.02339e-13,22414.1,13.0249], Tmin=(598.178,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (187.773,'kJ/mol'),
+        E0 = (186.066,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 47.5 kcal/mol   or 198.6 kJ/mol
 """,
 )
 
 entry(
     index = 92,
-    label = "sp94",
+    label = "[N-]([N+](=O)OO)N=O",
     molecule = 
 """
 1 N u0 p0 c+1 {2,S} {3,S} {6,D}
@@ -2822,25 +3098,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.55145,0.0405398,-4.48089e-05,2.58934e-08,-6.11453e-12,35641,11.3436], Tmin=(10,'K'), Tmax=(977.551,'K')),
-            NASAPolynomial(coeffs=[8.77453,0.0191677,-1.20146e-05,3.52839e-09,-3.9489e-13,34619.8,-13.7362], Tmin=(977.551,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.53715,0.0418336,-4.77924e-05,2.85686e-08,-6.97349e-12,35318.6,11.382], Tmin=(10,'K'), Tmax=(949.232,'K')),
+            NASAPolynomial(coeffs=[8.86336,0.0193892,-1.23251e-05,3.659e-09,-4.13012e-13,34307.5,-14.0363], Tmin=(949.232,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (296.29,'kJ/mol'),
+        E0 = (293.608,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 75.2 kcal/mol   or 314.8 kJ/mol
 """,
 )
 
 entry(
     index = 93,
-    label = "sp95",
+    label = "[O-]N=[N+](OO)N",
     molecule = 
 """
 1 N u0 p0 c+1 {2,S} {3,S} {4,D}
@@ -2855,25 +3134,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.81274,0.0137969,0.00013062,-3.79085e-07,3.1425e-10,24827,10.3508], Tmin=(10,'K'), Tmax=(423.547,'K')),
-            NASAPolynomial(coeffs=[4.92897,0.0298282,-2.02647e-05,6.53685e-09,-7.98563e-13,24494.1,3.11081], Tmin=(423.547,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.80097,0.0147562,0.000131944,-3.90034e-07,3.26683e-10,24334.3,10.3657], Tmin=(10,'K'), Tmax=(421.625,'K')),
+            NASAPolynomial(coeffs=[5.11781,0.0299328,-2.04885e-05,6.63838e-09,-8.13246e-13,23977.4,2.23345], Tmin=(421.625,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (206.418,'kJ/mol'),
+        E0 = (202.323,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (207.862,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 53.0 kcal/mol   or 221.8 kJ/mol
 """,
 )
 
 entry(
     index = 94,
-    label = "sp96",
+    label = "[O]ON=O",
     molecule = 
 """
 multiplicity 2
@@ -2884,25 +3166,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.70406,0.0379206,0.000160281,-2.62987e-06,6.99142e-09,9136.04,8.91232], Tmin=(10,'K'), Tmax=(164.989,'K')),
-            NASAPolynomial(coeffs=[7.43778,0.00142917,8.34464e-07,-7.73527e-10,1.43743e-13,8939.3,-4.60157], Tmin=(164.989,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.41333,0.0616203,-0.000306071,6.46731e-07,-4.86662e-10,9264.44,10.1621], Tmin=(10,'K'), Tmax=(410.146,'K')),
+            NASAPolynomial(coeffs=[6.69254,0.00405996,-2.00922e-06,4.37419e-10,-3.35389e-14,9210.6,-0.112836], Tmin=(410.146,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (77.6913,'kJ/mol'),
+        E0 = (77.0136,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 22.6 kcal/mol   or 94.5 kJ/mol
 """,
 )
 
 entry(
     index = 95,
-    label = "sp97",
+    label = "[O-][N+]#N",
     molecule = 
 """
 1 N u0 p0 c+1 {2,S} {3,T}
@@ -2911,25 +3196,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.5349,-0.00369429,4.35277e-05,-8.39812e-08,5.30944e-11,10466.2,5.99721], Tmin=(10,'K'), Tmax=(500.362,'K')),
-            NASAPolynomial(coeffs=[2.84549,0.00711248,-4.74426e-06,1.48621e-09,-1.76488e-13,10468.9,8.1834], Tmin=(500.362,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.53434,-0.0037595,4.56062e-05,-8.99371e-08,5.79954e-11,10368.7,5.99938], Tmin=(10,'K'), Tmax=(492.863,'K')),
+            NASAPolynomial(coeffs=[2.8825,0.00717344,-4.84083e-06,1.52873e-09,-1.82583e-13,10364.4,7.98769], Tmin=(492.863,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (87.0179,'kJ/mol'),
+        E0 = (86.2068,'kJ/mol'),
         Cp0 = (29.1007,'J/(mol*K)'),
         CpInf = (62.3585,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 22.9 kcal/mol   or 95.7 kJ/mol
 """,
 )
 
 entry(
     index = 96,
-    label = "sp98",
+    label = "CC",
     molecule = 
 """
 1 C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
@@ -2943,25 +3231,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.05877,-0.00383205,5.41147e-05,-6.35653e-08,2.43381e-11,-10683,3.53467], Tmin=(10,'K'), Tmax=(733.479,'K')),
-            NASAPolynomial(coeffs=[-0.971593,0.0264859,-1.37869e-05,3.51375e-09,-3.53005e-13,-10022.7,25.715], Tmin=(733.479,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.07078,-0.00315596,5.16192e-05,-5.81772e-08,2.08008e-11,-11322.8,3.39647], Tmin=(10,'K'), Tmax=(859.436,'K')),
+            NASAPolynomial(coeffs=[-0.446024,0.0260358,-1.35885e-05,3.46495e-09,-3.4757e-13,-10848.1,22.748], Tmin=(859.436,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-88.8096,'kJ/mol'),
+        E0 = (-94.1152,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -19.7 kcal/mol   or -82.3 kJ/mol
 """,
 )
 
 entry(
     index = 97,
-    label = "sp99",
+    label = "OON=O",
     molecule = 
 """
 1 O u0 p2 c0 {2,S} {3,S}
@@ -2972,25 +3263,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.95269,0.00280299,4.93274e-05,-1.00947e-07,6.0989e-11,-352.977,7.93874], Tmin=(10,'K'), Tmax=(562.573,'K')),
-            NASAPolynomial(coeffs=[3.84494,0.0143086,-9.98485e-06,3.27246e-09,-4.04395e-13,-510.798,6.88617], Tmin=(562.573,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.94908,0.00303887,5.08655e-05,-1.06225e-07,6.51682e-11,-559.605,7.94457], Tmin=(10,'K'), Tmax=(557.719,'K')),
+            NASAPolynomial(coeffs=[3.98628,0.0142144,-9.96585e-06,3.2751e-09,-4.0545e-13,-741.711,6.19143], Tmin=(557.719,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-2.95344,'kJ/mol'),
+        E0 = (-4.67232,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 2.0 kcal/mol   or 8.5 kJ/mol
 """,
 )
 
 entry(
     index = 98,
-    label = "sp100",
+    label = "OON(N(OO)N)N",
     molecule = 
 """
 1  N u0 p1 c0 {2,S} {4,S} {5,S}
@@ -3010,25 +3304,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.68367,0.0228916,0.000225437,-6.45716e-07,5.27498e-10,33968.5,12.6012], Tmin=(10,'K'), Tmax=(431.624,'K')),
-            NASAPolynomial(coeffs=[5.94908,0.0496699,-3.36463e-05,1.08807e-08,-1.33345e-12,33327.9,-1.57963], Tmin=(431.624,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.66436,0.0244678,0.000228613,-6.67925e-07,5.52492e-10,33095.5,12.6224], Tmin=(10,'K'), Tmax=(428.564,'K')),
+            NASAPolynomial(coeffs=[6.27148,0.0498126,-3.39727e-05,1.10292e-08,-1.35501e-12,32415.8,-3.06895], Tmin=(428.564,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (282.415,'kJ/mol'),
+        E0 = (275.158,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (332.579,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 72.0 kcal/mol   or 301.3 kJ/mol
 """,
 )
 
 entry(
     index = 99,
-    label = "sp101",
+    label = "C=O",
     molecule = 
 """
 1 O u0 p2 c0 {2,D}
@@ -3038,25 +3335,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.03195,-0.0019507,9.19476e-06,2.64697e-09,-7.9253e-12,-13508.5,3.46232], Tmin=(10,'K'), Tmax=(594.429,'K')),
-            NASAPolynomial(coeffs=[1.44648,0.00944934,-4.43694e-06,9.60407e-10,-7.68335e-14,-13095.2,15.4822], Tmin=(594.429,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.03299,-0.00204616,9.99546e-06,2.25257e-09,-8.39925e-12,-13736.3,3.46069], Tmin=(10,'K'), Tmax=(580.545,'K')),
+            NASAPolynomial(coeffs=[1.43185,0.00976991,-4.75815e-06,1.07796e-09,-9.17712e-14,-13331.4,15.4814], Tmin=(580.545,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-112.305,'kJ/mol'),
+        E0 = (-114.2,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -24.9 kcal/mol   or -104.2 kJ/mol
 """,
 )
 
 entry(
     index = 100,
-    label = "sp102",
+    label = "[O-]N=[N+]=O",
     molecule = 
 """
 1 N u0 p1 c0 {2,D} {3,S}
@@ -3066,25 +3366,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.15476,0.0229155,-3.90264e-05,3.25671e-08,-1.02558e-11,32103.7,6.9997], Tmin=(10,'K'), Tmax=(939.04,'K')),
-            NASAPolynomial(coeffs=[5.49499,0.00705944,-4.29381e-06,1.23216e-09,-1.35993e-13,31923.8,-2.76123], Tmin=(939.04,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.15104,0.0236233,-4.15088e-05,3.57706e-08,-1.16424e-11,31986.8,7.00111], Tmin=(10,'K'), Tmax=(904.659,'K')),
+            NASAPolynomial(coeffs=[5.60329,0.00697249,-4.27029e-06,1.23184e-09,-1.36508e-13,31780.7,-3.2703], Tmin=(904.659,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (266.856,'kJ/mol'),
+        E0 = (265.884,'kJ/mol'),
         Cp0 = (29.1007,'J/(mol*K)'),
         CpInf = (87.302,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 66.9 kcal/mol   or 280.0 kJ/mol
 """,
 )
 
 entry(
     index = 101,
-    label = "sp103",
+    label = "ON=O",
     molecule = 
 """
 1 O u0 p2 c0 {2,S} {4,S}
@@ -3094,25 +3397,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.05926,-0.00492254,4.7777e-05,-7.62514e-08,3.95569e-11,-8684.42,6.45292], Tmin=(10,'K'), Tmax=(612.836,'K')),
-            NASAPolynomial(coeffs=[2.90268,0.00989456,-6.27952e-06,1.90553e-09,-2.20887e-13,-8679.15,10.3529], Tmin=(612.836,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.05951,-0.00506897,5.05339e-05,-8.28503e-08,4.41166e-11,-8861.26,6.45445], Tmin=(10,'K'), Tmax=(599.005,'K')),
+            NASAPolynomial(coeffs=[2.95925,0.00997239,-6.39914e-06,1.95728e-09,-2.28261e-13,-8867.48,10.0465], Tmin=(599.005,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-72.2057,'kJ/mol'),
+        E0 = (-73.6773,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -15.0 kcal/mol   or -63.0 kJ/mol
 """,
 )
 
 entry(
     index = 102,
-    label = "sp104",
+    label = "[N-]=[N+]=O",
     molecule = 
 """
 1 N u0 p0 c+1 {2,D} {3,D}
@@ -3121,25 +3427,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.5349,-0.00369423,4.35265e-05,-8.39776e-08,5.30912e-11,10466.2,5.99721], Tmin=(10,'K'), Tmax=(500.37,'K')),
-            NASAPolynomial(coeffs=[2.84547,0.00711249,-4.74427e-06,1.48621e-09,-1.76487e-13,10468.9,8.18349], Tmin=(500.37,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.53434,-0.00375945,4.56049e-05,-8.99333e-08,5.7992e-11,10368.7,5.99938], Tmin=(10,'K'), Tmax=(492.87,'K')),
+            NASAPolynomial(coeffs=[2.88248,0.00717346,-4.84083e-06,1.52873e-09,-1.82583e-13,10364.4,7.98777], Tmin=(492.87,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (87.0179,'kJ/mol'),
+        E0 = (86.2068,'kJ/mol'),
         Cp0 = (29.1007,'J/(mol*K)'),
         CpInf = (62.3585,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 22.9 kcal/mol   or 95.7 kJ/mol
 """,
 )
 
 entry(
     index = 103,
-    label = "sp105",
+    label = "NOO",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {4,S} {5,S}
@@ -3151,25 +3460,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.96335,0.00225205,5.23103e-05,-1.05151e-07,6.53147e-11,998.878,6.9251], Tmin=(10,'K'), Tmax=(521.307,'K')),
-            NASAPolynomial(coeffs=[3.2006,0.0159439,-9.64252e-06,2.92278e-09,-3.46785e-13,971.884,9.08643], Tmin=(521.307,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.96025,0.0024572,5.40783e-05,-1.10732e-07,6.9734e-11,625.236,6.92839], Tmin=(10,'K'), Tmax=(518.161,'K')),
+            NASAPolynomial(coeffs=[3.29989,0.0160309,-9.75229e-06,2.96183e-09,-3.51596e-13,579.885,8.58212], Tmin=(518.161,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (8.29299,'kJ/mol'),
+        E0 = (5.18576,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 4.4 kcal/mol   or 18.3 kJ/mol
 """,
 )
 
 entry(
     index = 104,
-    label = "sp106",
+    label = "N#N",
     molecule = 
 """
 1 N u0 p1 c0 {2,T}
@@ -3177,25 +3489,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.50341,-0.000166215,3.06591e-08,1.44541e-09,-9.49914e-13,486.598,3.08248], Tmin=(10,'K'), Tmax=(806.459,'K')),
-            NASAPolynomial(coeffs=[3.10794,0.00079002,1.21868e-07,-1.7567e-10,3.17702e-14,583.075,5.108], Tmin=(806.459,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.50355,-0.000172626,9.38847e-08,1.40082e-09,-9.44579e-13,438.008,3.08124], Tmin=(10,'K'), Tmax=(808.677,'K')),
+            NASAPolynomial(coeffs=[3.07646,0.000896232,4.71663e-08,-1.56598e-10,3.02667e-14,541.209,5.262], Tmin=(808.677,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (4.04703,'kJ/mol'),
+        E0 = (3.64306,'kJ/mol'),
         Cp0 = (29.1007,'J/(mol*K)'),
         CpInf = (37.4151,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 2.9 kcal/mol   or 12.3 kJ/mol
 """,
 )
 
 entry(
     index = 105,
-    label = "sp107",
+    label = "O=NC=O",
     molecule = 
 """
 1 C u0 p0 c0 {2,S} {3,D} {4,S}
@@ -3206,25 +3521,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.91401,0.0101113,2.22044e-07,-5.92223e-09,2.50312e-12,1132.18,7.94586], Tmin=(10,'K'), Tmax=(1047.5,'K')),
-            NASAPolynomial(coeffs=[5.06758,0.00984306,-5.3177e-06,1.37358e-09,-1.37903e-13,663.547,1.24369], Tmin=(1047.5,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.91273,0.0104154,1.63563e-07,-6.34007e-09,2.75437e-12,920.671,7.94751], Tmin=(10,'K'), Tmax=(1024.15,'K')),
+            NASAPolynomial(coeffs=[5.13526,0.00994916,-5.4642e-06,1.43119e-09,-1.45396e-13,444.3,0.917162], Tmin=(1024.15,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (9.41882,'kJ/mol'),
+        E0 = (7.66125,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 5.0 kcal/mol   or 21.1 kJ/mol
 """,
 )
 
 entry(
     index = 106,
-    label = "sp108",
+    label = "[O-][N+](=O)[N]O",
     molecule = 
 """
 multiplicity 2
@@ -3237,25 +3555,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.94923,0.00292853,6.33638e-05,-1.20524e-07,6.86713e-11,12080.6,9.70652], Tmin=(10,'K'), Tmax=(579.497,'K')),
-            NASAPolynomial(coeffs=[2.9647,0.021508,-1.52301e-05,4.98234e-09,-6.11177e-13,11996.9,12.212], Tmin=(579.497,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.94444,0.00321931,6.53214e-05,-1.26559e-07,7.30356e-11,11823.6,9.71327], Tmin=(10,'K'), Tmax=(577.589,'K')),
+            NASAPolynomial(coeffs=[3.18628,0.0213487,-1.52072e-05,4.9939e-09,-6.14215e-13,11696.4,11.0951], Tmin=(577.589,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (100.422,'kJ/mol'),
+        E0 = (98.2836,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 26.8 kcal/mol   or 112.3 kJ/mol
 """,
 )
 
 entry(
     index = 107,
-    label = "sp109",
+    label = "OCONC=O",
     molecule = 
 """
 1  C u0 p0 c0 {4,S} {5,S} {6,S} {7,S}
@@ -3272,25 +3593,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.7352,0.0238585,2.48453e-05,-5.54887e-08,2.71688e-11,-46887.9,10.4539], Tmin=(10,'K'), Tmax=(723.991,'K')),
-            NASAPolynomial(coeffs=[3.33661,0.03607,-2.11928e-05,6.00005e-09,-6.57713e-13,-47092.5,10.4365], Tmin=(723.991,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.72887,0.0246652,2.54821e-05,-5.86514e-08,2.92381e-11,-47605,10.463], Tmin=(10,'K'), Tmax=(718.245,'K')),
+            NASAPolynomial(coeffs=[3.60359,0.036273,-2.15449e-05,6.14719e-09,-6.77658e-13,-47868.5,9.06686], Tmin=(718.245,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-389.874,'kJ/mol'),
+        E0 = (-395.837,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (257.749,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -90.0 kcal/mol   or -376.4 kJ/mol
 """,
 )
 
 entry(
     index = 108,
-    label = "sp110",
+    label = "[N-]([N+]=O)O",
     molecule = 
 """
 multiplicity 2
@@ -3302,25 +3626,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.94183,0.0038901,5.48071e-05,-1.35181e-07,9.81896e-11,20261.5,8.32455], Tmin=(10,'K'), Tmax=(472.152,'K')),
-            NASAPolynomial(coeffs=[4.1051,0.0132239,-8.8928e-06,2.8356e-09,-3.43198e-13,20126.6,6.3944], Tmin=(472.152,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.9379,0.00417961,5.61418e-05,-1.41011e-07,1.03709e-10,20047.7,8.33126], Tmin=(10,'K'), Tmax=(468.964,'K')),
+            NASAPolynomial(coeffs=[4.1968,0.0132558,-8.98243e-06,2.87746e-09,-3.493e-13,19899.3,5.95524], Tmin=(468.964,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (168.453,'kJ/mol'),
+        E0 = (166.676,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 43.1 kcal/mol   or 180.2 kJ/mol
 """,
 )
 
 entry(
     index = 109,
-    label = "sp111",
+    label = "O=NON=O",
     molecule = 
 """
 1 O u0 p2 c0 {4,S} {5,S}
@@ -3331,25 +3658,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.85416,0.0117459,7.00289e-05,-2.72759e-07,2.75087e-10,12519.3,8.23187], Tmin=(10,'K'), Tmax=(371.133,'K')),
-            NASAPolynomial(coeffs=[5.4281,0.0131058,-9.52472e-06,3.17278e-09,-3.95115e-13,12276.3,0.498483], Tmin=(371.133,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.84618,0.0124915,6.91031e-05,-2.76827e-07,2.82942e-10,12378.6,8.24255], Tmin=(10,'K'), Tmax=(368.494,'K')),
+            NASAPolynomial(coeffs=[5.50619,0.0131548,-9.64703e-06,3.23153e-09,-4.03824e-13,12129.4,0.170098], Tmin=(368.494,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (104.105,'kJ/mol'),
+        E0 = (102.936,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 28.4 kcal/mol   or 118.7 kJ/mol
 """,
 )
 
 entry(
     index = 110,
-    label = "sp112",
+    label = "[O-]C=[N+]=O",
     molecule = 
 """
 1 C u0 p0 c0 {2,D} {3,S} {4,S}
@@ -3360,25 +3690,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.93709,0.0109257,-2.63642e-06,-2.62965e-09,1.26082e-12,2634.7,8.07735], Tmin=(10,'K'), Tmax=(1187.45,'K')),
-            NASAPolynomial(coeffs=[6.02886,0.00789147,-3.87164e-06,9.09169e-10,-8.32637e-14,1855.07,-3.5646], Tmin=(1187.45,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.93268,0.0112819,-2.93411e-06,-2.6948e-09,1.34978e-12,2424.72,8.09125], Tmin=(10,'K'), Tmax=(1161.29,'K')),
+            NASAPolynomial(coeffs=[6.04397,0.00808552,-4.07017e-06,9.79667e-10,-9.18819e-14,1659.52,-3.59352], Tmin=(1161.29,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (21.9185,'kJ/mol'),
+        E0 = (20.1733,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 8.1 kcal/mol   or 33.8 kJ/mol
 """,
 )
 
 entry(
     index = 111,
-    label = "sp113",
+    label = "OCN=O",
     molecule = 
 """
 1 C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
@@ -3391,25 +3724,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.977,0.00166296,7.96851e-05,-1.79147e-07,1.33654e-10,-12252.4,8.30541], Tmin=(10,'K'), Tmax=(341.922,'K')),
-            NASAPolynomial(coeffs=[2.14357,0.0231121,-1.44142e-05,4.33004e-09,-5.00784e-13,-12127.1,15.183], Tmin=(341.922,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.96696,0.00226759,7.76463e-05,-1.69309e-07,1.19047e-10,-12669,8.32192], Tmin=(10,'K'), Tmax=(420.601,'K')),
+            NASAPolynomial(coeffs=[2.26468,0.0233055,-1.46746e-05,4.43279e-09,-5.14305e-13,-12568.7,14.5503], Tmin=(420.601,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-101.869,'kJ/mol'),
+        E0 = (-105.337,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -21.8 kcal/mol   or -91.3 kJ/mol
 """,
 )
 
 entry(
     index = 112,
-    label = "sp114",
+    label = "[O-][N+](=O)O",
     molecule = 
 """
 1 N u0 p0 c+1 {2,S} {3,S} {4,D}
@@ -3420,25 +3756,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.08329,-0.00764723,8.76947e-05,-1.5467e-07,8.76733e-11,-16109.8,8.16937], Tmin=(10,'K'), Tmax=(572.385,'K')),
-            NASAPolynomial(coeffs=[2.81855,0.0154965,-1.04446e-05,3.29857e-09,-3.93229e-13,-16199.3,11.5183], Tmin=(572.385,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.08303,-0.0078461,9.24864e-05,-1.67295e-07,9.71345e-11,-16340.7,8.17314], Tmin=(10,'K'), Tmax=(560.769,'K')),
+            NASAPolynomial(coeffs=[2.92394,0.0155547,-1.05874e-05,3.36743e-09,-4.0359e-13,-16448.7,10.9731], Tmin=(560.769,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-133.952,'kJ/mol'),
+        E0 = (-135.873,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -29.7 kcal/mol   or -124.2 kJ/mol
 """,
 )
 
 entry(
     index = 113,
-    label = "sp115",
+    label = "[NH]NN[NH]",
     molecule = 
 """
 multiplicity 3
@@ -3453,25 +3792,28 @@ multiplicity 3
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.94012,0.00361986,8.2107e-05,-1.62692e-07,9.88028e-11,66589.7,9.40694], Tmin=(10,'K'), Tmax=(536.03,'K')),
-            NASAPolynomial(coeffs=[2.72882,0.025709,-1.62251e-05,5.02397e-09,-6.01564e-13,66532.1,12.7466], Tmin=(536.03,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.93496,0.00395449,8.48344e-05,-1.71239e-07,1.05417e-10,66070.7,9.41262], Tmin=(10,'K'), Tmax=(533.067,'K')),
+            NASAPolynomial(coeffs=[2.91085,0.0257785,-1.6363e-05,5.07915e-09,-6.0886e-13,65979,11.8248], Tmin=(533.067,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (553.637,'kJ/mol'),
+        E0 = (549.32,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 134.9 kcal/mol   or 564.4 kJ/mol
 """,
 )
 
 entry(
     index = 114,
-    label = "sp116",
+    label = "[CH3]",
     molecule = 
 """
 multiplicity 2
@@ -3482,25 +3824,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.98343,0.00104816,1.02441e-05,-1.76479e-08,1.08084e-11,16905,0.220458], Tmin=(10,'K'), Tmax=(401.791,'K')),
-            NASAPolynomial(coeffs=[3.7039,0.00383109,-1.45855e-07,-4.07845e-10,8.09442e-14,16927.5,1.31413], Tmin=(401.791,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.98027,0.00122414,9.56928e-06,-1.56615e-08,8.95649e-12,16655.8,0.225796], Tmin=(10,'K'), Tmax=(430.751,'K')),
+            NASAPolynomial(coeffs=[3.67458,0.00406291,-3.1624e-07,-3.61596e-10,7.6607e-14,16682.2,1.44313], Tmin=(430.751,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (140.548,'kJ/mol'),
+        E0 = (138.475,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 35.7 kcal/mol   or 149.3 kJ/mol
 """,
 )
 
 entry(
     index = 115,
-    label = "sp117",
+    label = "NON=O",
     molecule = 
 """
 1 O u0 p2 c0 {3,S} {4,S}
@@ -3512,25 +3857,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.95036,0.0032532,6.36308e-05,-1.43282e-07,9.87115e-11,10979.4,8.14592], Tmin=(10,'K'), Tmax=(476.144,'K')),
-            NASAPolynomial(coeffs=[3.39926,0.0174245,-1.1072e-05,3.39862e-09,-4.01294e-13,10923.7,9.25992], Tmin=(476.144,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.9463,0.0035344,6.53896e-05,-1.49608e-07,1.04135e-10,10661.3,8.15205], Tmin=(10,'K'), Tmax=(474.795,'K')),
+            NASAPolynomial(coeffs=[3.50058,0.0175406,-1.12454e-05,3.46998e-09,-4.11035e-13,10588,8.75363], Tmin=(474.795,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (91.2781,'kJ/mol'),
+        E0 = (88.6322,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 24.5 kcal/mol   or 102.5 kJ/mol
 """,
 )
 
 entry(
     index = 116,
-    label = "sp118",
+    label = "CCC",
     molecule = 
 """
 1  C u0 p0 c0 {2,S} {3,S} {4,S} {5,S}
@@ -3547,25 +3895,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.9734,0.00122556,7.67021e-05,-1.08223e-07,4.9346e-11,-13346.9,6.77947], Tmin=(10,'K'), Tmax=(568.01,'K')),
-            NASAPolynomial(coeffs=[-1.21534,0.0377652,-1.97916e-05,5.03021e-09,-5.00403e-13,-12757.4,28.8773], Tmin=(568.01,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.97358,0.00123468,8.13208e-05,-1.18198e-07,5.55531e-11,-14222.8,6.77555], Tmin=(10,'K'), Tmax=(550.819,'K')),
+            NASAPolynomial(coeffs=[-1.19047,0.0387362,-2.08059e-05,5.41031e-09,-5.49765e-13,-13653.9,28.6094], Tmin=(550.819,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-110.989,'kJ/mol'),
+        E0 = (-118.273,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (257.749,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -24.8 kcal/mol   or -103.7 kJ/mol
 """,
 )
 
 entry(
     index = 117,
-    label = "sp119",
+    label = "OO",
     molecule = 
 """
 1 O u0 p2 c0 {2,S} {3,S}
@@ -3575,25 +3926,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.99342,0.00039847,1.91287e-05,-3.31776e-08,1.89386e-11,-16115.2,3.82298], Tmin=(10,'K'), Tmax=(449.574,'K')),
-            NASAPolynomial(coeffs=[3.2082,0.00737187,-4.09484e-06,1.19631e-09,-1.40477e-13,-16044.5,6.98491], Tmin=(449.574,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.99357,0.00040098,2.03922e-05,-3.66698e-08,2.17532e-11,-16344.3,3.82053], Tmin=(10,'K'), Tmax=(433.241,'K')),
+            NASAPolynomial(coeffs=[3.2254,0.00750101,-4.21687e-06,1.23962e-09,-1.46058e-13,-16277.8,6.88311], Tmin=(433.241,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (-133.992,'kJ/mol'),
+        E0 = (-135.896,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (83.1447,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) -29.8 kcal/mol   or -124.9 kJ/mol
 """,
 )
 
 entry(
     index = 118,
-    label = "sp120",
+    label = "NOON",
     molecule = 
 """
 1 N u0 p1 c0 {3,S} {5,S} {6,S}
@@ -3607,25 +3961,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.93252,0.00421929,8.60962e-05,-1.81674e-07,1.17047e-10,18202.6,8.41076], Tmin=(10,'K'), Tmax=(511.432,'K')),
-            NASAPolynomial(coeffs=[3.14276,0.0245837,-1.52428e-05,4.66627e-09,-5.54908e-13,18097.8,9.87734], Tmin=(511.432,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.92731,0.00457602,8.88994e-05,-1.91139e-07,1.24891e-10,17682,8.41699], Tmin=(10,'K'), Tmax=(507.642,'K')),
+            NASAPolynomial(coeffs=[3.29735,0.0247108,-1.54239e-05,4.73547e-09,-5.6387e-13,17550.5,9.10367], Tmin=(507.642,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (151.325,'kJ/mol'),
+        E0 = (146.996,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (182.918,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 38.8 kcal/mol   or 162.3 kJ/mol
 """,
 )
 
 entry(
     index = 119,
-    label = "sp121",
+    label = "C[CH2]",
     molecule = 
 """
 multiplicity 2
@@ -3639,25 +3996,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.91846,0.00832208,-1.11362e-06,2.43105e-08,-2.78314e-11,13440.2,5.87478], Tmin=(10,'K'), Tmax=(504.395,'K')),
-            NASAPolynomial(coeffs=[1.34338,0.0201011,-1.04421e-05,2.67125e-09,-2.69678e-13,13809.9,17.6255], Tmin=(504.395,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.96774,0.00647681,1.59172e-05,-1.8669e-08,5.90438e-12,12937.2,5.7762], Tmin=(10,'K'), Tmax=(1080.43,'K')),
+            NASAPolynomial(coeffs=[2.84829,0.0172588,-8.26693e-06,1.93955e-09,-1.79897e-13,12791.6,9.47061], Tmin=(1080.43,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (111.75,'kJ/mol'),
+        E0 = (107.58,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 28.8 kcal/mol   or 120.7 kJ/mol
 """,
 )
 
 entry(
     index = 120,
-    label = "sp122",
+    label = "O1O[N]1",
     molecule = 
 """
 multiplicity 2
@@ -3667,25 +4027,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[4.04127,-0.00333996,3.20734e-05,-5.08062e-08,2.5569e-11,42814.9,6.23153], Tmin=(10,'K'), Tmax=(651.824,'K')),
-            NASAPolynomial(coeffs=[3.50932,0.0062378,-4.49595e-06,1.45539e-09,-1.74594e-13,42750.1,7.54139], Tmin=(651.824,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[4.0414,-0.00343588,3.38878e-05,-5.51023e-08,2.84378e-11,42757.4,6.23268], Tmin=(10,'K'), Tmax=(637.821,'K')),
+            NASAPolynomial(coeffs=[3.56833,0.00621438,-4.52516e-06,1.47659e-09,-1.78267e-13,42681.8,7.2365], Tmin=(637.821,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (355.984,'kJ/mol'),
+        E0 = (355.505,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (58.2013,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 87.5 kcal/mol   or 365.9 kJ/mol
 """,
 )
 
 entry(
     index = 121,
-    label = "sp123",
+    label = "OO[N+](=[N-])[O]",
     molecule = 
 """
 multiplicity 2
@@ -3698,25 +4061,28 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.8948,0.00706856,8.17338e-05,-2.11758e-07,1.56783e-10,39009.6,10.0595], Tmin=(10,'K'), Tmax=(475.46,'K')),
-            NASAPolynomial(coeffs=[4.78715,0.0183473,-1.31159e-05,4.33682e-09,-5.36249e-13,38712.4,4.18486], Tmin=(475.46,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.88825,0.00755827,8.34898e-05,-2.20541e-07,1.65427e-10,38767,10.0701], Tmin=(10,'K'), Tmax=(471.919,'K')),
+            NASAPolynomial(coeffs=[4.94586,0.0182782,-1.31504e-05,4.36655e-09,-5.41532e-13,38448,3.43956], Tmin=(471.919,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (324.325,'kJ/mol'),
+        E0 = (322.308,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (133.032,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 80.8 kcal/mol   or 337.9 kJ/mol
 """,
 )
 
 entry(
     index = 122,
-    label = "sp124",
+    label = "NN=O",
     molecule = 
 """
 1 N u0 p1 c0 {2,S} {3,S} {4,S}
@@ -3727,25 +4093,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.94199,0.00691276,4.44396e-06,-8.1673e-09,2.95831e-12,9518.93,6.5548], Tmin=(10,'K'), Tmax=(1029.31,'K')),
-            NASAPolynomial(coeffs=[4.02927,0.0100207,-5.10865e-06,1.27336e-09,-1.24883e-13,9318.35,5.24413], Tmin=(1029.31,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.93906,0.00711699,4.73821e-06,-8.99224e-09,3.37205e-12,9242.98,6.56467], Tmin=(10,'K'), Tmax=(992.509,'K')),
+            NASAPolynomial(coeffs=[4.02629,0.0102834,-5.36401e-06,1.36467e-09,-1.36279e-13,9052.39,5.2716], Tmin=(992.509,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (79.1493,'kJ/mol'),
+        E0 = (76.8548,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 21.4 kcal/mol   or 89.5 kJ/mol
 """,
 )
 
 entry(
     index = 123,
-    label = "sp125",
+    label = "[O-]N=[NH+]OO",
     molecule = 
 """
 1 N u0 p0 c+1 {2,S} {3,D} {5,S}
@@ -3758,25 +4127,28 @@ entry(
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.9027,0.00616161,8.9616e-05,-2.07216e-07,1.39916e-10,14519.3,9.26518], Tmin=(10,'K'), Tmax=(512.378,'K')),
-            NASAPolynomial(coeffs=[4.4249,0.0220058,-1.50871e-05,4.89558e-09,-6.00918e-13,14204.2,4.54332], Tmin=(512.378,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.89626,0.00661988,9.21391e-05,-2.17361e-07,1.48966e-10,14167.7,9.27461], Tmin=(10,'K'), Tmax=(507.588,'K')),
+            NASAPolynomial(coeffs=[4.61246,0.0219476,-1.51312e-05,4.92602e-09,-6.05988e-13,13824.9,3.64373], Tmin=(507.588,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (120.692,'kJ/mol'),
+        E0 = (117.769,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (157.975,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 31.9 kcal/mol   or 133.7 kJ/mol
 """,
 )
 
 entry(
     index = 124,
-    label = "sp126",
+    label = "[NH]OO",
     molecule = 
 """
 multiplicity 2
@@ -3788,19 +4160,22 @@ multiplicity 2
 """,
     thermo = NASA(
         polynomials = [
-            NASAPolynomial(coeffs=[3.96325,0.00254241,4.74394e-05,-1.14398e-07,8.50641e-11,18258.7,7.53167], Tmin=(10,'K'), Tmax=(438.989,'K')),
-            NASAPolynomial(coeffs=[3.59804,0.0122574,-7.58074e-06,2.30196e-09,-2.70443e-13,18229.3,8.29196], Tmin=(438.989,'K'), Tmax=(3000,'K')),
+            NASAPolynomial(coeffs=[3.96021,0.00273934,4.84563e-05,-1.17663e-07,8.74214e-11,17998.5,7.54055], Tmin=(10,'K'), Tmax=(443.89,'K')),
+            NASAPolynomial(coeffs=[3.67876,0.0123117,-7.66787e-06,2.3379e-09,-2.75477e-13,17954.2,7.88894], Tmin=(443.89,'K'), Tmax=(3000,'K')),
         ],
         Tmin = (10,'K'),
         Tmax = (3000,'K'),
-        E0 = (151.809,'kJ/mol'),
+        E0 = (149.644,'kJ/mol'),
         Cp0 = (33.2579,'J/(mol*K)'),
         CpInf = (108.088,'J/(mol*K)'),
     ),
     shortDesc = """m06-2x/cc-pVTZ""",
     longDesc = 
 """
-AutoTST calculated thermo using Gaussian 16
+AutoTST calculated thermo using Gaussian 16,
+m06-2x/cc-pVTZ, Arkane, with atomization energies but
+no Bond Corrections, frequency scaled by 0.955.
+Gives Hf(298) 38.8 kcal/mol   or 162.4 kJ/mol
 """,
 )
 
