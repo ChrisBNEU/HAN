@@ -57,7 +57,7 @@ job = Job(
         directory = directory 
     ),
     conformer_calculator=Hotbit(),
-    partition="general,west"
+    partition="general"
 )
 
 logging.info("Sumbitting low energy conformers for calculation")
