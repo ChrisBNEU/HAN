@@ -3,8 +3,9 @@ database(
     thermoLibraries=['surfaceThermoPt', 
                      'primaryThermoLibrary',
                      'thermo_DFT_CCSDTF12_BAC',
-                     'DFT_QCI_thermo'
-                     ],
+                     'DFT_QCI_thermo',
+                     'autotst-han-library',
+                    ],
     reactionLibraries = [('Surface/CPOX_Pt/Deutschmann2006', True),
                          'BurkeH2O2inN2'],
     seedMechanisms = [],
