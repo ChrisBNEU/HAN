@@ -1,7 +1,7 @@
 Global RMG Settings:
-   database.directory   = /scratch/r.west/RMG-database/input (Default, relative to RMG-Py source code)
-   test_data.directory  = /scratch/r.west/RMG-Py/rmgpy/test_data (Default, relative to RMG-Py source code)
-RMG execution initiated at Fri Nov 15 23:41:01 2019
+   database.directory   = /Users/rwest/Code/Cat/RMG-database/input (Default, relative to RMG-Py source code)
+   test_data.directory  = /Users/rwest/Code/Cat/RMG-Py/rmgpy/test_data (Default, relative to RMG-Py source code)
+RMG execution initiated at Sat Nov 16 21:44:30 2019
 
 #########################################################
 # RMG-Py - Reaction Mechanism Generator in Python       #
@@ -13,14 +13,14 @@ RMG execution initiated at Fri Nov 15 23:41:01 2019
 #########################################################
 
 The current git HEAD for RMG-Py is:
-	b'270e5fc0788ded20f4192f096d5e7fa03c800ce6'
-	b'Fri Nov 15 22:38:54 2019 -0500'
+	b'b6b8751ef53b0fa475ac40d4d9ae6b0c1f967419'
+	b'Sat Nov 16 21:36:58 2019 -0500'
 
 The current git HEAD for RMG-database is:
 	b'cc0c77f9f70e2d82da17d5b4972ca26fd8c2c3b0'
 	b'Thu Nov 14 10:36:36 2019 -0500'
 
-Reading input file "/scratch/r.west/HAN/RMG-model/input.py"...
+Reading input file "/Users/rwest/Dropbox (CoMoChEng)/Northeastern/Research-MHI/HAN/RMG-model/input.py"...
 # Data sources
 database(
     thermoLibraries=['surfaceThermoPt', 
@@ -259,21 +259,21 @@ Initial surface coverages (and amounts):
   X                  1 = 0 moles
 Warning: Generate Output HTML option was turned on. Note that this will slow down model generation.
 
-Loading thermodynamics library from surfaceThermoPt.py in /scratch/r.west/RMG-database/input/thermo/libraries...
-Loading thermodynamics library from primaryThermoLibrary.py in /scratch/r.west/RMG-database/input/thermo/libraries...
-Loading thermodynamics library from thermo_DFT_CCSDTF12_BAC.py in /scratch/r.west/RMG-database/input/thermo/libraries...
-Loading thermodynamics library from DFT_QCI_thermo.py in /scratch/r.west/RMG-database/input/thermo/libraries...
-Loading thermodynamics library from autotst-han-library.py in /scratch/r.west/RMG-database/input/thermo/libraries...
-Loading thermodynamics group database from /scratch/r.west/RMG-database/input/thermo/groups...
-Loading transport library from PrimaryTransportLibrary.py in /scratch/r.west/RMG-database/input/transport/libraries...
-Loading transport library from NOx2018.py in /scratch/r.west/RMG-database/input/transport/libraries...
-Loading transport library from OneDMinN2.py in /scratch/r.west/RMG-database/input/transport/libraries...
-Loading transport library from GRI-Mech.py in /scratch/r.west/RMG-database/input/transport/libraries...
-Loading transport group database from /scratch/r.west/RMG-database/input/transport/groups...
-Loading kinetics library Surface/CPOX_Pt/Deutschmann2006 from /scratch/r.west/RMG-database/input/kinetics/libraries/Surface/CPOX_Pt/Deutschmann2006/reactions.py...
-Loading kinetics library BurkeH2O2inN2 from /scratch/r.west/RMG-database/input/kinetics/libraries/BurkeH2O2inN2/reactions.py...
-Loading frequencies group database from /scratch/r.west/RMG-database/input/statmech/groups...
-Loading Platts additivity group database from /scratch/r.west/RMG-database/input/solvation/groups...
+Loading thermodynamics library from surfaceThermoPt.py in /Users/rwest/Code/Cat/RMG-database/input/thermo/libraries...
+Loading thermodynamics library from primaryThermoLibrary.py in /Users/rwest/Code/Cat/RMG-database/input/thermo/libraries...
+Loading thermodynamics library from thermo_DFT_CCSDTF12_BAC.py in /Users/rwest/Code/Cat/RMG-database/input/thermo/libraries...
+Loading thermodynamics library from DFT_QCI_thermo.py in /Users/rwest/Code/Cat/RMG-database/input/thermo/libraries...
+Loading thermodynamics library from autotst-han-library.py in /Users/rwest/Code/Cat/RMG-database/input/thermo/libraries...
+Loading thermodynamics group database from /Users/rwest/Code/Cat/RMG-database/input/thermo/groups...
+Loading transport library from GRI-Mech.py in /Users/rwest/Code/Cat/RMG-database/input/transport/libraries...
+Loading transport library from OneDMinN2.py in /Users/rwest/Code/Cat/RMG-database/input/transport/libraries...
+Loading transport library from NOx2018.py in /Users/rwest/Code/Cat/RMG-database/input/transport/libraries...
+Loading transport library from PrimaryTransportLibrary.py in /Users/rwest/Code/Cat/RMG-database/input/transport/libraries...
+Loading transport group database from /Users/rwest/Code/Cat/RMG-database/input/transport/groups...
+Loading kinetics library Surface/CPOX_Pt/Deutschmann2006 from /Users/rwest/Code/Cat/RMG-database/input/kinetics/libraries/Surface/CPOX_Pt/Deutschmann2006/reactions.py...
+Loading kinetics library BurkeH2O2inN2 from /Users/rwest/Code/Cat/RMG-database/input/kinetics/libraries/BurkeH2O2inN2/reactions.py...
+Loading frequencies group database from /Users/rwest/Code/Cat/RMG-database/input/statmech/groups...
+Loading Platts additivity group database from /Users/rwest/Code/Cat/RMG-database/input/solvation/groups...
 Trimolecular reactions are turned on
 Adding rate rules from training set in kinetics families...
 Filling in rate rules in kinetics families by averaging...
@@ -1663,8 +1663,8 @@ Chemkin file contains 28 reactions.
 Chemkin file contains 18 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:01:40
-    Memory used: 688.12 MB
+    Execution time (DD:HH:MM:SS): 00:00:02:28
+    Memory used: 608.78 MB
 
 Making seed mechanism...
 Beginning model generation stage 1...
@@ -1672,44 +1672,44 @@ Beginning model generation stage 1...
 Making seed mechanism...
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
-At time 0.0000e+00 s, species HX(21) at 2.4149751931273583e+34 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species CH3X(24) at 1.9162427480787029e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species HOX(25) at 9.20581411989372e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species H2OX(26) at 1.3935438922321222e+40 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species HO2(34) at 2.4403250230738505e+32 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species NH2NHOJ(36) at 1.842187608671677e+39 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species NH2NHJ(37) at 2.4403250230738505e+32 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species NNO[O](38) at 2.0660215405311548e+16 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species NH2(D)(40) at 3.692927158746575e+17 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species [NH]OO(39) at 3.6686406880651846e+17 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species N[N]OO(41) at 7.357746179570993e+17 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species [NH-][NH+]OO(42) at 28608746895.182003 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species NH2OJ(43) at 4.760796105349937e+20 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species HNOHJ(44) at 2989623347242385.5 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species NO2J(46) at 1.0830761881699993e+24 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species CH2OH(50) at 3380329972.0877976 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species *ONN(63) at 1.1859819373621539e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species OO[Pt](64) at 1.1859819373621539e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species *NN(65) at 1.1859819373621539e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species *OONN(66) at 1.1859819373621539e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species *N(68) at 4.7247869161153144e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species *NOO(67) at 1.1859819373621539e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species *N(OO)N(69) at 1.1859819373621539e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species *NNOO(70) at 2.3719638747243078e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species *.NNOO(71) at 3.449122143698194e+39 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species *ON(72) at 3.538804978753161e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species *NO(73) at 7.077609957506322e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species *.NO(74) at 1.0291700261131176e+40 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species [O-][N+](=O)*(75) at 2.562099513247453e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species [O-][N+](=O)O*(76) at 1.1217533107984222e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species NO2OHX(77) at 7.451204682893641e+39 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species CO[Pt](78) at 1.9162427480787029e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species OC[Pt](79) at 5.748728244236108e+33 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species CO.[Pt](80) at 5.572897096392359e+39 exceeded the minimum rate for simulation interruption of 100000000.0
-At time 0.0000e+00 s, species ON(O)[O](100) at 4.7683903502366966e+20 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species HX(21) at 2.4149751838941786e+34 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species CH3X(24) at 1.9162427407523268e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species HOX(25) at 9.205814084697103e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species H2OX(26) at 1.393543886904182e+40 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species HO2(34) at 2.4403250040409784e+32 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species NH2NHOJ(36) at 1.842187656740734e+39 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species NH2NHJ(37) at 2.4403250040409784e+32 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species NNO[O](38) at 2.06602154396518e+16 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species NH2(D)(40) at 3.692927125700178e+17 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species [NH]OO(39) at 3.668640654983668e+17 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species N[N]OO(41) at 7.357746191800681e+17 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species [NH-][NH+]OO(42) at 28608746942.733864 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species NH2OJ(43) at 4.7607961449367935e+20 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species HNOHJ(44) at 2989623332723016.5 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species NO2J(46) at 1.0830762091478837e+24 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species CH2OH(50) at 3380329998.2193146 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species *ONN(63) at 1.1859819328277861e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species OO[Pt](64) at 1.1859819328277861e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species *NN(65) at 1.1859819328277861e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species *OONN(66) at 1.1859819328277861e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species *N(68) at 4.7247868980510243e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species *NOO(67) at 1.1859819328277861e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species *N(OO)N(69) at 1.1859819328277861e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species *NNOO(70) at 2.3719638656555722e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species *.NNOO(71) at 3.449122130511156e+39 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species *ON(72) at 3.5388049652232384e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species *NO(73) at 7.077609930446477e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species *.NO(74) at 1.0291700221782892e+40 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species [O-][N+](=O)*(75) at 2.5620995034517712e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species [O-][N+](=O)O*(76) at 1.1217533065096357e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species NO2OHX(77) at 7.45120465440543e+39 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species CO[Pt](78) at 1.9162427407523268e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species OC[Pt](79) at 5.748728222256979e+33 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species CO.[Pt](80) at 5.572897075085488e+39 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 0.0000e+00 s, species ON(O)[O](100) at 4.7683903898359824e+20 exceeded the minimum rate for simulation interruption of 100000000.0
 Exceeded max number of objects...removing excess objects
 Reached max number of objects...preparing to terminate
-At time 0.0000e+00 s, species H2OX(26) at rate ratio 1.3935438922321222e+40 exceeded the minimum rate for moving to model core of 0.01
+At time 0.0000e+00 s, species H2OX(26) at rate ratio 1.393543886904182e+40 exceeded the minimum rate for moving to model core of 0.01
 terminating simulation due to interrupt...
 conditions choosen for reactor 0 were: T = 715.7975612051047 K, 
 
@@ -1754,14 +1754,14 @@ Chemkin file contains 28 reactions.
 Chemkin file contains 18 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:01:42
-    Memory used: 689.68 MB
+    Execution time (DD:HH:MM:SS): 00:00:02:34
+    Memory used: 611.98 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Exceeded max number of objects...removing excess objects
 Reached max number of objects...preparing to terminate
-At time 0.0000e+00 s, species NH2NHOJ(36) at rate ratio 3601.9831115822135 exceeded the minimum rate for moving to model core of 0.01
+At time 0.0000e+00 s, species NH2NHOJ(36) at rate ratio 3601.9820717082985 exceeded the minimum rate for moving to model core of 0.01
 terminating simulation due to interrupt...
 conditions choosen for reactor 0 were: T = 722.3187983368359 K, 
 
@@ -2049,8 +2049,8 @@ Chemkin file contains 30 reactions.
 Chemkin file contains 18 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:01:50
-    Memory used: 690.58 MB
+    Execution time (DD:HH:MM:SS): 00:00:02:52
+    Memory used: 607.78 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -2100,13 +2100,13 @@ Chemkin file contains 30 reactions.
 Chemkin file contains 19 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:01:51
-    Memory used: 690.85 MB
+    Execution time (DD:HH:MM:SS): 00:00:02:54
+    Memory used: 607.93 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Reached max number of objects...preparing to terminate
-At time 1.5556e-10 s, species [O-][NH+](O)N(289) at rate ratio 0.010047681491628473 exceeded the minimum rate for moving to model core of 0.01
+At time 1.5557e-10 s, species [O-][NH+](O)N(289) at rate ratio 0.01004886330890459 exceeded the minimum rate for moving to model core of 0.01
 terminating simulation due to interrupt...
 conditions choosen for reactor 0 were: T = 974.7681250068649 K, 
 
@@ -2246,14 +2246,14 @@ Chemkin file contains 31 reactions.
 Chemkin file contains 19 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:01:55
-    Memory used: 691.06 MB
+    Execution time (DD:HH:MM:SS): 00:00:03:10
+    Memory used: 610.05 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 5.8489e-30 s, species HO2(34) at rate ratio 885613067.5829949 was added to model core in model resurrection process
+At time 5.8489e-30 s, species HO2(34) at rate ratio 885613232.25777 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 612.4629110765369 K, 
 
 
@@ -2414,13 +2414,13 @@ Chemkin file contains 39 reactions.
 Chemkin file contains 19 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:01:59
-    Memory used: 691.08 MB
+    Execution time (DD:HH:MM:SS): 00:00:03:20
+    Memory used: 610.64 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Reached max number of objects...preparing to terminate
-At time 2.7523e-10 s, species NNO(255) at rate ratio 0.010013554477277458 exceeded the minimum rate for moving to model core of 0.01
+At time 2.7523e-10 s, species NNO(255) at rate ratio 0.010013555747785164 exceeded the minimum rate for moving to model core of 0.01
 terminating simulation due to interrupt...
 conditions choosen for reactor 0 were: T = 1176.3474418905519 K, 
 
@@ -2558,15 +2558,15 @@ Chemkin file contains 47 reactions.
 Chemkin file contains 19 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:02:03
-    Memory used: 694.21 MB
+    Execution time (DD:HH:MM:SS): 00:00:03:30
+    Memory used: 614.67 MB
 
 Making seed mechanism...
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 1.2444e-30 s, species NH2NHJ(37) at rate ratio 8181421619.701697 was added to model core in model resurrection process
+At time 1.2444e-30 s, species NH2NHJ(37) at rate ratio 8181422906.234438 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 667.1475072403506 K, 
 
 
@@ -2892,13 +2892,13 @@ Chemkin file contains 50 reactions.
 Chemkin file contains 19 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:02:11
-    Memory used: 698.56 MB
+    Execution time (DD:HH:MM:SS): 00:00:03:54
+    Memory used: 619.04 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Reached max number of objects...preparing to terminate
-At time 1.2207e-10 s, species [NH-][NH+]=O(248) at rate ratio 0.010043681021029616 exceeded the minimum rate for moving to model core of 0.01
+At time 1.2207e-10 s, species [NH-][NH+]=O(248) at rate ratio 0.010043683174942034 exceeded the minimum rate for moving to model core of 0.01
 terminating simulation due to interrupt...
 conditions choosen for reactor 0 were: T = 2027.9019700519107 K, 
 
@@ -3206,14 +3206,14 @@ Chemkin file contains 58 reactions.
 Chemkin file contains 19 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:02:19
-    Memory used: 704.60 MB
+    Execution time (DD:HH:MM:SS): 00:00:04:09
+    Memory used: 622.91 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 8.0355e-32 s, species NO2J(46) at rate ratio 183810535670.77563 was added to model core in model resurrection process
+At time 8.0355e-32 s, species NO2J(46) at rate ratio 183810475275.62228 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 1984.9609022770758 K, 
 
 
@@ -3252,7 +3252,7 @@ Species [O-][N+](=O)OO renamed NO2OOH based on thermo library name
 Species [O-][N+](=O)[N+](=O)[O-] renamed NO2NO2 based on thermo library name
 Species O=NO[N+](=O)[O-] renamed NO2ONO based on thermo library name
 Species O=NOON=O renamed ONOONO based on thermo library name
-Removing species [O]N(N([O])[O])[O](527) with Gibbs energy 882115.1702285339 from edge because it's Gibbs number 0.7570426344712364 is greater than the thermo_tol_keep_spc_in_edge of 0.5 
+Removing species [O]N(N([O])[O])[O](527) with Gibbs energy 882115.1495447615 from edge because it's Gibbs number 0.7570426201213902 is greater than the thermo_tol_keep_spc_in_edge of 0.5 
 Generating kinetics for new reactions...
 For reaction NO2J(46) <=> O(32) + NOJ(435), Ea raised from 300.0 to 301.1 kJ/mol to match endothermicity of reaction.
 For reaction X(1) + NO2J(46) <=> NO2JX(437), Ea raised from 0.0 to 26.4 kJ/mol to match endothermicity of reaction.
@@ -3712,14 +3712,14 @@ Chemkin file contains 60 reactions.
 Chemkin file contains 19 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:02:36
-    Memory used: 709.94 MB
+    Execution time (DD:HH:MM:SS): 00:00:04:43
+    Memory used: 633.62 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 8.7300e-32 s, species NH2(D)(40) at rate ratio 7561136117.670132 was added to model core in model resurrection process
+At time 8.7300e-32 s, species NH2(D)(40) at rate ratio 7561135344.466058 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 672.6203676917805 K, 
 
 
@@ -3917,13 +3917,13 @@ Chemkin file contains 62 reactions.
 Chemkin file contains 19 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:02:41
-    Memory used: 709.94 MB
+    Execution time (DD:HH:MM:SS): 00:00:04:55
+    Memory used: 636.78 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Reached max number of objects...preparing to terminate
-At time 1.2373e-10 s, species NH2NO(241) at rate ratio 0.010028177143150147 exceeded the minimum rate for moving to model core of 0.01
+At time 1.2405e-10 s, species NH2NO(241) at rate ratio 0.01012092830604068 exceeded the minimum rate for moving to model core of 0.01
 terminating simulation due to interrupt...
 conditions choosen for reactor 0 were: T = 572.9961761344384 K, 
 
@@ -4300,13 +4300,13 @@ Chemkin file contains 70 reactions.
 Chemkin file contains 19 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:02:51
-    Memory used: 710.10 MB
+    Execution time (DD:HH:MM:SS): 00:00:05:26
+    Memory used: 632.00 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Reached max number of objects...preparing to terminate
-At time 6.0146e-10 s, species HNOHJ(44) at rate ratio 0.01001681560175523 exceeded the minimum rate for moving to model core of 0.01
+At time 6.0146e-10 s, species HNOHJ(44) at rate ratio 0.010016816336387306 exceeded the minimum rate for moving to model core of 0.01
 terminating simulation due to interrupt...
 conditions choosen for reactor 0 were: T = 948.6261136991582 K, 
 
@@ -4569,8 +4569,8 @@ Chemkin file contains 85 reactions.
 Chemkin file contains 19 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:02:58
-    Memory used: 710.11 MB
+    Execution time (DD:HH:MM:SS): 00:00:05:50
+    Memory used: 637.44 MB
 
 Making seed mechanism...
 Conducting simulation of reaction system 1...
@@ -4621,8 +4621,8 @@ Chemkin file contains 85 reactions.
 Chemkin file contains 20 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:01
-    Memory used: 710.11 MB
+    Execution time (DD:HH:MM:SS): 00:00:06:02
+    Memory used: 638.35 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -4672,14 +4672,14 @@ Chemkin file contains 85 reactions.
 Chemkin file contains 21 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:04
-    Memory used: 710.11 MB
+    Execution time (DD:HH:MM:SS): 00:00:06:10
+    Memory used: 636.75 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 2.9881e-31 s, species [NH]OO(39) at rate ratio 21055254.13409536 was added to model core in model resurrection process
+At time 2.9881e-31 s, species [NH]OO(39) at rate ratio 21055254.345100705 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 933.61497039827 K, 
 
 
@@ -4944,8 +4944,8 @@ Chemkin file contains 87 reactions.
 Chemkin file contains 21 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:11
-    Memory used: 710.65 MB
+    Execution time (DD:HH:MM:SS): 00:00:06:29
+    Memory used: 636.41 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -4995,14 +4995,14 @@ Chemkin file contains 87 reactions.
 Chemkin file contains 22 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:14
-    Memory used: 710.72 MB
+    Execution time (DD:HH:MM:SS): 00:00:06:37
+    Memory used: 637.38 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 3.5201e-30 s, species HX(21) at rate ratio 44373.80020454084 was added to model core in model resurrection process
+At time 3.5201e-30 s, species HX(21) at rate ratio 44373.8002045408 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 822.4220823030514 K, 
 
 
@@ -5047,14 +5047,14 @@ Chemkin file contains 87 reactions.
 Chemkin file contains 23 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:16
-    Memory used: 710.74 MB
+    Execution time (DD:HH:MM:SS): 00:00:06:43
+    Memory used: 637.73 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 4.2560e-29 s, species HOX(25) at rate ratio 4883.409895363001 was added to model core in model resurrection process
+At time 4.2560e-29 s, species HOX(25) at rate ratio 4883.409895362988 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 1260.8822475142483 K, 
 
 
@@ -5102,8 +5102,8 @@ Chemkin file contains 87 reactions.
 Chemkin file contains 25 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:19
-    Memory used: 710.77 MB
+    Execution time (DD:HH:MM:SS): 00:00:06:49
+    Memory used: 634.34 MB
 
 Making seed mechanism...
 Conducting simulation of reaction system 1...
@@ -5163,8 +5163,8 @@ Chemkin file contains 87 reactions.
 Chemkin file contains 27 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:22
-    Memory used: 710.82 MB
+    Execution time (DD:HH:MM:SS): 00:00:06:59
+    Memory used: 634.11 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -5228,8 +5228,8 @@ Chemkin file contains 87 reactions.
 Chemkin file contains 28 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:24
-    Memory used: 710.86 MB
+    Execution time (DD:HH:MM:SS): 00:00:07:09
+    Memory used: 637.68 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -5289,13 +5289,13 @@ Chemkin file contains 87 reactions.
 Chemkin file contains 31 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:27
-    Memory used: 710.91 MB
+    Execution time (DD:HH:MM:SS): 00:00:07:17
+    Memory used: 637.80 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Reached max number of objects...preparing to terminate
-At time 6.4436e-11 s, species OX(22) at rate ratio 0.010094719350117938 exceeded the minimum rate for moving to model core of 0.01
+At time 6.4436e-11 s, species OX(22) at rate ratio 0.010094710806905697 exceeded the minimum rate for moving to model core of 0.01
 terminating simulation due to interrupt...
 conditions choosen for reactor 0 were: T = 964.2093877373198 K, 
 
@@ -5355,8 +5355,8 @@ Chemkin file contains 87 reactions.
 Chemkin file contains 31 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:30
-    Memory used: 711.70 MB
+    Execution time (DD:HH:MM:SS): 00:00:07:26
+    Memory used: 640.11 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -5422,14 +5422,14 @@ Chemkin file contains 87 reactions.
 Chemkin file contains 33 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:33
-    Memory used: 711.74 MB
+    Execution time (DD:HH:MM:SS): 00:00:07:35
+    Memory used: 640.54 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 7.4953e-31 s, species NH2OJ(43) at rate ratio 45198995296.80733 was added to model core in model resurrection process
+At time 7.4953e-31 s, species NH2OJ(43) at rate ratio 45198986155.28844 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 1251.8261927122367 K, 
 
 
@@ -5811,8 +5811,8 @@ Chemkin file contains 103 reactions.
 Chemkin file contains 34 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:43
-    Memory used: 716.72 MB
+    Execution time (DD:HH:MM:SS): 00:00:08:04
+    Memory used: 634.56 MB
 
 Making seed mechanism...
 Conducting simulation of reaction system 1...
@@ -5875,13 +5875,13 @@ Chemkin file contains 103 reactions.
 Chemkin file contains 36 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:48
-    Memory used: 716.78 MB
+    Execution time (DD:HH:MM:SS): 00:00:08:20
+    Memory used: 638.26 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Reached max number of objects...preparing to terminate
-At time 2.6546e-10 s, species [O-][NH2+]N(256) at rate ratio 0.010026302893038823 exceeded the minimum rate for moving to model core of 0.01
+At time 2.6551e-10 s, species [O-][NH2+]N(256) at rate ratio 0.01003317371499489 exceeded the minimum rate for moving to model core of 0.01
 terminating simulation due to interrupt...
 conditions choosen for reactor 0 were: T = 635.1170755585954 K, 
 
@@ -6020,13 +6020,13 @@ Chemkin file contains 117 reactions.
 Chemkin file contains 36 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:03:54
-    Memory used: 720.69 MB
+    Execution time (DD:HH:MM:SS): 00:00:08:34
+    Memory used: 637.84 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Reached max number of objects...preparing to terminate
-At time 3.2577e-10 s, species CH2OH(50) at rate ratio 0.010090592873219305 exceeded the minimum rate for moving to model core of 0.01
+At time 3.2547e-10 s, species CH2OH(50) at rate ratio 0.0100521183519484 exceeded the minimum rate for moving to model core of 0.01
 terminating simulation due to interrupt...
 conditions choosen for reactor 0 were: T = 1409.8275937481326 K, 
 
@@ -6312,14 +6312,14 @@ Chemkin file contains 152 reactions.
 Chemkin file contains 37 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:04:02
-    Memory used: 725.06 MB
+    Execution time (DD:HH:MM:SS): 00:00:08:54
+    Memory used: 642.95 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 4.9768e-31 s, species ON(O)[O](100) at rate ratio 45291.1414419668 was added to model core in model resurrection process
+At time 4.9768e-31 s, species ON(O)[O](100) at rate ratio 45291.13161067555 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 1266.7761015136223 K, 
 
 
@@ -6787,8 +6787,8 @@ Chemkin file contains 170 reactions.
 Chemkin file contains 37 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:04:16
-    Memory used: 730.91 MB
+    Execution time (DD:HH:MM:SS): 00:00:09:33
+    Memory used: 646.92 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -6862,8 +6862,8 @@ Chemkin file contains 170 reactions.
 Chemkin file contains 38 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:04:20
-    Memory used: 731.28 MB
+    Execution time (DD:HH:MM:SS): 00:00:09:59
+    Memory used: 647.54 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -6926,15 +6926,15 @@ Chemkin file contains 170 reactions.
 Chemkin file contains 41 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:04:24
-    Memory used: 731.34 MB
+    Execution time (DD:HH:MM:SS): 00:00:10:19
+    Memory used: 649.03 MB
 
 Making seed mechanism...
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 1.0574e-31 s, species N[N]OO(41) at rate ratio 13459839.033426037 was added to model core in model resurrection process
+At time 1.0574e-31 s, species N[N]OO(41) at rate ratio 13459839.02966359 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 642.339907841651 K, 
 
 
@@ -7460,15 +7460,15 @@ Chemkin file contains 190 reactions.
 Chemkin file contains 41 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:04:40
-    Memory used: 741.19 MB
+    Execution time (DD:HH:MM:SS): 00:00:10:55
+    Memory used: 658.70 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
-At time 6.6437e-12 s, species [O-][NH+](CO)N(797) at rate ratio 0.01019969715734101 exceeded the minimum rate for moving to model core of 0.01
+At time 6.6437e-12 s, species [O-][NH+](CO)N(797) at rate ratio 0.010199700637841933 exceeded the minimum rate for moving to model core of 0.01
 Exceeded max number of objects...removing excess objects
-At time 3.3683e-10 s, reached target termination RateRatio: 0.009995092076134924
-    CH3OH(5) conversion: 0.001397  
+At time 3.3717e-10 s, reached target termination RateRatio: 0.009947172920060763
+    CH3OH(5) conversion: 0.001399  
 conditions choosen for reactor 0 were: T = 1153.6024437685592 K, 
 
 
@@ -7732,14 +7732,14 @@ Chemkin file contains 191 reactions.
 Chemkin file contains 41 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:05:08
-    Memory used: 741.50 MB
+    Execution time (DD:HH:MM:SS): 00:00:12:00
+    Memory used: 657.30 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 1.9850e-30 s, species [O-][N+](=O)O*(76) at rate ratio 4959.176429051509 was added to model core in model resurrection process
+At time 1.9850e-30 s, species [O-][N+](=O)O*(76) at rate ratio 4959.176429051531 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 1873.8871732971113 K, 
 
 
@@ -7808,14 +7808,14 @@ Chemkin file contains 191 reactions.
 Chemkin file contains 43 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:05:14
-    Memory used: 741.50 MB
+    Execution time (DD:HH:MM:SS): 00:00:12:21
+    Memory used: 659.69 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 1.4076e-31 s, species NNO[O](38) at rate ratio 665293.7944390029 was added to model core in model resurrection process
+At time 1.4076e-31 s, species NNO[O](38) at rate ratio 665293.7918274932 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 1489.900214765935 K, 
 
 
@@ -8145,8 +8145,8 @@ Chemkin file contains 213 reactions.
 Chemkin file contains 43 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:05:26
-    Memory used: 741.50 MB
+    Execution time (DD:HH:MM:SS): 00:00:12:48
+    Memory used: 657.31 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -8221,14 +8221,14 @@ Chemkin file contains 213 reactions.
 Chemkin file contains 45 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:05:31
-    Memory used: 741.50 MB
+    Execution time (DD:HH:MM:SS): 00:00:13:02
+    Memory used: 660.11 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 1.2730e-31 s, species [NH-][NH+]OO(42) at rate ratio 653404.7606277129 was added to model core in model resurrection process
+At time 1.2730e-31 s, species [NH-][NH+]OO(42) at rate ratio 653404.7605784123 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 1623.6158739088535 K, 
 
 
@@ -8865,8 +8865,8 @@ Chemkin file contains 240 reactions.
 Chemkin file contains 46 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:05:52
-    Memory used: 742.52 MB
+    Execution time (DD:HH:MM:SS): 00:00:13:45
+    Memory used: 658.48 MB
 
 Making seed mechanism...
 Conducting simulation of reaction system 1...
@@ -8935,8 +8935,8 @@ Chemkin file contains 240 reactions.
 Chemkin file contains 49 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:05:58
-    Memory used: 742.52 MB
+    Execution time (DD:HH:MM:SS): 00:00:14:07
+    Memory used: 661.34 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -9006,8 +9006,8 @@ Chemkin file contains 240 reactions.
 Chemkin file contains 51 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:06:04
-    Memory used: 742.52 MB
+    Execution time (DD:HH:MM:SS): 00:00:14:37
+    Memory used: 660.36 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -9079,13 +9079,13 @@ Chemkin file contains 240 reactions.
 Chemkin file contains 55 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:06:10
-    Memory used: 742.52 MB
+    Execution time (DD:HH:MM:SS): 00:00:15:14
+    Memory used: 657.45 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
-At time 2.0902e-10 s, reached target termination RateRatio: 0.009834572179555403
-    CH3OH(5) conversion: 0.0009133 
+At time 2.0868e-10 s, reached target termination RateRatio: 0.009919332007600465
+    CH3OH(5) conversion: 0.0009117 
 conditions choosen for reactor 0 were: T = 1882.471494517825 K, 
 
 
@@ -9112,14 +9112,14 @@ Chemkin file contains 240 reactions.
 Chemkin file contains 55 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:06:13
-    Memory used: 742.52 MB
+    Execution time (DD:HH:MM:SS): 00:00:15:20
+    Memory used: 660.93 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 1.4569e-31 s, species CH2(S)(48) at rate ratio 24276.001386998698 was added to model core in model resurrection process
+At time 1.4569e-31 s, species CH2(S)(48) at rate ratio 24276.00102957292 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 402.00157096310795 K, 
 
 
@@ -9276,14 +9276,14 @@ Chemkin file contains 246 reactions.
 Chemkin file contains 55 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:06:20
-    Memory used: 742.52 MB
+    Execution time (DD:HH:MM:SS): 00:00:15:42
+    Memory used: 662.92 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
-At time 1.4448e-08 s, species [O-][NH+](O[O])N(262) at rate ratio 0.010113179471169418 exceeded the minimum rate for moving to model core of 0.01
+At time 1.4425e-08 s, species [O-][NH+](O[O])N(262) at rate ratio 0.010066298105471995 exceeded the minimum rate for moving to model core of 0.01
 Exceeded max number of objects...removing excess objects
-At time 2.3903e-06 s, reached target termination RateRatio: 0.009973636941903055
+At time 2.3897e-06 s, reached target termination RateRatio: 0.009979368068260852
     CH3OH(5) conversion: 0.08526   
 conditions choosen for reactor 0 were: T = 753.8905836352053 K, 
 
@@ -9635,8 +9635,8 @@ Chemkin file contains 248 reactions.
 Chemkin file contains 55 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:06:41
-    Memory used: 752.41 MB
+    Execution time (DD:HH:MM:SS): 00:00:16:37
+    Memory used: 680.03 MB
 
 Making seed mechanism...
 Conducting simulation of reaction system 1...
@@ -9709,8 +9709,8 @@ Chemkin file contains 248 reactions.
 Chemkin file contains 58 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:06:49
-    Memory used: 747.96 MB
+    Execution time (DD:HH:MM:SS): 00:00:16:59
+    Memory used: 674.83 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -9786,8 +9786,8 @@ Chemkin file contains 248 reactions.
 Chemkin file contains 60 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:06:57
-    Memory used: 747.96 MB
+    Execution time (DD:HH:MM:SS): 00:00:17:19
+    Memory used: 667.83 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
@@ -9865,14 +9865,14 @@ Chemkin file contains 248 reactions.
 Chemkin file contains 62 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:07:04
-    Memory used: 747.96 MB
+    Execution time (DD:HH:MM:SS): 00:00:17:38
+    Memory used: 671.96 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 1.7009e-30 s, species NO3J(47) at rate ratio 0.006510794299455522 was added to model core in model resurrection process
+At time 1.7009e-30 s, species NO3J(47) at rate ratio 0.006510792489938113 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 848.4785207362631 K, 
 
 
@@ -10371,14 +10371,14 @@ Chemkin file contains 273 reactions.
 Chemkin file contains 63 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:07:34
-    Memory used: 747.96 MB
+    Execution time (DD:HH:MM:SS): 00:00:18:47
+    Memory used: 668.87 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 3.8872e-29 s, species CH3O(49) at rate ratio 1.8283235834652866e-09 was added to model core in model resurrection process
+At time 3.8872e-29 s, species CH3O(49) at rate ratio 1.8283237396756965e-09 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 1702.4900188791837 K, 
 
 
@@ -10688,14 +10688,14 @@ Chemkin file contains 328 reactions.
 Chemkin file contains 64 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:07:45
-    Memory used: 747.96 MB
+    Execution time (DD:HH:MM:SS): 00:00:19:13
+    Memory used: 669.85 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 2.2807e-31 s, species [NH][O](243) at rate ratio 1.7892265709814545e-06 was added to model core in model resurrection process
+At time 2.2807e-31 s, species [NH][O](243) at rate ratio 1.7892270754062535e-06 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 724.3697517248991 K, 
 
 
@@ -11033,15 +11033,15 @@ Chemkin file contains 361 reactions.
 Chemkin file contains 64 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:07:56
-    Memory used: 747.96 MB
+    Execution time (DD:HH:MM:SS): 00:00:19:37
+    Memory used: 669.70 MB
 
 Making seed mechanism...
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 2.7575e-28 s, species NH2NHOJX(253) at rate ratio 7.011294069538003e-11 was added to model core in model resurrection process
+At time 2.7575e-28 s, species NH2NHOJX(253) at rate ratio 7.011294182698696e-11 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 415.96006039067447 K, 
 
 
@@ -11085,14 +11085,14 @@ Chemkin file contains 361 reactions.
 Chemkin file contains 65 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:08:06
-    Memory used: 747.96 MB
+    Execution time (DD:HH:MM:SS): 00:00:20:06
+    Memory used: 670.56 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
-At time 8.0067e-10 s, species HNNH(347) at rate ratio 0.010017252460038088 exceeded the minimum rate for moving to model core of 0.01
+At time 8.0002e-10 s, species HNNH(347) at rate ratio 0.010000305019642379 exceeded the minimum rate for moving to model core of 0.01
 Exceeded max number of objects...removing excess objects
-At time 4.6832e-07 s, species [O-][NH+](C=O)N(284) at 100025488.8032201 exceeded the minimum rate for simulation interruption of 100000000.0
+At time 4.6814e-07 s, species [O-][NH+](C=O)N(284) at 100018217.71462165 exceeded the minimum rate for simulation interruption of 100000000.0
 terminating simulation due to interrupt...
 conditions choosen for reactor 0 were: T = 1348.256262924127 K, 
 
@@ -11357,14 +11357,14 @@ Chemkin file contains 382 reactions.
 Chemkin file contains 65 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:08:25
-    Memory used: 754.59 MB
+    Execution time (DD:HH:MM:SS): 00:00:20:43
+    Memory used: 688.68 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 7.7873e-31 s, species HNO(242) at rate ratio 7.810821942279372e-09 was added to model core in model resurrection process
+At time 7.7873e-31 s, species HNO(242) at rate ratio 7.810825679822314e-09 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 545.4339267966169 K, 
 
 
@@ -11751,15 +11751,15 @@ Chemkin file contains 424 reactions.
 Chemkin file contains 65 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:08:36
-    Memory used: 752.49 MB
+    Execution time (DD:HH:MM:SS): 00:00:21:13
+    Memory used: 686.08 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
-At time 4.3592e-10 s, species [O-][NH+](C=O)N(284) at rate ratio 0.010089950754476922 exceeded the minimum rate for moving to model core of 0.01
+At time 4.3619e-10 s, species [O-][NH+](C=O)N(284) at rate ratio 0.010132226629191776 exceeded the minimum rate for moving to model core of 0.01
 Exceeded max number of objects...removing excess objects
-At time 3.1109e-08 s, reached target termination RateRatio: 0.009998783969377196
-    CH3OH(5) conversion: 0.05765   
+At time 3.1132e-08 s, reached target termination RateRatio: 0.009987225703526632
+    CH3OH(5) conversion: 0.05767   
 conditions choosen for reactor 0 were: T = 663.1227463333109 K, 
 
 
@@ -12364,13 +12364,13 @@ Chemkin file contains 426 reactions.
 Chemkin file contains 65 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:09:05
-    Memory used: 771.56 MB
+    Execution time (DD:HH:MM:SS): 00:00:22:07
+    Memory used: 698.22 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
-At time 2.1196e-10 s, reached target termination RateRatio: 0.009862487493855559
-    CH3OH(5) conversion: 0.001053  
+At time 2.1211e-10 s, reached target termination RateRatio: 0.009826743520062887
+    CH3OH(5) conversion: 0.001054  
 conditions choosen for reactor 0 were: T = 679.1170870065583 K, 
 
 
@@ -12397,13 +12397,13 @@ Chemkin file contains 426 reactions.
 Chemkin file contains 65 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:10:20
-    Memory used: 767.89 MB
+    Execution time (DD:HH:MM:SS): 00:00:22:16
+    Memory used: 694.73 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
-At time 1.5133e-10 s, reached target termination RateRatio: 0.00986344864496115
-    CH3OH(5) conversion: 0.0007765 
+At time 1.5108e-10 s, reached target termination RateRatio: 0.00994710067947783
+    CH3OH(5) conversion: 0.000775  
 conditions choosen for reactor 0 were: T = 1592.8095281725016 K, 
 
 
@@ -12430,15 +12430,15 @@ Chemkin file contains 426 reactions.
 Chemkin file contains 65 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:10:25
-    Memory used: 767.36 MB
+    Execution time (DD:HH:MM:SS): 00:00:22:26
+    Memory used: 697.17 MB
 
 Making seed mechanism...
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 3.1910e-31 s, species [O-][NH+](O)[O](101) at rate ratio 3.802186309097036e-11 was added to model core in model resurrection process
+At time 3.1910e-31 s, species [O-][NH+](O)[O](101) at rate ratio 3.8021856381103576e-11 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 1253.192088996489 K, 
 
 
@@ -12843,14 +12843,14 @@ Chemkin file contains 451 reactions.
 Chemkin file contains 65 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:10:42
-    Memory used: 767.41 MB
+    Execution time (DD:HH:MM:SS): 00:00:22:59
+    Memory used: 695.76 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 1.2756e-30 s, species [O-][NH+](N)*(254) at rate ratio 3.323992817806032e-11 was added to model core in model resurrection process
+At time 1.2756e-30 s, species [O-][NH+](N)*(254) at rate ratio 3.323992698464147e-11 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 434.3897925940499 K, 
 
 
@@ -12927,15 +12927,15 @@ Chemkin file contains 451 reactions.
 Chemkin file contains 69 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:10:51
-    Memory used: 767.42 MB
+    Execution time (DD:HH:MM:SS): 00:00:23:23
+    Memory used: 696.39 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
-At time 2.9092e-09 s, species ONC=O(117) at rate ratio 0.010010839549023902 exceeded the minimum rate for moving to model core of 0.01
+At time 2.9101e-09 s, species ONC=O(117) at rate ratio 0.010037072918636527 exceeded the minimum rate for moving to model core of 0.01
 Exceeded max number of objects...removing excess objects
-At time 7.7932e-07 s, reached target termination RateRatio: 0.009983790058903224
-    CH3OH(5) conversion: 0.07011   
+At time 7.8039e-07 s, reached target termination RateRatio: 0.009947152887685433
+    CH3OH(5) conversion: 0.07012   
 conditions choosen for reactor 0 were: T = 1264.546174330435 K, 
 
 
@@ -13803,14 +13803,14 @@ Chemkin file contains 453 reactions.
 Chemkin file contains 69 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:11:28
-    Memory used: 779.81 MB
+    Execution time (DD:HH:MM:SS): 00:00:24:33
+    Memory used: 715.13 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 1.2160e-30 s, species OH(D)X(97) at rate ratio 7.483241085704724e-12 was added to model core in model resurrection process
+At time 1.2160e-30 s, species OH(D)X(97) at rate ratio 7.483240917700406e-12 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 2216.353724307558 K, 
 
 
@@ -13854,14 +13854,14 @@ Chemkin file contains 453 reactions.
 Chemkin file contains 70 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:11:37
-    Memory used: 777.19 MB
+    Execution time (DD:HH:MM:SS): 00:00:24:54
+    Memory used: 711.01 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 9.8670e-32 s, species [O-][NH+]([O])[O](45) at rate ratio 5.847183477168854e-08 was added to model core in model resurrection process
+At time 9.8670e-32 s, species [O-][NH+]([O])[O](45) at rate ratio 5.847183207461027e-08 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 1289.4271748732788 K, 
 
 
@@ -14198,14 +14198,14 @@ Chemkin file contains 501 reactions.
 Chemkin file contains 70 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:11:51
-    Memory used: 777.20 MB
+    Execution time (DD:HH:MM:SS): 00:00:25:23
+    Memory used: 710.23 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 1.0823e-30 s, species NH2NH2(355) at rate ratio 7.287060848087005e-12 was added to model core in model resurrection process
+At time 1.0823e-30 s, species NH2NH2(355) at rate ratio 7.28706288565731e-12 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 847.2215361744522 K, 
 
 
@@ -14322,15 +14322,15 @@ Chemkin file contains 532 reactions.
 Chemkin file contains 72 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:12:02
-    Memory used: 779.30 MB
+    Execution time (DD:HH:MM:SS): 00:00:25:46
+    Memory used: 710.21 MB
 
 Making seed mechanism...
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 4.2870e-29 s, species H2O2(35) at rate ratio 2.2605448412029425e-14 was added to model core in model resurrection process
+At time 4.2870e-29 s, species H2O2(35) at rate ratio 2.2605462946362044e-14 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 1295.3331188203497 K, 
 
 
@@ -14445,14 +14445,14 @@ Chemkin file contains 567 reactions.
 Chemkin file contains 74 reactions.
 Saving current model core to HTML file...
 Updating RMG execution statistics...
-    Execution time (DD:HH:MM:SS): 00:00:13:00
-    Memory used: 779.04 MB
+    Execution time (DD:HH:MM:SS): 00:00:26:19
+    Memory used: 675.43 MB
 
 Conducting simulation of reaction system 1...
 Warning: Pressure may be varying, but using initial pressure to evaluate k(T,P) expressions!
 Error: Trying to step from time 0.0 to 1e-12 resulted in a solver (DASPK) error: DASPK returned with an IDID = -6, Repeated error test failures occurred on the last attempted step in DDASPK.  A singularity in the solution may be present.  If you are absolutely certain you want to continue, you should restart the integration.  (Provide initial values of Y and YPRIME which are consistent.)
 Resurrecting Model...
-At time 1.0638e-30 s, species *N[O](250) at rate ratio 1.1590400143082736e-13 was added to model core in model resurrection process
+At time 1.0638e-30 s, species *N[O](250) at rate ratio 1.1590400328613718e-13 was added to model core in model resurrection process
 conditions choosen for reactor 0 were: T = 562.1678988161109 K, 
 
 
@@ -14475,11 +14475,3 @@ After model enlargement:
 
 
 For reaction generation 4 processes are used.
-Generating thermo for new species...
-Error: Couldn't find in adsorption thermo database:
-Error: <Molecule "*N=O">
-Error: multiplicity 2
-1 O u0 p2 c0 {2,D}
-2 N u0 p1 c0 {1,D} {3,S}
-3 X u1 p0 c0 {2,S}
-
