@@ -21804,6 +21804,7 @@ DUPLICATE
 ! Euclidian distance = 0
 ! family: Disproportionation
 HNO2(571)+HNO2(699)=NO2(91)+H2NO2(172)              2.645406e+08 1.500     -0.350   
+DUPLICATE 
 
 ! Reaction index: Chemkin #2499; RMG #3395
 ! Template reaction: Disproportionation
@@ -21811,6 +21812,7 @@ HNO2(571)+HNO2(699)=NO2(91)+H2NO2(172)              2.645406e+08 1.500     -0.35
 ! Euclidian distance = 0
 ! family: Disproportionation
 HNOO(572)+HNO2(699)=NO2(91)+H2NO2(172)              2.900000e+04 2.690     -1.600   
+DUPLICATE
 
 ! Reaction index: Chemkin #2500; RMG #3423
 ! Template reaction: Disproportionation
@@ -22803,6 +22805,7 @@ DUPLICATE
 ! Euclidian distance = 0
 ! family: Disproportionation
 HNO2(699)+HNO2(571)=NO2(91)+H2NO2(172)              2.645406e+08 1.500     -0.350   
+DUPLICATE
 
 ! Reaction index: Chemkin #2620; RMG #26960
 ! Template reaction: Disproportionation
@@ -22847,6 +22850,7 @@ DUPLICATE
 ! Euclidian distance = 0
 ! family: Disproportionation
 HNO2(699)+HNOO(572)=NO2(91)+H2NO2(172)              2.900000e+04 2.690     -1.600   
+DUPLICATE
 
 ! Reaction index: Chemkin #2625; RMG #25573
 ! Template reaction: Birad_recombination
