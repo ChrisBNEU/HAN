@@ -18,20 +18,21 @@ ideal_gas(name='gas',
                      HNO3(175)   H2NO3(221)  H2NO3(222)  S(235)
                      H2NO4(247)  H2NO4(248)  NH2NO(361)  HNO(362)
                      H3N2O(365)  H3N2O(366)  H2N2O(367)  H3N2O(368)
-                     NNO(374)    H4N2O(375)  S(377)      S(378)
-                     S(379)      S(383)      S(405)      S(410)
-                     S(413)      S(414)      S(415)      H2NO2(417)
-                     S(418)      S(419)      H2NO5(436)  NH(T)(463)
-                     H2N2(464)   H2N2(465)   H3N2(466)   NH3NH(471)
-                     S(472)      S(473)      S(478)      S(509)
-                     S(534)      S(554)      H2NO2(556)  H3NO2(565)
-                     HNO2(571)   HNOO(572)   S(576)      S(577)
-                     S(593)      NOHJJ(665)  CNO(677)    H3NO2(681)
-                     NO2(695)    HNO2(698)   HNO2(699)   HN2O5(700)
-                     HN2O5(701)  NOCO(820)   NOON(823)   H3NO(826)
-                     S(830)      H2NO3(834)  CON(847)    NNOON(858)
-                     S(860)      NONOO(873)  S(882)      S(891)
-                     S(913)      H2NO2(928)  S(1022)     S(1023)
+                     NNO(374)    H4N2O(375)  S(376)      S(377)
+                     S(378)      S(379)      S(383)      S(405)
+                     S(410)      S(413)      S(414)      S(415)
+                     H2NO2(417)  S(418)      S(419)      H2NO5(436)
+                     NH(T)(463)  H2N2(464)   H2N2(465)   H3N2(466)
+                     NH3NH(471)  S(472)      S(473)      S(478)
+                     S(509)      S(534)      S(553)      S(554)
+                     H2NO2(556)  H3NO2(565)  HNO2(571)   HNOO(572)
+                     S(576)      S(577)      S(593)      NOHJJ(665)
+                     CNO(677)    H3NO2(681)  NO2(695)    HNO2(698)
+                     HNO2(699)   HN2O5(700)  HN2O5(701)  NOCO(820)
+                     NOON(823)   H3NO(826)   S(829)      S(830)
+                     H2NO3(834)  CON(847)    NNOON(858)  S(860)
+                     NONOO(873)  S(882)      S(891)      S(913)
+                     H2NO2(928)  S(1022)     S(1023)     S(1024)
                      S(1025)     S(1026)     S(1027)     S(1033)
                      S(1056)     S(1069)     S(1105)     S(1107)
                      S(1145)     S(1164)     DME(1198)   S(1201)
@@ -56,14 +57,14 @@ ideal_interface(name='surface1',
                           H2N2X(469)  H3N2X(470)  H2NX(552)   HNOX(573)
                           HNO2X(574)  SX(575)     H2NOX(666)  NO2JX(696)
                           NO2X(697)   HNX(810)    HNOX(811)   CH2OX(812)
-                          H2NOX(824)  H2NOX(825)  CH2OX(899)  CH3OX(900)
-                          HNO2X(930)  SX(932)     SX(933)     SX(934)
-                          SX(1014)    SX(1028)    SX(1029)    SX(1030)
-                          SX(1031)    SX(1032)    SX(1146)    SX(1147)
-                          SX(1148)    SX(1149)    SX(1205)    SX(1206)
-                          SX(1207)    SX(1208)    SX(1209)    SX(1210)
-                          SX(1296)    CH2X(1297)  SX(1393)    NO3X(1400)
-                          SX(2556)    SX(2557)""",
+                          *OON(822)   H2NOX(824)  H2NOX(825)  CH2OX(899)
+                          CH3OX(900)  HNO2X(930)  SX(932)     SX(933)
+                          SX(934)     SX(1014)    SX(1028)    SX(1029)
+                          SX(1030)    SX(1031)    SX(1032)    SX(1146)
+                          SX(1147)    SX(1148)    SX(1149)    SX(1205)
+                          SX(1206)    SX(1207)    SX(1208)    SX(1209)
+                          SX(1210)    SX(1296)    CH2X(1297)  SX(1393)
+                          NO3X(1400)  SX(2556)    SX(2557)""",
                 site_density=2.9e-09,
                 phases="gas",
           reactions='surface1-*',
@@ -1058,6 +1059,20 @@ species(name='H4N2O(375)',
                                 diam=5.118,
                                 well_depth=237.1))
 
+species(name='S(376)',
+        atoms='H:4 N:3 O:4',
+        thermo=(NASA([100.00, 1507.16],
+                     [ 2.40490955E+00,  4.06338200E-02, -3.16750317E-05,
+                       1.13673699E-08, -1.66897339E-12,  4.78861915E+04,
+                       1.61546388E+01]),
+                NASA([1507.16, 5000.00],
+                     [ 1.01504020E+01,  2.00774440E-02, -1.12164585E-05,
+                       2.31793177E-09, -1.67909581E-13,  4.55514355E+04,
+                      -2.43903511E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=5.949,
+                                well_depth=399.3))
+
 species(name='S(377)',
         atoms='H:4 N:3 O:4',
         thermo=(NASA([100.00, 799.17],
@@ -1390,6 +1405,20 @@ species(name='S(534)',
                                 diam=4.687,
                                 well_depth=531.4))
 
+species(name='S(553)',
+        atoms='H:3 N:2 O:3',
+        thermo=(NASA([100.00, 953.65],
+                     [ 3.08461614E+00,  1.40551214E-02,  6.23512997E-06,
+                      -2.12999158E-08,  9.97338064E-12,  3.56052567E+04,
+                       1.04110996E+01]),
+                NASA([953.65, 5000.00],
+                     [ 9.29141391E+00,  3.18914761E-03, -5.31178690E-07,
+                       1.08052864E-10, -1.08097853E-14,  3.37317082E+04,
+                      -2.28547742E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=5.784,
+                                well_depth=341.1))
+
 species(name='S(554)',
         atoms='H:3 N:2 O:3',
         thermo=(NASA([100.00, 787.68],
@@ -1656,6 +1685,20 @@ species(name='H3NO(826)',
                                 diam=4.443,
                                 well_depth=110.7))
 
+species(name='S(829)',
+        atoms='H:3 N:2 O:4',
+        thermo=(NASA([100.00, 847.28],
+                     [ 3.35351860E+00,  2.03006908E-02, -4.00361767E-05,
+                       4.78999785E-08, -2.01836608E-11,  1.74852863E+04,
+                       1.00503108E+01]),
+                NASA([847.28, 5000.00],
+                     [ 3.81049052E-01,  1.86244365E-02, -9.25766380E-06,
+                       1.80018499E-09, -1.24808591E-13,  1.85528654E+04,
+                       2.72256992E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=5.949,
+                                well_depth=399.3))
+
 species(name='S(830)',
         atoms='H:3 N:2 O:4',
         thermo=(NASA([100.00, 868.07],
@@ -1820,6 +1863,20 @@ species(name='S(1023)',
                      [ 3.88938894E+00,  1.38982160E-02, -5.93603128E-06,
                        1.07838921E-09, -7.26553425E-14,  5.14597609E+03,
                        1.64619852E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=4.687,
+                                well_depth=531.4))
+
+species(name='S(1024)',
+        atoms='H:2 N:2 O:2',
+        thermo=(NASA([100.00, 1195.56],
+                     [ 3.03055959E+00,  2.08322364E-02, -1.84349956E-05,
+                       9.00030694E-09, -1.79447222E-12,  5.21450292E+04,
+                       1.18874742E+01]),
+                NASA([1195.56, 5000.00],
+                     [ 6.60839551E+00,  8.86178743E-03, -3.41631697E-06,
+                       6.25583122E-10, -4.32529384E-14,  5.12895285E+04,
+                      -6.01255839E+00])),
         transport=gas_transport(geom='nonlinear',
                                 diam=4.687,
                                 well_depth=531.4))
@@ -2647,6 +2704,17 @@ species(name='CH2OX(812)',
                      [ 2.89882331E+00,  1.07011121E-02, -5.08847848E-06,
                        9.82676556E-10, -6.86676475E-14, -2.67442738E+04,
                       -1.25163488E+01])))
+
+species(name='*OON(822)',
+        atoms='H:2 N:1 O:2 X:1',
+        thermo=(NASA([100.00, 941.59],
+                     [ 3.29550052E+00,  1.20464440E-02,  1.59270695E-06,
+                      -1.17105018E-08,  5.74634430E-12,  6.56755971E+02,
+                      -6.78886449E+00]),
+                NASA([941.59, 5000.00],
+                     [ 6.89563759E+00,  5.38868666E-03, -1.55879183E-06,
+                       2.61467105E-10, -1.85134155E-14, -4.04052653E+02,
+                      -2.59736949E+01])))
 
 species(name='H2NOX(824)',
         atoms='H:2 N:1 O:1 X:1',
@@ -28760,7 +28828,8 @@ reaction('NH(T)(463) + HNO2(699) <=> NO2(91) + NH2(42)', [2.645406e+08, 1.5, -0.
 
 # Reaction 2498
 reaction('HNO2(571) + HNO2(699) <=> NO2(91) + H2NO2(172)', [2.645406e+08, 1.5, -0.35],
-         id='gas-2498')
+         id='gas-2498',
+         options='duplicate')
 #  Reaction index: Chemkin #2499; RMG #3395
 #  Template reaction: Disproportionation
 #  Estimated using an average for rate rule [O_rad/NonDeO;N3H_s_Rrad]
@@ -28769,7 +28838,8 @@ reaction('HNO2(571) + HNO2(699) <=> NO2(91) + H2NO2(172)', [2.645406e+08, 1.5, -
 
 # Reaction 2499
 reaction('HNOO(572) + HNO2(699) <=> NO2(91) + H2NO2(172)', [2.900000e+04, 2.69, -1.6],
-         id='gas-2499')
+         id='gas-2499',
+         options='duplicate')
 #  Reaction index: Chemkin #2500; RMG #3423
 #  Template reaction: Disproportionation
 #  Estimated using an average for rate rule [Y_1centerbirad;N3H_s_Rrad]
@@ -30001,7 +30071,8 @@ reaction('NOHJJ(665) + HNO2(699) <=> NO2(91) + HNOH(132)', [2.645406e+08, 1.5, -
 
 # Reaction 2619
 reaction('HNO2(699) + HNO2(571) <=> NO2(91) + H2NO2(172)', [2.645406e+08, 1.5, -0.35],
-         id='gas-2619')
+         id='gas-2619',
+         options='duplicate')
 #  Reaction index: Chemkin #2620; RMG #26960
 #  Template reaction: Disproportionation
 #  Flux pairs: HNO2(699), NO2(91); S(419), S(410);
@@ -30055,7 +30126,8 @@ reaction('HNO2(699) + H3N2O(366) <=> NO2(91) + NNO(374)', [9.200000e+05, 1.94, 2
 
 # Reaction 2624
 reaction('HNO2(699) + HNOO(572) <=> NO2(91) + H2NO2(172)', [2.900000e+04, 2.69, -1.6],
-         id='gas-2624')
+         id='gas-2624',
+         options='duplicate')
 #  Reaction index: Chemkin #2625; RMG #25573
 #  Template reaction: Birad_recombination
 #  Flux pairs: HNOO(572), HNO2(5516);
@@ -45540,6 +45612,3761 @@ reaction('NO3(110) + HNO2(698) <=> HN2O5(700)', [3.660000e+11, 0.2, 0.0],
 # Reaction 4119
 reaction('H2NO(129) + S(173) <=> S(1105)', [1.220000e+11, 0.2, 0.0],
          id='gas-4119')
+#  Reaction index: Chemkin #4120; RMG #3491
+#  Template reaction: R_Addition_MultipleBond
+#  Flux pairs: H2NO(129), S(829); HNO3(4), S(829);
+#  Estimated using template [Od_R;YJ] for rate rule [Od_N5dc;NJ]
+#  Euclidian distance = 2.23606797749979
+#  Multiplied by reaction path degeneracy 2.0
+#  family: R_Addition_MultipleBond
+#  Ea raised from 223.0 to 232.6 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4120
+reaction('HNO3(4) + H2NO(129) <=> S(829)', [2.339932e+07, 2.021, 55.597],
+         id='gas-4120')
+#  Reaction index: Chemkin #4121; RMG #1859
+#  Template reaction: R_Addition_MultipleBond
+#  Flux pairs: H3N2O(170), S(376); HNO3(4), S(376);
+#  Estimated using template [R_R;OJ-NonDe] for rate rule [Od_N5dc;OJ-Ns]
+#  Euclidian distance = 3.1622776601683795
+#  Multiplied by reaction path degeneracy 2.0
+#  family: R_Addition_MultipleBond
+#  Ea raised from 400.9 to 406.6 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4121
+reaction('HNO3(4) + H3N2O(170) <=> S(376)', [1.697616e+07, 1.319, 97.19],
+         id='gas-4121')
+#  Reaction index: Chemkin #4122; RMG #10389
+#  Template reaction: R_Addition_MultipleBond
+#  Flux pairs: S(171), S(376); HONO(103), S(376);
+#  Estimated using template [R_R;OJ-O2s] for rate rule [N3d-NonDe_Od;OJ-O2s]
+#  Euclidian distance = 4.0
+#  family: R_Addition_MultipleBond
+#  Ea raised from 262.7 to 270.2 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4122
+reaction('HONO(103) + S(171) <=> S(376)', [7.381143e+00, 3.059, 64.582],
+         id='gas-4122')
+#  Reaction index: Chemkin #4123; RMG #27376
+#  Template reaction: R_Recombination
+#  Flux pairs: HNO2(698), S(376); S(171), S(376);
+#  BM rule fitted to 2 training reactions at node Root_N-1R->H_1CClNOSSi->N_Ext-2R-R_3R!H-u0_N-2R->C_N-3R!H->C_Ext-1N-R_N-2NO->N
+#      Total Standard Deviation in ln(k): 11.5401827615
+#  Exact match found for rate rule [Root_N-1R->H_1CClNOSSi->N_Ext-2R-R_3R!H-u0_N-2R->C_N-3R!H->C_Ext-1N-R_N-2NO->N]
+#  Euclidian distance = 0
+#  family: R_Recombination
+
+# Reaction 4123
+reaction('HNO2(698) + S(171) <=> S(376)', [1.220000e+11, 0.2, 0.0],
+         id='gas-4123',
+         options='duplicate')
+#  Reaction index: Chemkin #4124; RMG #47356
+#  Template reaction: Birad_R_Recombination
+#  Flux pairs: S(171), S(376); HNO2(698), S(376);
+#  Estimated using an average for rate rule [O_rad/NonDe;Birad]
+#  Euclidian distance = 0
+#  family: Birad_R_Recombination
+
+# Reaction 4124
+reaction('HNO2(698) + S(171) <=> S(376)', [1.231447e+10, 0.968, -0.479],
+         id='gas-4124',
+         options='duplicate')
+#  Reaction index: Chemkin #4125; RMG #4191
+#  Template reaction: R_Recombination
+#  Flux pairs: H(16), S(173); S(1024), S(173);
+#  BM rule fitted to 2 training reactions at node Root_1R->H_N-2R-inRing_N-2R->H_N-2CNOS->S_N-2CNO->C_Ext-2NO-R_2NO->N
+#      Total Standard Deviation in ln(k): 11.5401827615
+#  Exact match found for rate rule [Root_1R->H_N-2R-inRing_N-2R->H_N-2CNOS->S_N-2CNO->C_Ext-2NO-R_2NO->N]
+#  Euclidian distance = 0
+#  family: R_Recombination
+
+# Reaction 4125
+reaction('H(16) + S(1024) <=> S(173)', [1.122060e+13, 0.315, 0.0],
+         id='gas-4125')
+#  Reaction index: Chemkin #4126; RMG #4215
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4126
+reaction('H2NO3(221) + S(1024) <=> HNO3(4) + S(173)', [5.880000e+04, 2.69, -1.6],
+         id='gas-4126')
+#  Reaction index: Chemkin #4127; RMG #4217
+#  Template reaction: Disproportionation
+#  Estimated using template [O_rad/NonDeO;NH_s_Rrad] for rate rule [O_rad/NonDeO;N5H_s_Rrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4127
+reaction('H2NO3(222) + S(1024) <=> HNO3(4) + S(173)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4127')
+#  Reaction index: Chemkin #4128; RMG #4233
+#  Template reaction: H_Abstraction
+#  Flux pairs: HO2(36), O2(8); S(1024), S(173);
+#  From training reaction 405 used for Orad_O_H;O_rad/NonDeO
+#  Exact match found for rate rule [Orad_O_H;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4128
+reaction('HO2(36) + S(1024) <=> O2(8) + S(173)', [1.750000e+10, 0.0, -3.275],
+         id='gas-4128')
+#  Reaction index: Chemkin #4129; RMG #4250
+#  Template reaction: CO_Disproportionation
+#  Flux pairs: S(1024), S(173); HCO(18), CO(11);
+#  Estimated using template [O_sec_rad;HCO] for rate rule [O_rad/NonDeO;HCO]
+#  Euclidian distance = 1.0
+#  family: CO_Disproportionation
+
+# Reaction 4129
+reaction('S(1024) + HCO(18) <=> S(173) + CO(11)', [1.240000e+23, -3.29, 2.355],
+         id='gas-4129')
+#  Reaction index: Chemkin #4130; RMG #4256
+#  Template reaction: Disproportionation
+#  From training reaction 67 used for O_rad/NonDeO;O_Csrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Csrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4130
+reaction('S(1024) + CH2OH(44) <=> S(173) + CH2O(13)', [1.210000e+13, 0.0, 0.0],
+         id='gas-4130')
+#  Reaction index: Chemkin #4131; RMG #4258
+#  Template reaction: Disproportionation
+#  Estimated using template [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Orad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: Disproportionation
+
+# Reaction 4131
+reaction('S(1024) + CH3O(88) <=> S(173) + CH2O(13)', [1.247681e+07, 2.018, -1.2],
+         id='gas-4131')
+#  Reaction index: Chemkin #4132; RMG #4266
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH4(24), CH3(14); S(1024), S(173);
+#  From training reaction 189 used for C_methane;O_rad/NonDeO
+#  Exact match found for rate rule [C_methane;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 4.0
+#  family: H_Abstraction
+
+# Reaction 4132
+reaction('S(1024) + CH4(24) <=> S(173) + CH3(14)', [4.700000e+04, 2.5, 21.0],
+         id='gas-4132')
+#  Reaction index: Chemkin #4133; RMG #4276
+#  Template reaction: H_Abstraction
+#  Flux pairs: H(16), H2(10); S(173), S(1024);
+#  From training reaction 203 used for O/H/NonDeO;H_rad
+#  Exact match found for rate rule [O/H/NonDeO;H_rad]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4133
+reaction('H(16) + S(173) <=> H2(10) + S(1024)', [5.400000e+10, 0.0, 3.764],
+         id='gas-4133')
+#  Reaction index: Chemkin #4134; RMG #4281
+#  Template reaction: H_Abstraction
+#  Flux pairs: C2H6(12), C2H5(17); S(1024), S(173);
+#  From training reaction 213 used for C/H3/Cs\H3;O_rad/NonDeO
+#  Exact match found for rate rule [C/H3/Cs\H3;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 6.0
+#  family: H_Abstraction
+
+# Reaction 4134
+reaction('S(1024) + C2H6(12) <=> S(173) + C2H5(17)', [2.600000e+01, 3.37, 15.9],
+         id='gas-4134')
+#  Reaction index: Chemkin #4135; RMG #4291
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH2O(13), HCO(18); S(1024), S(173);
+#  From training reaction 370 used for CO_pri;O_rad/NonDeO
+#  Exact match found for rate rule [CO_pri;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4135
+reaction('S(1024) + CH2O(13) <=> S(173) + HCO(18)', [4.120000e+04, 2.5, 10.21],
+         id='gas-4135')
+#  Reaction index: Chemkin #4136; RMG #4311
+#  Template reaction: H_Abstraction
+#  Flux pairs: OH(20), H2O(6); S(173), S(1024);
+#  From training reaction 206 used for O/H/NonDeO;O_pri_rad
+#  Exact match found for rate rule [O/H/NonDeO;O_pri_rad]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+#  Ea raised from -1.8 to -1.8 kJ/mol.
+
+# Reaction 4136
+reaction('OH(20) + S(173) <=> H2O(6) + S(1024)', [1.100000e+12, 0.0, -0.437],
+         id='gas-4136')
+#  Reaction index: Chemkin #4137; RMG #4317
+#  Template reaction: Disproportionation
+#  Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeO;XH_s_Rrad] for rate rule [O_rad/NonDeO;Cmethyl_Csrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: Disproportionation
+
+# Reaction 4137
+reaction('S(1024) + C2H5(17) <=> S(173) + C2H4(21)', [3.003453e+10, 1.009, -0.6],
+         id='gas-4137')
+#  Reaction index: Chemkin #4138; RMG #4324
+#  Template reaction: H_Abstraction
+#  Flux pairs: NNO(374), H3N2O(170); S(1024), S(173);
+#  From training reaction 718 used for O/H/NonDeN;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeN;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4138
+reaction('S(1024) + NNO(374) <=> H3N2O(170) + S(173)', [1.400000e+04, 2.69, 15.62],
+         id='gas-4138')
+#  Reaction index: Chemkin #4139; RMG #4332
+#  Template reaction: H_Abstraction
+#  Flux pairs: H4N2O(375), H3N2O(170); S(1024), S(173);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4139
+reaction('S(1024) + H4N2O(375) <=> H3N2O(170) + S(173)', [7.729780e+04, 2.32, 9.16],
+         id='gas-4139')
+#  Reaction index: Chemkin #4140; RMG #4345
+#  Template reaction: H_Abstraction
+#  Flux pairs: HO2(36), H2O2(37); S(173), S(1024);
+#  From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+#  Ea raised from 85.5 to 85.8 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4140
+reaction('HO2(36) + S(173) <=> H2O2(37) + S(1024)', [4.100000e+04, 2.5, 20.516],
+         id='gas-4140')
+#  Reaction index: Chemkin #4141; RMG #4358
+#  Template reaction: H_Abstraction
+#  Flux pairs: N2H4(169), N2H3(133); S(1024), S(173);
+#  From training reaction 725 used for N3s/H2/NonDeN;O_rad/NonDeO
+#  Exact match found for rate rule [N3s/H2/NonDeN;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 4.0
+#  family: H_Abstraction
+
+# Reaction 4141
+reaction('S(1024) + N2H4(169) <=> N2H3(133) + S(173)', [1.160000e+05, 2.69, -1.6],
+         id='gas-4141')
+#  Reaction index: Chemkin #4142; RMG #4367
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH3NH(471), N2H3(133); S(1024), S(173);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4142
+reaction('S(1024) + NH3NH(471) <=> N2H3(133) + S(173)', [1.159467e+05, 2.32, 9.16],
+         id='gas-4142')
+#  Reaction index: Chemkin #4143; RMG #4374
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4143
+reaction('S(1024) + H3N2O(366) <=> H2N2O(367) + S(173)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4143')
+#  Reaction index: Chemkin #4144; RMG #4376
+#  Template reaction: Disproportionation
+#  Estimated using template [O_rad/NonDeO;NH_s_Rrad] for rate rule [O_rad/NonDeO;N5H_s_Rrad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4144
+reaction('S(1024) + H3N2O(368) <=> H2N2O(367) + S(173)', [5.800000e+04, 2.69, -1.6],
+         id='gas-4144')
+#  Reaction index: Chemkin #4145; RMG #4386
+#  Template reaction: Disproportionation
+#  From training reaction 96 used for O_rad/NonDeO;N3s/H2_s_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;N3s/H2_s_Nrad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4145
+reaction('S(1024) + H3N2O(170) <=> H2N2O(367) + S(173)', [5.800000e+04, 2.69, -1.6],
+         id='gas-4145')
+#  Reaction index: Chemkin #4146; RMG #4391
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH3(43), NH2(42); S(1024), S(173);
+#  Estimated using template [N3s_H;O_rad/NonDeO] for rate rule [NH3;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4146
+reaction('S(1024) + NH3(43) <=> NH2(42) + S(173)', [8.700000e+04, 2.69, 8.305],
+         id='gas-4146')
+#  Reaction index: Chemkin #4147; RMG #4399
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3NO2(565), H2NO2(172); S(1024), S(173);
+#  From training reaction 712 used for N3s/H2/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [N3s/H2/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4147
+reaction('S(1024) + H3NO2(565) <=> H2NO2(172) + S(173)', [5.800000e+04, 2.69, 9.56],
+         id='gas-4147')
+#  Reaction index: Chemkin #4148; RMG #4406
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4148
+reaction('S(1024) + H3N2O(365) <=> NH2NO(361) + S(173)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4148')
+#  Reaction index: Chemkin #4149; RMG #4408
+#  Template reaction: Disproportionation
+#  Estimated using template [O_rad/NonDeO;N3H_s_Rrad] for rate rule [O_rad/NonDeO;N3s/H/NonDe_s_Rrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4149
+reaction('S(1024) + H3N2O(170) <=> NH2NO(361) + S(173)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4149')
+#  Reaction index: Chemkin #4150; RMG #4422
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH2OH(3), HNOH(132); S(1024), S(173);
+#  From training reaction 712 used for N3s/H2/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [N3s/H2/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4150
+reaction('S(1024) + NH2OH(3) <=> HNOH(132) + S(173)', [5.800000e+04, 2.69, 9.56],
+         id='gas-4150')
+#  Reaction index: Chemkin #4151; RMG #4430
+#  Template reaction: Disproportionation
+#  Estimated using an average for rate rule [O_rad/NonDeO;XH_s_Rbirad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4151
+reaction('HNO2(698) + S(1024) <=> NO2(91) + S(173)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4151',
+         options='duplicate')
+#  Reaction index: Chemkin #4152; RMG #4431
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO2(92), NO2(91); S(1024), S(173);
+#  Estimated using average of templates [X_H;O_rad/NonDeO] + [N5dc_H;O_rad] for rate rule [N5dc_H;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  family: H_Abstraction
+
+# Reaction 4152
+reaction('HNO2(92) + S(1024) <=> NO2(91) + S(173)', [2.153571e+05, 2.16, 4.185],
+         id='gas-4152')
+#  Reaction index: Chemkin #4153; RMG #4437
+#  Template reaction: Disproportionation
+#  Estimated using an average for rate rule [O_rad/NonDeO;N3H_s_Rrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4153
+reaction('HNO2(699) + S(1024) <=> NO2(91) + S(173)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4153')
+#  Reaction index: Chemkin #4154; RMG #4438
+#  Template reaction: H_Abstraction
+#  Flux pairs: HONO(103), NO2(91); S(1024), S(173);
+#  Estimated using average of templates [O_sec;O_rad/NonDeO] + [O/H/OneDeN;O_rad] for rate rule [O/H/OneDeN;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  family: H_Abstraction
+
+# Reaction 4154
+reaction('HONO(103) + S(1024) <=> NO2(91) + S(173)', [4.486829e+03, 2.72, 5.736],
+         id='gas-4154')
+#  Reaction index: Chemkin #4155; RMG #4447
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4155
+reaction('HNO2(698) + S(1024) <=> NO2(91) + S(173)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4155',
+         options='duplicate')
+#  Reaction index: Chemkin #4156; RMG #4450
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH2OH(3), H2NO(129); S(1024), S(173);
+#  From training reaction 718 used for O/H/NonDeN;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeN;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4156
+reaction('S(1024) + NH2OH(3) <=> H2NO(129) + S(173)', [1.400000e+04, 2.69, 15.62],
+         id='gas-4156')
+#  Reaction index: Chemkin #4157; RMG #4457
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3NO(826), H2NO(129); S(1024), S(173);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4157
+reaction('S(1024) + H3NO(826) <=> H2NO(129) + S(173)', [1.159467e+05, 2.32, 9.16],
+         id='gas-4157')
+#  Reaction index: Chemkin #4158; RMG #4467
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH3OH(5), CH2OH(44); S(1024), S(173);
+#  From training reaction 197 used for C/H3/O;O_rad/NonDeO
+#  Exact match found for rate rule [C/H3/O;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4158
+reaction('S(1024) + CH3OH(5) <=> S(173) + CH2OH(44)', [3.500000e-04, 4.85, 10.346],
+         id='gas-4158')
+#  Reaction index: Chemkin #4159; RMG #4488
+#  Template reaction: H_Abstraction
+#  Flux pairs: H4N2O2(2), S(173); S(1024), S(173);
+#  Estimated using template [N3s_H;O_rad/NonDeO] for rate rule [N3s_sec_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4159
+reaction('S(1024) + H4N2O2(2) <=> S(173) + S(173)', [2.900000e+04, 2.69, 8.305],
+         id='gas-4159')
+#  Reaction index: Chemkin #4160; RMG #4491
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1033), S(173); S(1024), S(173);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4160
+reaction('S(1024) + S(1033) <=> S(173) + S(173)', [1.159467e+05, 2.32, 9.16],
+         id='gas-4160')
+#  Reaction index: Chemkin #4161; RMG #4710
+#  Template reaction: R_Recombination
+#  Flux pairs: S(1024), S(171); H(16), S(171);
+#  BM rule fitted to 2 training reactions at node Root_1R->H_N-2R-inRing_N-2R->H_N-2CNOS->S_N-2CNO->C_Ext-2NO-R_2NO->N
+#      Total Standard Deviation in ln(k): 11.5401827615
+#  Exact match found for rate rule [Root_1R->H_N-2R-inRing_N-2R->H_N-2CNOS->S_N-2CNO->C_Ext-2NO-R_2NO->N]
+#  Euclidian distance = 0
+#  family: R_Recombination
+
+# Reaction 4161
+reaction('H(16) + S(1024) <=> S(171)', [1.122060e+13, 0.315, 0.0],
+         id='gas-4161')
+#  Reaction index: Chemkin #4162; RMG #4720
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); H2NO3(221), HNO3(4);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4162
+reaction('H2NO3(221) + S(1024) <=> HNO3(4) + S(171)', [3.600000e+06, 1.94, -1.15],
+         id='gas-4162')
+#  Reaction index: Chemkin #4163; RMG #4722
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;NH_s_Rrad] for rate rule [N3s_rad/NonDe2;N5H_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  family: Disproportionation
+
+# Reaction 4163
+reaction('H2NO3(222) + S(1024) <=> HNO3(4) + S(171)', [9.099451e+05, 1.94, -1.15],
+         id='gas-4163')
+#  Reaction index: Chemkin #4164; RMG #4731
+#  Template reaction: H_Abstraction
+#  Flux pairs: HO2(36), O2(8); S(1024), S(171);
+#  Estimated using template [X_H;N3s_rad] for rate rule [Orad_O_H;N3s_rad_sec]
+#  Euclidian distance = 2.23606797749979
+#  family: H_Abstraction
+
+# Reaction 4164
+reaction('HO2(36) + S(1024) <=> O2(8) + S(171)', [4.479746e+07, 1.503, 6.347],
+         id='gas-4164')
+#  Reaction index: Chemkin #4165; RMG #4746
+#  Template reaction: CO_Disproportionation
+#  Flux pairs: S(1024), S(171); HCO(18), CO(11);
+#  Estimated using template [N3_rad;HCO] for rate rule [N3s_rad/NonDe2;HCO]
+#  Euclidian distance = 3.0
+#  family: CO_Disproportionation
+
+# Reaction 4165
+reaction('S(1024) + HCO(18) <=> S(171) + CO(11)', [7.100000e+12, 0.0, 0.0],
+         id='gas-4165')
+#  Reaction index: Chemkin #4166; RMG #4749
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); CH2OH(44), CH2O(13);
+#  Estimated using template [N3s_rad;O_Rrad] for rate rule [N3s_rad/NonDe2;O_Csrad]
+#  Euclidian distance = 2.23606797749979
+#  family: Disproportionation
+
+# Reaction 4166
+reaction('S(1024) + CH2OH(44) <=> S(171) + CH2O(13)', [6.188480e+05, 2.081, -0.619],
+         id='gas-4166')
+#  Reaction index: Chemkin #4167; RMG #4751
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;XH_s_Rrad] for rate rule [N3s_rad/NonDe2;Cmethyl_Orad]
+#  Euclidian distance = 2.8284271247461903
+#  Multiplied by reaction path degeneracy 3.0
+#  family: Disproportionation
+
+# Reaction 4167
+reaction('S(1024) + CH3O(88) <=> S(171) + CH2O(13)', [1.685049e+06, 2.069, -0.664],
+         id='gas-4167')
+#  Reaction index: Chemkin #4168; RMG #4756
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH4(24), CH3(14); S(1024), S(171);
+#  Estimated using template [C_methane;N3s_rad] for rate rule [C_methane;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 4.0
+#  family: H_Abstraction
+
+# Reaction 4168
+reaction('S(1024) + CH4(24) <=> S(171) + CH3(14)', [1.360000e+04, 2.87, 10.691],
+         id='gas-4168')
+#  Reaction index: Chemkin #4169; RMG #4761
+#  Template reaction: H_Abstraction
+#  Flux pairs: H(16), H2(10); S(171), S(1024);
+#  Estimated using template [N3s_H;H_rad] for rate rule [N3s_sec_H;H_rad]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4169
+reaction('H(16) + S(171) <=> H2(10) + S(1024)', [2.278215e+07, 1.865, 8.789],
+         id='gas-4169')
+#  Reaction index: Chemkin #4170; RMG #4764
+#  Template reaction: H_Abstraction
+#  Flux pairs: C2H6(12), C2H5(17); S(1024), S(171);
+#  Estimated using template [C/H3/Cs\H3;N3s_rad] for rate rule [C/H3/Cs\H3;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 6.0
+#  family: H_Abstraction
+
+# Reaction 4170
+reaction('S(1024) + C2H6(12) <=> S(171) + C2H5(17)', [3.460000e+13, 0.0, 13.8],
+         id='gas-4170')
+#  Reaction index: Chemkin #4171; RMG #4770
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH2O(13), HCO(18); S(1024), S(171);
+#  Estimated using template [X_H;N3s_rad] for rate rule [CO_pri;N3s_rad_sec]
+#  Euclidian distance = 2.23606797749979
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4171
+reaction('S(1024) + CH2O(13) <=> S(171) + HCO(18)', [8.959492e+07, 1.503, 6.347],
+         id='gas-4171')
+#  Reaction index: Chemkin #4172; RMG #4782
+#  Template reaction: H_Abstraction
+#  Flux pairs: OH(20), H2O(6); S(171), S(1024);
+#  Estimated using template [N3s_H;O_pri_rad] for rate rule [N3s_sec_H;O_pri_rad]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4172
+reaction('OH(20) + S(171) <=> H2O(6) + S(1024)', [2.400000e+06, 2.0, 18.623],
+         id='gas-4172')
+#  Reaction index: Chemkin #4173; RMG #4785
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); C2H5(17), C2H4(21);
+#  Estimated using template [N3s_rad;XH_s_Rrad] for rate rule [N3s_rad/NonDe2;Cmethyl_Csrad]
+#  Euclidian distance = 2.8284271247461903
+#  Multiplied by reaction path degeneracy 3.0
+#  family: Disproportionation
+
+# Reaction 4173
+reaction('S(1024) + C2H5(17) <=> S(171) + C2H4(21)', [1.685049e+06, 2.069, -0.664],
+         id='gas-4173')
+#  Reaction index: Chemkin #4174; RMG #4790
+#  Template reaction: H_Abstraction
+#  Flux pairs: NNO(374), H3N2O(170); S(1024), S(171);
+#  Estimated using template [O_sec;N3s_rad] for rate rule [O/H/NonDeN;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4174
+reaction('S(1024) + NNO(374) <=> H3N2O(170) + S(171)', [9.200000e+05, 1.94, 2.785],
+         id='gas-4174')
+#  Reaction index: Chemkin #4175; RMG #4794
+#  Template reaction: H_Abstraction
+#  Flux pairs: H4N2O(375), H3N2O(170); S(1024), S(171);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4175
+reaction('S(1024) + H4N2O(375) <=> H3N2O(170) + S(171)', [1.840000e+06, 1.94, 0.87],
+         id='gas-4175')
+#  Reaction index: Chemkin #4176; RMG #4800
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2O2(37), HO2(36); S(1024), S(171);
+#  Estimated using template [O_sec;N3s_rad] for rate rule [H2O2;N3s_rad_sec]
+#  Euclidian distance = 2.23606797749979
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4176
+reaction('H2O2(37) + S(1024) <=> HO2(36) + S(171)', [1.840000e+06, 1.94, 2.785],
+         id='gas-4176')
+#  Reaction index: Chemkin #4177; RMG #4807
+#  Template reaction: H_Abstraction
+#  Flux pairs: N2H4(169), N2H3(133); S(1024), S(171);
+#  Estimated using template [N3s/H2/NonDeN;N3s_rad] for rate rule [N3s/H2/NonDeN;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 4.0
+#  family: H_Abstraction
+
+# Reaction 4177
+reaction('S(1024) + N2H4(169) <=> N2H3(133) + S(171)', [2.590000e+03, 2.83, 0.7],
+         id='gas-4177')
+#  Reaction index: Chemkin #4178; RMG #4812
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH3NH(471), N2H3(133); S(1024), S(171);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4178
+reaction('S(1024) + NH3NH(471) <=> N2H3(133) + S(171)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4178')
+#  Reaction index: Chemkin #4179; RMG #4815
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); H3N2O(366), H2N2O(367);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4179
+reaction('S(1024) + H3N2O(366) <=> H2N2O(367) + S(171)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4179')
+#  Reaction index: Chemkin #4180; RMG #4817
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;NH_s_Rrad] for rate rule [N3s_rad/NonDe2;N5H_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4180
+reaction('S(1024) + H3N2O(368) <=> H2N2O(367) + S(171)', [1.819890e+06, 1.94, -1.15],
+         id='gas-4180')
+#  Reaction index: Chemkin #4181; RMG #4823
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;N3s/H2_s_Nrad] for rate rule [N3s_rad/NonDe2;N3s/H2_s_Nrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4181
+reaction('S(1024) + H3N2O(170) <=> H2N2O(367) + S(171)', [9.200000e+05, 1.94, -1.15],
+         id='gas-4181')
+#  Reaction index: Chemkin #4182; RMG #4827
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH2(42), NH3(43); S(171), S(1024);
+#  Estimated using template [N3s_H;NH2_rad] for rate rule [N3s_sec_H;NH2_rad]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4182
+reaction('NH2(42) + S(171) <=> S(1024) + NH3(43)', [3.413942e+04, 2.385, 3.92],
+         id='gas-4182')
+#  Reaction index: Chemkin #4183; RMG #4832
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3NO2(565), H2NO2(172); S(1024), S(171);
+#  Estimated using template [N3s/H2/NonDe;N3s_rad] for rate rule [N3s/H2/NonDeO;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4183
+reaction('S(1024) + H3NO2(565) <=> H2NO2(172) + S(171)', [6.827884e+04, 2.385, 3.92],
+         id='gas-4183')
+#  Reaction index: Chemkin #4184; RMG #4835
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); H3N2O(365), NH2NO(361);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4184
+reaction('S(1024) + H3N2O(365) <=> NH2NO(361) + S(171)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4184')
+#  Reaction index: Chemkin #4185; RMG #4837
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;N3H_s_Rrad] for rate rule [N3s_rad/NonDe2;N3s/H/NonDe_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  family: Disproportionation
+
+# Reaction 4185
+reaction('S(1024) + H3N2O(170) <=> NH2NO(361) + S(171)', [9.099451e+05, 1.94, -1.15],
+         id='gas-4185')
+#  Reaction index: Chemkin #4186; RMG #4847
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH2OH(3), HNOH(132); S(1024), S(171);
+#  Estimated using template [N3s/H2/NonDe;N3s_rad] for rate rule [N3s/H2/NonDeO;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4186
+reaction('S(1024) + NH2OH(3) <=> HNOH(132) + S(171)', [6.827884e+04, 2.385, 3.92],
+         id='gas-4186')
+#  Reaction index: Chemkin #4187; RMG #4850
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); HNO2(698), NO2(91);
+#  Estimated using template [N3s_rad;XH_s_Rbirad] for rate rule [N3s_rad/NonDe2;XH_s_Rbirad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4187
+reaction('HNO2(698) + S(1024) <=> NO2(91) + S(171)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4187',
+         options='duplicate')
+#  Reaction index: Chemkin #4188; RMG #4852
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO2(92), NO2(91); S(1024), S(171);
+#  Estimated using template [N5dc_H;N3s_rad] for rate rule [N5dc_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4188
+reaction('HNO2(92) + S(1024) <=> NO2(91) + S(171)', [9.200000e+05, 1.94, 0.87],
+         id='gas-4188')
+#  Reaction index: Chemkin #4189; RMG #4855
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;N3H_s_Rrad] for rate rule [N3s_rad/NonDe2;N3H_s_Rrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4189
+reaction('HNO2(699) + S(1024) <=> NO2(91) + S(171)', [9.099451e+05, 1.94, -1.15],
+         id='gas-4189')
+#  Reaction index: Chemkin #4190; RMG #4857
+#  Template reaction: H_Abstraction
+#  Flux pairs: HONO(103), NO2(91); S(1024), S(171);
+#  Estimated using template [O/H/OneDeN;N3s_rad] for rate rule [O/H/OneDeN;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4190
+reaction('HONO(103) + S(1024) <=> NO2(91) + S(171)', [9.200000e+05, 1.94, 1.92],
+         id='gas-4190')
+#  Reaction index: Chemkin #4191; RMG #4862
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); HNO2(698), NO2(91);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4191
+reaction('HNO2(698) + S(1024) <=> NO2(91) + S(171)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4191',
+         options='duplicate')
+#  Reaction index: Chemkin #4192; RMG #4865
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH2OH(3), H2NO(129); S(1024), S(171);
+#  Estimated using template [O_sec;N3s_rad] for rate rule [O/H/NonDeN;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4192
+reaction('S(1024) + NH2OH(3) <=> H2NO(129) + S(171)', [9.200000e+05, 1.94, 2.785],
+         id='gas-4192')
+#  Reaction index: Chemkin #4193; RMG #4869
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3NO(826), H2NO(129); S(1024), S(171);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4193
+reaction('S(1024) + H3NO(826) <=> H2NO(129) + S(171)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4193')
+#  Reaction index: Chemkin #4194; RMG #4874
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH3OH(5), CH2OH(44); S(1024), S(171);
+#  Estimated using template [C_pri;N3s_rad] for rate rule [C/H3/O;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4194
+reaction('S(1024) + CH3OH(5) <=> S(171) + CH2OH(44)', [1.405261e+11, 0.647, 7.901],
+         id='gas-4194')
+#  Reaction index: Chemkin #4195; RMG #4886
+#  Template reaction: H_Abstraction
+#  Flux pairs: H4N2O2(2), S(171); S(1024), S(173);
+#  From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4195
+reaction('S(1024) + H4N2O2(2) <=> S(171) + S(173)', [4.100000e+04, 2.5, 10.206],
+         id='gas-4195',
+         options='duplicate')
+#  Reaction index: Chemkin #4196; RMG #4887
+#  Template reaction: H_Abstraction
+#  Flux pairs: H4N2O2(2), S(173); S(1024), S(171);
+#  From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4196
+reaction('S(1024) + H4N2O2(2) <=> S(171) + S(173)', [4.100000e+04, 2.5, 10.206],
+         id='gas-4196',
+         options='duplicate')
+#  Reaction index: Chemkin #4197; RMG #4891
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1033), S(173); S(1024), S(171);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4197
+reaction('S(1024) + S(1033) <=> S(171) + S(173)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4197')
+#  Reaction index: Chemkin #4198; RMG #4898
+#  Template reaction: H_Abstraction
+#  Flux pairs: H4N2O2(2), S(171); S(1024), S(171);
+#  Estimated using template [O_sec;N3s_rad] for rate rule [O/H/NonDeO;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4198
+reaction('S(1024) + H4N2O2(2) <=> S(171) + S(171)', [9.200000e+05, 1.94, 2.785],
+         id='gas-4198')
+#  Reaction index: Chemkin #4199; RMG #5282
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(509), S(174); S(1024), S(173);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4199
+reaction('S(1024) + S(509) <=> S(173) + S(174)', [7.729780e+04, 2.32, 9.16],
+         id='gas-4199')
+#  Reaction index: Chemkin #4200; RMG #5288
+#  Template reaction: H_Abstraction
+#  Flux pairs: H4N2O2(2), S(174); S(1024), S(173);
+#  From training reaction 725 used for N3s/H2/NonDeN;O_rad/NonDeO
+#  Exact match found for rate rule [N3s/H2/NonDeN;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4200
+reaction('S(1024) + H4N2O2(2) <=> S(173) + S(174)', [5.800000e+04, 2.69, -1.6],
+         id='gas-4200')
+#  Reaction index: Chemkin #4201; RMG #5309
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(509), S(174); S(1024), S(171);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4201
+reaction('S(1024) + S(509) <=> S(171) + S(174)', [1.840000e+06, 1.94, 0.87],
+         id='gas-4201')
+#  Reaction index: Chemkin #4202; RMG #5315
+#  Template reaction: H_Abstraction
+#  Flux pairs: H4N2O2(2), S(174); S(1024), S(171);
+#  Estimated using template [N3s/H2/NonDeN;N3s_rad] for rate rule [N3s/H2/NonDeN;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4202
+reaction('S(1024) + H4N2O2(2) <=> S(171) + S(174)', [1.295000e+03, 2.83, 0.7],
+         id='gas-4202')
+#  Reaction index: Chemkin #4203; RMG #5984
+#  Template reaction: Disproportionation
+#  Estimated using template [O_rad/NonDeO;NH_s_Rrad] for rate rule [O_rad/NonDeO;N5H_s_Rrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4203
+reaction('HNO3(175) + S(1024) <=> NO3(110) + S(173)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4203')
+#  Reaction index: Chemkin #4204; RMG #5985
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO3(4), NO3(110); S(1024), S(173);
+#  Estimated using average of templates [O_sec;O_rad/NonDeO] + [O/H/OneDeN;O_rad] for rate rule [O/H/OneDeN;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  family: H_Abstraction
+
+# Reaction 4204
+reaction('HNO3(4) + S(1024) <=> NO3(110) + S(173)', [4.486829e+03, 2.72, 5.736],
+         id='gas-4204')
+#  Reaction index: Chemkin #4205; RMG #6006
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;NH_s_Rrad] for rate rule [N3s_rad/NonDe2;N5H_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  family: Disproportionation
+
+# Reaction 4205
+reaction('HNO3(175) + S(1024) <=> NO3(110) + S(171)', [9.099451e+05, 1.94, -1.15],
+         id='gas-4205')
+#  Reaction index: Chemkin #4206; RMG #6009
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO3(4), NO3(110); S(1024), S(171);
+#  Estimated using template [O/H/OneDeN;N3s_rad] for rate rule [O/H/OneDeN;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4206
+reaction('HNO3(4) + S(1024) <=> NO3(110) + S(171)', [9.200000e+05, 1.94, 1.92],
+         id='gas-4206')
+#  Reaction index: Chemkin #4207; RMG #6154
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH3OH(5), CH3O(88); S(1024), S(173);
+#  From training reaction 198 used for O/H/NonDeC;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeC;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4207
+reaction('S(1024) + CH3OH(5) <=> S(173) + CH3O(88)', [1.500000e-03, 4.61, 15.828],
+         id='gas-4207')
+#  Reaction index: Chemkin #4208; RMG #6163
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH3O(88), CH3OH(5); S(171), S(1024);
+#  Estimated using template [N3s_H;O_sec_rad] for rate rule [N3s_sec_H;O_rad/NonDeC]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4208
+reaction('S(171) + CH3O(88) <=> S(1024) + CH3OH(5)', [2.900000e+04, 2.69, 8.305],
+         id='gas-4208')
+#  Reaction index: Chemkin #4209; RMG #6440
+#  Template reaction: Disproportionation
+#  From training reaction 96 used for O_rad/NonDeO;N3s/H2_s_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;N3s/H2_s_Nrad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4209
+reaction('S(1024) + N2H3(133) <=> N2H2(168) + S(173)', [5.800000e+04, 2.69, -1.6],
+         id='gas-4209')
+#  Reaction index: Chemkin #4210; RMG #6449
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); N2H3(133), N2H2(168);
+#  Estimated using template [N3s_rad;N3s/H2_s_Nrad] for rate rule [N3s_rad/NonDe2;N3s/H2_s_Nrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4210
+reaction('S(1024) + N2H3(133) <=> N2H2(168) + S(171)', [9.200000e+05, 1.94, -1.15],
+         id='gas-4210')
+#  Reaction index: Chemkin #4211; RMG #6637
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4211
+reaction('HNOH(132) + S(1024) <=> HNO(102) + S(173)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4211')
+#  Reaction index: Chemkin #4212; RMG #6638
+#  Template reaction: Disproportionation
+#  From training reaction 103 used for O_rad/NonDeO;N3s/H2_s_Orad
+#  Exact match found for rate rule [O_rad/NonDeO;N3s/H2_s_Orad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4212
+reaction('H2NO(129) + S(1024) <=> HNO(102) + S(173)', [5.800000e+04, 2.69, -1.6],
+         id='gas-4212')
+#  Reaction index: Chemkin #4213; RMG #6653
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); HNOH(132), HNO(102);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4213
+reaction('HNOH(132) + S(1024) <=> HNO(102) + S(171)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4213')
+#  Reaction index: Chemkin #4214; RMG #6654
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;N3s/H2_s_Orad] for rate rule [N3s_rad/NonDe2;N3s/H2_s_Orad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4214
+reaction('H2NO(129) + S(1024) <=> HNO(102) + S(171)', [3.600000e+06, 1.94, -1.15],
+         id='gas-4214')
+#  Reaction index: Chemkin #4215; RMG #8083
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO3(222), HNO3(175); S(1024), S(173);
+#  Estimated using an average for rate rule [O_sec;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4215
+reaction('H2NO3(222) + S(1024) <=> HNO3(175) + S(173)', [1.677636e+01, 3.44, 12.071],
+         id='gas-4215')
+#  Reaction index: Chemkin #4216; RMG #8092
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO3(175), H2NO3(222); S(171), S(1024);
+#  Estimated using template [N3s_H;O_sec_rad] for rate rule [N3s_sec_H;O_sec_rad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4216
+reaction('HNO3(175) + S(171) <=> H2NO3(222) + S(1024)', [5.800000e+04, 2.69, 8.305],
+         id='gas-4216')
+#  Reaction index: Chemkin #4217; RMG #8385
+#  Template reaction: R_Addition_MultipleBond
+#  Flux pairs: O(33), S(1024); NH2NO(361), S(1024);
+#  Estimated using template [Od_R;YJ] for rate rule [Od_N3d;O_atom_triplet]
+#  Euclidian distance = 2.8284271247461903
+#  family: R_Addition_MultipleBond
+#  Ea raised from 119.6 to 123.2 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4217
+reaction('O(33) + NH2NO(361) <=> S(1024)', [1.169966e+07, 2.021, 29.448],
+         id='gas-4217')
+#  Reaction index: Chemkin #4218; RMG #8405
+#  Template reaction: H_Abstraction
+#  Flux pairs: O(33), OH(20); S(173), S(1024);
+#  From training reaction 205 used for O/H/NonDeO;O_atom_triplet
+#  Exact match found for rate rule [O/H/NonDeO;O_atom_triplet]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4218
+reaction('O(33) + S(173) <=> OH(20) + S(1024)', [8.700000e+12, 0.0, 5.163],
+         id='gas-4218')
+#  Reaction index: Chemkin #4219; RMG #8413
+#  Template reaction: H_Abstraction
+#  Flux pairs: OH(20), O(33); S(1024), S(171);
+#  Estimated using template [Xrad_H;N3s_rad] for rate rule [OH_rad_H;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4219
+reaction('OH(20) + S(1024) <=> O(33) + S(171)', [2.406845e+05, 2.175, 10.053],
+         id='gas-4219')
+#  Reaction index: Chemkin #4220; RMG #8558
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH2(42), NH(T)(463); S(1024), S(173);
+#  Estimated using template [N3s_rad_H;O_rad] for rate rule [NH2_rad_H;O_rad/NonDeO]
+#  Euclidian distance = 2.23606797749979
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4220
+reaction('NH2(42) + S(1024) <=> NH(T)(463) + S(173)', [6.000000e+13, 0.0, 0.0],
+         id='gas-4220')
+#  Reaction index: Chemkin #4221; RMG #8568
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH2(42), NH(T)(463); S(1024), S(171);
+#  Estimated using template [NH2_rad_H;N3s_rad] for rate rule [NH2_rad_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4221
+reaction('NH2(42) + S(1024) <=> NH(T)(463) + S(171)', [4.220000e-01, 3.93, 16.754],
+         id='gas-4221')
+#  Reaction index: Chemkin #4222; RMG #8774
+#  Template reaction: H_Abstraction
+#  Flux pairs: H4N2O(375), H3N2O(368); S(1024), S(173);
+#  Estimated using an average for rate rule [N3s_pri_H;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4222
+reaction('S(1024) + H4N2O(375) <=> H3N2O(368) + S(173)', [5.800000e+04, 2.69, 8.305],
+         id='gas-4222')
+#  Reaction index: Chemkin #4223; RMG #8785
+#  Template reaction: H_Abstraction
+#  Flux pairs: H4N2O(375), H3N2O(368); S(1024), S(171);
+#  Estimated using template [N3s_pri_H;N3s_rad] for rate rule [N3s_pri_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4223
+reaction('S(1024) + H4N2O(375) <=> H3N2O(368) + S(171)', [6.827884e+04, 2.385, 3.92],
+         id='gas-4223')
+#  Reaction index: Chemkin #4224; RMG #8876
+#  Template reaction: Birad_R_Recombination
+#  Flux pairs: H2N2(464), S(1024); O2(8), S(1024);
+#  Estimated using template [Y_rad;N_R_birad] for rate rule [Y_rad;N_birad/N]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Birad_R_Recombination
+#  Ea raised from 76.5 to 81.2 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4224
+reaction('O2(8) + H2N2(464) <=> S(1024)', [7.536577e+14, -0.375, 19.407],
+         id='gas-4224')
+#  Reaction index: Chemkin #4225; RMG #9055
+#  Template reaction: H_Abstraction
+#  Flux pairs: N2H3(133), H2N2(464); S(1024), S(173);
+#  Estimated using template [N3s_rad_H/H/NonDeN;O_rad] for rate rule [N3s_rad_H/H/NonDeN;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  family: H_Abstraction
+
+# Reaction 4225
+reaction('S(1024) + N2H3(133) <=> H2N2(464) + S(173)', [3.000000e+13, 0.0, 0.0],
+         id='gas-4225')
+#  Reaction index: Chemkin #4226; RMG #9070
+#  Template reaction: H_Abstraction
+#  Flux pairs: N2H3(133), H2N2(464); S(1024), S(171);
+#  Estimated using template [N3s_rad_H/H/NonDeN;N3s_rad] for rate rule [N3s_rad_H/H/NonDeN;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4226
+reaction('S(1024) + N2H3(133) <=> H2N2(464) + S(171)', [3.000000e+13, 0.0, 0.0],
+         id='gas-4226')
+#  Reaction index: Chemkin #4227; RMG #9573
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNOH(132), NOHJJ(665); S(1024), S(173);
+#  Estimated using template [N3s_rad_H_pri;O_rad] for rate rule [N3s_rad_H_pri;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  family: H_Abstraction
+
+# Reaction 4227
+reaction('HNOH(132) + S(1024) <=> NOHJJ(665) + S(173)', [3.000000e+13, 0.0, 0.0],
+         id='gas-4227')
+#  Reaction index: Chemkin #4228; RMG #9585
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNOH(132), NOHJJ(665); S(1024), S(171);
+#  Estimated using template [N3s_rad_H_pri;N3s_rad] for rate rule [N3s_rad_H_pri;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4228
+reaction('HNOH(132) + S(1024) <=> NOHJJ(665) + S(171)', [3.000000e+13, 0.0, 0.0],
+         id='gas-4228')
+#  Reaction index: Chemkin #4229; RMG #9675
+#  Template reaction: Intra_Disproportionation
+#  Flux pairs: S(1024), S(1023);
+#  Estimated using template [R4;Y_rad;XH_Rrad] for rate rule [R4radEndo;Y_rad;XH_Rrad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Intra_Disproportionation
+
+# Reaction 4229
+reaction('S(1024) <=> S(1023)', [1.028445e+09, 0.311, 5.969],
+         id='gas-4229')
+#  Reaction index: Chemkin #4230; RMG #9892
+#  Template reaction: Disproportionation
+#  Estimated using template [O_rad/NonDeO;N3H_s_Rrad] for rate rule [O_rad/NonDeO;N3s/H/NonDe_s_Rrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4230
+reaction('S(1024) + S(174) <=> S(1023) + S(173)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4230')
+#  Reaction index: Chemkin #4231; RMG #9893
+#  Template reaction: Disproportionation
+#  From training reaction 96 used for O_rad/NonDeO;N3s/H2_s_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;N3s/H2_s_Nrad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4231
+reaction('S(1024) + S(173) <=> S(1023) + S(173)', [5.800000e+04, 2.69, -1.6],
+         id='gas-4231')
+#  Reaction index: Chemkin #4232; RMG #9910
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); S(174), S(1023);
+#  Estimated using template [N3s_rad;N3H_s_Rrad] for rate rule [N3s_rad/NonDe2;N3s/H/NonDe_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  family: Disproportionation
+
+# Reaction 4232
+reaction('S(1024) + S(174) <=> S(1023) + S(171)', [9.099451e+05, 1.94, -1.15],
+         id='gas-4232')
+#  Reaction index: Chemkin #4233; RMG #9911
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;N3s/H2_s_Nrad] for rate rule [N3s_rad/NonDe2;N3s/H2_s_Nrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4233
+reaction('S(1024) + S(173) <=> S(1023) + S(171)', [9.200000e+05, 1.94, -1.15],
+         id='gas-4233')
+#  Reaction index: Chemkin #4234; RMG #10369
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4234
+reaction('H2NO2(928) + S(1024) <=> HONO(103) + S(173)', [5.880000e+04, 2.69, -1.6],
+         id='gas-4234')
+#  Reaction index: Chemkin #4235; RMG #10370
+#  Template reaction: Disproportionation
+#  Estimated using template [O_rad/NonDeO;N3H_s_Rrad] for rate rule [O_rad/NonDeO;N3s/H/NonDe_s_Rrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4235
+reaction('H2NO2(417) + S(1024) <=> HONO(103) + S(173)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4235')
+#  Reaction index: Chemkin #4236; RMG #10384
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); H2NO2(928), HONO(103);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4236
+reaction('H2NO2(928) + S(1024) <=> HONO(103) + S(171)', [3.600000e+06, 1.94, -1.15],
+         id='gas-4236')
+#  Reaction index: Chemkin #4237; RMG #10385
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;N3H_s_Rrad] for rate rule [N3s_rad/NonDe2;N3s/H/NonDe_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  family: Disproportionation
+
+# Reaction 4237
+reaction('H2NO2(417) + S(1024) <=> HONO(103) + S(171)', [9.099451e+05, 1.94, -1.15],
+         id='gas-4237')
+#  Reaction index: Chemkin #4238; RMG #10634
+#  Template reaction: R_Addition_MultipleBond
+#  Flux pairs: O2(8), S(1024); H2N2(134), S(1024);
+#  Estimated using template [R_R;O2b] for rate rule [N1dc_R;O2b]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: R_Addition_MultipleBond
+#  Ea raised from 147.7 to 152.0 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4238
+reaction('O2(8) + H2N2(134) <=> S(1024)', [1.674057e+02, 2.988, 36.334],
+         id='gas-4238')
+#  Reaction index: Chemkin #4239; RMG #10774
+#  Template reaction: Disproportionation
+#  Estimated using template [O_rad/NonDeO;NH_s_Rrad] for rate rule [O_rad/NonDeO;N5H_s_Rrad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: Disproportionation
+
+# Reaction 4239
+reaction('S(1024) + H3N2(466) <=> H2N2(134) + S(173)', [8.700000e+04, 2.69, -1.6],
+         id='gas-4239')
+#  Reaction index: Chemkin #4240; RMG #10775
+#  Template reaction: Disproportionation
+#  Estimated using an average for rate rule [O_rad/NonDeO;NH_s_Rrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4240
+reaction('S(1024) + N2H3(133) <=> H2N2(134) + S(173)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4240')
+#  Reaction index: Chemkin #4241; RMG #10790
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); H3N2(466), H2N2(134);
+#  Estimated using template [N3s_rad;NH_s_Rrad] for rate rule [N3s_rad/NonDe2;N5H_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  Multiplied by reaction path degeneracy 3.0
+#  family: Disproportionation
+
+# Reaction 4241
+reaction('S(1024) + H3N2(466) <=> H2N2(134) + S(171)', [2.729835e+06, 1.94, -1.15],
+         id='gas-4241')
+#  Reaction index: Chemkin #4242; RMG #10791
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;NH_s_Rrad] for rate rule [N3s_rad/NonDe2;NH_s_Rrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4242
+reaction('S(1024) + N2H3(133) <=> H2N2(134) + S(171)', [9.099451e+05, 1.94, -1.15],
+         id='gas-4242')
+#  Reaction index: Chemkin #4243; RMG #11131
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4243
+reaction('H2NO2(417) + S(1024) <=> HNO2(92) + S(173)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4243')
+#  Reaction index: Chemkin #4244; RMG #11146
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); H2NO2(417), HNO2(92);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4244
+reaction('H2NO2(417) + S(1024) <=> HNO2(92) + S(171)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4244')
+#  Reaction index: Chemkin #4245; RMG #11564
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3NO2(681), H2NO2(417); S(1024), S(173);
+#  From training reaction 718 used for O/H/NonDeN;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeN;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4245
+reaction('S(1024) + H3NO2(681) <=> H2NO2(417) + S(173)', [2.800000e+04, 2.69, 15.62],
+         id='gas-4245')
+#  Reaction index: Chemkin #4246; RMG #11587
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3NO2(681), H2NO2(417); S(1024), S(171);
+#  Estimated using template [O_sec;N3s_rad] for rate rule [O/H/NonDeN;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4246
+reaction('S(1024) + H3NO2(681) <=> H2NO2(417) + S(171)', [1.840000e+06, 1.94, 2.785],
+         id='gas-4246')
+#  Reaction index: Chemkin #4247; RMG #12408
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3NO2(565), H2NO2(556); S(1024), S(173);
+#  From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4247
+reaction('S(1024) + H3NO2(565) <=> H2NO2(556) + S(173)', [4.100000e+04, 2.5, 10.206],
+         id='gas-4247')
+#  Reaction index: Chemkin #4248; RMG #12418
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3NO2(565), H2NO2(556); S(1024), S(171);
+#  Estimated using template [O_sec;N3s_rad] for rate rule [O/H/NonDeO;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4248
+reaction('S(1024) + H3NO2(565) <=> H2NO2(556) + S(171)', [9.200000e+05, 1.94, 2.785],
+         id='gas-4248')
+#  Reaction index: Chemkin #4249; RMG #12648
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(172), HNO2(571); S(1024), S(173);
+#  Estimated using template [N3s_rad_H_pri;O_rad] for rate rule [N3s_rad_H_pri;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  family: H_Abstraction
+
+# Reaction 4249
+reaction('H2NO2(172) + S(1024) <=> HNO2(571) + S(173)', [3.000000e+13, 0.0, 0.0],
+         id='gas-4249')
+#  Reaction index: Chemkin #4250; RMG #12658
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(172), HNO2(571); S(1024), S(171);
+#  Estimated using template [N3s_rad_H_pri;N3s_rad] for rate rule [N3s_rad_H_pri;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4250
+reaction('H2NO2(172) + S(1024) <=> HNO2(571) + S(171)', [3.000000e+13, 0.0, 0.0],
+         id='gas-4250')
+#  Reaction index: Chemkin #4251; RMG #15330
+#  Template reaction: Disproportionation
+#  Estimated using template [O_rad/NonDeO;NH_s_Rrad] for rate rule [O_rad/NonDeO;N5H_s_Rrad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4251
+reaction('S(1024) + S(1203) <=> S(1201) + S(173)', [5.800000e+04, 2.69, -1.6],
+         id='gas-4251')
+#  Reaction index: Chemkin #4252; RMG #15331
+#  Template reaction: Disproportionation
+#  Estimated using an average for rate rule [O_rad/NonDeO;NH_s_Rrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4252
+reaction('S(1024) + S(174) <=> S(1201) + S(173)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4252')
+#  Reaction index: Chemkin #4253; RMG #15348
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); S(1203), S(1201);
+#  Estimated using template [N3s_rad;NH_s_Rrad] for rate rule [N3s_rad/NonDe2;N5H_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4253
+reaction('S(1024) + S(1203) <=> S(1201) + S(171)', [1.819890e+06, 1.94, -1.15],
+         id='gas-4253')
+#  Reaction index: Chemkin #4254; RMG #15349
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad;NH_s_Rrad] for rate rule [N3s_rad/NonDe2;NH_s_Rrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4254
+reaction('S(1024) + S(174) <=> S(1201) + S(171)', [9.099451e+05, 1.94, -1.15],
+         id='gas-4254')
+#  Reaction index: Chemkin #4255; RMG #16637
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(410), S(419); S(1024), S(173);
+#  Estimated using an average for rate rule [N3s_pri_H;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4255
+reaction('S(1024) + S(410) <=> S(173) + S(419)', [5.800000e+04, 2.69, 8.305],
+         id='gas-4255')
+#  Reaction index: Chemkin #4256; RMG #16651
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(410), S(419); S(1024), S(171);
+#  Estimated using template [N3s_pri_H;N3s_rad] for rate rule [N3s_pri_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4256
+reaction('S(1024) + S(410) <=> S(171) + S(419)', [6.827884e+04, 2.385, 3.92],
+         id='gas-4256')
+#  Reaction index: Chemkin #4257; RMG #16972
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH3NH(471), H3N2(466); S(1024), S(173);
+#  Estimated using template [X_H_or_Xrad_H_Xbirad_H_Xtrirad_H;O_rad/NonDeO] for rate rule [NH_singlet_H;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  family: H_Abstraction
+
+# Reaction 4257
+reaction('S(1024) + NH3NH(471) <=> H3N2(466) + S(173)', [5.161431e+03, 2.522, 7.859],
+         id='gas-4257')
+#  Reaction index: Chemkin #4258; RMG #16981
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH3NH(471), H3N2(466); S(1024), S(171);
+#  Estimated using template [Xbirad_H;N3s_rad] for rate rule [NH_singlet_H;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4258
+reaction('S(1024) + NH3NH(471) <=> H3N2(466) + S(171)', [9.200000e+05, 1.94, 24.191],
+         id='gas-4258')
+#  Reaction index: Chemkin #4259; RMG #17490
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(509), S(478); S(1024), S(173);
+#  From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4259
+reaction('S(1024) + S(509) <=> S(173) + S(478)', [4.100000e+04, 2.5, 10.206],
+         id='gas-4259')
+#  Reaction index: Chemkin #4260; RMG #17502
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(509), S(478); S(1024), S(171);
+#  Estimated using template [O_sec;N3s_rad] for rate rule [O/H/NonDeO;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4260
+reaction('S(1024) + S(509) <=> S(171) + S(478)', [9.200000e+05, 1.94, 2.785],
+         id='gas-4260')
+#  Reaction index: Chemkin #4261; RMG #19992
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(418), S(410); S(173), S(1024);
+#  Estimated using template [O/H/NonDeO;Y_rad] for rate rule [O/H/NonDeO;N5_rad]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4261
+reaction('S(173) + S(418) <=> S(1024) + S(410)', [1.782799e+00, 3.412, 10.409],
+         id='gas-4261')
+#  Reaction index: Chemkin #4262; RMG #20017
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(418), S(410); S(171), S(1024);
+#  Estimated using template [N3s_H;Y_rad] for rate rule [N3s_sec_H;N5_rad]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4262
+reaction('S(171) + S(418) <=> S(1024) + S(410)', [1.163861e+07, 1.765, 12.82],
+         id='gas-4262')
+#  Reaction index: Chemkin #4263; RMG #20599
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(509), S(1203); S(1024), S(173);
+#  Estimated using template [X_H_or_Xrad_H_Xbirad_H_Xtrirad_H;O_rad/NonDeO] for rate rule [NH_singlet_H;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  family: H_Abstraction
+
+# Reaction 4263
+reaction('S(1024) + S(509) <=> S(173) + S(1203)', [5.161431e+03, 2.522, 7.859],
+         id='gas-4263')
+#  Reaction index: Chemkin #4264; RMG #20610
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(509), S(1203); S(1024), S(171);
+#  Estimated using template [Xbirad_H;N3s_rad] for rate rule [NH_singlet_H;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4264
+reaction('S(1024) + S(509) <=> S(171) + S(1203)', [9.200000e+05, 1.94, 24.191],
+         id='gas-4264')
+#  Reaction index: Chemkin #4265; RMG #21382
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH2(51), CH3(14); S(173), S(1024);
+#  Estimated using average of templates [O_sec;CH2_triplet] + [O/H/NonDeO;Y_1centerbirad] for rate rule [O/H/NonDeO;CH2_triplet]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4265
+reaction('S(173) + CH2(51) <=> S(1024) + CH3(14)', [1.119285e+07, 1.55, 5.845],
+         id='gas-4265')
+#  Reaction index: Chemkin #4266; RMG #21392
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH2(51), CH3(14); S(171), S(1024);
+#  Estimated using template [N3s_H;Y_1centerbirad] for rate rule [N3s_sec_H;CH2_triplet]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4266
+reaction('S(171) + CH2(51) <=> S(1024) + CH3(14)', [5.885935e+03, 2.776, 13.717],
+         id='gas-4266')
+#  Reaction index: Chemkin #4267; RMG #21922
+#  Template reaction: H_Abstraction
+#  Flux pairs: NNO(374), H3N2O(366); S(1024), S(173);
+#  From training reaction 725 used for N3s/H2/NonDeN;O_rad/NonDeO
+#  Exact match found for rate rule [N3s/H2/NonDeN;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4267
+reaction('S(1024) + NNO(374) <=> H3N2O(366) + S(173)', [5.800000e+04, 2.69, -1.6],
+         id='gas-4267')
+#  Reaction index: Chemkin #4268; RMG #21950
+#  Template reaction: H_Abstraction
+#  Flux pairs: NNO(374), H3N2O(366); S(1024), S(171);
+#  Estimated using template [N3s/H2/NonDeN;N3s_rad] for rate rule [N3s/H2/NonDeN;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4268
+reaction('S(1024) + NNO(374) <=> H3N2O(366) + S(171)', [1.295000e+03, 2.83, 0.7],
+         id='gas-4268')
+#  Reaction index: Chemkin #4269; RMG #23795
+#  Template reaction: R_Recombination
+#  Flux pairs: S(1024), S(1027); H(16), S(1027);
+#  BM rule fitted to 2 training reactions at node Root_1R->H_N-2R-inRing_N-2R->H_N-2CNOS->S_N-2CNO->C_Ext-2NO-R_2NO->N
+#      Total Standard Deviation in ln(k): 11.5401827615
+#  Exact match found for rate rule [Root_1R->H_N-2R-inRing_N-2R->H_N-2CNOS->S_N-2CNO->C_Ext-2NO-R_2NO->N]
+#  Euclidian distance = 0
+#  family: R_Recombination
+
+# Reaction 4269
+reaction('H(16) + S(1024) <=> S(1027)', [1.122060e+13, 0.315, 0.0],
+         id='gas-4269')
+#  Reaction index: Chemkin #4270; RMG #23805
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); H2NO3(221), HNO3(4);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4270
+reaction('H2NO3(221) + S(1024) <=> HNO3(4) + S(1027)', [3.200000e+06, 1.87, 2.1],
+         id='gas-4270')
+#  Reaction index: Chemkin #4271; RMG #23806
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;NH_s_Rrad] for rate rule [N5s_rad;N5H_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  family: Disproportionation
+
+# Reaction 4271
+reaction('H2NO3(222) + S(1024) <=> HNO3(4) + S(1027)', [4.287443e+06, 1.922, -0.707],
+         id='gas-4271')
+#  Reaction index: Chemkin #4272; RMG #23815
+#  Template reaction: H_Abstraction
+#  Flux pairs: HO2(36), O2(8); S(1024), S(1027);
+#  Estimated using template [Orad_O_H;Y_rad] for rate rule [Orad_O_H;N5_rad]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+#  Ea raised from -6.9 to 0.6 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4272
+reaction('HO2(36) + S(1024) <=> O2(8) + S(1027)', [4.949747e+10, 0.0, 0.154],
+         id='gas-4272')
+#  Reaction index: Chemkin #4273; RMG #23823
+#  Template reaction: CO_Disproportionation
+#  Flux pairs: S(1024), S(1027); HCO(18), CO(11);
+#  Estimated using template [Y_rad;HCO] for rate rule [N5s_rad;HCO]
+#  Euclidian distance = 2.0
+#  family: CO_Disproportionation
+
+# Reaction 4273
+reaction('S(1024) + HCO(18) <=> S(1027) + CO(11)', [1.347651e+15, -0.548, 0.393],
+         id='gas-4273')
+#  Reaction index: Chemkin #4274; RMG #23826
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); CH2OH(44), CH2O(13);
+#  Estimated using template [Y_rad;O_Csrad] for rate rule [N5s_rad;O_Csrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4274
+reaction('S(1024) + CH2OH(44) <=> S(1027) + CH2O(13)', [8.490000e+13, 0.0, 0.0],
+         id='gas-4274')
+#  Reaction index: Chemkin #4275; RMG #23827
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;Cmethyl_Orad] for rate rule [N5s_rad;Cmethyl_Orad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: Disproportionation
+
+# Reaction 4275
+reaction('S(1024) + CH3O(88) <=> S(1027) + CH2O(13)', [5.430000e+13, 0.0, 0.0],
+         id='gas-4275')
+#  Reaction index: Chemkin #4276; RMG #23832
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH3(14), CH4(24); S(1027), S(1024);
+#  Estimated using an average for rate rule [N5_H;C_methyl]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4276
+reaction('S(1027) + CH3(14) <=> S(1024) + CH4(24)', [2.430000e+06, 1.87, 4.84],
+         id='gas-4276')
+#  Reaction index: Chemkin #4277; RMG #23836
+#  Template reaction: H_Abstraction
+#  Flux pairs: H(16), H2(10); S(1027), S(1024);
+#  Estimated using an average for rate rule [N5_H;H_rad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4277
+reaction('H(16) + S(1027) <=> H2(10) + S(1024)', [7.200000e+08, 1.5, 4.16],
+         id='gas-4277')
+#  Reaction index: Chemkin #4278; RMG #23840
+#  Template reaction: H_Abstraction
+#  Flux pairs: C2H5(17), C2H6(12); S(1027), S(1024);
+#  Estimated using template [X_H;C_rad/H2/Cs\H3] for rate rule [N5_H;C_rad/H2/Cs\H3]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4278
+reaction('S(1027) + C2H5(17) <=> S(1024) + C2H6(12)', [3.733232e+01, 3.188, 13.946],
+         id='gas-4278')
+#  Reaction index: Chemkin #4279; RMG #23845
+#  Template reaction: H_Abstraction
+#  Flux pairs: HCO(18), CH2O(13); S(1027), S(1024);
+#  Estimated using template [X_H;CO_pri_rad] for rate rule [N5_H;CO_pri_rad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4279
+reaction('S(1027) + HCO(18) <=> S(1024) + CH2O(13)', [1.192285e+05, 2.421, 29.187],
+         id='gas-4279')
+#  Reaction index: Chemkin #4280; RMG #23854
+#  Template reaction: H_Abstraction
+#  Flux pairs: OH(20), H2O(6); S(1027), S(1024);
+#  Estimated using an average for rate rule [N5_H;O_pri_rad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4280
+reaction('OH(20) + S(1027) <=> H2O(6) + S(1024)', [3.600000e+06, 2.0, -0.79],
+         id='gas-4280')
+#  Reaction index: Chemkin #4281; RMG #23856
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); C2H5(17), C2H4(21);
+#  Estimated using template [Y_rad;Cmethyl_Csrad] for rate rule [N5s_rad;Cmethyl_Csrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: Disproportionation
+
+# Reaction 4281
+reaction('S(1024) + C2H5(17) <=> S(1027) + C2H4(21)', [6.570000e+14, -0.68, 0.0],
+         id='gas-4281')
+#  Reaction index: Chemkin #4282; RMG #23861
+#  Template reaction: H_Abstraction
+#  Flux pairs: NNO(374), H3N2O(170); S(1024), S(1027);
+#  Estimated using template [O/H/NonDeN;Y_rad] for rate rule [O/H/NonDeN;N5_rad]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+#  Ea raised from -2.5 to 23.1 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4282
+reaction('S(1024) + NNO(374) <=> H3N2O(170) + S(1027)', [1.200000e+06, 2.0, 5.51],
+         id='gas-4282')
+#  Reaction index: Chemkin #4283; RMG #23865
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3N2O(170), H4N2O(375); S(1027), S(1024);
+#  Estimated using template [N5_H;Y_rad] for rate rule [N5_H;N5_rad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4283
+reaction('H3N2O(170) + S(1027) <=> S(1024) + H4N2O(375)', [1.148253e+07, 1.828, 2.27],
+         id='gas-4283')
+#  Reaction index: Chemkin #4284; RMG #23871
+#  Template reaction: H_Abstraction
+#  Flux pairs: HO2(36), H2O2(37); S(1027), S(1024);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4284
+reaction('HO2(36) + S(1027) <=> H2O2(37) + S(1024)', [1.159467e+05, 2.32, 9.16],
+         id='gas-4284')
+#  Reaction index: Chemkin #4285; RMG #23878
+#  Template reaction: H_Abstraction
+#  Flux pairs: N2H3(133), N2H4(169); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_pri]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4285
+reaction('N2H3(133) + S(1027) <=> S(1024) + N2H4(169)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4285')
+#  Reaction index: Chemkin #4286; RMG #23882
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH3NH(471), N2H3(133); S(1024), S(1027);
+#  Estimated using template [N5_H;Y_rad] for rate rule [N5_H;N5_rad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4286
+reaction('S(1024) + NH3NH(471) <=> N2H3(133) + S(1027)', [1.148253e+07, 1.828, 2.27],
+         id='gas-4286')
+#  Reaction index: Chemkin #4287; RMG #23884
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); H3N2O(366), H2N2O(367);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4287
+reaction('S(1024) + H3N2O(366) <=> H2N2O(367) + S(1027)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4287')
+#  Reaction index: Chemkin #4288; RMG #23885
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;NH_s_Rrad] for rate rule [N5s_rad;N5H_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+#  Ea raised from -3.0 to 14.0 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4288
+reaction('S(1024) + H3N2O(368) <=> H2N2O(367) + S(1027)', [8.574887e+06, 1.922, 3.355],
+         id='gas-4288')
+#  Reaction index: Chemkin #4289; RMG #23890
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;N3s/H2_s_Nrad] for rate rule [N5s_rad;N3s/H2_s_Nrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4289
+reaction('S(1024) + H3N2O(170) <=> H2N2O(367) + S(1027)', [1.640000e+06, 1.87, 1.82],
+         id='gas-4289')
+#  Reaction index: Chemkin #4290; RMG #23893
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH2(42), NH3(43); S(1027), S(1024);
+#  Estimated using an average for rate rule [N5_H;NH2_rad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4290
+reaction('NH2(42) + S(1027) <=> S(1024) + NH3(43)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4290')
+#  Reaction index: Chemkin #4291; RMG #23897
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(172), H3NO2(565); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_pri]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4291
+reaction('H2NO2(172) + S(1027) <=> S(1024) + H3NO2(565)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4291')
+#  Reaction index: Chemkin #4292; RMG #23899
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); H3N2O(365), NH2NO(361);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4292
+reaction('S(1024) + H3N2O(365) <=> NH2NO(361) + S(1027)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4292')
+#  Reaction index: Chemkin #4293; RMG #23900
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;N3H_s_Rrad] for rate rule [N5s_rad;N3s/H/NonDe_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  family: Disproportionation
+
+# Reaction 4293
+reaction('S(1024) + H3N2O(170) <=> NH2NO(361) + S(1027)', [4.195969e+06, 1.909, -0.511],
+         id='gas-4293')
+#  Reaction index: Chemkin #4294; RMG #23908
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNOH(132), NH2OH(3); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_pri]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4294
+reaction('HNOH(132) + S(1027) <=> S(1024) + NH2OH(3)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4294')
+#  Reaction index: Chemkin #4295; RMG #23910
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); HNO2(698), NO2(91);
+#  Estimated using template [Y_rad;XH_s_Rbirad] for rate rule [N5s_rad;XH_s_Rbirad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4295
+reaction('HNO2(698) + S(1024) <=> NO2(91) + S(1027)', [6.076685e+06, 1.928, -1.14],
+         id='gas-4295',
+         options='duplicate')
+#  Reaction index: Chemkin #4296; RMG #23911
+#  Template reaction: H_Abstraction
+#  Flux pairs: NO2(91), HNO2(92); S(1027), S(1024);
+#  Estimated using template [N5_H;Y_rad] for rate rule [N5_H;N5dc_rad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4296
+reaction('NO2(91) + S(1027) <=> HNO2(92) + S(1024)', [1.148253e+07, 1.828, 2.27],
+         id='gas-4296')
+#  Reaction index: Chemkin #4297; RMG #23913
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;N3H_s_Rrad] for rate rule [N5s_rad;N3H_s_Rrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4297
+reaction('HNO2(699) + S(1024) <=> NO2(91) + S(1027)', [4.195969e+06, 1.909, -0.511],
+         id='gas-4297')
+#  Reaction index: Chemkin #4298; RMG #23914
+#  Template reaction: H_Abstraction
+#  Flux pairs: NO2(91), HONO(103); S(1027), S(1024);
+#  Estimated using template [X_H;O_rad/OneDeN] for rate rule [N5_H;O_rad/OneDeN]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 6.0
+#  family: H_Abstraction
+
+# Reaction 4298
+reaction('NO2(91) + S(1027) <=> HONO(103) + S(1024)', [1.017438e+00, 3.755, 8.482],
+         id='gas-4298')
+#  Reaction index: Chemkin #4299; RMG #23918
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); HNO2(698), NO2(91);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4299
+reaction('HNO2(698) + S(1024) <=> NO2(91) + S(1027)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4299',
+         options='duplicate')
+#  Reaction index: Chemkin #4300; RMG #23920
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO(129), NH2OH(3); S(1027), S(1024);
+#  Estimated using template [X_H;O_sec_rad] for rate rule [N5_H;O_rad/NonDeN]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4300
+reaction('H2NO(129) + S(1027) <=> S(1024) + NH2OH(3)', [1.406956e+03, 2.828, 10.546],
+         id='gas-4300')
+#  Reaction index: Chemkin #4301; RMG #23923
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO(129), H3NO(826); S(1027), S(1024);
+#  Estimated using template [N5_H;Y_rad] for rate rule [N5_H;N5_rad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4301
+reaction('H2NO(129) + S(1027) <=> S(1024) + H3NO(826)', [1.148253e+07, 1.828, 2.27],
+         id='gas-4301')
+#  Reaction index: Chemkin #4302; RMG #23929
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH2OH(44), CH3OH(5); S(1027), S(1024);
+#  Estimated using template [X_H;C_rad/H2/O] for rate rule [N5_H;C_rad/H2/O]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4302
+reaction('S(1027) + CH2OH(44) <=> S(1024) + CH3OH(5)', [9.060000e+01, 2.95, 11.98],
+         id='gas-4302')
+#  Reaction index: Chemkin #4303; RMG #23938
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1033), S(1027); S(1024), S(173);
+#  From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4303
+reaction('S(1024) + S(1033) <=> S(173) + S(1027)', [4.100000e+04, 2.5, 10.206],
+         id='gas-4303',
+         options='duplicate')
+#  Reaction index: Chemkin #4304; RMG #23939
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(173), H4N2O2(2); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4304
+reaction('S(173) + S(1027) <=> S(1024) + H4N2O2(2)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4304')
+#  Reaction index: Chemkin #4305; RMG #23942
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1033), S(173); S(1024), S(1027);
+#  From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4305
+reaction('S(1024) + S(1033) <=> S(173) + S(1027)', [4.100000e+04, 2.5, 10.206],
+         id='gas-4305',
+         options='duplicate')
+#  Reaction index: Chemkin #4306; RMG #23948
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1033), S(1027); S(1024), S(171);
+#  Estimated using template [O_sec;N3s_rad] for rate rule [O/H/NonDeO;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4306
+reaction('S(1024) + S(1033) <=> S(171) + S(1027)', [9.200000e+05, 1.94, 2.785],
+         id='gas-4306')
+#  Reaction index: Chemkin #4307; RMG #23950
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(171), H4N2O2(2); S(1027), S(1024);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4307
+reaction('S(171) + S(1027) <=> S(1024) + H4N2O2(2)', [1.159467e+05, 2.32, 9.16],
+         id='gas-4307')
+#  Reaction index: Chemkin #4308; RMG #23955
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(509), S(174); S(1024), S(1027);
+#  Estimated using template [N5_H;Y_rad] for rate rule [N5_H;N5_rad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4308
+reaction('S(1024) + S(509) <=> S(1027) + S(174)', [7.655020e+06, 1.828, 2.27],
+         id='gas-4308')
+#  Reaction index: Chemkin #4309; RMG #23959
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(174), H4N2O2(2); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_pri]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4309
+reaction('S(1027) + S(174) <=> S(1024) + H4N2O2(2)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4309')
+#  Reaction index: Chemkin #4310; RMG #23968
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;NH_s_Rrad] for rate rule [N5s_rad;N5H_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  family: Disproportionation
+
+# Reaction 4310
+reaction('HNO3(175) + S(1024) <=> NO3(110) + S(1027)', [4.287443e+06, 1.922, -0.707],
+         id='gas-4310')
+#  Reaction index: Chemkin #4311; RMG #23969
+#  Template reaction: H_Abstraction
+#  Flux pairs: NO3(110), HNO3(4); S(1027), S(1024);
+#  Estimated using template [X_H;O_rad/OneDeN] for rate rule [N5_H;O_rad/OneDeN]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 9.0
+#  family: H_Abstraction
+
+# Reaction 4311
+reaction('NO3(110) + S(1027) <=> HNO3(4) + S(1024)', [1.526157e+00, 3.755, 8.482],
+         id='gas-4311')
+#  Reaction index: Chemkin #4312; RMG #23974
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH3O(88), CH3OH(5); S(1027), S(1024);
+#  Estimated using template [X_H;O_rad/NonDeC] for rate rule [N5_H;O_rad/NonDeC]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4312
+reaction('S(1027) + CH3O(88) <=> S(1024) + CH3OH(5)', [2.144221e+04, 2.393, 5.607],
+         id='gas-4312')
+#  Reaction index: Chemkin #4313; RMG #23979
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); N2H3(133), N2H2(168);
+#  Estimated using template [Y_rad;N3s/H2_s_Nrad] for rate rule [N5s_rad;N3s/H2_s_Nrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4313
+reaction('S(1024) + N2H3(133) <=> N2H2(168) + S(1027)', [1.640000e+06, 1.87, 1.82],
+         id='gas-4313')
+#  Reaction index: Chemkin #4314; RMG #23982
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); HNOH(132), HNO(102);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4314
+reaction('HNOH(132) + S(1024) <=> HNO(102) + S(1027)', [1.600000e+06, 1.87, 5.026],
+         id='gas-4314')
+#  Reaction index: Chemkin #4315; RMG #23983
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;N3s/H2_s_Orad] for rate rule [N5s_rad;N3s/H2_s_Orad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+#  Ea raised from 49.5 to 49.8 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4315
+reaction('H2NO(129) + S(1024) <=> HNO(102) + S(1027)', [3.200000e+06, 1.87, 11.893],
+         id='gas-4315')
+#  Reaction index: Chemkin #4316; RMG #24008
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO3(175), H2NO3(222); S(1027), S(1024);
+#  Estimated using average of templates [X_H;O_sec_rad] + [N5_H;O_rad] for rate rule [N5_H;O_sec_rad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 6.0
+#  family: H_Abstraction
+
+# Reaction 4316
+reaction('HNO3(175) + S(1027) <=> H2NO3(222) + S(1024)', [1.423382e+05, 2.414, 4.878],
+         id='gas-4316')
+#  Reaction index: Chemkin #4317; RMG #24014
+#  Template reaction: H_Abstraction
+#  Flux pairs: O(33), OH(20); S(1027), S(1024);
+#  Estimated using an average for rate rule [N5_H;O_atom_triplet]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4317
+reaction('O(33) + S(1027) <=> OH(20) + S(1024)', [5.100000e+08, 1.5, 2.36],
+         id='gas-4317')
+#  Reaction index: Chemkin #4318; RMG #24017
+#  Template reaction: H_Abstraction
+#  Flux pairs: NH(T)(463), NH2(42); S(1027), S(1024);
+#  Estimated using average of templates [X_H;NH_triplet] + [N5_H;Y_1centerbirad] for rate rule [N5_H;NH_triplet]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4318
+reaction('NH(T)(463) + S(1027) <=> NH2(42) + S(1024)', [1.593329e+09, 1.44, 7.924],
+         id='gas-4318')
+#  Reaction index: Chemkin #4319; RMG #24020
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3N2O(368), H4N2O(375); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_pri]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4319
+reaction('H3N2O(368) + S(1027) <=> S(1024) + H4N2O(375)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4319')
+#  Reaction index: Chemkin #4320; RMG #24025
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2N2(464), N2H3(133); S(1027), S(1024);
+#  Estimated using an average for rate rule [N5_H;Y_1centerbirad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4320
+reaction('H2N2(464) + S(1027) <=> S(1024) + N2H3(133)', [5.100000e+08, 1.5, 2.36],
+         id='gas-4320')
+#  Reaction index: Chemkin #4321; RMG #24030
+#  Template reaction: H_Abstraction
+#  Flux pairs: NOHJJ(665), HNOH(132); S(1027), S(1024);
+#  Estimated using an average for rate rule [N5_H;Y_1centerbirad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4321
+reaction('NOHJJ(665) + S(1027) <=> HNOH(132) + S(1024)', [5.100000e+08, 1.5, 2.36],
+         id='gas-4321')
+#  Reaction index: Chemkin #4322; RMG #24031
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); S(174), S(1023);
+#  Estimated using template [Y_rad;N3H_s_Rrad] for rate rule [N5s_rad;N3s/H/NonDe_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  family: Disproportionation
+
+# Reaction 4322
+reaction('S(1024) + S(174) <=> S(1023) + S(1027)', [4.195969e+06, 1.909, -0.511],
+         id='gas-4322')
+#  Reaction index: Chemkin #4323; RMG #24032
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;N3s/H2_s_Nrad] for rate rule [N5s_rad;N3s/H2_s_Nrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4323
+reaction('S(1024) + S(173) <=> S(1023) + S(1027)', [1.640000e+06, 1.87, 1.82],
+         id='gas-4323')
+#  Reaction index: Chemkin #4324; RMG #24038
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); H2NO2(928), HONO(103);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4324
+reaction('H2NO2(928) + S(1024) <=> HONO(103) + S(1027)', [3.200000e+06, 1.87, 2.1],
+         id='gas-4324')
+#  Reaction index: Chemkin #4325; RMG #24039
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;N3H_s_Rrad] for rate rule [N5s_rad;N3s/H/NonDe_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  family: Disproportionation
+
+# Reaction 4325
+reaction('H2NO2(417) + S(1024) <=> HONO(103) + S(1027)', [4.195969e+06, 1.909, -0.511],
+         id='gas-4325')
+#  Reaction index: Chemkin #4326; RMG #24043
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); H3N2(466), H2N2(134);
+#  Estimated using template [Y_rad;NH_s_Rrad] for rate rule [N5s_rad;N5H_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  Multiplied by reaction path degeneracy 3.0
+#  family: Disproportionation
+
+# Reaction 4326
+reaction('S(1024) + H3N2(466) <=> H2N2(134) + S(1027)', [1.286233e+07, 1.922, -0.707],
+         id='gas-4326')
+#  Reaction index: Chemkin #4327; RMG #24044
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;NH_s_Rrad] for rate rule [N5s_rad;NH_s_Rrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+#  Ea raised from -3.0 to 87.7 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4327
+reaction('S(1024) + N2H3(133) <=> H2N2(134) + S(1027)', [4.287443e+06, 1.922, 20.969],
+         id='gas-4327')
+#  Reaction index: Chemkin #4328; RMG #24049
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); H2NO2(417), HNO2(92);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4328
+reaction('H2NO2(417) + S(1024) <=> HNO2(92) + S(1027)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4328')
+#  Reaction index: Chemkin #4329; RMG #24056
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(417), H3NO2(681); S(1027), S(1024);
+#  Estimated using template [X_H;O_sec_rad] for rate rule [N5_H;O_rad/NonDeN]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4329
+reaction('H2NO2(417) + S(1027) <=> S(1024) + H3NO2(681)', [1.406956e+03, 2.828, 10.546],
+         id='gas-4329')
+#  Reaction index: Chemkin #4330; RMG #24068
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(556), H3NO2(565); S(1027), S(1024);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4330
+reaction('H2NO2(556) + S(1027) <=> S(1024) + H3NO2(565)', [1.159467e+05, 2.32, 9.16],
+         id='gas-4330')
+#  Reaction index: Chemkin #4331; RMG #24072
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO2(571), H2NO2(172); S(1027), S(1024);
+#  Estimated using an average for rate rule [N5_H;Y_1centerbirad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4331
+reaction('HNO2(571) + S(1027) <=> H2NO2(172) + S(1024)', [5.100000e+08, 1.5, 2.36],
+         id='gas-4331')
+#  Reaction index: Chemkin #4332; RMG #24098
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); S(1203), S(1201);
+#  Estimated using template [Y_rad;NH_s_Rrad] for rate rule [N5s_rad;N5H_s_Rrad]
+#  Euclidian distance = 2.23606797749979
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4332
+reaction('S(1024) + S(1203) <=> S(1201) + S(1027)', [8.574887e+06, 1.922, -0.707],
+         id='gas-4332')
+#  Reaction index: Chemkin #4333; RMG #24099
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;NH_s_Rrad] for rate rule [N5s_rad;NH_s_Rrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4333
+reaction('S(1024) + S(174) <=> S(1201) + S(1027)', [4.287443e+06, 1.922, -0.707],
+         id='gas-4333')
+#  Reaction index: Chemkin #4334; RMG #24115
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(419), S(410); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_pri]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4334
+reaction('S(1027) + S(419) <=> S(1024) + S(410)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4334')
+#  Reaction index: Chemkin #4335; RMG #24118
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3N2(466), NH3NH(471); S(1027), S(1024);
+#  Estimated using template [X_H;Y_1centertrirad] for rate rule [N5_H;N_atom_doublet]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4335
+reaction('H3N2(466) + S(1027) <=> S(1024) + NH3NH(471)', [2.400000e+14, 0.0, 25.138],
+         id='gas-4335')
+#  Reaction index: Chemkin #4336; RMG #24125
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(478), S(509); S(1027), S(1024);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4336
+reaction('S(1027) + S(478) <=> S(1024) + S(509)', [1.159467e+05, 2.32, 9.16],
+         id='gas-4336')
+#  Reaction index: Chemkin #4337; RMG #24152
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(418), S(410); S(1027), S(1024);
+#  Estimated using template [N5_H;Y_rad] for rate rule [N5_H;N5_rad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4337
+reaction('S(1027) + S(418) <=> S(1024) + S(410)', [1.148253e+07, 1.828, 2.27],
+         id='gas-4337')
+#  Reaction index: Chemkin #4338; RMG #24156
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1203), S(509); S(1027), S(1024);
+#  Estimated using template [X_H;Y_1centertrirad] for rate rule [N5_H;N_atom_doublet]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4338
+reaction('S(1027) + S(1203) <=> S(1024) + S(509)', [2.400000e+14, 0.0, 25.138],
+         id='gas-4338')
+#  Reaction index: Chemkin #4339; RMG #24163
+#  Template reaction: H_Abstraction
+#  Flux pairs: CH2(51), CH3(14); S(1027), S(1024);
+#  Estimated using average of templates [X_H;CH2_triplet] + [N5_H;Y_1centerbirad] for rate rule [N5_H;CH2_triplet]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4339
+reaction('S(1027) + CH2(51) <=> S(1024) + CH3(14)', [2.282207e+07, 1.555, 3.368],
+         id='gas-4339')
+#  Reaction index: Chemkin #4340; RMG #24167
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3N2O(366), NNO(374); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_pri]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4340
+reaction('H3N2O(366) + S(1027) <=> S(1024) + NNO(374)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4340')
+#  Reaction index: Chemkin #4341; RMG #24186
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1027), S(1033); S(1027), S(1024);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4341
+reaction('S(1027) + S(1027) <=> S(1024) + S(1033)', [1.159467e+05, 2.32, 9.16],
+         id='gas-4341')
+#  Reaction index: Chemkin #4342; RMG #25738
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(172), HNOO(572); S(1024), S(173);
+#  From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4342
+reaction('H2NO2(172) + S(1024) <=> HNOO(572) + S(173)', [4.100000e+04, 2.5, 10.206],
+         id='gas-4342')
+#  Reaction index: Chemkin #4343; RMG #25739
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(556), HNOO(572); S(1024), S(173);
+#  From training reaction 712 used for N3s/H2/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [N3s/H2/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4343
+reaction('H2NO2(556) + S(1024) <=> HNOO(572) + S(173)', [5.800000e+04, 2.69, 9.56],
+         id='gas-4343')
+#  Reaction index: Chemkin #4344; RMG #25756
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(172), HNOO(572); S(1024), S(171);
+#  Estimated using template [O_sec;N3s_rad] for rate rule [O/H/NonDeO;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4344
+reaction('H2NO2(172) + S(1024) <=> HNOO(572) + S(171)', [9.200000e+05, 1.94, 2.785],
+         id='gas-4344')
+#  Reaction index: Chemkin #4345; RMG #25757
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(556), HNOO(572); S(1024), S(171);
+#  Estimated using template [N3s/H2/NonDe;N3s_rad] for rate rule [N3s/H2/NonDeO;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4345
+reaction('H2NO2(556) + S(1024) <=> HNOO(572) + S(171)', [6.827884e+04, 2.385, 3.92],
+         id='gas-4345')
+#  Reaction index: Chemkin #4346; RMG #26124
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNOO(572), H2NO2(172); S(1027), S(1024);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4346
+reaction('HNOO(572) + S(1027) <=> H2NO2(172) + S(1024)', [1.159467e+05, 2.32, 9.16],
+         id='gas-4346')
+#  Reaction index: Chemkin #4347; RMG #26125
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNOO(572), H2NO2(556); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_pri]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4347
+reaction('HNOO(572) + S(1027) <=> H2NO2(556) + S(1024)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4347')
+#  Reaction index: Chemkin #4348; RMG #26727
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(417), HNO2(699); S(1024), S(173);
+#  From training reaction 718 used for O/H/NonDeN;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeN;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4348
+reaction('H2NO2(417) + S(1024) <=> HNO2(699) + S(173)', [1.400000e+04, 2.69, 15.62],
+         id='gas-4348')
+#  Reaction index: Chemkin #4349; RMG #26741
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(417), HNO2(699); S(1024), S(171);
+#  Estimated using template [O_sec;N3s_rad] for rate rule [O/H/NonDeN;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4349
+reaction('H2NO2(417) + S(1024) <=> HNO2(699) + S(171)', [9.200000e+05, 1.94, 2.785],
+         id='gas-4349')
+#  Reaction index: Chemkin #4350; RMG #27061
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO2(699), H2NO2(417); S(1027), S(1024);
+#  Estimated using template [X_H;O_sec_rad] for rate rule [N5_H;O_rad/NonDeN]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 6.0
+#  family: H_Abstraction
+
+# Reaction 4350
+reaction('HNO2(699) + S(1027) <=> H2NO2(417) + S(1024)', [2.813912e+03, 2.828, 10.546],
+         id='gas-4350')
+#  Reaction index: Chemkin #4351; RMG #27631
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO2(5516), NO2(695); S(1024), S(173);
+#  Estimated using template [N3s_H;O_rad/NonDeO] for rate rule [N3s_sec_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4351
+reaction('HNO2(5516) + S(1024) <=> NO2(695) + S(173)', [2.900000e+04, 2.69, 8.305],
+         id='gas-4351')
+#  Reaction index: Chemkin #4352; RMG #27639
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO2(5516), NO2(695); S(1024), S(171);
+#  Estimated using template [N3s_H;N3s_rad] for rate rule [N3s_sec_H;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4352
+reaction('HNO2(5516) + S(1024) <=> NO2(695) + S(171)', [3.413942e+04, 2.385, 3.92],
+         id='gas-4352')
+#  Reaction index: Chemkin #4353; RMG #27789
+#  Template reaction: H_Abstraction
+#  Flux pairs: NO2(695), HNO2(5516); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4353
+reaction('NO2(695) + S(1027) <=> HNO2(5516) + S(1024)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4353')
+#  Reaction index: Chemkin #4354; RMG #28424
+#  Template reaction: intra_H_migration
+#  Flux pairs: S(1024), S(1145);
+#  Estimated using an average for rate rule [R2H_S;Y_rad_out;XH_out]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: intra_H_migration
+
+# Reaction 4354
+reaction('S(1024) <=> S(1145)', [9.786305e+07, 1.596, 37.81],
+         id='gas-4354')
+#  Reaction index: Chemkin #4355; RMG #28740
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(174), S(1145); S(1024), S(173);
+#  From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4355
+reaction('S(1024) + S(174) <=> S(1145) + S(173)', [4.100000e+04, 2.5, 10.206],
+         id='gas-4355')
+#  Reaction index: Chemkin #4356; RMG #28741
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(171), S(1145); S(1024), S(173);
+#  From training reaction 725 used for N3s/H2/NonDeN;O_rad/NonDeO
+#  Exact match found for rate rule [N3s/H2/NonDeN;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4356
+reaction('S(1024) + S(171) <=> S(1145) + S(173)', [5.800000e+04, 2.69, -1.6],
+         id='gas-4356')
+#  Reaction index: Chemkin #4357; RMG #28746
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(478), S(1145); S(1024), S(173);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4357
+reaction('S(1024) + S(478) <=> S(1145) + S(173)', [7.729780e+04, 2.32, 9.16],
+         id='gas-4357')
+#  Reaction index: Chemkin #4358; RMG #28772
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(174), S(1145); S(1024), S(171);
+#  Estimated using template [O_sec;N3s_rad] for rate rule [O/H/NonDeO;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4358
+reaction('S(1024) + S(174) <=> S(1145) + S(171)', [9.200000e+05, 1.94, 2.785],
+         id='gas-4358')
+#  Reaction index: Chemkin #4359; RMG #28773
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(171), S(1145); S(1024), S(171);
+#  Estimated using template [N3s/H2/NonDeN;N3s_rad] for rate rule [N3s/H2/NonDeN;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4359
+reaction('S(1024) + S(171) <=> S(1145) + S(171)', [1.295000e+03, 2.83, 0.7],
+         id='gas-4359')
+#  Reaction index: Chemkin #4360; RMG #28779
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(478), S(1145); S(1024), S(171);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4360
+reaction('S(1024) + S(478) <=> S(1145) + S(171)', [1.840000e+06, 1.94, 0.87],
+         id='gas-4360')
+#  Reaction index: Chemkin #4361; RMG #29415
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1145), S(174); S(1027), S(1024);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4361
+reaction('S(1145) + S(1027) <=> S(1024) + S(174)', [1.159467e+05, 2.32, 9.16],
+         id='gas-4361')
+#  Reaction index: Chemkin #4362; RMG #29416
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1145), S(171); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_pri]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4362
+reaction('S(1145) + S(1027) <=> S(1024) + S(171)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4362')
+#  Reaction index: Chemkin #4363; RMG #29421
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(478), S(1145); S(1024), S(1027);
+#  Estimated using template [N5_H;Y_rad] for rate rule [N5_H;N5_rad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4363
+reaction('S(1024) + S(478) <=> S(1145) + S(1027)', [7.655020e+06, 1.828, 2.27],
+         id='gas-4363')
+#  Reaction index: Chemkin #4364; RMG #30405
+#  Template reaction: Cyclic_Ether_Formation
+#  Flux pairs: S(1024), O(33); S(1024), S(1026);
+#  Estimated using template [R2OO;Y_rad_intra;OOJ] for rate rule [R2OO;N_rad;OOJ]
+#  Euclidian distance = 1.0
+#  family: Cyclic_Ether_Formation
+
+# Reaction 4364
+reaction('S(1024) <=> O(33) + S(1026)', [2.301608e+09, 1.08, 69.516],
+         id='gas-4364')
+#  Reaction index: Chemkin #4365; RMG #30567
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3NO2(681), H2NO2(928); S(1024), S(173);
+#  Estimated using template [N3s_H;O_rad/NonDeO] for rate rule [N3s_sec_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4365
+reaction('S(1024) + H3NO2(681) <=> H2NO2(928) + S(173)', [2.900000e+04, 2.69, 8.305],
+         id='gas-4365')
+#  Reaction index: Chemkin #4366; RMG #30575
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3NO2(681), H2NO2(928); S(1024), S(171);
+#  Estimated using template [N3s_H;N3s_rad] for rate rule [N3s_sec_H;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4366
+reaction('S(1024) + H3NO2(681) <=> H2NO2(928) + S(171)', [3.413942e+04, 2.385, 3.92],
+         id='gas-4366')
+#  Reaction index: Chemkin #4367; RMG #30748
+#  Template reaction: H_Abstraction
+#  Flux pairs: H2NO2(928), H3NO2(681); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4367
+reaction('H2NO2(928) + S(1027) <=> S(1024) + H3NO2(681)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4367')
+#  Reaction index: Chemkin #4368; RMG #32566
+#  Template reaction: Disproportionation
+#  Estimated using an average for rate rule [O_rad/NonDeO;XH_s_Rbirad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4368
+reaction('NOHJJ(665) + S(1024) <=> NO(49) + S(173)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4368')
+#  Reaction index: Chemkin #4369; RMG #32567
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO(102), NO(49); S(1024), S(173);
+#  Estimated using template [N3d/H/NonDe;O_rad] for rate rule [N3d/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 2.23606797749979
+#  family: H_Abstraction
+
+# Reaction 4369
+reaction('HNO(102) + S(1024) <=> NO(49) + S(173)', [2.400000e+06, 2.0, -1.19],
+         id='gas-4369')
+#  Reaction index: Chemkin #4370; RMG #32579
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); NOHJJ(665), NO(49);
+#  Estimated using template [N3s_rad;XH_s_Rbirad] for rate rule [N3s_rad/NonDe2;XH_s_Rbirad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4370
+reaction('NOHJJ(665) + S(1024) <=> NO(49) + S(171)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4370')
+#  Reaction index: Chemkin #4371; RMG #32580
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO(102), NO(49); S(1024), S(171);
+#  Estimated using template [N3d/H/NonDeO;N3s_rad] for rate rule [N3d/H/NonDeO;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4371
+reaction('HNO(102) + S(1024) <=> NO(49) + S(171)', [9.200000e+05, 1.94, -1.15],
+         id='gas-4371')
+#  Reaction index: Chemkin #4372; RMG #32804
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); NOHJJ(665), NO(49);
+#  Estimated using template [Y_rad;XH_s_Rbirad] for rate rule [N5s_rad;XH_s_Rbirad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4372
+reaction('NOHJJ(665) + S(1024) <=> NO(49) + S(1027)', [6.076685e+06, 1.928, -1.14],
+         id='gas-4372')
+#  Reaction index: Chemkin #4373; RMG #32805
+#  Template reaction: H_Abstraction
+#  Flux pairs: HNO(102), NO(49); S(1024), S(1027);
+#  Estimated using template [N3d/H/NonDeO;Y_rad] for rate rule [N3d/H/NonDeO;N5_rad]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4373
+reaction('HNO(102) + S(1024) <=> NO(49) + S(1027)', [1.300000e+07, 1.88, -0.95],
+         id='gas-4373')
+#  Reaction index: Chemkin #4374; RMG #33032
+#  Template reaction: H_Abstraction
+#  Flux pairs: NOON(823), S(1549); S(1024), S(173);
+#  From training reaction 712 used for N3s/H2/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [N3s/H2/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 4.0
+#  family: H_Abstraction
+
+# Reaction 4374
+reaction('S(1024) + NOON(823) <=> S(1549) + S(173)', [1.160000e+05, 2.69, 9.56],
+         id='gas-4374')
+#  Reaction index: Chemkin #4375; RMG #33044
+#  Template reaction: H_Abstraction
+#  Flux pairs: NOON(823), S(1549); S(1024), S(171);
+#  Estimated using template [N3s/H2/NonDe;N3s_rad] for rate rule [N3s/H2/NonDeO;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 4.0
+#  family: H_Abstraction
+
+# Reaction 4375
+reaction('S(1024) + NOON(823) <=> S(171) + S(1549)', [1.365577e+05, 2.385, 3.92],
+         id='gas-4375')
+#  Reaction index: Chemkin #4376; RMG #33303
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1549), NOON(823); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_pri]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4376
+reaction('S(1549) + S(1027) <=> S(1024) + NOON(823)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4376')
+#  Reaction index: Chemkin #4377; RMG #34045
+#  Template reaction: H_Abstraction
+#  Flux pairs: NNO(374), H3N2O(365); S(1024), S(173);
+#  Estimated using template [N3s_H;O_rad/NonDeO] for rate rule [N3s_sec_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4377
+reaction('S(1024) + NNO(374) <=> H3N2O(365) + S(173)', [2.900000e+04, 2.69, 8.305],
+         id='gas-4377')
+#  Reaction index: Chemkin #4378; RMG #34068
+#  Template reaction: H_Abstraction
+#  Flux pairs: NNO(374), H3N2O(365); S(1024), S(171);
+#  Estimated using template [N3s_H;N3s_rad] for rate rule [N3s_sec_H;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4378
+reaction('S(1024) + NNO(374) <=> H3N2O(365) + S(171)', [3.413942e+04, 2.385, 3.92],
+         id='gas-4378')
+#  Reaction index: Chemkin #4379; RMG #34558
+#  Template reaction: H_Abstraction
+#  Flux pairs: H3N2O(365), NNO(374); S(1027), S(1024);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4379
+reaction('H3N2O(365) + S(1027) <=> S(1024) + NNO(374)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4379')
+#  Reaction index: Chemkin #4380; RMG #36246
+#  Template reaction: intra_H_migration
+#  Flux pairs: S(1024), S(1025);
+#  Estimated using template [R4Hall;O_rad_out;XH_out] for rate rule [R4HJ_2;O_rad_out;XH_out]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: intra_H_migration
+
+# Reaction 4380
+reaction('S(1024) <=> S(1025)', [1.041544e+06, 1.943, 29.464],
+         id='gas-4380')
+#  Reaction index: Chemkin #4381; RMG #36923
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(174), S(1202); S(1024), S(173);
+#  Estimated using template [N3s_rad_H/H/NonDeN;O_rad] for rate rule [N3s_rad_H/H/NonDeN;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  family: H_Abstraction
+
+# Reaction 4381
+reaction('S(1024) + S(174) <=> S(1202) + S(173)', [3.000000e+13, 0.0, 0.0],
+         id='gas-4381')
+#  Reaction index: Chemkin #4382; RMG #36939
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(174), S(1202); S(1024), S(171);
+#  Estimated using template [N3s_rad_H/H/NonDeN;N3s_rad] for rate rule [N3s_rad_H/H/NonDeN;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4382
+reaction('S(1024) + S(174) <=> S(1202) + S(171)', [3.000000e+13, 0.0, 0.0],
+         id='gas-4382')
+#  Reaction index: Chemkin #4383; RMG #37310
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1202), S(174); S(1027), S(1024);
+#  Estimated using an average for rate rule [N5_H;Y_1centerbirad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4383
+reaction('S(1202) + S(1027) <=> S(1024) + S(174)', [5.100000e+08, 1.5, 2.36],
+         id='gas-4383')
+#  Reaction index: Chemkin #4384; RMG #48743
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(173); H4N2O2(2), S(171);
+#  From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4384
+reaction('S(1024) + H4N2O2(2) <=> S(171) + S(173)', [4.100000e+04, 2.5, 10.206],
+         id='gas-4384',
+         options='duplicate')
+#  Reaction index: Chemkin #4385; RMG #48744
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(171); H4N2O2(2), S(173);
+#  Estimated using template [N3s_H;N3s_rad] for rate rule [N3s_sec_H;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4385
+reaction('S(1024) + H4N2O2(2) <=> S(171) + S(173)', [3.413942e+04, 2.385, 3.92],
+         id='gas-4385',
+         options='duplicate')
+#  Reaction index: Chemkin #4386; RMG #48871
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(173); N2H3(133), H2N2(465);
+#  Estimated using template [X_H_or_Xrad_H_Xbirad_H_Xtrirad_H;O_rad/NonDeO] for rate rule [N5sc_radH;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4386
+reaction('S(1024) + N2H3(133) <=> H2N2(465) + S(173)', [1.032286e+04, 2.522, 7.859],
+         id='gas-4386')
+#  Reaction index: Chemkin #4387; RMG #48872
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(171); N2H3(133), H2N2(465);
+#  Estimated using template [Xrad_H;N3s_rad] for rate rule [N5sc_radH;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4387
+reaction('S(1024) + N2H3(133) <=> H2N2(465) + S(171)', [4.813690e+05, 2.175, 10.053],
+         id='gas-4387')
+#  Reaction index: Chemkin #4388; RMG #48875
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1027), S(1024); H2N2(465), N2H3(133);
+#  Estimated using an average for rate rule [N5_H;Y_1centerbirad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4388
+reaction('H2N2(465) + S(1027) <=> S(1024) + N2H3(133)', [5.100000e+08, 1.5, 2.36],
+         id='gas-4388')
+#  Reaction index: Chemkin #4389; RMG #48951
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(173); H2NO(129), HNO(362);
+#  Estimated using template [X_H_or_Xrad_H_Xbirad_H_Xtrirad_H;O_rad/NonDeO] for rate rule [N5sc_radH;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4389
+reaction('H2NO(129) + S(1024) <=> HNO(362) + S(173)', [1.032286e+04, 2.522, 7.859],
+         id='gas-4389')
+#  Reaction index: Chemkin #4390; RMG #48952
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(171); H2NO(129), HNO(362);
+#  Estimated using template [Xrad_H;N3s_rad] for rate rule [N5sc_radH;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4390
+reaction('H2NO(129) + S(1024) <=> HNO(362) + S(171)', [4.813690e+05, 2.175, 10.053],
+         id='gas-4390')
+#  Reaction index: Chemkin #4391; RMG #48955
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1027), S(1024); HNO(362), H2NO(129);
+#  Estimated using an average for rate rule [N5_H;Y_1centerbirad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4391
+reaction('HNO(362) + S(1027) <=> H2NO(129) + S(1024)', [5.100000e+08, 1.5, 2.36],
+         id='gas-4391')
+#  Reaction index: Chemkin #4392; RMG #48980
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(171), S(1024); S(1024), S(173);
+#  Estimated using template [N3s_H;O_rad/NonDeO] for rate rule [N3s_sec_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  family: H_Abstraction
+
+# Reaction 4392
+reaction('S(1024) + S(171) <=> S(1024) + S(173)', [2.900000e+04, 2.69, 8.305],
+         id='gas-4392')
+#  Reaction index: Chemkin #4393; RMG #48983
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1027), S(1024); S(1024), S(173);
+#  Estimated using template [X_H;O_rad/NonDeO] for rate rule [N5_H;O_rad/NonDeO]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4393
+reaction('S(1024) + S(1027) <=> S(1024) + S(173)', [1.159467e+05, 2.32, 9.16],
+         id='gas-4393')
+#  Reaction index: Chemkin #4394; RMG #48987
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(173); S(173), S(1025);
+#  Estimated using template [X_H_or_Xrad_H_Xbirad_H_Xtrirad_H;O_rad/NonDeO] for rate rule [N5sc_radH;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4394
+reaction('S(1024) + S(173) <=> S(1025) + S(173)', [1.032286e+04, 2.522, 7.859],
+         id='gas-4394')
+#  Reaction index: Chemkin #4395; RMG #48988
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(171); S(173), S(1025);
+#  Estimated using template [Xrad_H;N3s_rad] for rate rule [N5sc_radH;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  Multiplied by reaction path degeneracy 2.0
+#  family: H_Abstraction
+
+# Reaction 4395
+reaction('S(1024) + S(173) <=> S(1025) + S(171)', [4.813690e+05, 2.175, 10.053],
+         id='gas-4395')
+#  Reaction index: Chemkin #4396; RMG #48991
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1027), S(1024); S(1025), S(173);
+#  Estimated using an average for rate rule [N5_H;Y_1centerbirad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4396
+reaction('S(1025) + S(1027) <=> S(1024) + S(173)', [5.100000e+08, 1.5, 2.36],
+         id='gas-4396')
+#  Reaction index: Chemkin #4397; RMG #49009
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1027), S(1024); S(1024), S(171);
+#  Estimated using template [N5_H;N3s_rad] for rate rule [N5_H;N3s_rad_sec]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4397
+reaction('S(1024) + S(1027) <=> S(1024) + S(171)', [2.760000e+06, 1.94, 0.87],
+         id='gas-4397')
+#  Reaction index: Chemkin #4398; RMG #49013
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(173); S(174), S(1025);
+#  Estimated using template [X_H_or_Xrad_H_Xbirad_H_Xtrirad_H;O_rad/NonDeO] for rate rule [N5sc_radH;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  family: H_Abstraction
+
+# Reaction 4398
+reaction('S(1024) + S(174) <=> S(1025) + S(173)', [5.161431e+03, 2.522, 7.859],
+         id='gas-4398')
+#  Reaction index: Chemkin #4399; RMG #49014
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(171); S(174), S(1025);
+#  Estimated using template [Xrad_H;N3s_rad] for rate rule [N5sc_radH;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4399
+reaction('S(1024) + S(174) <=> S(1025) + S(171)', [2.406845e+05, 2.175, 10.053],
+         id='gas-4399')
+#  Reaction index: Chemkin #4400; RMG #49017
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1027), S(1024); S(1025), S(174);
+#  Estimated using an average for rate rule [N5_H;Y_1centerbirad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4400
+reaction('S(1025) + S(1027) <=> S(1024) + S(174)', [5.100000e+08, 1.5, 2.36],
+         id='gas-4400')
+#  Reaction index: Chemkin #4401; RMG #49227
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(173); H2NO2(417), HNO2(698);
+#  Estimated using template [X_H_or_Xrad_H_Xbirad_H_Xtrirad_H;O_rad/NonDeO] for rate rule [N5sc_radH;O_rad/NonDeO]
+#  Euclidian distance = 2.0
+#  family: H_Abstraction
+
+# Reaction 4401
+reaction('H2NO2(417) + S(1024) <=> HNO2(698) + S(173)', [5.161431e+03, 2.522, 7.859],
+         id='gas-4401')
+#  Reaction index: Chemkin #4402; RMG #49228
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(171); H2NO2(417), HNO2(698);
+#  Estimated using template [Xrad_H;N3s_rad] for rate rule [N5sc_radH;N3s_rad_sec]
+#  Euclidian distance = 1.4142135623730951
+#  family: H_Abstraction
+
+# Reaction 4402
+reaction('H2NO2(417) + S(1024) <=> HNO2(698) + S(171)', [2.406845e+05, 2.175, 10.053],
+         id='gas-4402')
+#  Reaction index: Chemkin #4403; RMG #49231
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1027), S(1024); HNO2(698), H2NO2(417);
+#  Estimated using an average for rate rule [N5_H;Y_1centerbirad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4403
+reaction('HNO2(698) + S(1027) <=> H2NO2(417) + S(1024)', [5.100000e+08, 1.5, 2.36],
+         id='gas-4403')
+#  Reaction index: Chemkin #4404; RMG #49538
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(173); S(1033), S(1027);
+#  From training reaction 208 used for O/H/NonDeO;O_rad/NonDeO
+#  Exact match found for rate rule [O/H/NonDeO;O_rad/NonDeO]
+#  Euclidian distance = 0
+#  family: H_Abstraction
+
+# Reaction 4404
+reaction('S(1024) + S(1033) <=> S(173) + S(1027)', [4.100000e+04, 2.5, 10.206],
+         id='gas-4404',
+         options='duplicate')
+#  Reaction index: Chemkin #4405; RMG #49539
+#  Template reaction: H_Abstraction
+#  Flux pairs: S(1024), S(1027); S(1033), S(173);
+#  Estimated using template [N5_H;Y_rad] for rate rule [N5_H;N5_rad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: H_Abstraction
+
+# Reaction 4405
+reaction('S(1024) + S(1033) <=> S(173) + S(1027)', [1.148253e+07, 1.828, 2.27],
+         id='gas-4405',
+         options='duplicate')
+#  Reaction index: Chemkin #4406; RMG #2581
+#  Template reaction: R_Addition_MultipleBond
+#  Flux pairs: NH2(42), S(553); HNO3(4), S(553);
+#  Estimated using template [R_R;NH2J] for rate rule [Od_N5dc;NH2J]
+#  Euclidian distance = 3.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: R_Addition_MultipleBond
+#  Ea raised from 255.8 to 264.6 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4406
+reaction('HNO3(4) + NH2(42) <=> S(553)', [1.228000e+03, 2.756, 63.241],
+         id='gas-4406')
+#  Reaction index: Chemkin #4407; RMG #10345
+#  Template reaction: R_Addition_MultipleBond
+#  Flux pairs: H2NO(129), S(553); HONO(103), S(553);
+#  Estimated using template [R_R;OJ-NonDe] for rate rule [N3d-NonDe_Od;OJ-Ns]
+#  Euclidian distance = 4.123105625617661
+#  family: R_Addition_MultipleBond
+#  Ea raised from 316.3 to 325.7 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4407
+reaction('HONO(103) + H2NO(129) <=> S(553)', [8.488080e+06, 1.319, 77.855],
+         id='gas-4407')
+#  Reaction index: Chemkin #4408; RMG #27357
+#  Template reaction: R_Recombination
+#  Flux pairs: HNO2(698), S(553); H2NO(129), S(553);
+#  BM rule fitted to 2 training reactions at node Root_N-1R->H_1CClNOSSi->N_Ext-2R-R_3R!H-u0_N-2R->C_N-3R!H->C_Ext-1N-R_N-2NO->N
+#      Total Standard Deviation in ln(k): 11.5401827615
+#  Exact match found for rate rule [Root_N-1R->H_1CClNOSSi->N_Ext-2R-R_3R!H-u0_N-2R->C_N-3R!H->C_Ext-1N-R_N-2NO->N]
+#  Euclidian distance = 0
+#  family: R_Recombination
+
+# Reaction 4408
+reaction('HNO2(698) + H2NO(129) <=> S(553)', [1.220000e+11, 0.2, 0.0],
+         id='gas-4408')
+#  Reaction index: Chemkin #4409; RMG #27816
+#  Template reaction: Disproportionation
+#  Flux pairs: S(173), H4N2O2(2); S(553), S(882);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4409
+reaction('S(173) + S(553) <=> S(882) + H4N2O2(2)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4409')
+#  Reaction index: Chemkin #4410; RMG #27818
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad/H/NonDeN;O_Rrad] for rate rule [N3s_rad/H/NonDeN;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4410
+reaction('S(174) + S(553) <=> S(882) + H4N2O2(2)', [9.200000e+05, 1.94, 2.13],
+         id='gas-4410')
+#  Reaction index: Chemkin #4411; RMG #27820
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4411
+reaction('S(171) + S(553) <=> S(882) + H4N2O2(2)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4411')
+#  Reaction index: Chemkin #4412; RMG #27822
+#  Template reaction: Disproportionation
+#  Flux pairs: HNOH(132), NH2OH(3); S(553), S(882);
+#  Estimated using template [N3s_rad/H/NonDeO;O_Rrad] for rate rule [N3s_rad/H/NonDeO;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4412
+reaction('HNOH(132) + S(553) <=> S(882) + NH2OH(3)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4412')
+#  Reaction index: Chemkin #4413; RMG #27824
+#  Template reaction: Disproportionation
+#  Estimated using average of templates [O_sec_rad;O_Nrad] + [O_rad/NonDeN;O_Rrad] for rate rule [O_rad/NonDeN;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4413
+reaction('H2NO(129) + S(553) <=> S(882) + NH2OH(3)', [2.919932e+04, 2.69, -1.6],
+         id='gas-4413')
+#  Reaction index: Chemkin #4414; RMG #27826
+#  Template reaction: Disproportionation
+#  Flux pairs: NO3(110), S(882); S(553), HNO3(4);
+#  Estimated using an average for rate rule [O_sec_rad;O_Nrad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 3.0
+#  family: Disproportionation
+
+# Reaction 4414
+reaction('NO3(110) + S(553) <=> HNO3(4) + S(882)', [8.820000e+04, 2.69, -1.6],
+         id='gas-4414')
+#  Reaction index: Chemkin #4415; RMG #27830
+#  Template reaction: Disproportionation
+#  Flux pairs: CH2OH(44), CH3OH(5); S(553), S(882);
+#  Estimated using template [C_rad/H2/O;O_Rrad] for rate rule [C_rad/H2/O;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4415
+reaction('S(553) + CH2OH(44) <=> S(882) + CH3OH(5)', [4.820000e+12, 0.0, 0.0],
+         id='gas-4415')
+#  Reaction index: Chemkin #4416; RMG #27832
+#  Template reaction: Disproportionation
+#  Estimated using average of templates [O_sec_rad;O_Nrad] + [O_rad/NonDeC;O_Rrad] for rate rule [O_rad/NonDeC;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4416
+reaction('S(553) + CH3O(88) <=> S(882) + CH3OH(5)', [8.417482e+08, 1.345, -0.8],
+         id='gas-4416')
+#  Reaction index: Chemkin #4417; RMG #27834
+#  Template reaction: Disproportionation
+#  Flux pairs: OH(20), H2O(6); S(553), S(882);
+#  From training reaction 107 used for O_pri_rad;O_Nrad
+#  Exact match found for rate rule [O_pri_rad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4417
+reaction('OH(20) + S(553) <=> H2O(6) + S(882)', [2.400000e+06, 2.0, -1.19],
+         id='gas-4417')
+#  Reaction index: Chemkin #4418; RMG #27844
+#  Template reaction: Disproportionation
+#  Flux pairs: H(16), H2(10); S(553), S(882);
+#  From training reaction 105 used for H_rad;O_Nrad
+#  Exact match found for rate rule [H_rad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4418
+reaction('H(16) + S(553) <=> H2(10) + S(882)', [4.800000e+08, 1.5, 0.38],
+         id='gas-4418')
+#  Reaction index: Chemkin #4419; RMG #27848
+#  Template reaction: Disproportionation
+#  Flux pairs: C2H5(17), C2H6(12); S(553), S(882);
+#  Estimated using template [C_rad/H2/Cs;O_Rrad] for rate rule [C_rad/H2/Cs;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4419
+reaction('S(553) + C2H5(17) <=> S(882) + C2H6(12)', [2.410000e+12, 0.0, 0.0],
+         id='gas-4419')
+#  Reaction index: Chemkin #4420; RMG #27850
+#  Template reaction: Disproportionation
+#  Flux pairs: HCO(18), S(882); S(553), CH2O(13);
+#  Estimated using template [CO_pri_rad;O_Rrad] for rate rule [CO_pri_rad;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4420
+reaction('S(553) + HCO(18) <=> S(882) + CH2O(13)', [1.810000e+14, 0.0, 0.0],
+         id='gas-4420')
+#  Reaction index: Chemkin #4421; RMG #27854
+#  Template reaction: Disproportionation
+#  Flux pairs: CH2(51), CH3(14); S(553), S(882);
+#  Estimated using average of templates [Y_1centerbirad;O_Nrad] + [CH2_triplet;O_Rrad] for rate rule [CH2_triplet;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4421
+reaction('S(553) + CH2(51) <=> S(882) + CH3(14)', [1.998249e+10, 0.75, -0.18],
+         id='gas-4421')
+#  Reaction index: Chemkin #4422; RMG #27864
+#  Template reaction: R_Addition_MultipleBond
+#  Flux pairs: H(16), S(553); S(882), S(553);
+#  Estimated using template [Od_R;HJ] for rate rule [Od_N5dc;HJ]
+#  Euclidian distance = 2.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: R_Addition_MultipleBond
+#  Ea raised from 121.8 to 129.0 kJ/mol to match endothermicity of reaction.
+
+# Reaction 4422
+reaction('H(16) + S(882) <=> S(553)', [2.370000e+08, 1.63, 30.826],
+         id='gas-4422')
+#  Reaction index: Chemkin #4423; RMG #27885
+#  Template reaction: Disproportionation
+#  Flux pairs: O(33), OH(20); S(553), S(882);
+#  From training reaction 106 used for O_atom_triplet;O_Nrad
+#  Exact match found for rate rule [O_atom_triplet;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4423
+reaction('O(33) + S(553) <=> OH(20) + S(882)', [3.300000e+08, 1.5, -0.36],
+         id='gas-4423')
+#  Reaction index: Chemkin #4424; RMG #27903
+#  Template reaction: Disproportionation
+#  Flux pairs: S(418), S(410); S(553), S(882);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4424
+reaction('S(418) + S(553) <=> S(882) + S(410)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4424')
+#  Reaction index: Chemkin #4425; RMG #27905
+#  Template reaction: Disproportionation
+#  Estimated using average of templates [N3s_rad;O_Nrad] + [N3s_rad_pri;O_Rrad] for rate rule [N3s_rad_pri;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4425
+reaction('S(419) + S(553) <=> S(882) + S(410)', [5.422290e+05, 2.127, -0.443],
+         id='gas-4425')
+#  Reaction index: Chemkin #4426; RMG #27909
+#  Template reaction: Disproportionation
+#  Flux pairs: O2(8), HO2(36); S(553), S(882);
+#  Estimated using template [O2b;O_Rrad] for rate rule [O2b;O_Nrad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4426
+reaction('O2(8) + S(553) <=> HO2(36) + S(882)', [1.144180e+13, 0.0, 0.0],
+         id='gas-4426')
+#  Reaction index: Chemkin #4427; RMG #27915
+#  Template reaction: Disproportionation
+#  Flux pairs: H3N2O(365), NNO(374); S(553), S(882);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4427
+reaction('H3N2O(365) + S(553) <=> S(882) + NNO(374)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4427')
+#  Reaction index: Chemkin #4428; RMG #27917
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad/H/NonDeN;O_Rrad] for rate rule [N3s_rad/H/NonDeN;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4428
+reaction('H3N2O(366) + S(553) <=> S(882) + NNO(374)', [9.200000e+05, 1.94, 2.13],
+         id='gas-4428')
+#  Reaction index: Chemkin #4429; RMG #27919
+#  Template reaction: Disproportionation
+#  Estimated using average of templates [O_sec_rad;O_Nrad] + [O_rad/NonDeN;O_Rrad] for rate rule [O_rad/NonDeN;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4429
+reaction('H3N2O(170) + S(553) <=> S(882) + NNO(374)', [2.919932e+04, 2.69, -1.6],
+         id='gas-4429')
+#  Reaction index: Chemkin #4430; RMG #27921
+#  Template reaction: Disproportionation
+#  Flux pairs: H2N2(464), N2H3(133); S(553), S(882);
+#  Estimated using an average for rate rule [Y_1centerbirad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4430
+reaction('H2N2(464) + S(553) <=> S(882) + N2H3(133)', [3.300000e+08, 1.5, -0.36],
+         id='gas-4430')
+#  Reaction index: Chemkin #4431; RMG #27923
+#  Template reaction: Disproportionation
+#  Estimated using an average for rate rule [N3s_rad;O_Nrad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4431
+reaction('H2N2(465) + S(553) <=> S(882) + N2H3(133)', [3.600000e+06, 1.94, -1.15],
+         id='gas-4431')
+#  Reaction index: Chemkin #4432; RMG #27938
+#  Template reaction: Disproportionation
+#  Flux pairs: NH(T)(463), NH2(42); S(553), S(882);
+#  Estimated using template [Y_1centerbirad;O_Nrad] for rate rule [NH_triplet;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4432
+reaction('NH(T)(463) + S(553) <=> NH2(42) + S(882)', [3.300000e+08, 1.5, -0.36],
+         id='gas-4432')
+#  Reaction index: Chemkin #4433; RMG #27943
+#  Template reaction: Disproportionation
+#  Flux pairs: HNO2(571), H2NO2(172); S(553), S(882);
+#  Estimated using an average for rate rule [Y_1centerbirad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4433
+reaction('HNO2(571) + S(553) <=> H2NO2(172) + S(882)', [3.300000e+08, 1.5, -0.36],
+         id='gas-4433')
+#  Reaction index: Chemkin #4434; RMG #27945
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4434
+reaction('HNOO(572) + S(553) <=> H2NO2(172) + S(882)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4434')
+#  Reaction index: Chemkin #4435; RMG #27955
+#  Template reaction: Disproportionation
+#  Flux pairs: NOHJJ(665), HNOH(132); S(553), S(882);
+#  Estimated using an average for rate rule [Y_1centerbirad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4435
+reaction('NOHJJ(665) + S(553) <=> HNOH(132) + S(882)', [3.300000e+08, 1.5, -0.36],
+         id='gas-4435')
+#  Reaction index: Chemkin #4436; RMG #27957
+#  Template reaction: Disproportionation
+#  From training reaction 108 used for Y_rad;O_Nrad
+#  Exact match found for rate rule [Y_rad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4436
+reaction('HNO(362) + S(553) <=> HNOH(132) + S(882)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4436')
+#  Reaction index: Chemkin #4437; RMG #27971
+#  Template reaction: Disproportionation
+#  Flux pairs: HNO(362), H2NO(129); S(553), S(882);
+#  Estimated using an average for rate rule [N3s_rad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4437
+reaction('HNO(362) + S(553) <=> H2NO(129) + S(882)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4437')
+#  Reaction index: Chemkin #4438; RMG #27979
+#  Template reaction: Disproportionation
+#  Flux pairs: H3N2O(170), H4N2O(375); S(553), S(882);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4438
+reaction('H3N2O(170) + S(553) <=> S(882) + H4N2O(375)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4438')
+#  Reaction index: Chemkin #4439; RMG #27981
+#  Template reaction: Disproportionation
+#  Estimated using average of templates [N3s_rad;O_Nrad] + [N3s_rad_pri;O_Rrad] for rate rule [N3s_rad_pri;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4439
+reaction('H3N2O(368) + S(553) <=> S(882) + H4N2O(375)', [5.422290e+05, 2.127, -0.443],
+         id='gas-4439')
+#  Reaction index: Chemkin #4440; RMG #27998
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1025), S(173); S(553), S(882);
+#  Estimated using an average for rate rule [N3s_rad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4440
+reaction('S(1025) + S(553) <=> S(882) + S(173)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4440')
+#  Reaction index: Chemkin #4441; RMG #28000
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4441
+reaction('S(1024) + S(553) <=> S(882) + S(173)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4441')
+#  Reaction index: Chemkin #4442; RMG #28016
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(171); S(553), S(882);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4442
+reaction('S(1024) + S(553) <=> S(882) + S(171)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4442')
+#  Reaction index: Chemkin #4443; RMG #28018
+#  Template reaction: Disproportionation
+#  Estimated using template [N3s_rad/H/NonDeN;O_Rrad] for rate rule [N3s_rad/H/NonDeN;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4443
+reaction('S(1145) + S(553) <=> S(882) + S(171)', [9.200000e+05, 1.94, 2.13],
+         id='gas-4443')
+#  Reaction index: Chemkin #4444; RMG #28023
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1202), S(174); S(553), S(882);
+#  Estimated using template [Y_rad_birad_trirad_quadrad;O_Nrad] for rate rule [N_atom_doublet;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4444
+reaction('S(1202) + S(553) <=> S(882) + S(174)', [2.297825e+07, 1.685, 0.87],
+         id='gas-4444')
+#  Reaction index: Chemkin #4445; RMG #28025
+#  Template reaction: Disproportionation
+#  Estimated using an average for rate rule [Y_1centerbirad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4445
+reaction('S(1025) + S(553) <=> S(882) + S(174)', [3.300000e+08, 1.5, -0.36],
+         id='gas-4445')
+#  Reaction index: Chemkin #4446; RMG #28027
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4446
+reaction('S(1145) + S(553) <=> S(882) + S(174)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4446')
+#  Reaction index: Chemkin #4447; RMG #28063
+#  Template reaction: Disproportionation
+#  Flux pairs: NO(49), S(882); S(553), HNO(102);
+#  Estimated using template [N3d_rad;O_Rrad] for rate rule [N3d_rad/O;O_Nrad]
+#  Euclidian distance = 1.4142135623730951
+#  family: Disproportionation
+
+# Reaction 4447
+reaction('NO(49) + S(553) <=> HNO(102) + S(882)', [1.400000e+04, 2.69, -1.61],
+         id='gas-4447')
+#  Reaction index: Chemkin #4448; RMG #28077
+#  Template reaction: Disproportionation
+#  Estimated using an average for rate rule [O_sec_rad;O_Nrad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4448
+reaction('HNO3(175) + S(553) <=> H2NO3(222) + S(882)', [5.880000e+04, 2.69, -1.6],
+         id='gas-4448')
+#  Reaction index: Chemkin #4449; RMG #28096
+#  Template reaction: Disproportionation
+#  Flux pairs: N2H3(133), N2H4(169); S(553), S(882);
+#  Estimated using template [N3s_rad/H/NonDeN;O_Rrad] for rate rule [N3s_rad/H/NonDeN;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4449
+reaction('N2H3(133) + S(553) <=> S(882) + N2H4(169)', [9.200000e+05, 1.94, 2.13],
+         id='gas-4449')
+#  Reaction index: Chemkin #4450; RMG #28098
+#  Template reaction: Disproportionation
+#  Flux pairs: HO2(36), H2O2(37); S(553), S(882);
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4450
+reaction('HO2(36) + S(553) <=> H2O2(37) + S(882)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4450')
+#  Reaction index: Chemkin #4451; RMG #28137
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1549), NOON(823); S(553), S(882);
+#  Estimated using template [N3s_rad/H/NonDeO;O_Rrad] for rate rule [N3s_rad/H/NonDeO;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4451
+reaction('S(1549) + S(553) <=> S(882) + NOON(823)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4451')
+#  Reaction index: Chemkin #4452; RMG #28139
+#  Template reaction: Disproportionation
+#  Flux pairs: NO2(91), S(882); S(553), HONO(103);
+#  Estimated using an average for rate rule [O_sec_rad;O_Nrad]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4452
+reaction('NO2(91) + S(553) <=> HONO(103) + S(882)', [5.880000e+04, 2.69, -1.6],
+         id='gas-4452')
+#  Reaction index: Chemkin #4453; RMG #28147
+#  Template reaction: Disproportionation
+#  Flux pairs: NH2(42), NH3(43); S(553), S(882);
+#  From training reaction 109 used for NH2_rad;O_Nrad
+#  Exact match found for rate rule [NH2_rad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4453
+reaction('NH2(42) + S(553) <=> S(882) + NH3(43)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4453')
+#  Reaction index: Chemkin #4454; RMG #28149
+#  Template reaction: Disproportionation
+#  Flux pairs: NO2(91), S(882); S(553), HNO2(92);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5dc_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4454
+reaction('NO2(91) + S(553) <=> HNO2(92) + S(882)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4454')
+#  Reaction index: Chemkin #4455; RMG #28153
+#  Template reaction: Disproportionation
+#  Flux pairs: HNO2(698), H2NO2(417); S(553), S(882);
+#  Estimated using an average for rate rule [N3s_rad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4455
+reaction('HNO2(698) + S(553) <=> H2NO2(417) + S(882)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4455')
+#  Reaction index: Chemkin #4456; RMG #28155
+#  Template reaction: Disproportionation
+#  Estimated using average of templates [O_sec_rad;O_Nrad] + [O_rad/NonDeN;O_Rrad] for rate rule [O_rad/NonDeN;O_Nrad]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Disproportionation
+
+# Reaction 4456
+reaction('HNO2(699) + S(553) <=> H2NO2(417) + S(882)', [5.839863e+04, 2.69, -1.6],
+         id='gas-4456')
+#  Reaction index: Chemkin #4457; RMG #28172
+#  Template reaction: Disproportionation
+#  Flux pairs: HNOO(572), H2NO2(556); S(553), S(882);
+#  Estimated using template [N3s_rad/H/NonDeO;O_Rrad] for rate rule [N3s_rad/H/NonDeO;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4457
+reaction('HNOO(572) + S(553) <=> H2NO2(556) + S(882)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4457')
+#  Reaction index: Chemkin #4458; RMG #28182
+#  Template reaction: Disproportionation
+#  Flux pairs: H2NO2(172), H3NO2(565); S(553), S(882);
+#  Estimated using template [N3s_rad/H/NonDeO;O_Rrad] for rate rule [N3s_rad/H/NonDeO;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4458
+reaction('H2NO2(172) + S(553) <=> S(882) + H3NO2(565)', [2.900000e+04, 2.69, -1.6],
+         id='gas-4458')
+#  Reaction index: Chemkin #4459; RMG #28184
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4459
+reaction('H2NO2(556) + S(553) <=> S(882) + H3NO2(565)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4459')
+#  Reaction index: Chemkin #4460; RMG #28186
+#  Template reaction: Disproportionation
+#  Flux pairs: H2NO(129), H3NO(826); S(553), S(882);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4460
+reaction('H2NO(129) + S(553) <=> S(882) + H3NO(826)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4460')
+#  Reaction index: Chemkin #4461; RMG #28199
+#  Template reaction: Disproportionation
+#  Flux pairs: H3N2(466), NH3NH(471); S(553), S(882);
+#  Estimated using template [Y_rad_birad_trirad_quadrad;O_Nrad] for rate rule [N_atom_doublet;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4461
+reaction('H3N2(466) + S(553) <=> S(882) + NH3NH(471)', [2.297825e+07, 1.685, 0.87],
+         id='gas-4461')
+#  Reaction index: Chemkin #4462; RMG #28201
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4462
+reaction('N2H3(133) + S(553) <=> S(882) + NH3NH(471)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4462')
+#  Reaction index: Chemkin #4463; RMG #28254
+#  Template reaction: Disproportionation
+#  Flux pairs: H2N2(464), H3N2(466); S(553), S(882);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4463
+reaction('H2N2(464) + S(553) <=> S(882) + H3N2(466)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4463')
+#  Reaction index: Chemkin #4464; RMG #28259
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1203), S(509); S(553), S(882);
+#  Estimated using template [Y_rad_birad_trirad_quadrad;O_Nrad] for rate rule [N_atom_doublet;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4464
+reaction('S(1203) + S(553) <=> S(882) + S(509)', [2.297825e+07, 1.685, 0.87],
+         id='gas-4464')
+#  Reaction index: Chemkin #4465; RMG #28261
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4465
+reaction('S(174) + S(553) <=> S(882) + S(509)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4465')
+#  Reaction index: Chemkin #4466; RMG #28263
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4466
+reaction('S(478) + S(553) <=> S(882) + S(509)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4466')
+#  Reaction index: Chemkin #4467; RMG #28267
+#  Template reaction: Disproportionation
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4467
+reaction('S(1145) + S(553) <=> S(882) + S(478)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4467')
+#  Reaction index: Chemkin #4468; RMG #28307
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1202), S(1203); S(553), S(882);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4468
+reaction('S(1202) + S(553) <=> S(882) + S(1203)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4468')
+#  Reaction index: Chemkin #4469; RMG #28357
+#  Template reaction: Disproportionation
+#  Flux pairs: S(1024), S(1027); S(553), S(882);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4469
+reaction('S(1024) + S(553) <=> S(882) + S(1027)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4469')
+#  Reaction index: Chemkin #4470; RMG #28362
+#  Template reaction: Disproportionation
+#  Flux pairs: S(173), S(1033); S(553), S(882);
+#  Estimated using template [Y_rad;O_Nrad] for rate rule [N5s_rad;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4470
+reaction('S(173) + S(553) <=> S(882) + S(1033)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4470')
+#  Reaction index: Chemkin #4471; RMG #28364
+#  Template reaction: Disproportionation
+#  From training reaction 110 used for O_rad/NonDeO;O_Nrad
+#  Exact match found for rate rule [O_rad/NonDeO;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4471
+reaction('S(1027) + S(553) <=> S(882) + S(1033)', [2.940000e+04, 2.69, -1.6],
+         id='gas-4471')
+#  Reaction index: Chemkin #4472; RMG #28377
+#  Template reaction: Disproportionation
+#  Flux pairs: H2NO2(928), H3NO2(681); S(553), S(882);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4472
+reaction('H2NO2(928) + S(553) <=> S(882) + H3NO2(681)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4472')
+#  Reaction index: Chemkin #4473; RMG #28379
+#  Template reaction: Disproportionation
+#  Estimated using average of templates [O_sec_rad;O_Nrad] + [O_rad/NonDeN;O_Rrad] for rate rule [O_rad/NonDeN;O_Nrad]
+#  Euclidian distance = 1.0
+#  family: Disproportionation
+
+# Reaction 4473
+reaction('H2NO2(417) + S(553) <=> S(882) + H3NO2(681)', [2.919932e+04, 2.69, -1.6],
+         id='gas-4473')
+#  Reaction index: Chemkin #4474; RMG #28407
+#  Template reaction: Disproportionation
+#  Flux pairs: NO2(695), HNO2(5516); S(553), S(882);
+#  Estimated using template [N3s_rad;O_Nrad] for rate rule [N3s_rad/NonDe2;O_Nrad]
+#  Euclidian distance = 2.0
+#  family: Disproportionation
+
+# Reaction 4474
+reaction('NO2(695) + S(553) <=> HNO2(5516) + S(882)', [1.800000e+06, 1.94, -1.15],
+         id='gas-4474')
+#  Reaction index: Chemkin #4475; RMG #30772
+#  Template reaction: Disproportionation
+#  Flux pairs: HNO2(698), H2NO2(928); S(553), S(882);
+#  From training reaction 108 used for Y_rad;O_Nrad
+#  Exact match found for rate rule [Y_rad;O_Nrad]
+#  Euclidian distance = 0
+#  family: Disproportionation
+
+# Reaction 4475
+reaction('HNO2(698) + S(553) <=> H2NO2(928) + S(882)', [1.600000e+06, 1.87, 2.1],
+         id='gas-4475')
+#  Reaction index: Chemkin #4476; RMG #36233
+#  Template reaction: Disproportionation
+#  Flux pairs: CH3(14), CH4(24); S(553), S(882);
+#  Estimated using template [Cs_rad;O_Rrad] for rate rule [C_methyl;O_Nrad]
+#  Euclidian distance = 1.4142135623730951
+#  family: Disproportionation
+
+# Reaction 4476
+reaction('S(553) + CH3(14) <=> S(882) + CH4(24)', [1.692576e+13, -0.25, 0.0],
+         id='gas-4476')
 #  Reaction index: Chemkin #1; RMG #6
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006
 #  Flux pairs: X(1), H2OX(27); H2O(6), H2OX(27);
@@ -48371,38 +52198,149 @@ surface_reaction('X(1) + X(1) + S(1105) <=> *ON(192) + SX(189)', stick(1.000000e
 # surface1 Reaction 279
 surface_reaction('X(1) + X(1) + CH2OH(44) <=> HX(22) + CH2OX(899)', stick(1.000000e-02, 0.0, 10.884),
                  id='surface1-279')
-#  Reaction index: Chemkin #280; RMG #7
+#  Reaction index: Chemkin #280; RMG #3470
+#  Template reaction: Surface_Dissociation
+#  Flux pairs: *OON(822), *ON(192); *OON(822), OX(23);
+#  Exact match found for rate rule [Combined;VacantSite]
+#  Euclidian distance = 0
+#  family: Surface_Dissociation
+
+# surface1 Reaction 280
+surface_reaction('X(1) + *OON(822) <=> OX(23) + *ON(192)', [1.000000e+21, 0.0, 0.0],
+                 id='surface1-280')
+#  Reaction index: Chemkin #281; RMG #10066
+#  Template reaction: Surface_Adsorption_Dissociative
+#  Flux pairs: NOON(823), *OON(822); NOON(823), *N(188);
+#  Exact match found for rate rule [Adsorbate;VacantSite1;VacantSite2]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Surface_Adsorption_Dissociative
+
+# surface1 Reaction 281
+surface_reaction('X(1) + X(1) + NOON(823) <=> *N(188) + *OON(822)', stick(2.000000e-02, 0.0, 10.0),
+                 id='surface1-281')
+#  Reaction index: Chemkin #282; RMG #12267
+#  Template reaction: Surface_Adsorption_Single
+#  Flux pairs: X(1), *OON(822); H2NO2(556), *OON(822);
+#  Exact match found for rate rule [Adsorbate;VacantSite]
+#  Euclidian distance = 0
+#  family: Surface_Adsorption_Single
+
+# surface1 Reaction 282
+surface_reaction('X(1) + H2NO2(556) <=> *OON(822)', stick(1.000000e-01, 0.0, 0.0),
+                 id='surface1-282')
+#  Reaction index: Chemkin #283; RMG #12765
+#  Template reaction: Surface_Adsorption_Dissociative
+#  Flux pairs: H3NO2(565), *OON(822); H3NO2(565), HX(22);
+#  Exact match found for rate rule [Adsorbate;VacantSite1;VacantSite2]
+#  Euclidian distance = 0
+#  family: Surface_Adsorption_Dissociative
+
+# surface1 Reaction 283
+surface_reaction('X(1) + X(1) + H3NO2(565) <=> HX(22) + *OON(822)', stick(1.000000e-02, 0.0, 10.0),
+                 id='surface1-283')
+#  Reaction index: Chemkin #284; RMG #14393
+#  Template reaction: Surface_Adsorption_Dissociative
+#  Flux pairs: NNOON(858), *OON(822); NNOON(858), *NN(185);
+#  Exact match found for rate rule [Adsorbate;VacantSite1;VacantSite2]
+#  Euclidian distance = 0
+#  family: Surface_Adsorption_Dissociative
+
+# surface1 Reaction 284
+surface_reaction('X(1) + X(1) + NNOON(858) <=> *OON(822) + *NN(185)', stick(1.000000e-02, 0.0, 10.0),
+                 id='surface1-284')
+#  Reaction index: Chemkin #285; RMG #43172
+#  Template reaction: Surface_Dissociation
+#  Flux pairs: SX(2556), HNX(810); SX(2556), *OON(822);
+#  Exact match found for rate rule [Combined;VacantSite]
+#  Euclidian distance = 0
+#  family: Surface_Dissociation
+
+# surface1 Reaction 285
+surface_reaction('X(1) + SX(2556) <=> HNX(810) + *OON(822)', [1.000000e+21, 0.0, 26.115],
+                 id='surface1-285')
+#  Reaction index: Chemkin #286; RMG #20846
+#  Template reaction: Surface_Adsorption_Dissociative
+#  Flux pairs: S(376), HNO2X(930); S(376), *OONN(186);
+#  Exact match found for rate rule [Adsorbate;VacantSite1;VacantSite2]
+#  Euclidian distance = 0
+#  family: Surface_Adsorption_Dissociative
+
+# surface1 Reaction 286
+surface_reaction('X(1) + X(1) + S(376) <=> HNO2X(930) + *OONN(186)', stick(1.000000e-02, 0.0, 10.0),
+                 id='surface1-286')
+#  Reaction index: Chemkin #287; RMG #10616
+#  Template reaction: Surface_Adsorption_Dissociative
+#  Flux pairs: S(1024), O2X(432); S(1024), H2N2X(469);
+#  Exact match found for rate rule [Adsorbate;VacantSite1;VacantSite2]
+#  Euclidian distance = 0
+#  family: Surface_Adsorption_Dissociative
+
+# surface1 Reaction 287
+surface_reaction('X(1) + X(1) + S(1024) <=> O2X(432) + H2N2X(469)', stick(1.000000e-02, 0.0, 10.0),
+                 id='surface1-287')
+#  Reaction index: Chemkin #288; RMG #34743
+#  Template reaction: Surface_Adsorption_Single
+#  Flux pairs: S(1024), SX(1147); X(1), SX(1147);
+#  Exact match found for rate rule [Adsorbate;VacantSite]
+#  Euclidian distance = 0
+#  family: Surface_Adsorption_Single
+
+# surface1 Reaction 288
+surface_reaction('X(1) + S(1024) <=> SX(1147)', stick(1.000000e-01, 0.0, 0.0),
+                 id='surface1-288')
+#  Reaction index: Chemkin #289; RMG #39132
+#  Template reaction: Surface_Adsorption_Single
+#  Flux pairs: S(1024), SX(1029); X(1), SX(1029);
+#  Exact match found for rate rule [Adsorbate;VacantSite]
+#  Euclidian distance = 0
+#  family: Surface_Adsorption_Single
+
+# surface1 Reaction 289
+surface_reaction('X(1) + S(1024) <=> SX(1029)', stick(1.000000e-01, 0.0, 0.0),
+                 id='surface1-289')
+#  Reaction index: Chemkin #290; RMG #20838
+#  Template reaction: Surface_Adsorption_Dissociative
+#  Flux pairs: S(553), HNO2X(930); S(553), *ON(192);
+#  Exact match found for rate rule [Adsorbate;VacantSite1;VacantSite2]
+#  Euclidian distance = 0
+#  family: Surface_Adsorption_Dissociative
+
+# surface1 Reaction 290
+surface_reaction('X(1) + X(1) + S(553) <=> HNO2X(930) + *ON(192)', stick(1.000000e-02, 0.0, 10.0),
+                 id='surface1-290')
+#  Reaction index: Chemkin #291; RMG #7
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006
 #  Flux pairs: X(1), CO2X(28); CO2(9), CO2X(28);
 
-# surface1 Reaction 280
+# surface1 Reaction 291
 surface_reaction('X(1) + CO2(9) <=> CO2X(28)', stick(5.000000e-03, 0.0, 0.0),
-                 id='surface1-280')
-#  Reaction index: Chemkin #281; RMG #8
+                 id='surface1-291')
+#  Reaction index: Chemkin #292; RMG #8
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006
 #  Flux pairs: X(1), OCX(29); CO(11), OCX(29);
 
-# surface1 Reaction 281
+# surface1 Reaction 292
 surface_reaction('X(1) + CO(11) <=> OCX(29)', stick(8.400000e-01, 0.0, 0.0),
-                 id='surface1-281')
-#  Reaction index: Chemkin #282; RMG #9
+                 id='surface1-292')
+#  Reaction index: Chemkin #293; RMG #9
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006
 #  Flux pairs: CX(30), OCX(29); OX(23), X(1);
 
-# surface1 Reaction 282
+# surface1 Reaction 293
 surface_reaction('OX(23) + CX(30) <=> X(1) + OCX(29)', [3.700000e+19, 0.0, 0.0],
-                 id='surface1-282')
-#  Reaction index: Chemkin #283; RMG #10
+                 id='surface1-293')
+#  Reaction index: Chemkin #294; RMG #10
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006
 #  Flux pairs: OCX(29), CO2X(28); OX(23), X(1);
 
-# surface1 Reaction 283
+# surface1 Reaction 294
 surface_reaction('OX(23) + OCX(29) <=> X(1) + CO2X(28)', [3.700000e+21, 0.0, 28.107],
-                 id='surface1-283')
-#  Reaction index: Chemkin #284; RMG #11
+                 id='surface1-294')
+#  Reaction index: Chemkin #295; RMG #11
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006
 #  Flux pairs: CO2X(28), OCX(29); HX(22), HOX(26);
 
-# surface1 Reaction 284
+# surface1 Reaction 295
 surface_reaction('HX(22) + CO2X(28) <=> HOX(26) + OCX(29)', [1.000000e+19, 0.0, 2.008],
-                 id='surface1-284')
+                 id='surface1-295')
