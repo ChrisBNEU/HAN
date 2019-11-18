@@ -1,40 +1,46 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 import cantera as ct
 import numpy as np
 get_ipython().run_line_magic('matplotlib', 'inline')
 from matplotlib import pyplot as plt
+import csv
+import pandas as pd
+
+
+# In[2]:
+
+
+# input file containing the surface reaction mechanism
+cti_file = '../RMG-model/cantera/chem_annotated.cti'
+
+gas=ct.Solution(cti_file)
+surf = ct.Interface(cti_file,'surface1', [gas])
 
 
 # In[3]:
 
 
-gas=ct.Solution('C:\\Users\\Wan\\cantera\\han\\chem_annotated.cti')
+gas()
 
 
 # In[4]:
 
 
-gas()
-
-
-# In[8]:
-
-
-gas.reactions()
+gas.species_names
 
 
 # In[5]:
 
 
-gas.species()
+surf.species_names
 
 
-# In[118]:
+# In[6]:
 
 
 """
@@ -42,10 +48,6 @@ This example solves a plug flow reactor problem, where the chemistry is
 surface chemistry. The specific problem simulated is the partial oxidation of
 methane over a platinum catalyst in a packed bed reactor.
 """
-
-import csv
-
-import cantera as ct
 
 # unit conversion factors to SI
 cm = 0.01
@@ -55,20 +57,18 @@ minute = 60.0
 # Input Parameters
 #######################################################################
 
-tc = 600.0  # Temperature in Celsius
+tc = 1000.0  # Temperature in Celsius
 length = 0.3 * cm  # Catalyst bed length
 area = 1.0 * cm**2  # Catalyst bed area
 cat_area_per_vol = 1000.0 / cm  # Catalyst particle surface area per unit volume
 velocity = 400.0 * cm / minute  # gas velocity (multiplied by 10)
 porosity = 0.3  # Catalyst bed porosity
 
-# input file containing the surface reaction mechanism
-cti_file = 'chem_annotated.cti'
 
 output_filename = 'surf_pfr_output.csv'
 
 # The PFR will be simulated by a chain of 'NReactors' stirred reactors.
-NReactors = 401
+NReactors = 4001
 dt = 1.0
 
 #####################################################################
@@ -78,7 +78,8 @@ t = tc + 273.15  # convert to Kelvin
 # import the gas model and set the initial conditions
 gas = ct.Solution(cti_file, 'gas')
 
-gas.TPX = t, ct.one_atm, 'H4N2O2(2):0.14, NH2OH(3):0.3, HNO3(4):0.3, CH3OH(5):0.16, H2O(6):0.04'
+# should this be mole fractions or mole fractions?
+gas.TPY = t, ct.one_atm, 'H4N2O2(2):0.14, NH2OH(3):0.3, HNO3(4):0.3, CH3OH(5):0.16, H2O(6):0.04'
 
 # import the surface model
 surf = ct.Interface(cti_file,'surface1', [gas])
@@ -140,7 +141,7 @@ sim = ct.ReactorNet([r])
 sim.max_err_test_fails = 12
 
 # set relative and absolute tolerances on the simulation
-sim.rtol = 1.0e-9
+sim.rtol = 1.0e-12
 sim.atol = 1.0e-21
 
 for n in range(NReactors):
@@ -165,43 +166,43 @@ print("Results saved to '{0}'".format(output_filename))
 # In[ ]:
 
 
-import pandas as pd
 
 
-# In[119]:
+
+# In[8]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[120]:
+# In[9]:
 
 
 data['T (C)'].plot()
 
 
-# In[121]:
+# In[10]:
 
 
 data[['H4N2O2(2)', 'CH3OH(5)']].plot()
 
 
-# In[ ]:
+# In[11]:
 
 
+list(data.columns)[:4]
 
 
-
-# In[122]:
+# In[12]:
 
 
 specs = list(data.columns)
-specs = specs[5:]
+specs = specs[4:]
 specs
 
 
-# In[123]:
+# In[13]:
 
 
 data[specs[1:5]].plot()
@@ -210,19 +211,19 @@ for i in range(0,len(specs),10):
     data[specs[i:i+10]].plot()
 
 
-# In[124]:
+# In[14]:
 
 
-gas.species('NOJ(242)').composition
+gas.species('NO(49)').composition
 
 
-# In[125]:
+# In[15]:
 
 
-data['NOJ(242)'].plot()
+data['NO(49)'].plot()
 
 
-# In[126]:
+# In[16]:
 
 
 (data[specs].max()>0.01)
@@ -234,7 +235,7 @@ data['NOJ(242)'].plot()
 
 
 
-# In[90]:
+# In[ ]:
 
 
 data.loc[0]
