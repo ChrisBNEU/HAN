@@ -63,11 +63,13 @@ species(
 
 ## Other things for naming purposes
 
+
 species(
-    label='Ar',
-    reactive=False,
-    structure=SMILES("[Ar]"),
+    label='N2',
+    reactive=True,
+    structure=SMILES("N#N"),
 )
+
 
 species(
    label='O2',
