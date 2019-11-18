@@ -14,7 +14,7 @@
 #SBATCH --partition=west
 #SBATCH --mem=5GB
 #SBATCH --exclude=c3040,c5003
-#SBATCH --array=1-168%40
+#SBATCH --array=1-104%40
 
 source activate rmg3
 python autotst-han.py
