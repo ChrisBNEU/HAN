@@ -2,6 +2,7 @@
 database(
     thermoLibraries=['surfaceThermoPt', 
                      'primaryThermoLibrary',
+                     'NitrogenGlarborg2018',
                      'thermo_DFT_CCSDTF12_BAC',
                      'DFT_QCI_thermo',
                      'NOx2018',
@@ -11,6 +12,7 @@ database(
                     ],
     reactionLibraries = [('Surface/CPOX_Pt/Deutschmann2006', True),
                          'BurkeH2O2inN2',
+                         'Nitrogen_Glarborg_2018',
                          'Nitrogen_Glarborg_Lucassen_et_al',
                          'Nitrogen_Glarborg_Zhang_et_al',
                          'Nitrogen_Glarborg_Gimenez_et_al',
