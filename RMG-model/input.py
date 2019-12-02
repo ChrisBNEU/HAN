@@ -172,7 +172,7 @@ species(
 # Reaction systems
 
 surfaceReactor(
-    temperature=[(400,'K'),(2400,'K')],
+    temperature=[(400,'K'),(2000,'K')],
     initialPressure=(1.0, 'bar'),
     nSims = 6,
     initialGasMoleFractions={
