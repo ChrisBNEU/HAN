@@ -3,6 +3,7 @@ database(
     thermoLibraries=['surfaceThermoPt', 
                      'primaryThermoLibrary',
                      'NitrogenGlarborg2018',
+                     'Nitrogen_G4',
                      'thermo_DFT_CCSDTF12_BAC',
                      'DFT_QCI_thermo',
                      'NOx2018',
