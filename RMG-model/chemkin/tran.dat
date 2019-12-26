@@ -373,3 +373,16 @@ NOCDO(257)          2     531.400     4.687     0.000     0.000     0.000    ! E
 CCON(259)           2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
 NCCO(260)           2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
 HNO5(262)           2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+CHNO4(263)          2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(266)              2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(267)              2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(268)              2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(272)              2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(273)              2     446.453     5.934     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=579.81 K, Pc=40.31 bar (from Joback method)
+S(274)              2     516.245     6.312     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=670.45 K, Pc=38.72 bar (from Joback method)
+S(275)              2     377.356     5.234     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=490.07 K, Pc=49.66 bar (from Joback method)
+S(276)              2     428.975     5.738     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=557.11 K, Pc=42.83 bar (from Joback method)
+EME(277)            2     348.815     5.302     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=453.01 K, Pc=44.15 bar (from Joback method)
+C3H8O(278)          2     402.352     5.826     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=522.54 K, Pc=38.39 bar (from Joback method)
+C2O4(301)           2     580.349     6.380     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=753.70 K, Pc=42.17 bar (from Joback method)
+C2O4(302)           2     495.338     5.928     0.000     0.000     0.000    ! Epsilon & sigma estimated with Tc=643.30 K, Pc=44.86 bar (from Joback method)
