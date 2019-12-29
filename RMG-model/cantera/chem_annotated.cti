@@ -7,10 +7,10 @@ ideal_gas(name='gas',
                      CO2(9)      H2(10)      CO(11)      C2H6(12)
                      CH2O(13)    CH3(14)     C3H8(15)    H(16)
                      C2H5(17)    HCO(18)     CH3CHO(19)  OH(20)
-                     C2H4(21)    CH4(24)     HO2(36)     HNOH(94)
-                     N2H3(99)    H3N2O(193)  S(196)      H2NO3(244)
-                     H2NO3(245)  H2N2O(382)  NNO(394)    S(429)
-                     H2N2O(559)""",
+                     C2H4(21)    CH4(24)     HO2(36)     NO2(92)
+                     HNOH(94)    N2H3(99)    H3N2O(193)  S(196)
+                     H2NO3(244)  H2NO3(245)  H2N2O(382)  NNO(394)
+                     S(429)      H2N2O(559)""",
           reactions='gas-*',
           transport='Mix',
           initial_state=state(temperature=300.0, pressure=OneAtm))
@@ -20,7 +20,7 @@ ideal_interface(name='surface1',
                 species="""X(1)        HX(22)      OX(23)      CH3X(25)
                           HOX(26)     H2OX(27)    CO2X(28)    OCX(29)
                           CX(30)      CH2X(31)    CHX(32)     SX(214)
-                          H3NOX(217)  HNO3X(220)  CH4OX(223)""",
+                          H2NOX(216)  H3NOX(217)  HNO3X(220)  CH4OX(223)""",
                 site_density=2.9e-09,
                 phases="gas",
           reactions='surface1-*',
@@ -380,6 +380,22 @@ species(name='HO2(36)',
                                 well_depth=107.4,
                                 rot_relax=1.0))
 
+species(name='NO2(92)',
+        atoms='N:1 O:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 3.78713000E+00, -4.29577000E-04,  1.37384000E-05,
+                      -1.74264000E-08,  6.71250000E-12,  2.89500000E+03,
+                       6.96592000E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 4.90482000E+00,  2.14474000E-03, -8.12654000E-07,
+                       1.55512000E-10, -1.04114000E-14,  2.28959000E+03,
+                      -2.33567000E-01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=3.852,
+                                well_depth=333.59,
+                                dipole=0.4,
+                                rot_relax=1.0))
+
 species(name='HNOH(94)',
         atoms='H:2 N:1 O:1',
         thermo=(NASA([200.00, 1000.00],
@@ -653,6 +669,17 @@ species(name='SX(214)',
                      [ 1.04764061E+01,  1.11839646E-02, -3.89198554E-06,
                        7.12804747E-10, -5.18546789E-14, -1.90545057E+03,
                       -4.57525830E+01])))
+
+species(name='H2NOX(216)',
+        atoms='H:2 N:1 O:1 X:1',
+        thermo=(NASA([100.00, 849.79],
+                     [-1.63775924E+00,  3.84992819E-02, -6.19089124E-05,
+                       5.04280515E-08, -1.59184631E-11, -1.16674340E+04,
+                       5.42277718E+00]),
+                NASA([849.79, 5000.00],
+                     [ 4.02617850E+00,  8.76617136E-03, -4.00197391E-06,
+                       7.44606662E-10, -5.02838304E-14, -1.25191196E+04,
+                      -2.03277661E+01])))
 
 species(name='H3NOX(217)',
         atoms='H:3 N:1 O:1 X:1',
@@ -1884,6 +1911,23 @@ reaction('HNOH(94) + H2NO3(244) <=> HNO3(4) + NH2OH(3)', [5.800000e+04, 2.69, -1
 reaction('H2NO3(244) + S(196) <=> HNO3(4) + H4N2O2(2)', [3.600000e+06, 1.94, -1.15],
          id='gas-120',
          options='duplicate')
+#  Reaction index: Chemkin #121; RMG #710
+#  Library reaction: NOx2018
+#  Flux pairs: NO2(92), HNO3(4); OH(20), HNO3(4);
+
+# Reaction 121
+falloff_reaction('NO2(92) + OH(20) (+ M) <=> HNO3(4) (+ M)',
+                 kf=[3.000000e+13, 0.0, 0.0],
+                 kf0=[2.938000e+25, -3.0, 0.0],
+                 falloff=Troe(A=0.4, T3=1e-30, T1=1e+30, T2=1e+30),
+                 id='gas-121')
+#  Reaction index: Chemkin #122; RMG #712
+#  Library reaction: NOx2018
+#  Flux pairs: HNO3(4), NO2(92); H(16), H2O(6);
+
+# Reaction 122
+reaction('H(16) + HNO3(4) <=> NO2(92) + H2O(6)', [6.100000e+01, 3.3, 6.285],
+         id='gas-122')
 #  Reaction index: Chemkin #1; RMG #6
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006
 #  Flux pairs: X(1), H2OX(27); H2O(6), H2OX(27);
@@ -1977,108 +2021,129 @@ surface_reaction('X(1) + X(1) + H2O(6) <=> HX(22) + HOX(26)', stick(2.000000e-02
 # surface1 Reaction 10
 surface_reaction('X(1) + OH(20) <=> HOX(26)', stick(1.000000e-01, 0.0, 0.0),
                  id='surface1-10')
-#  Reaction index: Chemkin #11; RMG #2
+#  Reaction index: Chemkin #11; RMG #1771
+#  Template reaction: Surface_Adsorption_Dissociative
+#  Flux pairs: NH2OH(3), H2NOX(216); NH2OH(3), HX(22);
+#  Exact match found for rate rule [Adsorbate;VacantSite1;VacantSite2]
+#  Euclidian distance = 0
+#  Multiplied by reaction path degeneracy 2.0
+#  family: Surface_Adsorption_Dissociative
+
+# surface1 Reaction 11
+surface_reaction('X(1) + X(1) + NH2OH(3) <=> HX(22) + H2NOX(216)', stick(2.000000e-02, 0.0, 10.0),
+                 id='surface1-11')
+#  Reaction index: Chemkin #12; RMG #2488
+#  Template reaction: Surface_Adsorption_Single
+#  Flux pairs: X(1), H2NOX(216); HNOH(94), H2NOX(216);
+#  Exact match found for rate rule [Adsorbate;VacantSite]
+#  Euclidian distance = 0
+#  family: Surface_Adsorption_Single
+
+# surface1 Reaction 12
+surface_reaction('X(1) + HNOH(94) <=> H2NOX(216)', stick(1.000000e-01, 0.0, 0.0),
+                 id='surface1-12')
+#  Reaction index: Chemkin #13; RMG #2
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006
 #  Flux pairs: O2(8), OX(23); X(1), OX(23); X(1), OX(23);
 
-# surface1 Reaction 11
-surface_reaction('X(1) + X(1) + O2(8) <=> OX(23) + OX(23)', [1.890000e+21, -0.5, 0.0],
-                 id='surface1-11')
-#  Reaction index: Chemkin #12; RMG #3
-#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
-#  Flux pairs: CH4(24), CH3X(25); X(1), HX(22); X(1), HX(22);
-
-# surface1 Reaction 12
-surface_reaction('X(1) + X(1) + CH4(24) <=> HX(22) + CH3X(25)', stick(9.000000e-04, 0.0, 17.208),
-                 id='surface1-12')
-#  Reaction index: Chemkin #13; RMG #4
-#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
-#  Flux pairs: CH4(24), CH3X(25); X(1), HOX(26); OX(23), HOX(26);
-
 # surface1 Reaction 13
-surface_reaction('X(1) + OX(23) + CH4(24) <=> HOX(26) + CH3X(25)', [5.000000e+18, 0.7, 10.038],
+surface_reaction('X(1) + X(1) + O2(8) <=> OX(23) + OX(23)', [1.890000e+21, -0.5, 0.0],
                  id='surface1-13')
-#  Reaction index: Chemkin #14; RMG #5
-#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
-#  Flux pairs: CH4(24), CH3X(25); X(1), H2OX(27); HOX(26), H2OX(27);
-
-# surface1 Reaction 14
-surface_reaction('X(1) + HOX(26) + CH4(24) <=> H2OX(27) + CH3X(25)', stick(1.000000e+00, 0.0, 2.39),
-                 id='surface1-14')
-#  Reaction index: Chemkin #15; RMG #7
-#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
-#  Flux pairs: X(1), CO2X(28); CO2(9), CO2X(28);
-
-# surface1 Reaction 15
-surface_reaction('X(1) + CO2(9) <=> CO2X(28)', stick(5.000000e-03, 0.0, 0.0),
-                 id='surface1-15')
-#  Reaction index: Chemkin #16; RMG #8
-#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
-#  Flux pairs: X(1), OCX(29); CO(11), OCX(29);
-
-# surface1 Reaction 16
-surface_reaction('X(1) + CO(11) <=> OCX(29)', stick(8.400000e-01, 0.0, 0.0),
-                 id='surface1-16')
-#  Reaction index: Chemkin #17; RMG #9
-#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
-#  Flux pairs: CX(30), OCX(29); OX(23), X(1);
-
-# surface1 Reaction 17
-surface_reaction('OX(23) + CX(30) <=> X(1) + OCX(29)', [3.700000e+19, 0.0, 0.0],
-                 id='surface1-17')
-#  Reaction index: Chemkin #18; RMG #10
-#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
-#  Flux pairs: OCX(29), CO2X(28); OX(23), X(1);
-
-# surface1 Reaction 18
-surface_reaction('OX(23) + OCX(29) <=> X(1) + CO2X(28)', [3.700000e+21, 0.0, 28.107],
-                 id='surface1-18')
-#  Reaction index: Chemkin #19; RMG #11
-#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
-#  Flux pairs: CO2X(28), OCX(29); HX(22), HOX(26);
-
-# surface1 Reaction 19
-surface_reaction('HX(22) + CO2X(28) <=> HOX(26) + OCX(29)', [1.000000e+19, 0.0, 2.008],
-                 id='surface1-19')
-#  Reaction index: Chemkin #20; RMG #12
-#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
-#  Flux pairs: CH2X(31), CH3X(25); HX(22), X(1);
-
-# surface1 Reaction 20
-surface_reaction('HX(22) + CH2X(31) <=> X(1) + CH3X(25)', [3.090000e+22, 0.0, 0.0],
-                 id='surface1-20')
-#  Reaction index: Chemkin #21; RMG #13
-#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
-#  Flux pairs: CHX(32), CH2X(31); HX(22), X(1);
-
-# surface1 Reaction 21
-surface_reaction('HX(22) + CHX(32) <=> X(1) + CH2X(31)', [3.090000e+22, 0.0, 0.0],
-                 id='surface1-21')
-#  Reaction index: Chemkin #22; RMG #14
-#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
-#  Flux pairs: CHX(32), CX(30); X(1), HX(22);
-
-# surface1 Reaction 22
-surface_reaction('X(1) + CHX(32) <=> HX(22) + CX(30)', [3.090000e+22, 0.0, 0.0],
-                 id='surface1-22')
-#  Reaction index: Chemkin #23; RMG #15
+#  Reaction index: Chemkin #14; RMG #15
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006
 #  Flux pairs: OX(23), HOX(26); HX(22), X(1);
 
-# surface1 Reaction 23
+# surface1 Reaction 14
 surface_reaction('OX(23) + HX(22) <=> X(1) + HOX(26)', [1.280000e+21, 0.0, 2.677],
-                 id='surface1-23')
-#  Reaction index: Chemkin #24; RMG #16
+                 id='surface1-14')
+#  Reaction index: Chemkin #15; RMG #16
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006
 #  Flux pairs: H2OX(27), HOX(26); OX(23), HOX(26);
 
-# surface1 Reaction 24
+# surface1 Reaction 15
 surface_reaction('OX(23) + H2OX(27) <=> HOX(26) + HOX(26)', [1.000000e+20, 0.0, 10.301],
+                 id='surface1-15')
+#  Reaction index: Chemkin #16; RMG #3
+#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
+#  Flux pairs: CH4(24), CH3X(25); X(1), HX(22); X(1), HX(22);
+
+# surface1 Reaction 16
+surface_reaction('X(1) + X(1) + CH4(24) <=> HX(22) + CH3X(25)', stick(9.000000e-04, 0.0, 17.208),
+                 id='surface1-16')
+#  Reaction index: Chemkin #17; RMG #4
+#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
+#  Flux pairs: CH4(24), CH3X(25); X(1), HOX(26); OX(23), HOX(26);
+
+# surface1 Reaction 17
+surface_reaction('X(1) + OX(23) + CH4(24) <=> HOX(26) + CH3X(25)', [5.000000e+18, 0.7, 10.038],
+                 id='surface1-17')
+#  Reaction index: Chemkin #18; RMG #5
+#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
+#  Flux pairs: CH4(24), CH3X(25); X(1), H2OX(27); HOX(26), H2OX(27);
+
+# surface1 Reaction 18
+surface_reaction('X(1) + HOX(26) + CH4(24) <=> H2OX(27) + CH3X(25)', stick(1.000000e+00, 0.0, 2.39),
+                 id='surface1-18')
+#  Reaction index: Chemkin #19; RMG #7
+#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
+#  Flux pairs: X(1), CO2X(28); CO2(9), CO2X(28);
+
+# surface1 Reaction 19
+surface_reaction('X(1) + CO2(9) <=> CO2X(28)', stick(5.000000e-03, 0.0, 0.0),
+                 id='surface1-19')
+#  Reaction index: Chemkin #20; RMG #8
+#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
+#  Flux pairs: X(1), OCX(29); CO(11), OCX(29);
+
+# surface1 Reaction 20
+surface_reaction('X(1) + CO(11) <=> OCX(29)', stick(8.400000e-01, 0.0, 0.0),
+                 id='surface1-20')
+#  Reaction index: Chemkin #21; RMG #9
+#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
+#  Flux pairs: CX(30), OCX(29); OX(23), X(1);
+
+# surface1 Reaction 21
+surface_reaction('OX(23) + CX(30) <=> X(1) + OCX(29)', [3.700000e+19, 0.0, 0.0],
+                 id='surface1-21')
+#  Reaction index: Chemkin #22; RMG #10
+#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
+#  Flux pairs: OCX(29), CO2X(28); OX(23), X(1);
+
+# surface1 Reaction 22
+surface_reaction('OX(23) + OCX(29) <=> X(1) + CO2X(28)', [3.700000e+21, 0.0, 28.107],
+                 id='surface1-22')
+#  Reaction index: Chemkin #23; RMG #11
+#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
+#  Flux pairs: CO2X(28), OCX(29); HX(22), HOX(26);
+
+# surface1 Reaction 23
+surface_reaction('HX(22) + CO2X(28) <=> HOX(26) + OCX(29)', [1.000000e+19, 0.0, 2.008],
+                 id='surface1-23')
+#  Reaction index: Chemkin #24; RMG #12
+#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
+#  Flux pairs: CH2X(31), CH3X(25); HX(22), X(1);
+
+# surface1 Reaction 24
+surface_reaction('HX(22) + CH2X(31) <=> X(1) + CH3X(25)', [3.090000e+22, 0.0, 0.0],
                  id='surface1-24')
-#  Reaction index: Chemkin #25; RMG #17
+#  Reaction index: Chemkin #25; RMG #13
+#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
+#  Flux pairs: CHX(32), CH2X(31); HX(22), X(1);
+
+# surface1 Reaction 25
+surface_reaction('HX(22) + CHX(32) <=> X(1) + CH2X(31)', [3.090000e+22, 0.0, 0.0],
+                 id='surface1-25')
+#  Reaction index: Chemkin #26; RMG #14
+#  Library reaction: Surface/CPOX_Pt/Deutschmann2006
+#  Flux pairs: CHX(32), CX(30); X(1), HX(22);
+
+# surface1 Reaction 26
+surface_reaction('X(1) + CHX(32) <=> HX(22) + CX(30)', [3.090000e+22, 0.0, 0.0],
+                 id='surface1-26')
+#  Reaction index: Chemkin #27; RMG #17
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006
 #  Flux pairs: H2(10), CH2X(31); CX(30), CH2X(31);
 
-# surface1 Reaction 25
+# surface1 Reaction 27
 surface_reaction('H2(10) + CX(30) <=> CH2X(31)', stick(4.000000e-02, 0.0, 7.098),
-                 id='surface1-25')
+                 id='surface1-27')
