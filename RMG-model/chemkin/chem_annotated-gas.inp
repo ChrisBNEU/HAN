@@ -38476,7 +38476,6 @@ S(677)=S(756)                                       1.751722e+06 1.801     30.44
 ! Library reaction: NOx2018
 ! Flux pairs: CH2(S)(41), CH3(14); H2(10), H(16); 
 H2(10)+CH2(S)(41)=H(16)+CH3(14)                     7.200000e+13 0.000     0.000    
-DUPLICATE
 
 ! Reaction index: Chemkin #4425; RMG #98
 ! Library reaction: NOx2018
@@ -59775,13 +59774,11 @@ CH3(14)+M=H(16)+CH2(39)+M                           2.200e+15 0.000     82.659
 ! Library reaction: NOx2018
 ! Flux pairs: CH3(14), CH2(39); H(16), H2(10); 
 H(16)+CH3(14)=H2(10)+CH2(39)                        1.200000e+06 2.430     11.941   
-DUPLICATE
 
 ! Reaction index: Chemkin #6971; RMG #96
 ! Library reaction: NOx2018
 ! Flux pairs: CH3(14), CH2(39); OH(20), H2O(6); 
 OH(20)+CH3(14)=H2O(6)+CH2(39)                       4.300000e+04 2.568     3.997    
-DUPLICATE
 
 ! Reaction index: Chemkin #6972; RMG #112
 ! Library reaction: NOx2018
