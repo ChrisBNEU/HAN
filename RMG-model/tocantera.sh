@@ -22,8 +22,8 @@ then
 fi
 
 # If part of a slurm array job.
-# task 1 does 0001, 0021, 0041, etc. up to 0481
-# task 20 does 0020, 0040, 0060, etc. up to 0500
+# task 1 does 0001, 0021, 0041, etc. up to 0501
+# task 20 does 0020, 0040, 0060, etc. up to 0520
 trap "exit" INT
 for ((i=0;i<=25;i++)); 
 do 
