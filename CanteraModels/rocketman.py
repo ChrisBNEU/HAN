@@ -149,7 +149,66 @@ del(r, rsurf)
 starting_coverages
 
 
-# In[10]:
+# In[11]:
+
+
+gas.chemical_potentials
+
+
+# In[27]:
+
+
+plt.barh(np.arange(len(gas.delta_gibbs)),gas.delta_gibbs)
+plt.barh(len(gas.delta_gibbs)+np.arange(len(surf.delta_gibbs)),surf.delta_gibbs)
+plt.title("∆G")
+
+
+# In[29]:
+
+
+plt.barh(np.arange(len(gas.delta_enthalpy)),gas.delta_enthalpy)
+plt.barh(len(gas.delta_enthalpy)+np.arange(len(surf.delta_enthalpy)),surf.delta_enthalpy)
+plt.title('∆H')
+
+
+# In[30]:
+
+
+plt.barh(np.arange(len(gas.delta_entropy)),gas.delta_entropy)
+plt.barh(len(gas.delta_entropy)+np.arange(len(surf.delta_entropy)),surf.delta_entropy)
+plt.title('∆S')
+
+
+# In[31]:
+
+
+gas.equilibrate('TP')
+
+
+# In[35]:
+
+
+plt.barh(np.arange(len(gas.delta_gibbs)),gas.delta_gibbs)
+plt.barh(len(gas.delta_gibbs)+np.arange(len(surf.delta_gibbs)),surf.delta_gibbs)
+plt.title("∆G")
+plt.show()
+plt.barh(np.arange(len(gas.delta_enthalpy)),gas.delta_enthalpy)
+plt.barh(len(gas.delta_enthalpy)+np.arange(len(surf.delta_enthalpy)),surf.delta_enthalpy)
+plt.title('∆H')
+plt.show()
+plt.barh(np.arange(len(gas.delta_entropy)),gas.delta_entropy)
+plt.barh(len(gas.delta_entropy)+np.arange(len(surf.delta_entropy)),surf.delta_entropy)
+plt.title('∆S')
+plt.show()
+
+
+# In[19]:
+
+
+plt.plot(surf.concentrations, surf.chemical_potentials, 'o')
+
+
+# In[ ]:
 
 
 def report_rates(n=8):
@@ -178,7 +237,7 @@ def report_rates(n=8):
 report_rates()
 
 
-# In[11]:
+# In[ ]:
 
 
 def report_rate_constants(n=8):
@@ -199,7 +258,7 @@ def report_rate_constants(n=8):
 report_rate_constants()
 
 
-# In[12]:
+# In[ ]:
 
 
 # The plug flow reactor is represented by a linear chain of zero-dimensional
@@ -215,7 +274,7 @@ cov = surf.coverages
 
 # create a new reactor
 gas.TDY = TDY
-r = ct.IdealGasReactor(gas, energy='off')
+r = ct.IdealGasReactor(gas, energy='on')
 r.volume = r_vol
 
 # create a reservoir to represent the reactor immediately upstream. Note
@@ -293,13 +352,13 @@ outfile.close()
 print("Results saved to '{0}'".format(output_filename))
 
 
-# In[13]:
+# In[ ]:
 
 
 sim.time
 
 
-# In[14]:
+# In[ ]:
 
 
 gas.TDY = TDY
@@ -307,122 +366,122 @@ r.syncState()
 r.thermo.T
 
 
-# In[15]:
+# In[ ]:
 
 
 r.thermo.X - gas.X
 
 
-# In[16]:
+# In[ ]:
 
 
 rsurf.kinetics.net_rates_of_progress
 
 
-# In[17]:
+# In[ ]:
 
 
 surf.net_rates_of_progress
 
 
-# In[18]:
+# In[ ]:
 
 
 gas.TDY
 
 
-# In[19]:
+# In[ ]:
 
 
 r.thermo.TDY
 
 
-# In[20]:
+# In[ ]:
 
 
 report_rate_constants()
 
 
-# In[21]:
+# In[ ]:
 
 
 sim.verbose
 
 
-# In[22]:
+# In[ ]:
 
 
 sim.component_name(46)
 
 
-# In[23]:
+# In[ ]:
 
 
 gas.species_index('S(429)')
 
 
-# In[24]:
+# In[ ]:
 
 
 plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
-# In[25]:
+# In[ ]:
 
 
 gas.T
 
 
-# In[26]:
+# In[ ]:
 
 
 gas.T
 
 
-# In[27]:
+# In[ ]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[28]:
+# In[ ]:
 
 
 data['T (C)'].plot()
 
 
-# In[29]:
+# In[ ]:
 
 
 data[['H4N2O2(2)', 'CH3OH(5)']].plot()
 
 
-# In[30]:
+# In[ ]:
 
 
 list(data.columns)[:4]
 
 
-# In[31]:
+# In[ ]:
 
 
 data[['T (C)', 'alpha']].plot()
 
 
-# In[32]:
+# In[ ]:
 
 
 data[['alpha']].plot(logy=True)
 
 
-# In[33]:
+# In[ ]:
 
 
 data[['T (C)', 'alpha']].plot
 
 
-# In[34]:
+# In[ ]:
 
 
 specs = list(data.columns)
@@ -434,13 +493,13 @@ adsorbates = [s for s in specs if 'X' in s]
 gas_species, adsorbates
 
 
-# In[44]:
+# In[ ]:
 
 
 data[gas_species[0:5]].plot(logy=True, logx=True)
 
 
-# In[35]:
+# In[ ]:
 
 
 for i in range(0,len(gas_species),10):
@@ -450,19 +509,19 @@ for i in range(0,len(adsorbates),10):
     data[adsorbates[i:i+10]].plot(title='surface coverages', logy=False)
 
 
-# In[36]:
+# In[ ]:
 
 
 gas.species('NO2(92)').composition
 
 
-# In[37]:
+# In[ ]:
 
 
 data['NO2(92)'].plot()
 
 
-# In[38]:
+# In[ ]:
 
 
 (data[specs].max()>0.01)
@@ -474,7 +533,7 @@ data['NO2(92)'].plot()
 
 
 
-# In[39]:
+# In[ ]:
 
 
 data.loc[0]
