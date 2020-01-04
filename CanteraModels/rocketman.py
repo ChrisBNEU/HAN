@@ -1,12 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# # Plug flow reactor simulation of Thruster
+# 
+# ![caption](Graphics/thruster-details.png)
+# 
+
 # In[1]:
 
 
 import cantera as ct
 import numpy as np
-get_ipython().run_line_magic('matplotlib', 'inline')
+
 from matplotlib import pyplot as plt
 import csv
 import pandas as pd
@@ -17,6 +22,8 @@ import pandas as pd
 
 # input file containing the surface reaction mechanism
 cti_file = '../RMG-model/cantera/chem_annotated.cti'
+
+cti_file = '../RMG-model/cantera/chem0050.cti'
 
 gas=ct.Solution(cti_file)
 surf = ct.Interface(cti_file,'surface1', [gas])
@@ -31,62 +38,83 @@ gas()
 # In[4]:
 
 
-gas.species_names
+print(", ".join(gas.species_names))
 
 
 # In[5]:
 
 
-surf.species_names
+print(", ".join(surf.species_names))
 
+
+# 
+# 
+# This example solves a plug flow reactor problem, with coupled surface and gas chemistry.
+# 
+# 
+# 
+# 
 
 # In[6]:
 
 
-"""
-This example solves a plug flow reactor problem, where the chemistry is
-surface chemistry. The specific problem simulated is the partial oxidation of
-methane over a platinum catalyst in a packed bed reactor.
-"""
-
 # unit conversion factors to SI
-cm = 0.01
-minute = 60.0
+cm = 0.01 # m
+minute = 60.0  # s
+
+
+# In[7]:
+
 
 #######################################################################
-# Input Parameters
+# Input Parameters for combustor
 #######################################################################
+mass_flow_rate =  0.5e-3 # kg/s
+temperature_c = 400.0  # Initial Temperature in Celsius
+pressure = ct.one_atm # constant
 
-tc = 1000.0  # Temperature in Celsius
-length = 0.3 * cm  # Catalyst bed length
-area = 1.0 * cm**2  # Catalyst bed area
-cat_area_per_vol = 1000.0 / cm  # Catalyst particle surface area per unit volume
-velocity = 400.0 * cm / minute  # gas velocity (multiplied by 10)
-porosity = 0.3  # Catalyst bed porosity
+length = 1.1 * cm  # Catalyst bed length. 11mm
+cross_section_area = np.pi * (0.9*cm)**2  # Catalyst bed area.  18mm diameter circle.
+
+### Catalyst properties. Some are hard to estimate
+# if we can, update this lit value or verify the value richard calculated
+cat_specific_area = 140 # m2/g
+cat_density = 2 / cm**3 # 2 g/m3
+print(f"Catalyst density {cat_density :.2e} g/m3")
+cat_area_per_vol = cat_specific_area * cat_density  # m2/m3
+cat_area_per_vol # m2/m3
+print(f"Catalyst area per volume {cat_area_per_vol :.2e} m2/m3")
+print()
+
+porosity = 0.38  # Catalyst bed porosity (0.38)
+# Al2O3 particles are about 0.7mm diameter
+
+
+# In[8]:
 
 
 output_filename = 'surf_pfr_output.csv'
 
 # The PFR will be simulated by a chain of 'NReactors' stirred reactors.
-NReactors = 4001
+NReactors = 2001
 dt = 1.0
 
 #####################################################################
 
-t = tc + 273.15  # convert to Kelvin
+temperature_kelvin = temperature_c + 273.15  # convert to Kelvin
 
 # import the gas model and set the initial conditions
 gas = ct.Solution(cti_file, 'gas')
 
 # should this be mole fractions or mole fractions?
-gas.TPY = t, ct.one_atm, 'H4N2O2(2):0.14, NH2OH(3):0.3, HNO3(4):0.3, CH3OH(5):0.16, H2O(6):0.04'
+gas.TPY = temperature_kelvin, pressure, 'H4N2O2(2):0.14, NH2OH(3):0.3, HNO3(4):0.3, CH3OH(5):0.16, H2O(6):0.04'
 
 # import the surface model
 surf = ct.Interface(cti_file,'surface1', [gas])
-surf.TP = t, ct.one_atm
+surf.TP = temperature_kelvin, pressure
 
-rlen = length/(NReactors-1)
-rvol = area * rlen * porosity
+r_len = length/(NReactors-1) 
+r_vol = cross_section_area * r_len * porosity # gas volume
 
 outfile = open(output_filename,'w')
 writer = csv.writer(outfile)
@@ -94,9 +122,64 @@ writer.writerow(['Distance (mm)', 'T (C)', 'P (atm)'] +
                 gas.species_names + surf.species_names)
 
 # catalyst area in one reactor
-cat_area = cat_area_per_vol * rvol
+cat_area = cat_area_per_vol * r_vol
 
-mass_flow_rate = velocity * gas.density * area
+# Not sure we need the velocity
+velocity = mass_flow_rate / (gas.density * cross_section_area)
+
+
+# In[9]:
+
+
+def report_rates(n=8):
+    print("\nHighest net rates of progress, gas")
+    for i in np.argsort(abs(gas.net_rates_of_progress))[-1:-n:-1]: # top n in descending order
+        print(f"{i:3d} : {gas.reaction_equation(i):48s}  {gas.net_rates_of_progress[i]:8.1g}")
+    print("\nHighest net rates of progress, surface")
+    for i in np.argsort(abs(surf.net_rates_of_progress))[-1:-n:-1]: # top n in descending order
+        print(f"{i:3d} : {surf.reaction_equation(i):48s}  {cat_area_per_vol*surf.net_rates_of_progress[i]:8.1g}")
+    print("\nHighest forward rates of progress, gas")
+    for i in np.argsort(abs(gas.forward_rates_of_progress))[-1:-n:-1]: # top n in descending order
+        print(f"{i:3d} : {gas.reaction_equation(i):48s}  {gas.forward_rates_of_progress[i]:8.1g}")
+    print("\nHighest forward rates of progress, surface")
+    for i in np.argsort(abs(surf.forward_rates_of_progress))[-1:-n:-1]: # top n in descending order
+        print(f"{i:3d} : {surf.reaction_equation(i):48s}  {cat_area_per_vol*surf.forward_rates_of_progress[i]:8.1g}")
+    print("\nHighest reverse rates of progress, gas")
+    for i in np.argsort(abs(gas.reverse_rates_of_progress))[-1:-n:-1]: # top n in descending order
+        print(f"{i:3d} : {gas.reaction_equation(i):48s}  {gas.reverse_rates_of_progress[i]:8.1g}")
+    print("\nHighest reverse rates of progress, surface")
+    for i in np.argsort(abs(surf.reverse_rates_of_progress))[-1:-n:-1]: # top n in descending order
+        print(f"{i:3d} : {surf.reaction_equation(i):48s}  {cat_area_per_vol*surf.reverse_rates_of_progress[i]:8.1g}")
+
+    print(f"\nSurface rates have been scaled by surface/volume ratio {cat_area_per_vol:.1e} m2/m3")
+    print("So are on a similar basis of volume of reactor (though porosity not yet accounted for)")
+    print(" kmol / m3 / s")
+report_rates()
+
+
+# In[10]:
+
+
+def report_rate_constants(n=8):
+    print("\nHighest forward rate constants, gas")
+    for i in np.argsort(abs(gas.forward_rate_constants))[-1:-n:-1]: # top n in descending order
+        print(f"{i:3d} : {gas.reaction_equation(i):48s}  {gas.forward_rate_constants[i]:8.1e}")
+    print("\nHighest forward rate constants, surface")
+    for i in np.argsort(abs(surf.forward_rate_constants))[-1:-n:-1]: # top n in descending order
+        print(f"{i:3d} : {surf.reaction_equation(i):48s}  {surf.forward_rate_constants[i]:8.1e}")
+    print("\nHighest reverse rate constants, gas")
+    for i in np.argsort(abs(gas.reverse_rate_constants))[-1:-n:-1]: # top n in descending order
+        print(f"{i:3d} : {gas.reaction_equation(i):48s}  {gas.reverse_rate_constants[i]:8.1e}")
+    print("\nHighest reverse rate constants, surface")
+    for i in np.argsort(abs(surf.reverse_rates_of_progress))[-1:-n:-1]: # top n in descending order
+        print(f"{i:3d} : {surf.reaction_equation(i):48s}  {surf.reverse_rate_constants[i]:8.1e}")
+
+    print("Units are a combination of kmol, m^3 and s, that depend on the rate expression for the reaction.")
+report_rate_constants()
+
+
+# In[11]:
+
 
 # The plug flow reactor is represented by a linear chain of zero-dimensional
 # reactors. The gas at the inlet to the first one has the specified inlet
@@ -109,12 +192,10 @@ mass_flow_rate = velocity * gas.density * area
 TDY = gas.TDY
 cov = surf.coverages
 
-print('    distance       H4N2O2(2)   NH2OH(3)  HNO3(4)   CH3OH(5)')
-
 # create a new reactor
 gas.TDY = TDY
 r = ct.IdealGasReactor(gas, energy='off')
-r.volume = rvol
+r.volume = r_vol
 
 # create a reservoir to represent the reactor immediately upstream. Note
 # that the gas object is set already to the state of the upstream reactor
@@ -138,63 +219,167 @@ m = ct.MassFlowController(upstream, r, mdot=mass_flow_rate)
 v = ct.PressureController(r, downstream, master=m, K=1e-5)
 
 sim = ct.ReactorNet([r])
-sim.max_err_test_fails = 12
+sim.max_err_test_fails = 24
 
 # set relative and absolute tolerances on the simulation
 sim.rtol = 1.0e-12
 sim.atol = 1.0e-21
 
+sim.verbose = False
+
+print('    distance(mm)     H4N2O2(2)   NH2OH(3)   HNO3(4)  CH3OH(5)  alpha')
 for n in range(NReactors):
     # Set the state of the reservoir to match that of the previous reactor
-    gas.TDY = r.thermo.TDY
+    gas.TDY = TDY = r.thermo.TDY
+    gas.TP = temperature_kelvin, pressure # fix it to be constant again!
     upstream.syncState()
     sim.reinitialize()
-    sim.advance_to_steady_state()
-    dist = n * rlen * 1.0e3   # distance in mm
+    try:
+        # the default is residual_threshold = sim.rtol*10
+        sim.advance_to_steady_state(residual_threshold = sim.rtol*1000)
+    except ct.CanteraError:
+        t = sim.time
+        sim.set_initial_time(0)
+        gas.TDY = TDY
+        r.syncState()
+        sim.reinitialize()
+        print(f"Couldn't reach {t:.1g} s so going to {0.1*t:.1g} s")
+        sim.advance(0.1*t)
+        report_rates()
+        report_rate_constants()
+ 
+    dist = n * r_len * 1.0e3   # distance in mm
+        
+    gasHeat = np.dot(gas.net_rates_of_progress, gas.delta_enthalpy) # heat evolved by gas phase reaction
+    surfHeat = np.dot(surf.net_rates_of_progress, surf.delta_enthalpy) # heat evolved by surf phase reaction 
+    alpha = gasHeat/surfHeat #ratio of gas heat evolved to surface heat evolved.
 
     if not n % 10:
-        print('  {0:10f}  {1:10f}  {2:10f}  {3:10f} {4:10f}'.format(dist, *gas['H4N2O2(2)','NH2OH(3)','HNO3(4)','CH3OH(5)'].X))
+        print('    {:10f}  {:10f}  {:10f}  {:10f} {:10f}  {:5.1e}'.format(dist, *gas['H4N2O2(2)','NH2OH(3)','HNO3(4)','CH3OH(5)'].X, alpha ))
 
     # write the gas mole fractions and surface coverages vs. distance
     writer.writerow([dist, r.T - 273.15, r.thermo.P/ct.one_atm] +
-                    list(gas.X) + list(surf.coverages))
+                    list(gas.X) + list(surf.coverages) + [alpha])
+    
+    #report_rates()
+    #report_rate_constants()
 
 outfile.close()
 print("Results saved to '{0}'".format(output_filename))
 
 
-# In[ ]:
+# In[12]:
 
 
+sim.time
 
 
+# In[13]:
 
-# In[8]:
+
+gas.TDY = TDY
+r.syncState()
+r.thermo.T
+
+
+# In[14]:
+
+
+r.thermo.X - gas.X
+
+
+# In[15]:
+
+
+rsurf.kinetics.net_rates_of_progress
+
+
+# In[16]:
+
+
+surf.net_rates_of_progress
+
+
+# In[17]:
+
+
+gas.TDY
+
+
+# In[18]:
+
+
+r.thermo.TDY
+
+
+# In[19]:
+
+
+report_rate_constants()
+
+
+# In[20]:
+
+
+sim.verbose
+
+
+# In[21]:
+
+
+sim.component_name(40)
+
+
+# In[22]:
+
+
+gas.species_index('S(429)')
+
+
+# In[23]:
+
+
+plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
+
+
+# In[24]:
+
+
+gas.T
+
+
+# In[25]:
+
+
+gas.T
+
+
+# In[26]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[9]:
+# In[27]:
 
 
 data['T (C)'].plot()
 
 
-# In[10]:
+# In[28]:
 
 
 data[['H4N2O2(2)', 'CH3OH(5)']].plot()
 
 
-# In[11]:
+# In[29]:
 
 
 list(data.columns)[:4]
 
 
-# In[12]:
+# In[30]:
 
 
 specs = list(data.columns)
@@ -202,7 +387,7 @@ specs = specs[4:]
 specs
 
 
-# In[13]:
+# In[31]:
 
 
 data[specs[1:5]].plot()
@@ -211,19 +396,19 @@ for i in range(0,len(specs),10):
     data[specs[i:i+10]].plot()
 
 
-# In[14]:
+# In[32]:
 
 
 gas.species('NO(49)').composition
 
 
-# In[15]:
+# In[ ]:
 
 
 data['NO(49)'].plot()
 
 
-# In[16]:
+# In[ ]:
 
 
 (data[specs].max()>0.01)
