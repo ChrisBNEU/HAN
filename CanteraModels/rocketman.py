@@ -434,10 +434,14 @@ adsorbates = [s for s in specs if 'X' in s]
 gas_species, adsorbates
 
 
+# In[44]:
+
+
+data[gas_species[0:5]].plot(logy=True, logx=True)
+
+
 # In[35]:
 
-
-data[gas_species[1:5]].plot()
 
 for i in range(0,len(gas_species),10):
     data[gas_species[i:i+10]].plot(title='gas mole fraction', logy=False)
