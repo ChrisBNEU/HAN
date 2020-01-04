@@ -119,7 +119,7 @@ r_vol = cross_section_area * r_len * porosity # gas volume
 outfile = open(output_filename,'w')
 writer = csv.writer(outfile)
 writer.writerow(['Distance (mm)', 'T (C)', 'P (atm)'] +
-                gas.species_names + surf.species_names)
+                gas.species_names + surf.species_names + ['alpha'])
 
 # catalyst area in one reactor
 cat_area = cat_area_per_vol * r_vol
