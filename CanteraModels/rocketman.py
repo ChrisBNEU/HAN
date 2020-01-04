@@ -194,7 +194,7 @@ cov = surf.coverages
 
 # create a new reactor
 gas.TDY = TDY
-r = ct.IdealGasReactor(gas, energy='off')
+r = ct.IdealGasReactor(gas, energy='on')
 r.volume = r_vol
 
 # create a reservoir to represent the reactor immediately upstream. Note
@@ -231,7 +231,7 @@ print('    distance(mm)     H4N2O2(2)   NH2OH(3)   HNO3(4)  CH3OH(5)  alpha')
 for n in range(NReactors):
     # Set the state of the reservoir to match that of the previous reactor
     gas.TDY = TDY = r.thermo.TDY
-    gas.TP = temperature_kelvin, pressure # fix it to be constant again!
+
     upstream.syncState()
     sim.reinitialize()
     try:
@@ -268,13 +268,13 @@ outfile.close()
 print("Results saved to '{0}'".format(output_filename))
 
 
-# In[12]:
+# In[ ]:
 
 
 sim.time
 
 
-# In[13]:
+# In[ ]:
 
 
 gas.TDY = TDY
@@ -282,104 +282,104 @@ r.syncState()
 r.thermo.T
 
 
-# In[14]:
+# In[ ]:
 
 
 r.thermo.X - gas.X
 
 
-# In[15]:
+# In[ ]:
 
 
 rsurf.kinetics.net_rates_of_progress
 
 
-# In[16]:
+# In[ ]:
 
 
 surf.net_rates_of_progress
 
 
-# In[17]:
+# In[ ]:
 
 
 gas.TDY
 
 
-# In[18]:
+# In[ ]:
 
 
 r.thermo.TDY
 
 
-# In[19]:
+# In[ ]:
 
 
 report_rate_constants()
 
 
-# In[20]:
+# In[ ]:
 
 
 sim.verbose
 
 
-# In[21]:
+# In[ ]:
 
 
 sim.component_name(40)
 
 
-# In[22]:
+# In[ ]:
 
 
 gas.species_index('S(429)')
 
 
-# In[23]:
+# In[ ]:
 
 
 plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
-# In[24]:
+# In[ ]:
 
 
 gas.T
 
 
-# In[25]:
+# In[ ]:
 
 
 gas.T
 
 
-# In[26]:
+# In[ ]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[27]:
+# In[ ]:
 
 
 data['T (C)'].plot()
 
 
-# In[28]:
+# In[ ]:
 
 
 data[['H4N2O2(2)', 'CH3OH(5)']].plot()
 
 
-# In[29]:
+# In[ ]:
 
 
 list(data.columns)[:4]
 
 
-# In[30]:
+# In[ ]:
 
 
 specs = list(data.columns)
@@ -387,7 +387,7 @@ specs = specs[4:]
 specs
 
 
-# In[31]:
+# In[ ]:
 
 
 data[specs[1:5]].plot()
@@ -396,7 +396,7 @@ for i in range(0,len(specs),10):
     data[specs[i:i+10]].plot()
 
 
-# In[32]:
+# In[ ]:
 
 
 gas.species('NO(49)').composition
