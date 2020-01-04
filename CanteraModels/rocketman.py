@@ -112,6 +112,7 @@ gas.TPY = temperature_kelvin, pressure, 'H4N2O2(2):0.14, NH2OH(3):0.3, HNO3(4):0
 # import the surface model
 surf = ct.Interface(cti_file,'surface1', [gas])
 surf.TP = temperature_kelvin, pressure
+surf.coverages = 'X(1):1.0'
 
 r_len = length/(NReactors-1) 
 r_vol = cross_section_area * r_len * porosity # gas volume
@@ -129,6 +130,26 @@ velocity = mass_flow_rate / (gas.density * cross_section_area)
 
 
 # In[9]:
+
+
+# To find the starting coverages, we run the gas to equilibrium,
+# (i.e mostly burned products)  then put that in steady state
+# with the surface.
+TPY = gas.TPY # store to restore
+gas.equilibrate('TP')
+r = ct.IdealGasReactor(gas, energy='off')
+r.volume = r_vol
+rsurf = ct.ReactorSurface(surf, r, A=cat_area)
+sim = ct.ReactorNet([r])
+plt.plot(sim.advance_to_steady_state(return_residuals=True))
+surf()
+starting_coverages = surf.coverages
+gas.TPY = TPY # restore
+del(r, rsurf)
+starting_coverages
+
+
+# In[10]:
 
 
 def report_rates(n=8):
@@ -157,7 +178,7 @@ def report_rates(n=8):
 report_rates()
 
 
-# In[10]:
+# In[11]:
 
 
 def report_rate_constants(n=8):
@@ -178,7 +199,7 @@ def report_rate_constants(n=8):
 report_rate_constants()
 
 
-# In[11]:
+# In[12]:
 
 
 # The plug flow reactor is represented by a linear chain of zero-dimensional
@@ -222,10 +243,14 @@ sim = ct.ReactorNet([r])
 sim.max_err_test_fails = 24
 
 # set relative and absolute tolerances on the simulation
-sim.rtol = 1.0e-12
-sim.atol = 1.0e-21
+sim.rtol = 1.0e-11
+sim.atol = 1.0e-20
 
 sim.verbose = False
+
+# surf.set_multiplier(0.)  # turn off surface reactions
+# surf.set_multiplier(1e6)  # make surface reactions a million times faster
+
 
 print('    distance(mm)     H4N2O2(2)   NH2OH(3)   HNO3(4)  CH3OH(5)  alpha')
 for n in range(NReactors):
@@ -268,13 +293,13 @@ outfile.close()
 print("Results saved to '{0}'".format(output_filename))
 
 
-# In[12]:
+# In[13]:
 
 
 sim.time
 
 
-# In[13]:
+# In[14]:
 
 
 gas.TDY = TDY
@@ -282,70 +307,64 @@ r.syncState()
 r.thermo.T
 
 
-# In[14]:
+# In[15]:
 
 
 r.thermo.X - gas.X
 
 
-# In[15]:
+# In[16]:
 
 
 rsurf.kinetics.net_rates_of_progress
 
 
-# In[16]:
+# In[17]:
 
 
 surf.net_rates_of_progress
 
 
-# In[17]:
+# In[18]:
 
 
 gas.TDY
 
 
-# In[18]:
+# In[19]:
 
 
 r.thermo.TDY
 
 
-# In[19]:
+# In[20]:
 
 
 report_rate_constants()
 
 
-# In[20]:
+# In[21]:
 
 
 sim.verbose
 
 
-# In[21]:
+# In[22]:
 
 
 sim.component_name(46)
 
 
-# In[22]:
+# In[23]:
 
 
 gas.species_index('S(429)')
 
 
-# In[23]:
-
-
-plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
-
-
 # In[24]:
 
 
-gas.T
+plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
 # In[25]:
@@ -357,58 +376,89 @@ gas.T
 # In[26]:
 
 
-data = pd.read_csv(output_filename)
-data
+gas.T
 
 
 # In[27]:
 
 
-data['T (C)'].plot()
+data = pd.read_csv(output_filename)
+data
 
 
 # In[28]:
 
 
-data[['H4N2O2(2)', 'CH3OH(5)']].plot()
+data['T (C)'].plot()
 
 
 # In[29]:
 
 
-list(data.columns)[:4]
+data[['H4N2O2(2)', 'CH3OH(5)']].plot()
 
 
 # In[30]:
 
 
-specs = list(data.columns)
-specs = specs[4:]
-specs
+list(data.columns)[:4]
 
 
 # In[31]:
 
 
-data[specs[1:5]].plot()
-
-for i in range(0,len(specs),10):
-    data[specs[i:i+10]].plot()
+data[['T (C)', 'alpha']].plot()
 
 
 # In[32]:
 
 
-gas.species('NO(49)').composition
+data[['alpha']].plot(logy=True)
 
 
-# In[ ]:
+# In[33]:
 
 
-data['NO(49)'].plot()
+data[['T (C)', 'alpha']].plot
 
 
-# In[ ]:
+# In[34]:
+
+
+specs = list(data.columns)
+specs = specs[4:-1]
+
+gas_species = [s for s in specs if 'X' not in s]
+adsorbates = [s for s in specs if 'X' in s]
+
+gas_species, adsorbates
+
+
+# In[35]:
+
+
+data[gas_species[1:5]].plot()
+
+for i in range(0,len(gas_species),10):
+    data[gas_species[i:i+10]].plot(title='gas mole fraction', logy=False)
+    
+for i in range(0,len(adsorbates),10):
+    data[adsorbates[i:i+10]].plot(title='surface coverages', logy=False)
+
+
+# In[36]:
+
+
+gas.species('NO2(92)').composition
+
+
+# In[37]:
+
+
+data['NO2(92)'].plot()
+
+
+# In[38]:
 
 
 (data[specs].max()>0.01)
@@ -420,7 +470,7 @@ data['NO(49)'].plot()
 
 
 
-# In[ ]:
+# In[39]:
 
 
 data.loc[0]
