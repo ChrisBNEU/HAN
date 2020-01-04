@@ -192,7 +192,7 @@ def report_rate_constants(n=8):
     for i in np.argsort(abs(gas.reverse_rate_constants))[-1:-n:-1]: # top n in descending order
         print(f"{i:3d} : {gas.reaction_equation(i):48s}  {gas.reverse_rate_constants[i]:8.1e}")
     print("\nHighest reverse rate constants, surface")
-    for i in np.argsort(abs(surf.reverse_rates_of_progress))[-1:-n:-1]: # top n in descending order
+    for i in np.argsort(abs(surf.reverse_rate_constants))[-1:-n:-1]: # top n in descending order
         print(f"{i:3d} : {surf.reaction_equation(i):48s}  {surf.reverse_rate_constants[i]:8.1e}")
 
     print("Units are a combination of kmol, m^3 and s, that depend on the rate expression for the reaction.")
