@@ -194,7 +194,7 @@ cov = surf.coverages
 
 # create a new reactor
 gas.TDY = TDY
-r = ct.IdealGasReactor(gas, energy='on')
+r = ct.IdealGasReactor(gas, energy='off')
 r.volume = r_vol
 
 # create a reservoir to represent the reactor immediately upstream. Note
@@ -268,13 +268,13 @@ outfile.close()
 print("Results saved to '{0}'".format(output_filename))
 
 
-# In[ ]:
+# In[12]:
 
 
 sim.time
 
 
-# In[ ]:
+# In[13]:
 
 
 gas.TDY = TDY
@@ -282,104 +282,104 @@ r.syncState()
 r.thermo.T
 
 
-# In[ ]:
+# In[14]:
 
 
 r.thermo.X - gas.X
 
 
-# In[ ]:
+# In[15]:
 
 
 rsurf.kinetics.net_rates_of_progress
 
 
-# In[ ]:
+# In[16]:
 
 
 surf.net_rates_of_progress
 
 
-# In[ ]:
+# In[17]:
 
 
 gas.TDY
 
 
-# In[ ]:
+# In[18]:
 
 
 r.thermo.TDY
 
 
-# In[ ]:
+# In[19]:
 
 
 report_rate_constants()
 
 
-# In[ ]:
+# In[20]:
 
 
 sim.verbose
 
 
-# In[ ]:
+# In[21]:
 
 
-sim.component_name(40)
+sim.component_name(46)
 
 
-# In[ ]:
+# In[22]:
 
 
 gas.species_index('S(429)')
 
 
-# In[ ]:
+# In[23]:
 
 
 plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
-# In[ ]:
+# In[24]:
 
 
 gas.T
 
 
-# In[ ]:
+# In[25]:
 
 
 gas.T
 
 
-# In[ ]:
+# In[26]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[ ]:
+# In[27]:
 
 
 data['T (C)'].plot()
 
 
-# In[ ]:
+# In[28]:
 
 
 data[['H4N2O2(2)', 'CH3OH(5)']].plot()
 
 
-# In[ ]:
+# In[29]:
 
 
 list(data.columns)[:4]
 
 
-# In[ ]:
+# In[30]:
 
 
 specs = list(data.columns)
@@ -387,7 +387,7 @@ specs = specs[4:]
 specs
 
 
-# In[ ]:
+# In[31]:
 
 
 data[specs[1:5]].plot()
@@ -396,7 +396,7 @@ for i in range(0,len(specs),10):
     data[specs[i:i+10]].plot()
 
 
-# In[ ]:
+# In[32]:
 
 
 gas.species('NO(49)').composition
