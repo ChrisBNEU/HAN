@@ -23,7 +23,7 @@ import pandas as pd
 # input file containing the surface reaction mechanism
 cti_file = '../RMG-model/cantera/chem_annotated.cti'
 
-cti_file = '../RMG-model/cantera/chem0050.cti'
+cti_file = '../RMG-model/cantera/chem0150.cti'
 
 gas=ct.Solution(cti_file)
 surf = ct.Interface(cti_file,'surface1', [gas])
@@ -82,7 +82,9 @@ cat_specific_area = 140 # m2/g
 cat_density = 2 / cm**3 # 2 g/m3
 print(f"Catalyst density {cat_density :.2e} g/m3")
 cat_area_per_vol = cat_specific_area * cat_density  # m2/m3
-cat_area_per_vol # m2/m3
+
+cat_area_per_vol *= 1e-6 # reduce it by a million to slow things down
+
 print(f"Catalyst area per volume {cat_area_per_vol :.2e} m2/m3")
 print()
 
@@ -152,7 +154,7 @@ starting_coverages
 # In[11]:
 
 
-gas.chemical_potentials
+plt.barh(np.arange(len(gas.chemical_potentials)),gas.chemical_potentials)
 
 
 # In[27]:
@@ -161,45 +163,27 @@ gas.chemical_potentials
 plt.barh(np.arange(len(gas.delta_gibbs)),gas.delta_gibbs)
 plt.barh(len(gas.delta_gibbs)+np.arange(len(surf.delta_gibbs)),surf.delta_gibbs)
 plt.title("∆G")
-
-
-# In[29]:
-
-
+plt.show()
 plt.barh(np.arange(len(gas.delta_enthalpy)),gas.delta_enthalpy)
 plt.barh(len(gas.delta_enthalpy)+np.arange(len(surf.delta_enthalpy)),surf.delta_enthalpy)
 plt.title('∆H')
-
-
-# In[30]:
-
-
+plt.show()
 plt.barh(np.arange(len(gas.delta_entropy)),gas.delta_entropy)
 plt.barh(len(gas.delta_entropy)+np.arange(len(surf.delta_entropy)),surf.delta_entropy)
 plt.title('∆S')
+plt.show()
 
 
 # In[31]:
 
 
-gas.equilibrate('TP')
+#surf.equilibrate('TP')
 
 
 # In[35]:
 
 
-plt.barh(np.arange(len(gas.delta_gibbs)),gas.delta_gibbs)
-plt.barh(len(gas.delta_gibbs)+np.arange(len(surf.delta_gibbs)),surf.delta_gibbs)
-plt.title("∆G")
-plt.show()
-plt.barh(np.arange(len(gas.delta_enthalpy)),gas.delta_enthalpy)
-plt.barh(len(gas.delta_enthalpy)+np.arange(len(surf.delta_enthalpy)),surf.delta_enthalpy)
-plt.title('∆H')
-plt.show()
-plt.barh(np.arange(len(gas.delta_entropy)),gas.delta_entropy)
-plt.barh(len(gas.delta_entropy)+np.arange(len(surf.delta_entropy)),surf.delta_entropy)
-plt.title('∆S')
-plt.show()
+plt.plot(gas.concentrations, gas.chemical_potentials, 'o')
 
 
 # In[19]:
