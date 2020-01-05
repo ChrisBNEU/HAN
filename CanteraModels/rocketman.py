@@ -23,7 +23,7 @@ import pandas as pd
 # input file containing the surface reaction mechanism
 cti_file = '../RMG-model/cantera/chem_annotated.cti'
 
-cti_file = '../RMG-model/cantera/chem0150.cti'
+cti_file = '../RMG-model/cantera/chem0050.cti'
 
 gas=ct.Solution(cti_file)
 surf = ct.Interface(cti_file,'surface1', [gas])
@@ -81,10 +81,8 @@ cross_section_area = np.pi * (0.9*cm)**2  # Catalyst bed area.  18mm diameter ci
 cat_specific_area = 140 # m2/g
 cat_density = 2 / cm**3 # 2 g/m3
 print(f"Catalyst density {cat_density :.2e} g/m3")
-cat_area_per_vol = cat_specific_area * cat_density  # m2/m3
-
-cat_area_per_vol *= 1e-6 # reduce it by a million to slow things down
-
+cat_area_per_vol = cat_specific_area * cat_density # m2/m3
+cat_area_per_vol *= 1e-2 # REDUCE BY 100x
 print(f"Catalyst area per volume {cat_area_per_vol :.2e} m2/m3")
 print()
 
@@ -99,7 +97,7 @@ output_filename = 'surf_pfr_output.csv'
 
 # The PFR will be simulated by a chain of 'NReactors' stirred reactors.
 NReactors = 2001
-dt = 1.0
+# dt = 1.0
 
 #####################################################################
 
@@ -151,13 +149,19 @@ del(r, rsurf)
 starting_coverages
 
 
-# In[11]:
+# In[10]:
 
 
 plt.barh(np.arange(len(gas.chemical_potentials)),gas.chemical_potentials)
 
 
-# In[27]:
+# In[11]:
+
+
+# gas.equilibrate('TP')
+
+
+# In[12]:
 
 
 plt.barh(np.arange(len(gas.delta_gibbs)),gas.delta_gibbs)
@@ -174,25 +178,19 @@ plt.title('∆S')
 plt.show()
 
 
-# In[31]:
-
-
-#surf.equilibrate('TP')
-
-
-# In[35]:
+# In[13]:
 
 
 plt.plot(gas.concentrations, gas.chemical_potentials, 'o')
 
 
-# In[19]:
+# In[14]:
 
 
 plt.plot(surf.concentrations, surf.chemical_potentials, 'o')
 
 
-# In[ ]:
+# In[15]:
 
 
 def report_rates(n=8):
@@ -221,7 +219,7 @@ def report_rates(n=8):
 report_rates()
 
 
-# In[ ]:
+# In[16]:
 
 
 def report_rate_constants(n=8):
@@ -242,7 +240,7 @@ def report_rate_constants(n=8):
 report_rate_constants()
 
 
-# In[ ]:
+# In[17]:
 
 
 # The plug flow reactor is represented by a linear chain of zero-dimensional
@@ -303,8 +301,10 @@ for n in range(NReactors):
     upstream.syncState()
     sim.reinitialize()
     try:
-        # the default is residual_threshold = sim.rtol*10
-        sim.advance_to_steady_state(residual_threshold = sim.rtol*1000)
+#         the default is residual_threshold = sim.rtol*10
+#         sim.advance_to_steady_state(residual_threshold = sim.rtol*1e3)
+        sim.advance_to_steady_state()
+
     except ct.CanteraError:
         t = sim.time
         sim.set_initial_time(0)
@@ -336,13 +336,13 @@ outfile.close()
 print("Results saved to '{0}'".format(output_filename))
 
 
-# In[ ]:
+# In[18]:
 
 
 sim.time
 
 
-# In[ ]:
+# In[19]:
 
 
 gas.TDY = TDY
@@ -350,122 +350,122 @@ r.syncState()
 r.thermo.T
 
 
-# In[ ]:
+# In[20]:
 
 
 r.thermo.X - gas.X
 
 
-# In[ ]:
+# In[21]:
 
 
 rsurf.kinetics.net_rates_of_progress
 
 
-# In[ ]:
+# In[22]:
 
 
 surf.net_rates_of_progress
 
 
-# In[ ]:
+# In[23]:
 
 
 gas.TDY
 
 
-# In[ ]:
+# In[24]:
 
 
 r.thermo.TDY
 
 
-# In[ ]:
+# In[25]:
 
 
 report_rate_constants()
 
 
-# In[ ]:
+# In[26]:
 
 
 sim.verbose
 
 
-# In[ ]:
+# In[27]:
 
 
 sim.component_name(46)
 
 
-# In[ ]:
+# In[28]:
 
 
 gas.species_index('S(429)')
 
 
-# In[ ]:
+# In[29]:
 
 
 plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
-# In[ ]:
+# In[30]:
 
 
 gas.T
 
 
-# In[ ]:
-
-
-gas.T
-
-
-# In[ ]:
+# In[31]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[ ]:
+# In[32]:
 
 
 data['T (C)'].plot()
 
 
-# In[ ]:
+# In[33]:
 
 
 data[['H4N2O2(2)', 'CH3OH(5)']].plot()
 
 
-# In[ ]:
+# In[34]:
 
 
 list(data.columns)[:4]
 
 
-# In[ ]:
+# In[35]:
 
 
 data[['T (C)', 'alpha']].plot()
 
 
-# In[ ]:
+# In[36]:
 
 
 data[['alpha']].plot(logy=True)
 
 
-# In[ ]:
+# In[45]:
 
 
-data[['T (C)', 'alpha']].plot
+data.plot(x='T (C)',y='alpha')
 
 
-# In[ ]:
+# In[50]:
+
+
+data.plot(x='T (C)',y='alpha', ylim=(-1e11,1e12))
+
+
+# In[38]:
 
 
 specs = list(data.columns)
@@ -477,13 +477,13 @@ adsorbates = [s for s in specs if 'X' in s]
 gas_species, adsorbates
 
 
-# In[ ]:
+# In[39]:
 
 
 data[gas_species[0:5]].plot(logy=True, logx=True)
 
 
-# In[ ]:
+# In[40]:
 
 
 for i in range(0,len(gas_species),10):
@@ -493,19 +493,19 @@ for i in range(0,len(adsorbates),10):
     data[adsorbates[i:i+10]].plot(title='surface coverages', logy=False)
 
 
-# In[ ]:
+# In[41]:
 
 
 gas.species('NO2(92)').composition
 
 
-# In[ ]:
+# In[42]:
 
 
 data['NO2(92)'].plot()
 
 
-# In[ ]:
+# In[43]:
 
 
 (data[specs].max()>0.01)
@@ -517,7 +517,7 @@ data['NO2(92)'].plot()
 
 
 
-# In[ ]:
+# In[44]:
 
 
 data.loc[0]
