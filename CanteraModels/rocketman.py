@@ -398,12 +398,6 @@ sim.verbose
 sim.component_name(46)
 
 
-# In[28]:
-
-
-gas.species_index('S(429)')
-
-
 # In[29]:
 
 
@@ -453,19 +447,19 @@ data[['T (C)', 'alpha']].plot()
 data[['alpha']].plot(logy=True)
 
 
-# In[45]:
+# In[37]:
 
 
 data.plot(x='T (C)',y='alpha')
 
 
-# In[50]:
+# In[38]:
 
 
 data.plot(x='T (C)',y='alpha', ylim=(-1e11,1e12))
 
 
-# In[38]:
+# In[39]:
 
 
 specs = list(data.columns)
@@ -477,13 +471,13 @@ adsorbates = [s for s in specs if 'X' in s]
 gas_species, adsorbates
 
 
-# In[39]:
+# In[40]:
 
 
 data[gas_species[0:5]].plot(logy=True, logx=True)
 
 
-# In[40]:
+# In[41]:
 
 
 for i in range(0,len(gas_species),10):
@@ -493,19 +487,19 @@ for i in range(0,len(adsorbates),10):
     data[adsorbates[i:i+10]].plot(title='surface coverages', logy=False)
 
 
-# In[41]:
-
-
-gas.species('NO2(92)').composition
-
-
-# In[42]:
-
-
-data['NO2(92)'].plot()
-
-
 # In[43]:
+
+
+gas.species('NO2(9)').composition
+
+
+# In[44]:
+
+
+data['NO2(9)'].plot()
+
+
+# In[ ]:
 
 
 (data[specs].max()>0.01)
@@ -517,7 +511,7 @@ data['NO2(92)'].plot()
 
 
 
-# In[44]:
+# In[ ]:
 
 
 data.loc[0]

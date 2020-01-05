@@ -152,7 +152,7 @@ ratios = [np.log10(violator[2]) for violator in violators]
 from matplotlib import pyplot as plt
 plt.bar(np.arange(len(ratios)), ratios)
 plt.ylabel("orders of magnitude above collision limit")
-plt.xlabel("reaction index (of 21327 total)")
+plt.xlabel(f"reaction index (of {len(reactions)} total)")
 
 
 # In[12]:
