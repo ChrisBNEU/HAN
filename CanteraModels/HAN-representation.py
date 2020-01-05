@@ -92,9 +92,25 @@ for a in no3h_h2noh.atoms:
     print(a, no3h_h2noh.get_bonds(a))
 
 
+# In[8]:
+
+
+# It seems there are are other H-bonds that can be formed
+for m in no3h_h2noh.generate_h_bonded_structures():
+    print(m.to_adjacency_list())
+
+
+# In[9]:
+
+
+# Unfortunately, generating resonance structures fails
+for m in no3h_h2noh.generate_resonance_structures():
+    print(m.to_adjacency_list())
+
+
 # ## Ionic HAN
 
-# In[8]:
+# In[10]:
 
 
 # This is the ionic form of HAN
@@ -116,22 +132,38 @@ no3_h3noh
 # and two halves end up superimposed on top of each other
 
 
-# In[9]:
+# In[11]:
 
 
 no3_h3noh.to_smiles()
 
 
-# In[10]:
+# In[12]:
 
 
 for a in no3h_h2noh.atoms:
     print(a, no3h_h2noh.get_bonds(a))
 
 
+# In[13]:
+
+
+# It seems there are are other H-bonds that can be formed
+for m in no3_h3noh.generate_h_bonded_structures():
+    print(m.to_adjacency_list())
+
+
+# In[14]:
+
+
+# Unfortunately, generating resonance structures fails here too
+for m in no3_h3noh.generate_resonance_structures():
+    print(m.to_adjacency_list())
+
+
 # ## Other Fragments
 
-# In[11]:
+# In[15]:
 
 
 no3j = Molecule().from_adjacency_list("""
