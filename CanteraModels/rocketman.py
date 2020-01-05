@@ -318,9 +318,9 @@ for n in range(NReactors):
  
     dist = n * r_len * 1.0e3   # distance in mm
         
-    gasHeat = np.dot(gas.net_rates_of_progress, gas.delta_enthalpy) # heat evolved by gas phase reaction
-    surfHeat = np.dot(surf.net_rates_of_progress, surf.delta_enthalpy) # heat evolved by surf phase reaction 
-    alpha = gasHeat/surfHeat #ratio of gas heat evolved to surface heat evolved.
+    gas_heat = np.dot(gas.net_rates_of_progress, gas.delta_enthalpy) # heat evolved by gas phase reaction
+    surface_heat = cat_area_per_vol * np.dot(surf.net_rates_of_progress, surf.delta_enthalpy) # heat evolved by surf phase reaction 
+    alpha = surface_heat / (surface_heat + gas_heat) # fraction of heat release that is on surface.
 
     if not n % 10:
         print('    {:10f}  {:10f}  {:10f}  {:10f} {:10f}  {:5.1e}'.format(dist, *gas['H4N2O2(2)','NH2OH(3)','HNO3(4)','CH3OH(5)'].X, alpha ))
@@ -398,68 +398,68 @@ sim.verbose
 sim.component_name(46)
 
 
-# In[29]:
+# In[28]:
 
 
 plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
-# In[30]:
+# In[29]:
 
 
 gas.T
 
 
-# In[31]:
+# In[30]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[32]:
+# In[31]:
 
 
 data['T (C)'].plot()
 
 
-# In[33]:
+# In[32]:
 
 
 data[['H4N2O2(2)', 'CH3OH(5)']].plot()
 
 
-# In[34]:
+# In[33]:
 
 
 list(data.columns)[:4]
 
 
-# In[35]:
+# In[34]:
 
 
 data[['T (C)', 'alpha']].plot()
 
 
-# In[36]:
+# In[35]:
 
 
 data[['alpha']].plot(logy=True)
 
 
-# In[37]:
+# In[36]:
 
 
 data.plot(x='T (C)',y='alpha')
 
 
+# In[45]:
+
+
+data.plot(x='T (C)',y='alpha', ylim=(-0.1,0.1))
+
+
 # In[38]:
-
-
-data.plot(x='T (C)',y='alpha', ylim=(-1e11,1e12))
-
-
-# In[39]:
 
 
 specs = list(data.columns)
@@ -471,13 +471,13 @@ adsorbates = [s for s in specs if 'X' in s]
 gas_species, adsorbates
 
 
-# In[40]:
+# In[39]:
 
 
 data[gas_species[0:5]].plot(logy=True, logx=True)
 
 
-# In[41]:
+# In[40]:
 
 
 for i in range(0,len(gas_species),10):
@@ -487,19 +487,19 @@ for i in range(0,len(adsorbates),10):
     data[adsorbates[i:i+10]].plot(title='surface coverages', logy=False)
 
 
-# In[43]:
+# In[41]:
 
 
 gas.species('NO2(9)').composition
 
 
-# In[44]:
+# In[42]:
 
 
 data['NO2(9)'].plot()
 
 
-# In[ ]:
+# In[43]:
 
 
 (data[specs].max()>0.01)
@@ -511,7 +511,7 @@ data['NO2(9)'].plot()
 
 
 
-# In[ ]:
+# In[44]:
 
 
 data.loc[0]
