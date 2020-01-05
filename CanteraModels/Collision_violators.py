@@ -151,6 +151,8 @@ violators.sort(key = lambda violator: -violator[2])
 ratios = [np.log10(violator[2]) for violator in violators]
 from matplotlib import pyplot as plt
 plt.bar(np.arange(len(ratios)), ratios)
+plt.ylabel("orders of magnitude above collision limit")
+plt.xlabel("reaction index (of 21327 total)")
 
 
 # In[12]:
@@ -176,12 +178,19 @@ from collections import Counter
 import re
 
 
-# In[18]:
+# In[ ]:
+
+
+
+
+
+# In[15]:
 
 
 families = Counter()
 templates = Counter()
 rate_rules = Counter()
+problem_species = Counter()
 for violator in violators:
     rxn_string = str(violator[0])
     kinetics = violator[0].kinetics
@@ -196,6 +205,9 @@ for violator in violators:
     direction = violator[1]
     ratio = violator[2]
     condition = violator[3]
+    
+    problem_species.update(violator[0].reactants)
+    problem_species.update(violator[0].products)
     
     m = re.search('family: (.*)', comment)
     if m:
@@ -218,24 +230,43 @@ for violator in violators:
         violator[0].kinetics.comment = comment
 
 
-# In[19]:
+# In[16]:
 
 
 families.most_common(10)
 
 
-# In[21]:
+# In[17]:
 
 
 # This is what was used
 templates.most_common(10)
 
 
-# In[20]:
+# In[18]:
 
 
 # This is what it was trying to use
 rate_rules.most_common(10)
+
+
+# In[19]:
+
+
+# Most common species
+for s,n in problem_species.most_common(20):
+    print(f"{str(s):10s}  {n:3d}  {s.thermo.comment[:40]}")
+
+
+# In[20]:
+
+
+for s,n in problem_species.most_common(10):
+    display(s)
+    print(s)
+    print(s.molecule[0].to_adjacency_list())
+    print(s.thermo.comment)
+    print('-'*80)
 
 
 # In[ ]:
