@@ -19,7 +19,7 @@ database(
                          ],
     seedMechanisms = [],
     kineticsDepositories = ['training'],
-    kineticsFamilies =['surface','default'],
+    kineticsFamilies =['surface','default', '!Surface_Recombination_Single'],
     kineticsEstimator = 'rate rules',
 )
 catalystProperties(
