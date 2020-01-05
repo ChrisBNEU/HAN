@@ -91,6 +91,37 @@ species(
 )
 
 species(
+    label='NO2',
+    reactive=True,
+    structure=adjacencyList("""
+multiplicity 2
+1 N u0 p1 c0 {2,D} {3,S}
+2 O u0 p2 c0 {1,D}
+3 O u1 p2 c0 {1,S}
+"""),
+)
+
+species(
+    label='NO',
+    reactive=True,
+    structure=adjacencyList("""
+multiplicity 2
+1 N u1 p1 c0 {2,D}
+2 O u0 p2 c0 {1,D}
+"""),
+)
+
+species(
+    label='N2O',
+    reactive=True,
+    structure=adjacencyList("""
+1 N u0 p0 c+1 {2,D} {3,D}
+2 N u0 p2 c-1 {1,D}
+3 O u0 p2 c0 {1,D}
+"""),
+)
+
+species(
     label='CO2',
     reactive=True,
     structure=SMILES("O=C=O"),
@@ -106,6 +137,12 @@ species(
     label='CO',
     reactive=True,
     structure=SMILES("[C-]#[O+]"),
+)
+
+species(
+    label='CH4',
+    reactive=True,
+    structure=SMILES("C"),
 )
 
 species(
