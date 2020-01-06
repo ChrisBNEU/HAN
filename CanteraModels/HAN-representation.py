@@ -176,6 +176,66 @@ NO3j
 no3j
 
 
+# ## More exploring of structures...
+
+# In[17]:
+
+
+# This is the covalent form of HAN, without the H bonds
+no3h_h2noh =  Molecule().from_adjacency_list("""
+no3h_h2noh
+1  O u0 p3 c-1 {2,S}
+2  N u0 p0 c+1 {1,S} {3,D} {4,S}
+3  O u0 p2 c0 {2,D}
+4  O u0 p2 c0 {2,S} {7,S}
+5  N u0 p1 c0 {6,S} {8,S} {9,S}
+6  O u0 p2 c0 {5,S} {10,S}
+7  H u0 p0 c0 {4,S}
+8  H u0 p0 c0 {5,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+""")
+no3h_h2noh
+# the image is not drawn well because the H-bonds are ignored 
+# and two halves end up superimposed on top of each other
+
+
+# In[18]:
+
+
+for m in no3h_h2noh.generate_resonance_structures():
+    print(m.to_adjacency_list())
+
+
+# In[19]:
+
+
+# This is the ionic form of HAN, without the H bonds
+no3_h3noh =  Molecule().from_adjacency_list("""
+no3-_h3noh+
+1  O u0 p3 c-1 {2,S}
+2  N u0 p0 c+1 {1,S} {3,D} {4,S}
+3  O u0 p2 c0 {2,D}
+4  O u0 p3 c-1 {2,S}
+5  N u0 p0 c+1 {6,S} {8,S} {9,S} {7,S}
+6  O u0 p2 c0 {5,S} {10,S}
+7  H u0 p0 c0 {5,S}
+8  H u0 p0 c0 {5,S}
+9  H u0 p0 c0 {5,S}
+10 H u0 p0 c0 {6,S}
+""")
+no3_h3noh
+# the image is not drawn well because the H-bonds are ignored 
+# and two halves end up superimposed on top of each other
+
+
+# In[20]:
+
+
+for m in no3_h3noh.generate_resonance_structures():
+    print(m.to_adjacency_list())
+
+
 # In[ ]:
 
 
