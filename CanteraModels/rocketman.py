@@ -23,7 +23,7 @@ import pandas as pd
 # input file containing the surface reaction mechanism
 cti_file = '../RMG-model/cantera/chem_annotated.cti'
 
-cti_file = '../RMG-model/cantera/chem0050.cti'
+# cti_file = '../RMG-model/cantera/chem0050.cti'
 
 gas=ct.Solution(cti_file)
 surf = ct.Interface(cti_file,'surface1', [gas])
@@ -82,7 +82,7 @@ cat_specific_area = 140 # m2/g
 cat_density = 2 / cm**3 # 2 g/m3
 print(f"Catalyst density {cat_density :.2e} g/m3")
 cat_area_per_vol = cat_specific_area * cat_density # m2/m3
-cat_area_per_vol *= 1e-2 # REDUCE BY 100x
+cat_area_per_vol *= 1e-1 # REDUCE BY 10x
 print(f"Catalyst area per volume {cat_area_per_vol :.2e} m2/m3")
 print()
 
@@ -107,7 +107,9 @@ temperature_kelvin = temperature_c + 273.15  # convert to Kelvin
 gas = ct.Solution(cti_file, 'gas')
 
 # should this be mole fractions or mole fractions?
-gas.TPY = temperature_kelvin, pressure, 'H4N2O2(2):0.14, NH2OH(3):0.3, HNO3(4):0.3, CH3OH(5):0.16, H2O(6):0.04'
+# 'H4N2O2(2):0.14, NH2OH(3):0.3, HNO3(4):0.3, CH3OH(5):0.16, H2O(6):0.04'
+gas.TPY = temperature_kelvin, pressure, 'H4N2O2(2):0.0014, NH2OH(3):0.3, HNO3(4):0.3, CH3OH(5):0.16, H2O(6):0.04'
+
 
 # import the surface model
 surf = ct.Interface(cti_file,'surface1', [gas])
@@ -120,7 +122,7 @@ r_vol = cross_section_area * r_len * porosity # gas volume
 outfile = open(output_filename,'w')
 writer = csv.writer(outfile)
 writer.writerow(['Distance (mm)', 'T (C)', 'P (atm)'] +
-                gas.species_names + surf.species_names + ['alpha'])
+                gas.species_names + surf.species_names + ['gas_heat','surface_heat','alpha'])
 
 # catalyst area in one reactor
 cat_area = cat_area_per_vol * r_vol
@@ -142,9 +144,25 @@ r.volume = r_vol
 rsurf = ct.ReactorSurface(surf, r, A=cat_area)
 sim = ct.ReactorNet([r])
 plt.plot(sim.advance_to_steady_state(return_residuals=True))
+plt.show()
 surf()
 starting_coverages = surf.coverages
-gas.TPY = TPY # restore
+
+print("At equilibrium")
+plt.barh(np.arange(len(gas.delta_gibbs)),gas.delta_gibbs)
+plt.barh(len(gas.delta_gibbs)+np.arange(len(surf.delta_gibbs)),surf.delta_gibbs)
+plt.title("∆G")
+plt.show()
+plt.barh(np.arange(len(gas.delta_enthalpy)),gas.delta_enthalpy)
+plt.barh(len(gas.delta_enthalpy)+np.arange(len(surf.delta_enthalpy)),surf.delta_enthalpy)
+plt.title('∆H')
+plt.show()
+plt.barh(np.arange(len(gas.delta_entropy)),gas.delta_entropy)
+plt.barh(len(gas.delta_entropy)+np.arange(len(surf.delta_entropy)),surf.delta_entropy)
+plt.title('∆S')
+plt.show()
+
+gas.TPY = TPY # restore to starting conditions
 del(r, rsurf)
 starting_coverages
 
@@ -327,7 +345,7 @@ for n in range(NReactors):
 
     # write the gas mole fractions and surface coverages vs. distance
     writer.writerow([dist, r.T - 273.15, r.thermo.P/ct.one_atm] +
-                    list(gas.X) + list(surf.coverages) + [alpha])
+                    list(gas.X) + list(surf.coverages) + [gas_heat, surface_heat, alpha])
     
     #report_rates()
     #report_rate_constants()
@@ -435,41 +453,93 @@ data[['H4N2O2(2)', 'CH3OH(5)']].plot()
 list(data.columns)[:4]
 
 
-# In[46]:
+# In[34]:
 
 
 data[['T (C)', 'alpha']].plot()
 
 
-# In[58]:
-
-
-ax1 = data['T (C)'].plot()
-ax2 = ax1.twinx()
-data['alpha'].plot(ax=ax2, color='tab:orange')
-ax2.set_ylim(-0.2, 0.2)
-plt.legend()
-
-
 # In[35]:
 
 
-data[['alpha']].plot(logy=True)
+ax1 = data['T (C)'].plot()
+plt.xlabel('distance down reactor')
+plt.ylabel('Temperature (C)')
+plt.legend()
+ax2 = ax1.twinx()
+data['alpha'].plot(ax=ax2, color='tab:orange')
+ax2.set_ylim(-10, 10)
+plt.legend()
+plt.ylabel('alpha')
+plt.tight_layout()
+plt.savefig('temperature-and-alpha.pdf')
+plt.show()
 
 
 # In[36]:
 
 
-data.plot(x='T (C)',y='alpha')
+data.columns
 
 
-# In[45]:
+# In[37]:
 
 
-data.plot(x='T (C)',y='alpha', ylim=(-0.1,0.1))
+data[['gas_heat','surface_heat']].plot()
+plt.ylim(-1e9, 1e9)
+plt.xlabel('distance down reactor')
+plt.savefig('gas_and_surface_heat.pdf')
+plt.show()
+
+
+# In[56]:
+
+
+ax1 = data[['gas_heat','surface_heat']].plot()
+plt.ylim(-1e9, 1e9)
+plt.xlabel('distance down reactor')
+plt.ylabel('Heat consumption rate (kJ/m3/s)')
+plt.legend(loc='upper left')
+ax2 = ax1.twinx()
+data['alpha'].plot(ax=ax2, style='k:', alpha=0.5)
+ax2.set_ylim(-10, 10)
+plt.legend(loc='lower right')
+plt.ylabel('alpha')
+plt.tight_layout()
+plt.savefig('heats-and-alpha.pdf')
+plt.show()
+
+
+# In[59]:
+
+
+data[['T (C)']].plot()
+plt.ylabel('Temperature (C)')
+plt.xlabel('distance down reactor')
+plt.tight_layout()
+plt.savefig('temperature.pdf')
+plt.show()
 
 
 # In[38]:
+
+
+data[['alpha']].plot(logy=True)
+
+
+# In[39]:
+
+
+data.plot(x='T (C)',y='alpha')
+
+
+# In[40]:
+
+
+data.plot(x='T (C)',y='alpha', ylim=(-1,1))
+
+
+# In[41]:
 
 
 specs = list(data.columns)
@@ -481,35 +551,41 @@ adsorbates = [s for s in specs if 'X' in s]
 gas_species, adsorbates
 
 
-# In[39]:
+# In[42]:
 
 
 data[gas_species[0:5]].plot(logy=True, logx=True)
 
 
-# In[40]:
+# In[61]:
 
 
 for i in range(0,len(gas_species),10):
     data[gas_species[i:i+10]].plot(title='gas mole fraction', logy=False)
+    plt.tight_layout()
+    plt.savefig(f'gas_mole_fractions_{i}.pdf')
+    plt.show()
     
 for i in range(0,len(adsorbates),10):
     data[adsorbates[i:i+10]].plot(title='surface coverages', logy=False)
+    plt.tight_layout()
+    plt.savefig(f'surface_coverages_{i}.pdf')
+    plt.show()
 
 
-# In[41]:
+# In[44]:
 
 
 gas.species('NO2(9)').composition
 
 
-# In[42]:
+# In[45]:
 
 
 data['NO2(9)'].plot()
 
 
-# In[43]:
+# In[46]:
 
 
 (data[specs].max()>0.01)
@@ -521,7 +597,7 @@ data['NO2(9)'].plot()
 
 
 
-# In[44]:
+# In[47]:
 
 
 data.loc[0]
