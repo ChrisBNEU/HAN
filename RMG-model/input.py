@@ -255,7 +255,7 @@ surfaceReactor(
         "X": 1.0,
     },
     surfaceVolumeRatio=(1.e5, 'm^-1'),
-    terminationConversion = { "CH3OH": 0.95,},
+    terminationConversion = { "CH3OH": 0.99,},
     terminationTime=(10., 's'),
 )
 
