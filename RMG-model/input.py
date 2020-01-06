@@ -2,10 +2,10 @@
 database(
     thermoLibraries=['surfaceThermoPt', 
                      'primaryThermoLibrary',
-                     'NOx2018',
-                     'Nitrogen_G4',
                      'thermo_DFT_CCSDTF12_BAC',
                      'DFT_QCI_thermo',
+                     'NOx2018',
+                     'Nitrogen_G4',
                      'NitrogenCurran',
                      'primaryNS',
                      'autotst-han-library',
@@ -37,14 +37,35 @@ database(
         ],
     kineticsEstimator = 'rate rules',
 )
+
+# Some reference values you can use below in the catalystProperties block
+bindings = {}
+densities = {}
+bindings['Pt(111)'] = { 
+                       'C':(-7.02515507E+00, 'eV/molecule'),
+                       'O':(-3.81153179E+00, 'eV/molecule'),
+                       'N':(-4.63224568E+00, 'eV/molecule'),
+		               'H':(-2.75367887E+00, 'eV/molecule'),
+                       }
+densities['Pt(111)'] = (2.483E-09, 'mol/cm^2')
+bindings['Ir(111)'] = { 
+                       'C':(-7.25234155E+00, 'eV/molecule'),
+                       'O':(-4.35235655E+00, 'eV/molecule'),
+                       'N':(-5.06204488E+00, 'eV/molecule'),
+		               'H':(-2.67673532E+00, 'eV/molecule'),
+                       }
+densities['Ir(111)'] = (2.587E-09, 'mol/cm^2')
+bindings['Rh(111)'] = { 
+                       'C':(-7.33483762E+00, 'eV/molecule'),
+                       'O':(-4.71419163E+00, 'eV/molecule'),
+                       'N':(-5.30055389E+00, 'eV/molecule'),
+		               'H':(-2.83000775E+00, 'eV/molecule'),
+                       }
+densities['Rh(111)'] = (2.656E-09, 'mol/cm^2')
+
 catalystProperties(
-    bindingEnergies = { # default values for Pt(111)
-                       'C':(-6.750, 'eV/molecule'),
-                       'O':(-3.586, 'eV/molecule'),
-                       'N':(-4.352, 'eV/molecule'),
-		               'H':(-2.479, 'eV/molecule'),
-                       },
-    surfaceSiteDensity=(2.9e-9, 'mol/cm^2'),
+    bindingEnergies = bindings['Ir(111)'],
+    surfaceSiteDensity= densities['Ir(111)'],
 )
 
 # List of species
@@ -78,7 +99,6 @@ species(
     structure=SMILES("CO"),
 )
 
-
 species(
     label='H2O',
     reactive=True,
@@ -86,14 +106,11 @@ species(
 )
 
 ## Other things for naming purposes
-
-
 species(
     label='N2',
     reactive=True,
     structure=SMILES("N#N"),
 )
-
 
 species(
    label='O2',
@@ -238,10 +255,29 @@ surfaceReactor(
         "X": 1.0,
     },
     surfaceVolumeRatio=(1.e5, 'm^-1'),
-    terminationConversion = { "CH3OH": 0.95,},
+    terminationConversion = { "CH3OH": 0.99,},
     terminationTime=(10., 's'),
-    terminationRateRatio=0.01,
 )
+
+surfaceReactor(
+    temperature=[(400,'K'),(2000,'K')],
+    initialPressure=(1.0, 'bar'),
+    nSims = 6,
+    initialGasMoleFractions={
+        'NH2NHOOH': 0.14,
+        'NH2OH': 0.3,
+        'HNO3': 0.3,
+        'CH3OH': 0.16,
+        'H2O': 0.04,
+    },
+    initialSurfaceCoverages={
+        "X": 1.0,
+    },
+    surfaceVolumeRatio=(1.e7, 'm^-1'), # 100x higher
+    terminationConversion = { "CH3OH": 0.99,},
+    terminationTime=(10., 's'),
+)
+
 
 simulator(
     atol=1e-18,
