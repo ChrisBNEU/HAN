@@ -2,10 +2,10 @@
 database(
     thermoLibraries=['surfaceThermoPt', 
                      'primaryThermoLibrary',
-                     'NOx2018',
-                     'Nitrogen_G4',
                      'thermo_DFT_CCSDTF12_BAC',
                      'DFT_QCI_thermo',
+                     'NOx2018',
+                     'Nitrogen_G4',
                      'NitrogenCurran',
                      'primaryNS',
                      'autotst-han-library',
