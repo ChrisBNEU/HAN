@@ -259,6 +259,26 @@ surfaceReactor(
     terminationTime=(10., 's'),
 )
 
+surfaceReactor(
+    temperature=[(400,'K'),(2000,'K')],
+    initialPressure=(1.0, 'bar'),
+    nSims = 6,
+    initialGasMoleFractions={
+        'NH2NHOOH': 0.14,
+        'NH2OH': 0.3,
+        'HNO3': 0.3,
+        'CH3OH': 0.16,
+        'H2O': 0.04,
+    },
+    initialSurfaceCoverages={
+        "X": 1.0,
+    },
+    surfaceVolumeRatio=(1.e7, 'm^-1'), # 100x higher
+    terminationConversion = { "CH3OH": 0.99,},
+    terminationTime=(10., 's'),
+)
+
+
 simulator(
     atol=1e-18,
     rtol=1e-12,
