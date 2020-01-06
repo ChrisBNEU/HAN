@@ -32,7 +32,7 @@ database(
         'Surface_Dissociation_vdW',
         'Surface_Abstraction_vdW',
         'Surface_Dual_Adsorption_vdW',
-        'Surface_Recombination_Single',
+        #broken: 'Surface_Recombination_Single',
         'Surface_Adsorption_Abstraction_vdW',
         ],
     kineticsEstimator = 'rate rules',
