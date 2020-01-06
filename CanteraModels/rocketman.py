@@ -318,9 +318,9 @@ for n in range(NReactors):
  
     dist = n * r_len * 1.0e3   # distance in mm
         
-    gasHeat = np.dot(gas.net_rates_of_progress, gas.delta_enthalpy) # heat evolved by gas phase reaction
-    surfHeat = np.dot(surf.net_rates_of_progress, surf.delta_enthalpy) # heat evolved by surf phase reaction 
-    alpha = gasHeat/surfHeat #ratio of gas heat evolved to surface heat evolved.
+    gas_heat = np.dot(gas.net_rates_of_progress, gas.delta_enthalpy) # heat evolved by gas phase reaction
+    surface_heat = cat_area_per_vol * np.dot(surf.net_rates_of_progress, surf.delta_enthalpy) # heat evolved by surf phase reaction 
+    alpha = surface_heat / (surface_heat + gas_heat) # fraction of heat release that is on surface.
 
     if not n % 10:
         print('    {:10f}  {:10f}  {:10f}  {:10f} {:10f}  {:5.1e}'.format(dist, *gas['H4N2O2(2)','NH2OH(3)','HNO3(4)','CH3OH(5)'].X, alpha ))
@@ -401,68 +401,62 @@ sim.component_name(46)
 # In[28]:
 
 
-gas.species_index('S(429)')
+plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
 # In[29]:
 
 
-plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
-
-
-# In[30]:
-
-
 gas.T
 
 
-# In[31]:
+# In[30]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[32]:
+# In[31]:
 
 
 data['T (C)'].plot()
 
 
-# In[33]:
+# In[32]:
 
 
 data[['H4N2O2(2)', 'CH3OH(5)']].plot()
 
 
-# In[34]:
+# In[33]:
 
 
 list(data.columns)[:4]
 
 
-# In[35]:
+# In[34]:
 
 
 data[['T (C)', 'alpha']].plot()
 
 
-# In[36]:
+# In[35]:
 
 
 data[['alpha']].plot(logy=True)
 
 
-# In[45]:
+# In[36]:
 
 
 data.plot(x='T (C)',y='alpha')
 
 
-# In[50]:
+# In[45]:
 
 
-data.plot(x='T (C)',y='alpha', ylim=(-1e11,1e12))
+data.plot(x='T (C)',y='alpha', ylim=(-0.1,0.1))
 
 
 # In[38]:
@@ -496,13 +490,13 @@ for i in range(0,len(adsorbates),10):
 # In[41]:
 
 
-gas.species('NO2(92)').composition
+gas.species('NO2(9)').composition
 
 
 # In[42]:
 
 
-data['NO2(92)'].plot()
+data['NO2(9)'].plot()
 
 
 # In[43]:

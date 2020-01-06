@@ -152,7 +152,7 @@ ratios = [np.log10(violator[2]) for violator in violators]
 from matplotlib import pyplot as plt
 plt.bar(np.arange(len(ratios)), ratios)
 plt.ylabel("orders of magnitude above collision limit")
-plt.xlabel("reaction index (of 21327 total)")
+plt.xlabel(f"reaction index (of {len(reactions)} total)")
 
 
 # In[12]:
@@ -184,7 +184,7 @@ import re
 
 
 
-# In[15]:
+# In[21]:
 
 
 families = Counter()
@@ -221,7 +221,8 @@ for violator in violators:
     
     if ratio < 5:
         continue # only print the big ones!
-        
+    
+    display(violator[0])
     print('{0}\n{1}\n{2}\nDirection: {3}\nViolation factor: {4:.2g}\n'
                       'Violation condition: {5}\n\n'.format(rxn_string, kinetics, comment, direction,
                                                             ratio, condition))
