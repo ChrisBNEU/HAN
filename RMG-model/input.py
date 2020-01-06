@@ -99,7 +99,6 @@ species(
     structure=SMILES("CO"),
 )
 
-
 species(
     label='H2O',
     reactive=True,
@@ -107,14 +106,11 @@ species(
 )
 
 ## Other things for naming purposes
-
-
 species(
     label='N2',
     reactive=True,
     structure=SMILES("N#N"),
 )
-
 
 species(
    label='O2',
@@ -261,7 +257,6 @@ surfaceReactor(
     surfaceVolumeRatio=(1.e5, 'm^-1'),
     terminationConversion = { "CH3OH": 0.95,},
     terminationTime=(10., 's'),
-    terminationRateRatio=0.01,
 )
 
 simulator(
