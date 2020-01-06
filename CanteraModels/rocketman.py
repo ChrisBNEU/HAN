@@ -435,10 +435,20 @@ data[['H4N2O2(2)', 'CH3OH(5)']].plot()
 list(data.columns)[:4]
 
 
-# In[34]:
+# In[46]:
 
 
 data[['T (C)', 'alpha']].plot()
+
+
+# In[58]:
+
+
+ax1 = data['T (C)'].plot()
+ax2 = ax1.twinx()
+data['alpha'].plot(ax=ax2, color='tab:orange')
+ax2.set_ylim(-0.2, 0.2)
+plt.legend()
 
 
 # In[35]:
