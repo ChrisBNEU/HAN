@@ -76,9 +76,9 @@ species(
 )
 
 species(
-    label = 'NH2NHOOH',
+    label = 'NH3',
     reactive = True,
-    structure=SMILES('NNOO')
+    structure=SMILES('N')
 )
 
 species(
@@ -245,9 +245,9 @@ surfaceReactor(
     initialPressure=(1.0, 'bar'),
     nSims = 6,
     initialGasMoleFractions={
-        'NH2NHOOH': 0.14,
-        'NH2OH': 0.3,
-        'HNO3': 0.3,
+        'NH2OH': 0.74,
+        'HNO3': 0.8,
+        'NH3': 0.06,
         'CH3OH': 0.16,
         'H2O': 0.04,
     },
@@ -264,16 +264,16 @@ surfaceReactor(
     initialPressure=(1.0, 'bar'),
     nSims = 6,
     initialGasMoleFractions={
-        'NH2NHOOH': 0.14,
-        'NH2OH': 0.3,
-        'HNO3': 0.3,
+        'NH2OH': 0.74,
+        'HNO3': 0.8,
+        'NH3': 0.06,
         'CH3OH': 0.16,
         'H2O': 0.04,
     },
     initialSurfaceCoverages={
         "X": 1.0,
     },
-    surfaceVolumeRatio=(1.e7, 'm^-1'), # 100x higher
+    surfaceVolumeRatio=(348, 'm^-1'), # 100x higher
     terminationConversion = { "CH3OH": 0.99,},
     terminationTime=(10., 's'),
 )
