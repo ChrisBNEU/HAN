@@ -243,18 +243,18 @@ species(
 surfaceReactor(
     temperature=[(400,'K'),(2000,'K')],
     initialPressure=(1.0, 'bar'),
-    nSims = 6,
+    nSims = 4,
     initialGasMoleFractions={
-        'NH2OH': 0.74,
-        'HNO3': 0.8,
-        'NH3': 0.06,
-        'CH3OH': 0.16,
-        'H2O': 0.04,
+        'NH2OH': 0.450974,
+        'HNO3': 0.481448,
+        'NH3': 0.0304738,
+        'CH3OH': 0.0325297,
+        'H2O': 0.00457386,
     },
     initialSurfaceCoverages={
         "X": 1.0,
     },
-    surfaceVolumeRatio=(1.e5, 'm^-1'),
+    surfaceVolumeRatio=(1.e7, 'm^-1'), # Quite high
     terminationConversion = { "CH3OH": 0.99,},
     terminationTime=(10., 's'),
 )
@@ -262,18 +262,37 @@ surfaceReactor(
 surfaceReactor(
     temperature=[(400,'K'),(2000,'K')],
     initialPressure=(1.0, 'bar'),
-    nSims = 6,
+    nSims = 4,
     initialGasMoleFractions={
-        'NH2OH': 0.74,
-        'HNO3': 0.8,
-        'NH3': 0.06,
-        'CH3OH': 0.16,
-        'H2O': 0.04,
+        'NH2OH': 0.450974,
+        'HNO3': 0.481448,
+        'NH3': 0.0304738,
+        'CH3OH': 0.0325297,
+        'H2O': 0.00457386,
     },
     initialSurfaceCoverages={
         "X": 1.0,
     },
-    surfaceVolumeRatio=(348, 'm^-1'), # 100x higher
+    surfaceVolumeRatio=(1.e5, 'm^-1'), # Medium
+    terminationConversion = { "CH3OH": 0.99,},
+    terminationTime=(10., 's'),
+)
+
+surfaceReactor(
+    temperature=[(400,'K'),(2000,'K')],
+    initialPressure=(1.0, 'bar'),
+    nSims = 4,
+    initialGasMoleFractions={
+        'NH2OH': 0.450974,
+        'HNO3': 0.481448,
+        'NH3': 0.0304738,
+        'CH3OH': 0.0325297,
+        'H2O': 0.00457386,
+    },
+    initialSurfaceCoverages={
+        "X": 1.0,
+    },
+    surfaceVolumeRatio=(348, 'm^-1'), # Lower limit
     terminationConversion = { "CH3OH": 0.99,},
     terminationTime=(10., 's'),
 )
@@ -281,24 +300,40 @@ surfaceReactor(
 
 simulator(
     atol=1e-18,
-    rtol=1e-12,
+    rtol=1e-16,
 )
 
 model(
     toleranceKeepInEdge=0.0,
-    toleranceMoveToCore=1e-2,
-# inturrupt tolerance was 0.1 wout pruning, 1e8 w pruning on
-    toleranceInterruptSimulation=1e8,
+    toleranceMoveToCore=0.25,
+    toleranceInterruptSimulation=0.25, 
+    minCoreSizeForPrune=100,
+    toleranceThermoKeepSpeciesInEdge=0.5, # prune before simulation based on thermo
+    minSpeciesExistIterationsForPrune=3,
+    filterReactions=False, # NotImplemented for SurfaceReactor
+    maxNumSpecies=100,
+)
+
+model(
+    toleranceKeepInEdge=0.0,
+    toleranceMoveToCore=0.1,
+    toleranceInterruptSimulation=1e6, # inturrupt tolerance was 0.1 w/out pruning, 1e8 w pruning on
     maximumEdgeSpecies=50000,
-# PRUNING: uncomment to prune
-    minCoreSizeForPrune=50,
-# prune before simulation based on thermo
-    toleranceThermoKeepSpeciesInEdge=0.5,
-# prune rxns from edge that dont move into core
-    minSpeciesExistIterationsForPrune=2,
-# FILTERING: set so threshold is slightly larger than max rate constants
-    filterReactions=False, # NotImplementedError: filterReactions=True for SurfaceReactor
-    filterThreshold=5e8, # default value
+    minCoreSizeForPrune=100,
+    toleranceThermoKeepSpeciesInEdge=0.5, # prune before simulation based on thermo
+    minSpeciesExistIterationsForPrune=3, # prune rxns from edge that dont move into core
+    filterReactions=False, # NotImplemented for SurfaceReactor
+)
+
+model(
+    toleranceKeepInEdge=0.0,
+    toleranceMoveToCore=0.01,
+    toleranceInterruptSimulation=1e8, # inturrupt tolerance was 0.1 w/out pruning, 1e8 w pruning on
+    maximumEdgeSpecies=50000,
+    minCoreSizeForPrune=100,
+    toleranceThermoKeepSpeciesInEdge=0.5, # prune before simulation based on thermo
+    minSpeciesExistIterationsForPrune=3, # prune rxns from edge that dont move into core
+    filterReactions=False, # NotImplemented for SurfaceReactor
 )
 
 options(
