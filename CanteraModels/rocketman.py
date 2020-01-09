@@ -82,7 +82,7 @@ cat_specific_area = 140 # m2/g
 cat_density = 2 / cm**3 # 2 g/m3
 print(f"Catalyst density {cat_density :.2e} g/m3")
 cat_area_per_vol = cat_specific_area * cat_density # m2/m3
-cat_area_per_vol *= 1e-1 # REDUCE BY 10x
+cat_area_per_vol *= 1e-3 # REDUCE BY 1000x
 print(f"Catalyst area per volume {cat_area_per_vol :.2e} m2/m3")
 print()
 
