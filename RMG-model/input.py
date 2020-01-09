@@ -2,7 +2,6 @@
 database(
     thermoLibraries=['surfaceThermoPt', 
                      'primaryThermoLibrary',
-                     'Methanol_Olm_2017',
                      'thermo_DFT_CCSDTF12_BAC',
                      'DFT_QCI_thermo',
                      'NOx2018',
@@ -18,7 +17,7 @@ database(
                          'Nitrogen_Glarborg_Zhang_et_al',
                          'Nitrogen_Glarborg_Gimenez_et_al',
                          ],
-    seedMechanisms = ['Methanol_Olm_2017'],
+    seedMechanisms = [],
     kineticsDepositories = ['training'],
     kineticsFamilies =['default', 
         'Surface_Adsorption_Single',
