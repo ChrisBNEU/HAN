@@ -70,7 +70,7 @@ minute = 60.0  # s
 # Input Parameters for combustor
 #######################################################################
 mass_flow_rate =  0.5e-3 # kg/s
-temperature_c = 400.0  # Initial Temperature in Celsius
+temperature_c = 550.0  # Initial Temperature in Celsius
 pressure = ct.one_atm # constant
 
 length = 1.1 * cm  # Catalyst bed length. 11mm
@@ -82,7 +82,7 @@ cat_specific_area = 140 # m2/g
 cat_density = 2 / cm**3 # 2 g/m3
 print(f"Catalyst density {cat_density :.2e} g/m3")
 cat_area_per_vol = cat_specific_area * cat_density # m2/m3
-cat_area_per_vol *= 1e-4 # REDUCE BY A LOT
+cat_area_per_vol *= 1e-3 # REDUCE BY A LOT
 print(f"Catalyst area per volume {cat_area_per_vol :.2e} m2/m3")
 print()
 
@@ -145,7 +145,7 @@ velocity = mass_flow_rate / (gas.density * cross_section_area)
 # with the surface.
 TPY = gas.TPY # store to restore
 gas.equilibrate('TP')
-r = ct.IdealGasReactor(gas, energy='on')
+r = ct.IdealGasReactor(gas, energy='off')
 r.volume = r_vol
 rsurf = ct.ReactorSurface(surf, r, A=cat_area)
 sim = ct.ReactorNet([r])
@@ -444,37 +444,50 @@ data
 # In[31]:
 
 
-data['T (C)'].plot()
+def xlabels():
+    plt.xticks([0,NReactors/4,NReactors/2,3*NReactors/4, NReactors],['0','','','',f'{length*1000:.0f} mm'])
+    plt.xlabel("Distance down reactor")
 
 
 # In[32]:
 
 
-data[['NH2OH(3)', 'HNO3(4)', 'CH3OH(5)']].plot()
+data['T (C)'].plot()
+plt.ylabel('T (C)')
+xlabels()
 
 
 # In[33]:
 
 
-list(data.columns)[:4]
+data[['NH2OH(3)', 'HNO3(4)', 'CH3OH(5)']].plot()
+plt.ylabel('Mole fraction')
+xlabels()
 
 
 # In[34]:
 
 
-data[['T (C)', 'alpha']].plot()
+list(data.columns)[:4]
 
 
 # In[35]:
 
 
+data[['T (C)', 'alpha']].plot()
+xlabels()
+
+
+# In[36]:
+
+
 ax1 = data['T (C)'].plot()
-plt.xlabel('distance down reactor')
 plt.ylabel('Temperature (C)')
+xlabels()
 plt.legend()
 ax2 = ax1.twinx()
 data['alpha'].plot(ax=ax2, color='tab:orange')
-ax2.set_ylim(-10, 10)
+ax2.set_ylim(-2, 2)
 plt.legend()
 plt.ylabel('alpha')
 plt.tight_layout()
@@ -482,28 +495,28 @@ plt.savefig('temperature-and-alpha.pdf')
 plt.show()
 
 
-# In[36]:
+# In[37]:
 
 
 data.columns
 
 
-# In[53]:
+# In[38]:
 
 
 data[['gas_heat','surface_heat']].plot()
 #plt.ylim(-1e7, 1e7)
-plt.xlabel('distance down reactor')
+xlabels()
 plt.savefig('gas_and_surface_heat.pdf')
 plt.show()
 
 
-# In[38]:
+# In[39]:
 
 
 ax1 = data[['gas_heat','surface_heat']].plot()
 plt.ylim(-1e9, 1e9)
-plt.xlabel('distance down reactor')
+xlabels()
 plt.ylabel('Heat consumption rate (kJ/m3/s)')
 plt.legend(loc='upper left')
 ax2 = ax1.twinx()
@@ -516,36 +529,37 @@ plt.savefig('heats-and-alpha.pdf')
 plt.show()
 
 
-# In[39]:
+# In[40]:
 
 
 data[['T (C)']].plot()
 plt.ylabel('Temperature (C)')
-plt.xlabel('distance down reactor')
+xlabels()
 plt.tight_layout()
 plt.savefig('temperature.pdf')
 plt.show()
 
 
-# In[40]:
-
-
-data[['alpha']].plot(logy=True)
-
-
 # In[41]:
 
 
-data.plot(x='T (C)',y='alpha')
+data[['alpha']].plot(logy=True)
+xlabels()
 
 
 # In[42]:
 
 
-data.plot(x='T (C)',y='alpha', ylim=(-1,1))
+data.plot(x='T (C)',y='alpha')
 
 
 # In[43]:
+
+
+data.plot(x='T (C)',y='alpha', ylim=(-1,1))
+
+
+# In[45]:
 
 
 specs = list(data.columns)
@@ -557,41 +571,43 @@ adsorbates = [s for s in specs if 'X' in s]
 gas_species, adsorbates
 
 
-# In[44]:
+# In[46]:
 
 
 data[gas_species[0:5]].plot(logy=True, logx=True)
 
 
-# In[45]:
+# In[47]:
 
 
 for i in range(0,len(gas_species),10):
     data[gas_species[i:i+10]].plot(title='gas mole fraction', logy=False)
+    xlabels()
     plt.tight_layout()
     plt.savefig(f'gas_mole_fractions_{i}.pdf')
     plt.show()
     
 for i in range(0,len(adsorbates),10):
     data[adsorbates[i:i+10]].plot(title='surface coverages', logy=False)
+    xlabels()
     plt.tight_layout()
     plt.savefig(f'surface_coverages_{i}.pdf')
     plt.show()
 
 
-# In[46]:
+# In[ ]:
 
 
 gas.species('NO2(9)').composition
 
 
-# In[47]:
+# In[ ]:
 
 
 data['NO2(9)'].plot()
 
 
-# In[48]:
+# In[ ]:
 
 
 (data[specs].max()>0.01)
@@ -603,10 +619,16 @@ data['NO2(9)'].plot()
 
 
 
-# In[49]:
+# In[ ]:
 
 
 data.loc[0]
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
