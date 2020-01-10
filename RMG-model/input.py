@@ -245,11 +245,11 @@ surfaceReactor(
     initialPressure=(1.0, 'bar'),
     nSims = 4,
     initialGasMoleFractions={
-        'NH2OH': 0.450974,
-        'HNO3': 0.481448,
-        'NH3': 0.0304738,
-        'CH3OH': 0.0325297,
-        'H2O': 0.00457386,
+        'NH2OH': 0.31940968187635516,
+        'HNO3': 0.35048479213953954,
+        'NH3': 0.031075110263184432,
+        'CH3OH': 0.20701222018021495,
+        'H2O': 0.09201819554070598,
     },
     initialSurfaceCoverages={
         "X": 1.0,
@@ -264,11 +264,11 @@ surfaceReactor(
     initialPressure=(1.0, 'bar'),
     nSims = 4,
     initialGasMoleFractions={
-        'NH2OH': 0.450974,
-        'HNO3': 0.481448,
-        'NH3': 0.0304738,
-        'CH3OH': 0.0325297,
-        'H2O': 0.00457386,
+        'NH2OH': 0.31940968187635516,
+        'HNO3': 0.35048479213953954,
+        'NH3': 0.031075110263184432,
+        'CH3OH': 0.20701222018021495,
+        'H2O': 0.09201819554070598,
     },
     initialSurfaceCoverages={
         "X": 1.0,
@@ -283,11 +283,11 @@ surfaceReactor(
     initialPressure=(1.0, 'bar'),
     nSims = 4,
     initialGasMoleFractions={
-        'NH2OH': 0.450974,
-        'HNO3': 0.481448,
-        'NH3': 0.0304738,
-        'CH3OH': 0.0325297,
-        'H2O': 0.00457386,
+        'NH2OH': 0.31940968187635516,
+        'HNO3': 0.35048479213953954,
+        'NH3': 0.031075110263184432,
+        'CH3OH': 0.20701222018021495,
+        'H2O': 0.09201819554070598,
     },
     initialSurfaceCoverages={
         "X": 1.0,
@@ -300,7 +300,7 @@ surfaceReactor(
 
 simulator(
     atol=1e-18,
-    rtol=1e-16,
+    rtol=1e-12,
 )
 
 model(
