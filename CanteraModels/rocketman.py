@@ -108,11 +108,11 @@ gas = ct.Solution(cti_file, 'gas')
 
 # From HAN-molefractions.ipynb
 feed_mole_fractions = {
-    'NH3(2)': 0.0304738,
-    'NH2OH(3)': 0.450974,
-    'HNO3(4)': 0.481448,
-    'CH3OH(5)': 0.0325297,
-    'H2O(6)': 0.00457386,
+    'NH3(2)': 0.031,
+    'NH2OH(3)': 0.32,
+    'HNO3(4)': 0.35,
+    'CH3OH(5)': 0.21,
+    'H2O(6)': 0.09,
 }
 gas.TPX = temperature_kelvin, pressure, feed_mole_fractions
 
