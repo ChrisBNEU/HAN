@@ -10,7 +10,7 @@ database(
                      'primaryNS',
                      'autotst-han-library',
                     ],
-    reactionLibraries = [('Surface/CPOX_Pt/Deutschmann2006', True),
+    reactionLibraries = [('Surface/CPOX_Pt/Deutschmann2006', True),  # when Ni is used, change the library to Surface/Deutschmann_Ni
                          'BurkeH2O2inN2',
                          'NOx2018',
                          'Nitrogen_Glarborg_Lucassen_et_al',
@@ -20,6 +20,8 @@ database(
     seedMechanisms = [],
     kineticsDepositories = ['training'],
     kineticsFamilies =['default', 
+	# specifying exactly which surface families we want to use
+	# can also just use 'surface' for default surface families
         'Surface_Adsorption_Single',
         'Surface_Adsorption_vdW',
         'Surface_Adsorption_Dissociative',
@@ -41,29 +43,29 @@ database(
 # Some reference values you can use below in the catalystProperties block
 bindings = {}
 densities = {}
-bindings['Pt(111)'] = { 
+bindings['Pt(111)'] = {  # default values for Pt(111)
                        'C':(-7.02515507E+00, 'eV/molecule'),
                        'O':(-3.81153179E+00, 'eV/molecule'),
                        'N':(-4.63224568E+00, 'eV/molecule'),
 		               'H':(-2.75367887E+00, 'eV/molecule'),
                        }
-densities['Pt(111)'] = (2.483E-09, 'mol/cm^2')
-bindings['Ir(111)'] = { 
+densities['Pt(111)'] = (2.483E-09, 'mol/cm^2')  # default for Pt(111)
+bindings['Ir(111)'] = {  # default values for Ir(111)
                        'C':(-7.25234155E+00, 'eV/molecule'),
                        'O':(-4.35235655E+00, 'eV/molecule'),
                        'N':(-5.06204488E+00, 'eV/molecule'),
 		               'H':(-2.67673532E+00, 'eV/molecule'),
                        }
-densities['Ir(111)'] = (2.587E-09, 'mol/cm^2')
-bindings['Rh(111)'] = { 
+densities['Ir(111)'] = (2.587E-09, 'mol/cm^2')  # default for Ir(111)
+bindings['Rh(111)'] = {  # default values for Rh(111)
                        'C':(-7.33483762E+00, 'eV/molecule'),
                        'O':(-4.71419163E+00, 'eV/molecule'),
                        'N':(-5.30055389E+00, 'eV/molecule'),
 		               'H':(-2.83000775E+00, 'eV/molecule'),
                        }
-densities['Rh(111)'] = (2.656E-09, 'mol/cm^2')
+densities['Rh(111)'] = (2.656E-09, 'mol/cm^2')  # default for Rh(111)
 
-catalystProperties(
+catalystProperties(  # specifying which catalyst to run the simulation on
     bindingEnergies = bindings['Ir(111)'],
     surfaceSiteDensity= densities['Ir(111)'],
 )
@@ -345,6 +347,6 @@ options(
     saveSimulationProfiles=True,
 )
 
-generatedSpeciesConstraints(
+generatedSpeciesConstraints(  # don't forbid species that show up in the input file or in specified reaction libraries
     allowed=['input species','reaction libraries'],
 )
