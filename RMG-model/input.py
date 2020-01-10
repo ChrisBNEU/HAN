@@ -300,7 +300,7 @@ surfaceReactor(
 
 simulator(
     atol=1e-18,
-    rtol=1e-16,
+    rtol=1e-12,
 )
 
 model(
