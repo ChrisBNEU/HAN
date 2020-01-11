@@ -34,44 +34,41 @@ C2H4(25)            2     280.800     3.971     0.000     0.000     1.500    ! N
 ! OX(27)              None
 ! HOX(29)             None
 ! SX(492)             None
-! SX(491)             None
-! SX(579)             None
 ! SX(551)             None
+! SX(491)             None
+! SX(610)             None
 ! H2NOX(203)          None
 H2NO(88)            2     116.700     3.492     0.000     0.000     1.000    ! NOx2018
 ! SX(495)             None
-! H3NX(202)           None
-! SX(644)             None
-! SX(790)             None
+H2NO3(239)          2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! SX(582)             None
 ! H2NX(201)           None
 ! SX(493)             None
-! SX(824)             None
-! SX(919)             None
+! SX(827)             None
+! SX(921)             None
 ! HX(26)              None
-! SX(954)             None
-! SX(1006)            None
-H2NO3(239)          2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
-! SX(1041)            None
-! CH3OX(210)          None
-HNO(87)             2     170.000     3.430     1.620     0.000     1.000    ! NOx2018
+! SX(956)             None
+! H3NX(202)           None
+! SX(1008)            None
+! SX(1043)            None
+! SX(1078)            None
+! SX(1113)            None
+! SX(1148)            None
+! SX(1183)            None
+HNOH(93)            2     116.700     3.492     0.000     0.000     1.000    ! NOx2018
+! SX(1218)            None
+! SX(1283)            None
+! SX(1318)            None
+! SX(1353)            None
+! SX(1388)            None
+! SX(1423)            None
 ! H2NOX(204)          None
 ! SX(494)             None
-S(1282)             2     341.100     5.784     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
-! SX(1113)            None
-! SX(1484)            None
-! CH2X(34)            None
-! CHX(35)             None
-! CX(33)              None
-! SX(1587)            None
-! SX(1527)            None
-! SX(1663)            None
-! SX(1710)            None
-! SX(1757)            None
-HNOH(93)            2     116.700     3.492     0.000     0.000     1.000    ! NOx2018
-! SX(1804)            None
-! SX(1880)            None
-! SX(1927)            None
-! SX(1974)            None
+S(1511)             2     341.100     5.784     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! SX(1458)            None
 ! CH3X(28)            None
 ! CO2X(31)            None
 ! OCX(32)             None
+! CX(33)              None
+! CH2X(34)            None
+! CHX(35)             None
