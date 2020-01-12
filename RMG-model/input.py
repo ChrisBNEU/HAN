@@ -12,7 +12,7 @@ database(
                     ],
     reactionLibraries = [('Surface/CPOX_Pt/Deutschmann2006', True),  # when Ni is used, change the library to Surface/Deutschmann_Ni
                          'BurkeH2O2inN2',
-                         'NOx2018',
+                         ('NOx2018', True),
                          'Nitrogen_Glarborg_Lucassen_et_al',
                          'Nitrogen_Glarborg_Zhang_et_al',
                          'Nitrogen_Glarborg_Gimenez_et_al',
@@ -29,13 +29,13 @@ database(
         'Surface_Abstraction',
         'Surface_EleyRideal_Addition_Multiple_Bond',
         'Surface_Migration',
-        'Surface_Dissociation_Double_vdW',
-        'Surface_Addition_Single_vdW',
-        'Surface_Dissociation_vdW',
-        'Surface_Abstraction_vdW',
-        'Surface_Dual_Adsorption_vdW',
+        #'Surface_Dissociation_Double_vdW',
+        #'Surface_Addition_Single_vdW',
+        #'Surface_Dissociation_vdW',
+        #'Surface_Abstraction_vdW',
+        #'Surface_Dual_Adsorption_vdW',
         # might still be broken: 'Surface_Recombination_Single',
-        'Surface_Adsorption_Abstraction_vdW',
+        #'Surface_Adsorption_Abstraction_vdW',
         ],
     kineticsEstimator = 'rate rules',
 )
@@ -66,8 +66,8 @@ bindings['Rh(111)'] = {  # default values for Rh(111)
 densities['Rh(111)'] = (2.656E-09, 'mol/cm^2')  # default for Rh(111)
 
 catalystProperties(  # specifying which catalyst to run the simulation on
-    bindingEnergies = bindings['Ir(111)'],
-    surfaceSiteDensity= densities['Ir(111)'],
+    bindingEnergies = bindings['Pt(111)'],
+    surfaceSiteDensity= densities['Pt(111)'],
 )
 
 # List of species
@@ -244,7 +244,7 @@ species(
 
 
 surfaceReactor(
-    temperature=[(400,'K'),(2000,'K')],
+    temperature=[(400,'K'),(2300,'K')],
     initialPressure=(1.0, 'bar'),
     nSims = 6,
     initialGasMoleFractions={
@@ -258,12 +258,12 @@ surfaceReactor(
         "X": 1.0,
     },
     surfaceVolumeRatio=(1.e5, 'm^-1'), # Medium
-    terminationConversion = { "CH3OH": 0.99,},
+    terminationConversion = { "CH3OH": 0.995,},
     terminationTime=(10., 's'),
 )
 
 surfaceReactor(
-    temperature=[(400,'K'),(2000,'K')],
+    temperature=[(400,'K'),(2300,'K')],
     initialPressure=(1.0, 'bar'),
     nSims = 6,
     initialGasMoleFractions={
@@ -277,7 +277,7 @@ surfaceReactor(
         "X": 1.0,
     },
     surfaceVolumeRatio=(348, 'm^-1'), # Lower limit
-    terminationConversion = { "CH3OH": 0.99,},
+    terminationConversion = { "CH3OH": 0.995,},
     terminationTime=(10., 's'),
 )
 
