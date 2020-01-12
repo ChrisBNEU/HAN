@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --array=0-35%24
+#SBATCH --array=0-34%40
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
 #SBATCH --ntasks=1
@@ -19,4 +19,10 @@ mkdir -p rocketman/$SLURM_ARRAY_TASK_ID
 cp -f rocketman.ipynb rocketman/$SLURM_ARRAY_TASK_ID/
 cp -f ../RMG-model/cantera/chem_annotated.cti rocketman/$SLURM_ARRAY_TASK_ID/
 cd rocketman/$SLURM_ARRAY_TASK_ID
-jupyter nbconvert --to notebook --execute rocketman.ipynb
+jupyter nbconvert --ExecutePreprocessor.timeout=None \
+                  --ExecutePreprocessor.allow_errors=True \
+                  --to notebook \
+                  --execute \
+                  --inplace \
+                  rocketman.ipynb
+jupyter nbconvert --to markdown rocketman.ipynb
