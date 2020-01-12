@@ -1,4 +1,4 @@
-1;95;0c#!/bin/bash
+#!/bin/bash
 #SBATCH --array=0-49%50
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
