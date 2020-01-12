@@ -23,14 +23,14 @@ import pandas as pd
 
 
 # default if not using SLURM array
-cat_area_per_vol = 3e5 # m2/m3
+cat_area_per_vol = 6e5 # m2/m3
 temperature_c = 400 # ºC
 
 # input file containing the reaction mechanism
 cti_file = '../RMG-model/cantera/chem_annotated.cti'
 
 
-# In[50]:
+# In[3]:
 
 
 cat_area_per_vol_options = [3e2, 3e3, 3e4, 3e5, 6e5, 9e5, 1.2e6, 3e6, 3e7, 3e8] # m2/m3
@@ -39,7 +39,7 @@ settings  = list(itertools.product(cat_area_per_vol_options, temperature_c_optio
 print(f"Settings aray is from 0 to {len(settings)-1} ")
 
 
-# In[49]:
+# In[4]:
 
 
 task_number = int(os.getenv('SLURM_ARRAY_TASK_ID', default='0'))
@@ -57,7 +57,7 @@ if task_max > 0:
     cat_area_per_vol, temperature_c = settings[task_number]
 
 
-# In[54]:
+# In[5]:
 
 
 if task_number == 0:
@@ -67,14 +67,14 @@ if task_number == 0:
         json.dump(settings, fp)
 
 
-# In[4]:
+# In[6]:
 
 
 print(f"Catalyst area per volume {cat_area_per_vol :.2e} m2/m3")
 print(f"Initial temperature {temperature_c :.1f} ºC")
 
 
-# In[5]:
+# In[7]:
 
 
 
@@ -83,19 +83,19 @@ gas=ct.Solution(cti_file)
 surf = ct.Interface(cti_file,'surface1', [gas])
 
 
-# In[6]:
+# In[8]:
 
 
 gas()
 
 
-# In[7]:
+# In[9]:
 
 
 print(", ".join(gas.species_names))
 
 
-# In[8]:
+# In[10]:
 
 
 print(", ".join(surf.species_names))
@@ -109,7 +109,7 @@ print(", ".join(surf.species_names))
 # 
 # 
 
-# In[9]:
+# In[11]:
 
 
 # unit conversion factors to SI
@@ -117,7 +117,7 @@ cm = 0.01 # m
 minute = 60.0  # s
 
 
-# In[10]:
+# In[12]:
 
 
 #######################################################################
@@ -145,7 +145,7 @@ porosity = 0.38  # Catalyst bed porosity (0.38)
 # Al2O3 particles are about 0.7mm diameter
 
 
-# In[11]:
+# In[13]:
 
 
 output_filename = 'surf_pfr_output.csv'
@@ -192,7 +192,7 @@ cat_area = cat_area_per_vol * r_vol
 velocity = mass_flow_rate / (gas.density * cross_section_area)
 
 
-# In[12]:
+# In[16]:
 
 
 # To find the starting coverages, we run the gas to equilibrium,
@@ -228,19 +228,19 @@ del(r, rsurf)
 starting_coverages
 
 
-# In[13]:
+# In[17]:
 
 
 plt.barh(np.arange(len(gas.chemical_potentials)),gas.chemical_potentials)
 
 
-# In[14]:
+# In[18]:
 
 
 # gas.equilibrate('TP')
 
 
-# In[15]:
+# In[19]:
 
 
 plt.barh(np.arange(len(gas.delta_gibbs)),gas.delta_gibbs)
@@ -257,19 +257,19 @@ plt.title('∆S')
 plt.show()
 
 
-# In[16]:
+# In[20]:
 
 
 plt.plot(gas.concentrations, gas.chemical_potentials, 'o')
 
 
-# In[17]:
+# In[21]:
 
 
 plt.plot(surf.concentrations, surf.chemical_potentials, 'o')
 
 
-# In[18]:
+# In[22]:
 
 
 def report_rates(n=8):
@@ -298,7 +298,7 @@ def report_rates(n=8):
 report_rates()
 
 
-# In[19]:
+# In[23]:
 
 
 def report_rate_constants(n=8):
@@ -319,7 +319,13 @@ def report_rate_constants(n=8):
 report_rate_constants()
 
 
-# In[20]:
+# In[25]:
+
+
+gas.TPX = temperature_kelvin, pressure, feed_mole_fractions
+
+
+# In[26]:
 
 
 # The plug flow reactor is represented by a linear chain of zero-dimensional
@@ -421,13 +427,13 @@ print("Results saved to '{0}'".format(output_filename))
 
 
 
-# In[21]:
+# In[27]:
 
 
 sim.time
 
 
-# In[22]:
+# In[28]:
 
 
 gas.TDY = TDY
@@ -435,44 +441,44 @@ r.syncState()
 r.thermo.T
 
 
-# In[23]:
+# In[29]:
 
 
 r.thermo.X - gas.X
 
 
-# In[24]:
+# In[30]:
 
 
 report_rate_constants()
 
 
-# In[25]:
+# In[31]:
 
 
 sim.verbose
 
 
-# In[26]:
+# In[32]:
 
 
 plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
-# In[27]:
+# In[33]:
 
 
 gas.T
 
 
-# In[28]:
+# In[34]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[29]:
+# In[35]:
 
 
 def xlabels():
@@ -480,7 +486,7 @@ def xlabels():
     plt.xlabel("Distance down reactor")
 
 
-# In[30]:
+# In[36]:
 
 
 data['T (C)'].plot()
@@ -488,7 +494,7 @@ plt.ylabel('T (C)')
 xlabels()
 
 
-# In[31]:
+# In[37]:
 
 
 data[['NH2OH(3)', 'HNO3(4)', 'CH3OH(5)']].plot()
@@ -496,20 +502,20 @@ plt.ylabel('Mole fraction')
 xlabels()
 
 
-# In[32]:
+# In[38]:
 
 
 list(data.columns)[:4]
 
 
-# In[33]:
+# In[39]:
 
 
 data[['T (C)', 'alpha']].plot()
 xlabels()
 
 
-# In[34]:
+# In[40]:
 
 
 ax1 = data['T (C)'].plot()
@@ -526,13 +532,13 @@ plt.savefig('temperature-and-alpha.pdf')
 plt.show()
 
 
-# In[35]:
+# In[41]:
 
 
 data.columns
 
 
-# In[36]:
+# In[42]:
 
 
 data[['gas_heat','surface_heat']].plot()
@@ -542,7 +548,7 @@ plt.savefig('gas_and_surface_heat.pdf')
 plt.show()
 
 
-# In[37]:
+# In[43]:
 
 
 ax1 = data[['gas_heat','surface_heat']].plot()
@@ -560,7 +566,7 @@ plt.savefig('heats-and-alpha.pdf')
 plt.show()
 
 
-# In[38]:
+# In[44]:
 
 
 data[['T (C)']].plot()
@@ -571,20 +577,20 @@ plt.savefig('temperature.pdf')
 plt.show()
 
 
-# In[39]:
+# In[45]:
 
 
 data[['alpha']].plot(logy=True)
 xlabels()
 
 
-# In[40]:
+# In[46]:
 
 
 data.plot(x='T (C)',y='alpha')
 
 
-# In[41]:
+# In[47]:
 
 
 specs = list(data.columns)
@@ -596,13 +602,13 @@ adsorbates = [s for s in specs if 'X' in s]
 gas_species, adsorbates
 
 
-# In[42]:
+# In[48]:
 
 
 data[gas_species[0:5]].plot(logy=True, logx=True)
 
 
-# In[43]:
+# In[49]:
 
 
 for i in range(0,len(gas_species),10):
@@ -620,19 +626,19 @@ for i in range(0,len(adsorbates),10):
     plt.show()
 
 
-# In[44]:
+# In[50]:
 
 
 gas.species('NO2(9)').composition
 
 
-# In[45]:
+# In[51]:
 
 
 data['NO2(9)'].plot()
 
 
-# In[46]:
+# In[52]:
 
 
 (data[specs].max()>0.01)
@@ -644,7 +650,7 @@ data['NO2(9)'].plot()
 
 
 
-# In[47]:
+# In[ ]:
 
 
 data.loc[0]
