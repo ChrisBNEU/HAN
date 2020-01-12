@@ -30,29 +30,40 @@ temperature_c = 400 # ºC
 cti_file = '../RMG-model/cantera/chem_annotated.cti'
 
 
-# In[3]:
+# In[50]:
 
 
-task_number = int(os.getenv('SLURM_ARRAY_TASK_ID', default='3'))
+cat_area_per_vol_options = [3e2, 3e3, 3e4, 3e5, 6e5, 9e5, 1.2e6, 3e6, 3e7, 3e8] # m2/m3
+temperature_c_options = [200, 300, 400, 500, 600] # ºC
+settings  = list(itertools.product(cat_area_per_vol_options, temperature_c_options))
+print(f"Settings aray is from 0 to {len(settings)-1} ")
+
+
+# In[49]:
+
+
+task_number = int(os.getenv('SLURM_ARRAY_TASK_ID', default='0'))
 task_min = int(os.getenv('SLURM_ARRAY_TASK_MIN', default='0'))
-task_max = int(os.getenv('SLURM_ARRAY_TASK_MAX', default='34'))
+task_max = int(os.getenv('SLURM_ARRAY_TASK_MAX', default='0'))
 
 if task_max > 0:
-    print("Using SULRM array job.")
+    print("Using SLURM array job.")
     
     cti_file = 'chem_annotated.cti'
     print(f"Using cantera input file {os.path.abspath(cti_file)}")
 
     print(f"Task ID {task_number} in array from {task_min} to {task_max}")
 
-
-    cat_area_per_vol = [3e2, 3e3, 3e4, 3e5, 3e6, 3e7, 3e8] # m2/m3
-    temperature_c = [200, 300, 400, 500, 600] # ºC
-
-    settings  = list(itertools.product(cat_area_per_vol, temperature_c))
-    print(f"Settings aray is from 0 to {len(settings)-1} ")
-
     cat_area_per_vol, temperature_c = settings[task_number]
+
+
+# In[ ]:
+
+
+if task_number == 0:
+    import json
+    with open('rocketman/settings.json','w') as fp:
+        json.dump(settings, fp)
 
 
 # In[4]:
