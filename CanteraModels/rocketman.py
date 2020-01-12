@@ -57,12 +57,13 @@ if task_max > 0:
     cat_area_per_vol, temperature_c = settings[task_number]
 
 
-# In[ ]:
+# In[54]:
 
 
 if task_number == 0:
     import json
-    with open('rocketman/settings.json','w') as fp:
+    setting_file_directory = '..' if task_max else 'rocketman'
+    with open(os.path.join(setting_file_directory,'settings.json'),'w') as fp:
         json.dump(settings, fp)
 
 
