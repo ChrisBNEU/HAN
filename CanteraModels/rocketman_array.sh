@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --array=0-34%40
+#SBATCH --array=0-49%40
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
 #SBATCH --ntasks=1
@@ -15,7 +15,7 @@ source activate rmg3
 export RMGpy=/scratch/r.west/RMG-Py
 
 mkdir -p rocketman/$SLURM_ARRAY_TASK_ID
-
+rm -rf rocketman/$SLURM_ARRAY_TASK_ID/*
 cp -f rocketman.ipynb rocketman/$SLURM_ARRAY_TASK_ID/
 cp -f ../RMG-model/cantera/chem_annotated.cti rocketman/$SLURM_ARRAY_TASK_ID/
 cd rocketman/$SLURM_ARRAY_TASK_ID
