@@ -1,4 +1,4 @@
-#!/bin/bash
+1;95;0c#!/bin/bash
 #SBATCH --array=0-49%50
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
@@ -25,4 +25,4 @@ jupyter nbconvert --ExecutePreprocessor.timeout=None \
                   --execute \
                   --inplace \
                   rocketman.ipynb
-jupyter nbconvert --to markdown rocketman.ipynb
+#jupyter nbconvert --to markdown rocketman.ipynb
