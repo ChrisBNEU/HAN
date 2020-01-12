@@ -62,7 +62,7 @@ for i,(a,t) in enumerate(settings):
     setting_dict[a][t] = i
 
 
-# In[6]:
+# In[25]:
 
 
 data_dict = defaultdict(dict)
@@ -71,9 +71,9 @@ for i,(a,t) in enumerate(settings):
     print(output_filename, end=' ')
     try:
         data = pd.read_csv(output_filename)
-        print("OK ✅")
+        print(f"✅ OK  {data['Distance (mm)'].max():5.2f} mm    {data['T (C)'].min():.0f}-{data['T (C)'].max():.0f} ºC")
     except:
-        print("FAIL! ❌")
+        print("❌ FAIL!")
         data = None
     data_dict[a][t] = data
 
@@ -119,13 +119,13 @@ length = 1.1 * cm  # Catalyst bed length. 11mm
 cross_section_area = np.pi * (0.9*cm)**2  # Catalyst bed area.  18mm diameter circle.
 
 
-# In[14]:
+# In[12]:
 
 
 NReactors = 2001
 def xlabels():
-    plt.xlim(0,50)
-    #plt.xticks([0,NReactors/4,NReactors/2,3*NReactors/4, NReactors],['0','','','',f'{length*1000:.0f} mm'])
+    #plt.xlim(0,50)
+    plt.xticks([0,NReactors/4,NReactors/2,3*NReactors/4, NReactors],['0','','','',f'{length*1000:.0f} mm'])
     plt.xlabel("Distance down reactor")
 
 
@@ -165,6 +165,7 @@ def f(cat_area_per_vol, temperature_c):
     plt.tight_layout()
     #plt.savefig(f'gas_mole_fractions_{i}.pdf')
     plt.show()
+    return data
     
 
 a = widgets.SelectionSlider(
@@ -187,6 +188,12 @@ t = widgets.SelectionSlider(
 )
 
 interact(f, cat_area_per_vol=a, temperature_c=t)
+
+
+# In[18]:
+
+
+data['Distance (mm)'].max()
 
 
 # In[ ]:
