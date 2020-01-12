@@ -8,7 +8,7 @@ database(
                      'Nitrogen_G4',
                      'NitrogenCurran',
                      'primaryNS',
-                     # fixme richie: 'autotst-han-library',
+                     'autotst-han-library',
                     ],
     reactionLibraries = [('Surface/CPOX_Pt/Deutschmann2006', True),  # when Ni is used, change the library to Surface/Deutschmann_Ni
                          'BurkeH2O2inN2',
