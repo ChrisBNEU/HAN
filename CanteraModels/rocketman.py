@@ -14,6 +14,8 @@ import numpy as np
 
 from matplotlib import pyplot as plt
 import csv
+import os
+import itertools
 import pandas as pd
 
 
@@ -24,11 +26,12 @@ import pandas as pd
 cat_area_per_vol = 3e5 # m2/m3
 temperature_c = 400 # ºC
 
+# input file containing the reaction mechanism
+cti_file = '../RMG-model/cantera/chem_annotated.cti'
+
 
 # In[3]:
 
-
-import os, itertools
 
 task_number = int(os.getenv('SLURM_ARRAY_TASK_ID', default='3'))
 task_min = int(os.getenv('SLURM_ARRAY_TASK_MIN', default='0'))
@@ -36,6 +39,9 @@ task_max = int(os.getenv('SLURM_ARRAY_TASK_MAX', default='34'))
 
 if task_max > 0:
     print("Using SULRM array job.")
+    
+    cti_file = 'chem_annotated.cti'
+    print(f"Using cantera input file {os.path.abspath(cti_file)}")
 
     print(f"Task ID {task_number} in array from {task_min} to {task_max}")
 
@@ -59,10 +65,7 @@ print(f"Initial temperature {temperature_c :.1f} ºC")
 # In[5]:
 
 
-# input file containing the surface reaction mechanism
-cti_file = '../RMG-model/cantera/chem_annotated.cti'
 
-# cti_file = '../RMG-model/cantera/chem0050.cti'
 
 gas=ct.Solution(cti_file)
 surf = ct.Interface(cti_file,'surface1', [gas])
