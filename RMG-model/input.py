@@ -242,29 +242,11 @@ species(
 #----------
 # Reaction systems
 
-surfaceReactor(
-    temperature=[(400,'K'),(2000,'K')],
-    initialPressure=(1.0, 'bar'),
-    nSims = 4,
-    initialGasMoleFractions={
-        'NH2OH': 0.31940968187635516,
-        'HNO3': 0.35048479213953954,
-        'NH3': 0.031075110263184432,
-        'CH3OH': 0.20701222018021495,
-        'H2O': 0.09201819554070598,
-    },
-    initialSurfaceCoverages={
-        "X": 1.0,
-    },
-    surfaceVolumeRatio=(1.e7, 'm^-1'), # Quite high
-    terminationConversion = { "CH3OH": 0.99,},
-    terminationTime=(10., 's'),
-)
 
 surfaceReactor(
     temperature=[(400,'K'),(2000,'K')],
     initialPressure=(1.0, 'bar'),
-    nSims = 4,
+    nSims = 6,
     initialGasMoleFractions={
         'NH2OH': 0.31940968187635516,
         'HNO3': 0.35048479213953954,
@@ -283,7 +265,7 @@ surfaceReactor(
 surfaceReactor(
     temperature=[(400,'K'),(2000,'K')],
     initialPressure=(1.0, 'bar'),
-    nSims = 4,
+    nSims = 6,
     initialGasMoleFractions={
         'NH2OH': 0.31940968187635516,
         'HNO3': 0.35048479213953954,
