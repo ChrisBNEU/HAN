@@ -27,8 +27,8 @@ database(
         'Surface_Adsorption_Dissociative',
         'Surface_Dissociation',
         'Surface_Abstraction',
-        'Surface_EleyRideal_Addition_Multiple_Bond',
-        'Surface_Migration',
+        #'Surface_EleyRideal_Addition_Multiple_Bond',
+        #'Surface_Migration',
         #'Surface_Dissociation_Double_vdW',
         #'Surface_Addition_Single_vdW',
         #'Surface_Dissociation_vdW',
@@ -283,7 +283,7 @@ surfaceReactor(
 
 
 simulator(
-    atol=1e-18,
+    atol=1e-19,
     rtol=1e-12,
 )
 
