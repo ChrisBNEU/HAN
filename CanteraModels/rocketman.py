@@ -23,11 +23,12 @@ import pandas as pd
 
 
 # default if not using SLURM array
-cat_area_per_vol = 6e5 # m2/m3
+cat_area_per_vol = 6e4 # m2/m3
 temperature_c = 400 # ºC
 
 # input file containing the reaction mechanism
 cti_file = '../RMG-model/cantera/chem_annotated.cti'
+#cti_file = '../RMG-model/cantera/chem0050.cti'
 
 
 # In[3]:
@@ -77,8 +78,6 @@ print(f"Initial temperature {temperature_c :.1f} ºC")
 # In[7]:
 
 
-
-
 gas=ct.Solution(cti_file)
 surf = ct.Interface(cti_file,'surface1', [gas])
 
@@ -117,7 +116,7 @@ cm = 0.01 # m
 minute = 60.0  # s
 
 
-# In[39]:
+# In[12]:
 
 
 #######################################################################
@@ -133,25 +132,28 @@ cross_section_area = np.pi * (0.9*cm)**2  # Catalyst bed area.  18mm diameter ci
 
 ### Catalyst properties. Some are hard to estimate
 # if we can, update this lit value or verify the value richard calculated
-cat_specific_area = 140 # m2/g
-cat_density = 2 / cm**3 # 2 g/m3
-print(f"Catalyst density {cat_density :.2e} g/m3")
-#cat_area_per_vol = cat_specific_area * cat_density # m2/m3
-#cat_area_per_vol *= 1e-3 # REDUCE BY A LOT
-print(f"Catalyst area per volume {cat_area_per_vol :.2e} m2/m3")
-
-
 porosity = 0.38  # Catalyst bed porosity (0.38)
 # Al2O3 particles are about 0.7mm diameter
+cat_specific_area = 140 # m2/g
+print(f"Catalyst specific area {cat_specific_area :.2e} m2/g")
+cat_density = 2 / cm**3 # 2 g/m3
+print(f"Catalyst density {cat_density :.2e} g/m3")
+cat_area_per_reactor_vol = cat_specific_area * cat_density # m2/m3
+print(f"Catalyst area per total reactor volume {cat_area_per_reactor_vol :.2e} m/m3")
+cat_area_per_gas_vol = cat_area_per_reactor_vol / porosity # porosity is gas vol per reactor vol
+print(f"Catalyst area per gas volume {cat_area_per_gas_vol :.2e} m/m3")
+
+#cat_area_per_vol =  cat_area_per_gas_vol * 1e-3 # REDUCE BY A LOT
+print(f"\nCatalyst area per volume in use for this simulation: {cat_area_per_vol :.2e} m2/m3")
 
 
-# In[40]:
+# In[13]:
 
 
 output_filename = 'surf_pfr_output.csv'
 
 # The PFR will be simulated by a chain of 'NReactors' stirred reactors.
-NReactors = 2001
+NReactors = 2201
 
 #####################################################################
 
@@ -190,13 +192,10 @@ cat_area = cat_area_per_vol * r_vol
 # Not sure we need the velocity
 velocity = mass_flow_rate / (gas.density * cross_section_area)
 
-
-# In[41]:
-
-
 # To find the starting coverages, we run the gas to equilibrium,
 # (i.e mostly burned products)  then put that in steady state
 # with the surface.
+gas.TPX = temperature_kelvin, pressure, feed_mole_fractions
 TPY = gas.TPY # store to restore
 gas.equilibrate('TP')
 r = ct.IdealGasReactor(gas, energy='off')
@@ -224,25 +223,7 @@ plt.show()
 
 gas.TPY = TPY # restore to starting conditions
 del(r, rsurf)
-starting_coverages
-
-
-# In[42]:
-
-
-plt.barh(np.arange(len(gas.chemical_potentials)),gas.chemical_potentials)
-
-
-# In[43]:
-
-
-# gas.equilibrate('TP')
-
-
-# In[44]:
-
-
-plt.barh(np.arange(len(gas.delta_gibbs)),gas.delta_gibbs)
+starting_coveragesplt.barh(np.arange(len(gas.chemical_potentials)),gas.chemical_potentials)plt.barh(np.arange(len(gas.delta_gibbs)),gas.delta_gibbs)
 plt.barh(len(gas.delta_gibbs)+np.arange(len(surf.delta_gibbs)),surf.delta_gibbs)
 plt.title("∆G")
 plt.show()
@@ -253,22 +234,8 @@ plt.show()
 plt.barh(np.arange(len(gas.delta_entropy)),gas.delta_entropy)
 plt.barh(len(gas.delta_entropy)+np.arange(len(surf.delta_entropy)),surf.delta_entropy)
 plt.title('∆S')
-plt.show()
-
-
-# In[45]:
-
-
-plt.plot(gas.concentrations, gas.chemical_potentials, 'o')
-
-
-# In[46]:
-
-
-plt.plot(surf.concentrations, surf.chemical_potentials, 'o')
-
-
-# In[47]:
+plt.show()plt.plot(gas.concentrations, gas.chemical_potentials, 'o')plt.plot(surf.concentrations, surf.chemical_potentials, 'o')
+# In[14]:
 
 
 def report_rates(n=8):
@@ -292,12 +259,12 @@ def report_rates(n=8):
         print(f"{i:3d} : {surf.reaction_equation(i):48s}  {cat_area_per_vol*surf.reverse_rates_of_progress[i]:8.1g}")
 
     print(f"\nSurface rates have been scaled by surface/volume ratio {cat_area_per_vol:.1e} m2/m3")
-    print("So are on a similar basis of volume of reactor (though porosity not yet accounted for)")
+    print("So are on a similar basis of volume of gas")
     print(" kmol / m3 / s")
 report_rates()
 
 
-# In[48]:
+# In[15]:
 
 
 def report_rate_constants(n=8):
@@ -318,14 +285,15 @@ def report_rate_constants(n=8):
 report_rate_constants()
 
 
-# In[51]:
+# In[16]:
 
 
 gas.TPX = temperature_kelvin, pressure, feed_mole_fractions
-surf.coverages = starting_coverages
+surf.coverages = 'X(1):1.0'
+#surf.coverages = starting_coverages
 
 
-# In[55]:
+# In[17]:
 
 
 # The plug flow reactor is represented by a linear chain of zero-dimensional
@@ -369,8 +337,8 @@ sim = ct.ReactorNet([r])
 sim.max_err_test_fails = 24
 
 # set relative and absolute tolerances on the simulation
-sim.rtol = 1.0e-14
-sim.atol = 1.0e-19
+sim.rtol = 1.0e-12
+sim.atol = 1.0e-20
 
 sim.verbose = False
 
@@ -382,34 +350,40 @@ rsurf.area = cat_area
 
 print('    distance(mm)     T (C)    NH3(2)   NH2OH(3)     HNO3(4)    CH3OH(5)  alpha')
 for n in range(NReactors):
-    
-    if n==0: # first coulpe of reactors are tiny
+    """
+    if n == 0: # first coulpe of reactors are tiny
+        surf.set_multiplier(0.)
         r.volume = r_vol * 1e-2
         rsurf.area = cat_area * 1e-2
-    if n==3:
+    if n == 3:
         r.volume = r_vol
-        rsurf.area = cat_area
-    
+        rsurf.area = cat_area"""
+        
+    if n == 0: # start off with inert packing, no surface reactions
+        surf.set_multiplier(0.)
+    if n == int(0.001 * NReactors / length): # after 1 mm, catalyst
+        surf.set_multiplier(1)
     
     # Set the state of the reservoir to match that of the previous reactor
     gas.TDY = TDY = r.thermo.TDY
-
+    cov = surf.coverages
     upstream.syncState()
     sim.reinitialize()
     try:
-#         the default is residual_threshold = sim.rtol*10
+#       the default is residual_threshold = sim.rtol*10
         sim.advance_to_steady_state(residual_threshold = sim.rtol*1000)
-#        sim.advance_to_steady_state()
 
     except ct.CanteraError:
         t = sim.time
         sim.set_initial_time(0)
         gas.TDY = TDY
+        surf.coverages = cov
         r.syncState()
         sim.reinitialize()
-        print(f"Couldn't reach {t:.1g} s so going to {0.1*t:.1g} s")
-        sim.advance(0.1*t)
-        #report_rates()
+        new_target_time = 0.01 * t
+        print(f"Couldn't reach {t:.1g} s so going to try {new_target_time:.1g} s")
+        sim.advance(new_target_time)
+        report_rates()
         #report_rate_constants()
  
     dist = n * r_len * 1.0e3   # distance in mm
@@ -432,19 +406,13 @@ outfile.close()
 print("Results saved to '{0}'".format(output_filename))
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
+# In[18]:
 
 
 sim.time
 
 
-# In[ ]:
+# In[19]:
 
 
 gas.TDY = TDY
@@ -452,52 +420,60 @@ r.syncState()
 r.thermo.T
 
 
-# In[ ]:
+# In[20]:
 
 
 r.thermo.X - gas.X
 
 
-# In[ ]:
+# In[21]:
 
 
 report_rate_constants()
 
 
-# In[ ]:
+# In[22]:
 
 
 sim.verbose
 
 
-# In[ ]:
+# In[23]:
 
 
 plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
-# In[ ]:
+# In[24]:
 
 
 gas.T
 
 
-# In[ ]:
+# In[25]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[ ]:
+# In[26]:
 
 
 def xlabels():
-    plt.xticks([0,NReactors/4,NReactors/2,3*NReactors/4, NReactors],['0','','','',f'{length*1000:.0f} mm'])
+    ticks = []
+    labels = []
+    mm = 0
+    while mm < length*1000:
+        ticks.append( int(NReactors * mm * 0.001 / length ) )
+        labels.append( str(mm) )
+        mm += 1
+    labels[-1] = labels[-1] + ' mm'
+    plt.xticks(ticks, labels)
     plt.xlabel("Distance down reactor")
 
 
-# In[ ]:
+# In[27]:
 
 
 data['T (C)'].plot()
@@ -505,7 +481,15 @@ plt.ylabel('T (C)')
 xlabels()
 
 
-# In[ ]:
+# In[28]:
+
+
+data[['NX(705)']].plot()
+plt.ylabel('Surface coverage')
+xlabels()
+
+
+# In[29]:
 
 
 data[['NH2OH(3)', 'HNO3(4)', 'CH3OH(5)']].plot()
@@ -513,20 +497,20 @@ plt.ylabel('Mole fraction')
 xlabels()
 
 
-# In[ ]:
+# In[30]:
 
 
 list(data.columns)[:4]
 
 
-# In[ ]:
+# In[31]:
 
 
 data[['T (C)', 'alpha']].plot()
 xlabels()
 
 
-# In[ ]:
+# In[32]:
 
 
 ax1 = data['T (C)'].plot()
@@ -543,13 +527,13 @@ plt.savefig('temperature-and-alpha.pdf')
 plt.show()
 
 
-# In[ ]:
+# In[33]:
 
 
 data.columns
 
 
-# In[ ]:
+# In[34]:
 
 
 data[['gas_heat','surface_heat']].plot()
@@ -559,7 +543,7 @@ plt.savefig('gas_and_surface_heat.pdf')
 plt.show()
 
 
-# In[ ]:
+# In[35]:
 
 
 ax1 = data[['gas_heat','surface_heat']].plot()
@@ -577,7 +561,7 @@ plt.savefig('heats-and-alpha.pdf')
 plt.show()
 
 
-# In[ ]:
+# In[36]:
 
 
 data[['T (C)']].plot()
@@ -588,80 +572,105 @@ plt.savefig('temperature.pdf')
 plt.show()
 
 
-# In[ ]:
+# In[37]:
 
 
 data[['alpha']].plot(logy=True)
 xlabels()
 
 
-# In[ ]:
+# In[38]:
 
 
 data.plot(x='T (C)',y='alpha')
 
 
-# In[ ]:
+# In[39]:
 
 
 specs = list(data.columns)
-specs = specs[4:-1]
-
-gas_species = [s for s in specs if 'X' not in s]
+specs = specs[4:-3]
+excluded = [s for s in data.columns if s not in specs]
+gas_species = [s for s in specs if 'X' not in s ]
 adsorbates = [s for s in specs if 'X' in s]
 
-gas_species, adsorbates
+excluded, gas_species, adsorbates
 
 
-# In[ ]:
+# In[40]:
 
 
 data[gas_species[0:5]].plot(logy=True, logx=True)
 
 
-# In[ ]:
+# In[41]:
 
 
 for i in range(0,len(gas_species),10):
-    data[gas_species[i:i+10]].plot(title='gas mole fraction', logy=False)
+    data[gas_species[i:i+10]].plot(title='Gas mole fraction', logy=False)
     xlabels()
+    plt.ylabel('Mole fraction')
     plt.tight_layout()
     plt.savefig(f'gas_mole_fractions_{i}.pdf')
     plt.show()
     
+
+
+# In[42]:
+
+
 for i in range(0,len(adsorbates),10):
-    data[adsorbates[i:i+10]].plot(title='surface coverages', logy=False)
+    data[adsorbates[i:i+10]].plot(title='Surface coverages', logy=False)
     xlabels()
+    plt.xlim(0,len(data)+5)
+    plt.ylabel('Surface coverage')
     plt.tight_layout()
     plt.savefig(f'surface_coverages_{i}.pdf')
     plt.show()
 
 
+# In[43]:
+
+
+main_gas_species = data[gas_species].max().sort_values(ascending=False)[:10].keys()
+data[main_gas_species].plot.area()
+
+xlabels()
+plt.xlim(0,len(data)+5)
+plt.tight_layout()
+plt.savefig(f'gas_mole_fractions_top10.pdf')
+plt.show()
+
+
+# In[47]:
+
+
+main_adsorbates = data[adsorbates].max().sort_values(ascending=False)[:10].keys()
+data[main_adsorbates].plot.area()
+
+xlabels()
+plt.xlim(190,len(data)+5)
+plt.tight_layout()
+plt.savefig(f'surface_coverages_top10.pdf')
+plt.show()
+    
+
+
+# In[45]:
+
+
+for a in main_adsorbates:
+    s = surf.species(a)
+    print(s, s.composition)
+
+
 # In[ ]:
 
 
-gas.species('NO2(9)').composition
-
-
-# In[ ]:
-
-
-data['NO2(9)'].plot()
-
-
-# In[ ]:
-
-
-(data[specs].max()>0.01)
-
-
-# In[ ]:
 
 
 
-
-
-# In[ ]:
+# In[46]:
 
 
 data.loc[0]
