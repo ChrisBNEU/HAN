@@ -34,15 +34,24 @@ with open('rocketman/settings.json') as fp:
     settings = json.load(fp)
 cat_area_per_vol_options = list(sorted(set(np.array(settings)[:,0])))
 temperature_c_options = list(sorted(set(np.array(settings)[:,1])))
+rtol_options= list(sorted(set(np.array(settings)[:,2])))
+atol_options= list(sorted(set(np.array(settings)[:,3])))
+        
 
 
 # In[4]:
 
 
-cat_area_per_vol_options, temperature_c_options
+cat_area_per_vol_options, temperature_c_options, rtol_options, atol_options
 
 
 # In[5]:
+
+
+f'1e{np.log10(100):g}', f'{1000:.0e}'
+
+
+# In[6]:
 
 
 
@@ -54,50 +63,50 @@ cti_file = os.path.join(rocket_array_dir,'0','chem_annotated.cti')
 
 print(f"Using cantera input file {os.path.abspath(cti_file)}")
 
-print(f"Settings aray is from 0 to {len(settings)-1} ")
+print(f"Settings array is from 0 to {len(settings)-1} ")
 
 from collections import defaultdict
-setting_dict = defaultdict(dict)
-for i,(a,t) in enumerate(settings):
-    setting_dict[a][t] = i
+setting_dict = dict()
+for i,(area,temp,rtol,atol) in enumerate(settings):
+    setting_dict[(area,temp,rtol,atol)] = i
 
 
-# In[25]:
+# In[7]:
 
 
-data_dict = defaultdict(dict)
-for i,(a,t) in enumerate(settings):
+data_dict = dict()
+for i,(area,temp,rtol,atol) in enumerate(settings):
     output_filename = os.path.join('rocketman',str(i),'surf_pfr_output.csv')
-    print(output_filename, end=' ')
+    print(f"{i:3d} {area:.0e}/m {temp:.0f}K rt{rtol:.0e} at{atol:.0e}", end=' ')
     try:
         data = pd.read_csv(output_filename)
         print(f"✅ OK  {data['Distance (mm)'].max():5.2f} mm    {data['T (C)'].min():.0f}-{data['T (C)'].max():.0f} ºC")
     except:
         print("❌ FAIL!")
         data = None
-    data_dict[a][t] = data
+    data_dict[(area,temp,rtol,atol)] = data
 
 
-# In[7]:
+# In[8]:
 
 
 gas=ct.Solution(cti_file)
 surf = ct.Interface(cti_file,'surface1', [gas])
 
 
-# In[8]:
+# In[9]:
 
 
 print(", ".join(gas.species_names))
 
 
-# In[9]:
+# In[10]:
 
 
 print(", ".join(surf.species_names))
 
 
-# In[10]:
+# In[11]:
 
 
 # unit conversion factors to SI
@@ -105,7 +114,7 @@ cm = 0.01 # m
 minute = 60.0  # s
 
 
-# In[11]:
+# In[12]:
 
 
 #######################################################################
@@ -119,25 +128,46 @@ length = 1.1 * cm  # Catalyst bed length. 11mm
 cross_section_area = np.pi * (0.9*cm)**2  # Catalyst bed area.  18mm diameter circle.
 
 
-# In[12]:
+# In[13]:
 
 
 NReactors = 2001
 def xlabels():
-    #plt.xlim(0,50)
-    plt.xticks([0,NReactors/4,NReactors/2,3*NReactors/4, NReactors],['0','','','',f'{length*1000:.0f} mm'])
+    ticks = []
+    labels = []
+    mm = 0
+    while mm < length*1000:
+        ticks.append( int(NReactors * mm * 0.001 / length ) )
+        labels.append( str(mm) )
+        mm += 1
+    labels[-1] = labels[-1] + ' mm'
+    plt.xticks(ticks, labels)
     plt.xlabel("Distance down reactor")
 
 
-# In[16]:
+# In[14]:
 
 
-def f(cat_area_per_vol, temperature_c):
+data = next(iter(data_dict.values()))
+specs = list(data.columns)
+specs = specs[4:-3]
+excluded = [s for s in data.columns if s not in specs]
+gas_species = [s for s in specs if 'X' not in s ]
+adsorbates = [s for s in specs if 'X' in s]
+
+
+# In[15]:
+
+
+def f(cat_area_per_vol, temperature_c, rtol, atol):
     
     print(f"Catalyst area per volume {cat_area_per_vol :.2e} m2/m3")
     print(f"Initial temperature {temperature_c :.1f} ºC")
-    print(f"Simulation number {setting_dict[cat_area_per_vol][temperature_c]}")
-    data = data_dict[cat_area_per_vol][temperature_c]
+    print(f"Solver RTol {rtol :.1e}")
+    print(f"Solver ATol {atol :.1e}")
+    setting_tuple = (cat_area_per_vol, temperature_c, rtol, atol)
+    print(f"Simulation number {setting_dict[setting_tuple]}")
+    data = data_dict[setting_tuple]
     
     data['T (C)'].plot()
     plt.ylabel('T (C)')
@@ -165,10 +195,19 @@ def f(cat_area_per_vol, temperature_c):
     plt.tight_layout()
     #plt.savefig(f'gas_mole_fractions_{i}.pdf')
     plt.show()
+    
+    main_adsorbates = data[adsorbates].max().sort_values(ascending=False)[:10].keys()
+    data[main_adsorbates].plot.area()
+    xlabels()
+    plt.xlim(0,len(data)+5)
+    plt.tight_layout()
+    plt.savefig(f'surface_coverages_top10.pdf')
+    plt.show()
+
     return data
     
 
-a = widgets.SelectionSlider(
+area_ = widgets.SelectionSlider(
     options=cat_area_per_vol_options,
     value=3e5,
     description='Catalyst area per volume (m2/m3)',
@@ -177,7 +216,7 @@ a = widgets.SelectionSlider(
     orientation='horizontal',
     readout=True
 )
-t = widgets.SelectionSlider(
+temp_ = widgets.SelectionSlider(
     options=temperature_c_options,
     value=400,
     description='Initial temperature (C)',
@@ -187,16 +226,38 @@ t = widgets.SelectionSlider(
     readout=True
 )
 
-interact(f, cat_area_per_vol=a, temperature_c=t)
+rtol_ = widgets.SelectionSlider(
+    options=rtol_options,
+    value=rtol_options[1],
+    description='RTol',
+    disabled=False,
+    continuous_update=False,
+    orientation='horizontal',
+    readout=True
+)
+
+atol_ = widgets.SelectionSlider(
+    options=atol_options,
+    value=atol_options[1],
+    description='ATol',
+    disabled=False,
+    continuous_update=False,
+    orientation='horizontal',
+    readout=True
+)
 
 
-# In[18]:
+
+interact(f, cat_area_per_vol=area_, temperature_c=temp_, rtol=rtol_, atol=atol_)
+
+
+# In[16]:
 
 
 data['Distance (mm)'].max()
 
 
-# In[ ]:
+# In[17]:
 
 
 def report_rates(n=8):
