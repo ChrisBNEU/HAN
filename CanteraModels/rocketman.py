@@ -405,7 +405,7 @@ surf.coverages = 'X(1):1.0'
 # In[ ]:
 
 
-
+fix_rates(gas, 1e18)
 
 
 # In[20]:
@@ -485,8 +485,8 @@ for n in range(NReactors):
         surf.set_multiplier(0.)
     if n == int(0.001 * NReactors / length): # after 1 mm, catalyst
         surf.set_multiplier(1)
-        #fix_rates(gas, 1e18)
-        #fix_rates(surf, 1e21)
+        
+        fix_rates(surf, 1e22)
         save_flux_diagrams(gas, surf, suffix='1mm')
         show_flux_diagrams(gas, surf, suffix='1mm', embed=True)
     
