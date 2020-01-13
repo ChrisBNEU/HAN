@@ -26,9 +26,9 @@ from collections import defaultdict
 
 # default if not using SLURM array
 cat_area_per_vol = 3e6 # m2/m3
-temperature_c = 400 # ºC
-rtol = 1e-9
-atol = 1e-22
+temperature_c = 700 # ºC
+rtol = 1e-11
+atol = 1e-24
 residual_threshold = 5e-3
 
 # input file containing the reaction mechanism
@@ -36,7 +36,7 @@ cti_file = '../RMG-model/cantera/chem_annotated.cti'
 #cti_file = '../RMG-model/cantera/chem0050.cti'
 
 
-# In[33]:
+# In[3]:
 
 
 cat_area_per_vol_options = [3e2, 3e3, 3e4, 3e5, 6e5, 9e5, 1.2e6, 3e6, 3e7, 3e8] # m2/m3
@@ -402,13 +402,13 @@ surf.coverages = 'X(1):1.0'
 #surf.coverages = starting_coverages
 
 
-# In[ ]:
+# In[20]:
 
 
 fix_rates(gas, 1e18)
 
 
-# In[20]:
+# In[21]:
 
 
 # The plug flow reactor is represented by a linear chain of zero-dimensional
@@ -542,19 +542,19 @@ with open("integration_flux_data.txt",'w') as f:
             
 
 
-# In[21]:
+# In[22]:
 
 
 surf()
 
 
-# In[22]:
+# In[23]:
 
 
 sim.time
 
 
-# In[23]:
+# In[24]:
 
 
 gas.TDY = TDY
@@ -562,44 +562,44 @@ r.syncState()
 r.thermo.T
 
 
-# In[24]:
+# In[25]:
 
 
 r.thermo.X - gas.X
 
 
-# In[25]:
+# In[26]:
 
 
 report_rate_constants()
 
 
-# In[26]:
+# In[27]:
 
 
 sim.verbose
 
 
-# In[27]:
+# In[28]:
 
 
 plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
-# In[28]:
+# In[29]:
 
 
 gas.T
 
 
-# In[29]:
+# In[30]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[30]:
+# In[31]:
 
 
 def xlabels():
@@ -615,7 +615,7 @@ def xlabels():
     plt.xlabel("Distance down reactor")
 
 
-# In[31]:
+# In[32]:
 
 
 data['T (C)'].plot()
@@ -623,7 +623,7 @@ plt.ylabel('T (C)')
 xlabels()
 
 
-# In[34]:
+# In[33]:
 
 
 data[['NH2OH(3)', 'HNO3(4)', 'CH3OH(5)']].plot()
@@ -631,20 +631,20 @@ plt.ylabel('Mole fraction')
 xlabels()
 
 
-# In[35]:
+# In[34]:
 
 
 list(data.columns)[:4]
 
 
-# In[36]:
+# In[35]:
 
 
 data[['T (C)', 'alpha']].plot()
 xlabels()
 
 
-# In[37]:
+# In[36]:
 
 
 ax1 = data['T (C)'].plot()
@@ -661,13 +661,13 @@ plt.savefig('temperature-and-alpha.pdf')
 plt.show()
 
 
-# In[38]:
+# In[37]:
 
 
 data.columns
 
 
-# In[39]:
+# In[38]:
 
 
 data[['gas_heat','surface_heat']].plot()
@@ -677,7 +677,7 @@ plt.savefig('gas_and_surface_heat.pdf')
 plt.show()
 
 
-# In[40]:
+# In[39]:
 
 
 ax1 = data[['gas_heat','surface_heat']].plot()
@@ -695,7 +695,7 @@ plt.savefig('heats-and-alpha.pdf')
 plt.show()
 
 
-# In[41]:
+# In[40]:
 
 
 data[['T (C)']].plot()
@@ -706,20 +706,20 @@ plt.savefig('temperature.pdf')
 plt.show()
 
 
-# In[42]:
+# In[41]:
 
 
 data[['alpha']].plot(logy=True)
 xlabels()
 
 
-# In[43]:
+# In[42]:
 
 
 data.plot(x='T (C)',y='alpha')
 
 
-# In[44]:
+# In[43]:
 
 
 specs = list(data.columns)
@@ -731,13 +731,13 @@ adsorbates = [s for s in specs if 'X' in s]
 excluded, gas_species, adsorbates
 
 
-# In[45]:
+# In[44]:
 
 
 data[gas_species[0:5]].plot(logy=True, logx=True)
 
 
-# In[46]:
+# In[45]:
 
 
 for i in range(0,len(gas_species),10):
@@ -750,7 +750,7 @@ for i in range(0,len(gas_species),10):
     
 
 
-# In[47]:
+# In[46]:
 
 
 for i in range(0,len(adsorbates),10):
@@ -763,7 +763,7 @@ for i in range(0,len(adsorbates),10):
     plt.show()
 
 
-# In[48]:
+# In[47]:
 
 
 main_gas_species = data[gas_species].max().sort_values(ascending=False)[:10].keys()
@@ -776,7 +776,7 @@ plt.savefig(f'gas_mole_fractions_top10.pdf')
 plt.show()
 
 
-# In[49]:
+# In[48]:
 
 
 main_adsorbates = data[adsorbates].max().sort_values(ascending=False)[:10].keys()
@@ -790,7 +790,7 @@ plt.show()
     
 
 
-# In[50]:
+# In[49]:
 
 
 for a in main_adsorbates:
@@ -798,13 +798,13 @@ for a in main_adsorbates:
     print(s, s.composition)
 
 
-# In[51]:
+# In[50]:
 
 
 surf.coverages
 
 
-# In[ ]:
+# In[51]:
 
 
 surf.set_multiplier(1)
