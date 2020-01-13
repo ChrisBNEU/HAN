@@ -170,11 +170,15 @@ cC2H4O(61)          2     436.000     3.970     0.000     0.000     2.000    ! N
 CHNO3(925)          2     341.100     5.784     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
 ! SX(7206)            None
 CH2CHO(62)          2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+S(2602)             2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
 H2CC(63)            2     209.000     4.100     0.000     0.000     2.500    ! NOx2018
 CH3CO(64)           2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+! SX(9687)            None
 C2H4O(65)           2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
 C2H5O(66)           2     362.600     4.530     0.000     0.000     1.500    ! NOx2018
 C2H3O2(67)          2     395.000     4.037     1.300     0.000     1.000    ! NOx2018
+NO2NO(336)          2     341.100     5.784     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(12985)            2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
 CHCHO(68)           2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
 OCHCHO(69)          2     440.200     4.010     0.000     0.000     2.000    ! NOx2018
 HCCO(70)            2     150.000     2.500     0.000     0.000     1.000    ! NOx2018
