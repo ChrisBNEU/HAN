@@ -17,6 +17,7 @@ import csv
 import os
 import itertools
 import pandas as pd
+from collections import defaultdict
 
 
 # In[2]:
@@ -181,11 +182,6 @@ surf.coverages = 'X(1):1.0'
 r_len = length/(NReactors-1) 
 r_vol = cross_section_area * r_len * porosity # gas volume
 
-outfile = open(output_filename,'w')
-writer = csv.writer(outfile)
-writer.writerow(['Distance (mm)', 'T (C)', 'P (atm)'] +
-                gas.species_names + surf.species_names + ['gas_heat','surface_heat','alpha'])
-
 # catalyst area in one reactor
 cat_area = cat_area_per_vol * r_vol
 
@@ -288,12 +284,78 @@ report_rate_constants()
 # In[16]:
 
 
+surf
+
+
+# In[17]:
+
+
+def save_flux_diagrams(*phases):
+    for element in 'CHONX':
+        for phase_object in phases:
+            phase = phase_object.name
+
+            diagram = ct.ReactionPathDiagram(phase_object, element)
+            diagram.title = f'Reaction path diagram following {element} in {phase}'
+            diagram.label_threshold = 0.01
+
+            dot_file = f'reaction_path_{element}_{phase}.dot'
+            img_file = f'reaction_path_{element}_{phase}.png'
+            img_path = os.path.join(os.getcwd(), img_file)
+            diagram.write_dot(dot_file)
+            #print(diagram.get_data())
+
+            print(f"Wrote graphviz input file to '{os.path.join(os.getcwd(), dot_file)}'.")
+            os.system(f'dot {dot_file} -Tpng -o{img_file} -Gdpi=200')
+            print(f"Wrote graphviz output file to '{img_path}'.")
+
+def show_flux_diagrams(*phases, embed=False):
+    """
+    Shows the flux diagrams in the notebook.
+    Does not embed them, to keep the .ipynb file small,
+    unless embed=True. Use embed=True if you might over-write the files,
+    eg. you want to show flux at different points.
+    """
+    import IPython
+    for element in 'CHONX':
+        for phase_object in phases:
+            phase = phase_object.name
+            img_file = f'reaction_path_{element}_{phase}.png'
+            display(IPython.display.HTML(f'<hr><h2>{element} {phase}</h2>'))
+            if embed:
+                display(IPython.display.Image(filename=img_file,width=400,embed=True))
+            else:
+                display(IPython.display.Image(url=img_file,width=400,embed=False))
+
+
+def integrated_flux_diagrams():
+    """This is a code fragment. Not working. Do not use it."""
+    for element in 'CHON':
+        diagrams = [ct.ReactionPathDiagram(surf, element), ct.ReactionPathDiagram(gas, element)]
+        for diagram in diagrams:
+            data = diagram.get_data()
+            split_data = data.split("\n")
+            for line in split_data[2:]:
+                if len(line.split()) == 0: # skip empty line
+                    continue
+                s1, s2, fwd, rev = line.split()
+                net = float(fwd) - float(rev)
+                if net == 0.0:
+                    continue
+                flux_pair = (s1, s2)
+                integration_flux_data[flux_pair] += net
+    
+
+
+# In[18]:
+
+
 gas.TPX = temperature_kelvin, pressure, feed_mole_fractions
 surf.coverages = 'X(1):1.0'
 #surf.coverages = starting_coverages
 
 
-# In[17]:
+# In[19]:
 
 
 # The plug flow reactor is represented by a linear chain of zero-dimensional
@@ -337,8 +399,8 @@ sim = ct.ReactorNet([r])
 sim.max_err_test_fails = 24
 
 # set relative and absolute tolerances on the simulation
-sim.rtol = 1.0e-12
-sim.atol = 1.0e-20
+sim.rtol = 1.0e-10
+sim.atol = 1.0e-23
 
 sim.verbose = False
 
@@ -347,6 +409,13 @@ sim.verbose = False
 
 r.volume = r_vol
 rsurf.area = cat_area
+
+integration_flux_data = defaultdict(float)
+
+outfile = open(output_filename,'w')
+writer = csv.writer(outfile)
+writer.writerow(['Distance (mm)', 'T (C)', 'P (atm)'] +
+                gas.species_names + surf.species_names + ['gas_heat','surface_heat','alpha'])
 
 print('    distance(mm)     T (C)    NH3(2)   NH2OH(3)     HNO3(4)    CH3OH(5)  alpha')
 for n in range(NReactors):
@@ -363,6 +432,8 @@ for n in range(NReactors):
         surf.set_multiplier(0.)
     if n == int(0.001 * NReactors / length): # after 1 mm, catalyst
         surf.set_multiplier(1)
+        save_flux_diagrams(gas, surf)
+        show_flux_diagrams(gas, surf, embed=True)
     
     # Set the state of the reservoir to match that of the previous reactor
     gas.TDY = TDY = r.thermo.TDY
@@ -382,9 +453,15 @@ for n in range(NReactors):
         sim.reinitialize()
         new_target_time = 0.01 * t
         print(f"Couldn't reach {t:.1g} s so going to try {new_target_time:.1g} s")
-        sim.advance(new_target_time)
+        save_flux_diagrams(gas, surf)
+        show_flux_diagrams(gas, surf, embed=True)
         report_rates()
-        #report_rate_constants()
+        try:
+            sim.advance(new_target_time)
+        except ct.CanteraError:
+            outfile.close()
+            raise()
+            #report_rate_constants()
  
     dist = n * r_len * 1.0e3   # distance in mm
         
@@ -399,20 +476,23 @@ for n in range(NReactors):
     writer.writerow([dist, r.T - 273.15, r.thermo.P/ct.one_atm] +
                     list(gas.X) + list(surf.coverages) + [gas_heat, surface_heat, alpha])
     
-    #report_rates()
-    #report_rate_constants()
 
 outfile.close()
 print("Results saved to '{0}'".format(output_filename))
 
+with open("integration_flux_data.txt",'w') as f:
+    for (sp1,sp2),flux in integration_flux_data.items():
+        f.write("{} {} {}\n".format(sp1,sp2,flux))
+            
 
-# In[18]:
+
+# In[20]:
 
 
 sim.time
 
 
-# In[19]:
+# In[21]:
 
 
 gas.TDY = TDY
@@ -420,44 +500,44 @@ r.syncState()
 r.thermo.T
 
 
-# In[20]:
+# In[22]:
 
 
 r.thermo.X - gas.X
 
 
-# In[21]:
+# In[23]:
 
 
 report_rate_constants()
 
 
-# In[22]:
+# In[24]:
 
 
 sim.verbose
 
 
-# In[23]:
+# In[25]:
 
 
 plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
-# In[24]:
+# In[26]:
 
 
 gas.T
 
 
-# In[25]:
+# In[27]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[26]:
+# In[28]:
 
 
 def xlabels():
@@ -473,7 +553,7 @@ def xlabels():
     plt.xlabel("Distance down reactor")
 
 
-# In[27]:
+# In[29]:
 
 
 data['T (C)'].plot()
@@ -481,7 +561,7 @@ plt.ylabel('T (C)')
 xlabels()
 
 
-# In[28]:
+# In[30]:
 
 
 data[['NX(705)']].plot()
@@ -489,7 +569,7 @@ plt.ylabel('Surface coverage')
 xlabels()
 
 
-# In[29]:
+# In[31]:
 
 
 data[['NH2OH(3)', 'HNO3(4)', 'CH3OH(5)']].plot()
@@ -497,20 +577,20 @@ plt.ylabel('Mole fraction')
 xlabels()
 
 
-# In[30]:
+# In[32]:
 
 
 list(data.columns)[:4]
 
 
-# In[31]:
+# In[33]:
 
 
 data[['T (C)', 'alpha']].plot()
 xlabels()
 
 
-# In[32]:
+# In[34]:
 
 
 ax1 = data['T (C)'].plot()
@@ -527,13 +607,13 @@ plt.savefig('temperature-and-alpha.pdf')
 plt.show()
 
 
-# In[33]:
+# In[35]:
 
 
 data.columns
 
 
-# In[34]:
+# In[36]:
 
 
 data[['gas_heat','surface_heat']].plot()
@@ -543,7 +623,7 @@ plt.savefig('gas_and_surface_heat.pdf')
 plt.show()
 
 
-# In[35]:
+# In[37]:
 
 
 ax1 = data[['gas_heat','surface_heat']].plot()
@@ -561,7 +641,7 @@ plt.savefig('heats-and-alpha.pdf')
 plt.show()
 
 
-# In[36]:
+# In[38]:
 
 
 data[['T (C)']].plot()
@@ -572,20 +652,20 @@ plt.savefig('temperature.pdf')
 plt.show()
 
 
-# In[37]:
+# In[39]:
 
 
 data[['alpha']].plot(logy=True)
 xlabels()
 
 
-# In[38]:
+# In[40]:
 
 
 data.plot(x='T (C)',y='alpha')
 
 
-# In[39]:
+# In[41]:
 
 
 specs = list(data.columns)
@@ -597,13 +677,13 @@ adsorbates = [s for s in specs if 'X' in s]
 excluded, gas_species, adsorbates
 
 
-# In[40]:
+# In[42]:
 
 
 data[gas_species[0:5]].plot(logy=True, logx=True)
 
 
-# In[41]:
+# In[43]:
 
 
 for i in range(0,len(gas_species),10):
@@ -616,7 +696,7 @@ for i in range(0,len(gas_species),10):
     
 
 
-# In[42]:
+# In[44]:
 
 
 for i in range(0,len(adsorbates),10):
@@ -629,7 +709,7 @@ for i in range(0,len(adsorbates),10):
     plt.show()
 
 
-# In[43]:
+# In[45]:
 
 
 main_gas_species = data[gas_species].max().sort_values(ascending=False)[:10].keys()
@@ -642,7 +722,7 @@ plt.savefig(f'gas_mole_fractions_top10.pdf')
 plt.show()
 
 
-# In[47]:
+# In[46]:
 
 
 main_adsorbates = data[adsorbates].max().sort_values(ascending=False)[:10].keys()
@@ -656,7 +736,7 @@ plt.show()
     
 
 
-# In[45]:
+# In[47]:
 
 
 for a in main_adsorbates:
@@ -664,16 +744,24 @@ for a in main_adsorbates:
     print(s, s.composition)
 
 
+# In[48]:
+
+
+surf.coverages
+
+
+# In[49]:
+
+
+surf.set_multiplier(1)
+diagram = ct.ReactionPathDiagram(surf, 'X')
+diagram.get_data()
+
+
 # In[ ]:
 
 
 
-
-
-# In[46]:
-
-
-data.loc[0]
 
 
 # In[ ]:
