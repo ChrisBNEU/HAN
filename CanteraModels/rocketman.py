@@ -29,7 +29,7 @@ cat_area_per_vol = 3e6 # m2/m3
 temperature_c = 400 # ºC
 rtol = 1e-9
 atol = 1e-22
-residual_threshold = 1e-5
+residual_threshold = 1e-3
 
 # input file containing the reaction mechanism
 cti_file = '../RMG-model/cantera/chem_annotated.cti'
@@ -313,18 +313,20 @@ report_rate_constants()
 # In[17]:
 
 
-def fix_surface_rates(surf):
+def fix_rates(phase, limit):
     """
-    Fix the surface reaction rates that are too fast
+    Fix reverse reaction rates that are too fast.
     """
-    for i in np.argsort(abs(surf.reverse_rate_constants))[-1:0:-1]:
-        if surf.reverse_rate_constants[i] < 1e21:
+    for i in np.argsort(abs(phase.reverse_rate_constants))[-1:0:-1]:
+        if phase.reverse_rate_constants[i] < limit:
             break
-        print(f"Before: {i:3d} : {surf.reaction_equation(i):48s}  {surf.reverse_rate_constants[i]:8.1e}")
-        multiplier = 1e21 / surf.reverse_rate_constants[i]
-        surf.set_multiplier(multiplier, i)
-        print(f"After:  {i:3d} : {surf.reaction_equation(i):48s}  {surf.reverse_rate_constants[i]:8.1e}")
-fix_surface_rates(surf)
+        print(f"Before: {i:3d} : {phase.reaction_equation(i):48s}  {phase.reverse_rate_constants[i]:8.1e}")
+        multiplier = limit / phase.reverse_rate_constants[i]
+        phase.set_multiplier(multiplier, i)
+        print(f"After:  {i:3d} : {phase.reaction_equation(i):48s}  {phase.reverse_rate_constants[i]:8.1e}")
+        
+fix_rates(gas, 1e18)
+fix_rates(surf, 1e21)
 
 
 # In[18]:
@@ -400,7 +402,13 @@ surf.coverages = 'X(1):1.0'
 #surf.coverages = starting_coverages
 
 
-# In[20]:
+# In[ ]:
+
+
+surf
+
+
+# In[ ]:
 
 
 # The plug flow reactor is represented by a linear chain of zero-dimensional
@@ -477,7 +485,8 @@ for n in range(NReactors):
         surf.set_multiplier(0.)
     if n == int(0.001 * NReactors / length): # after 1 mm, catalyst
         surf.set_multiplier(1)
-        fix_surface_rates(surf)
+        fix_rates(gas, 1e18)
+        fix_rates(surf, 1e21)
         save_flux_diagrams(gas, surf, suffix='1mm')
         show_flux_diagrams(gas, surf, suffix='1mm', embed=True)
     
@@ -499,9 +508,10 @@ for n in range(NReactors):
         sim.reinitialize()
         new_target_time = 0.01 * t
         print(f"Couldn't reach {t:.1g} s so going to try {new_target_time:.1g} s")
-        save_flux_diagrams(gas, surf)
-        show_flux_diagrams(gas, surf, embed=True)
+        #save_flux_diagrams(gas, surf)
+        #show_flux_diagrams(gas, surf, embed=True)
         report_rates()
+        report_rate_constants()
         try:
             sim.advance(new_target_time)
         except ct.CanteraError:
