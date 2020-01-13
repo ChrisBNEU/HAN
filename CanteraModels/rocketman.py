@@ -15,6 +15,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 import csv
 import os
+import re
 import itertools
 import pandas as pd
 from collections import defaultdict
@@ -24,8 +25,11 @@ from collections import defaultdict
 
 
 # default if not using SLURM array
-cat_area_per_vol = 6e4 # m2/m3
+cat_area_per_vol = 3e6 # m2/m3
 temperature_c = 400 # ºC
+rtol = 1e-9
+atol = 1e-22
+residual_threshold = 1e-5
 
 # input file containing the reaction mechanism
 cti_file = '../RMG-model/cantera/chem_annotated.cti'
@@ -37,11 +41,34 @@ cti_file = '../RMG-model/cantera/chem_annotated.cti'
 
 cat_area_per_vol_options = [3e2, 3e3, 3e4, 3e5, 6e5, 9e5, 1.2e6, 3e6, 3e7, 3e8] # m2/m3
 temperature_c_options = [200, 300, 400, 500, 600] # ºC
-settings  = list(itertools.product(cat_area_per_vol_options, temperature_c_options))
+
+cat_area_per_vol_options = [3e3, 3e4, 3e5, 3e6, 3e7, 3e8] # m2/m3
+temperature_c_options = [200, 300, 400, 500] # ºC
+rtol_options = [1e-6, 1e-9, 1e-11]
+atol_options = [1e-15, 1e-18, 1e-21, 1e-23]
+
+settings  = list(itertools.product(cat_area_per_vol_options,
+                                   temperature_c_options,
+                                   rtol_options,
+                                   atol_options
+                                  ))
 print(f"Settings aray is from 0 to {len(settings)-1} ")
 
 
 # In[4]:
+
+
+with open('rocketman_array.sh') as f:
+    for l in f:
+        m = re.match('#SBATCH --array=(\d+)-(\d+)', l)
+        if m:
+            print(l)
+            start = int(m.group(1))
+            end = int(m.group(2))
+assert (start, end) == (0, len(settings)-1 ), "SLURM array doesn't match settings array"
+
+
+# In[5]:
 
 
 task_number = int(os.getenv('SLURM_ARRAY_TASK_ID', default='0'))
@@ -56,10 +83,10 @@ if task_max > 0:
 
     print(f"Task ID {task_number} in array from {task_min} to {task_max}")
 
-    cat_area_per_vol, temperature_c = settings[task_number]
+    cat_area_per_vol, temperature_c, rtol, atol = settings[task_number]
 
 
-# In[5]:
+# In[6]:
 
 
 if task_number == 0:
@@ -69,33 +96,35 @@ if task_number == 0:
         json.dump(settings, fp)
 
 
-# In[6]:
+# In[7]:
 
 
 print(f"Catalyst area per volume {cat_area_per_vol :.2e} m2/m3")
-print(f"Initial temperature {temperature_c :.1f} ºC")
+print(f"Initial temperature      {temperature_c :.1f} ºC")
+print(f"Solver RTOL              {rtol :.1e}")
+print(f"Solvel ATOL              {atol :.1e}")
 
 
-# In[7]:
+# In[8]:
 
 
 gas=ct.Solution(cti_file)
 surf = ct.Interface(cti_file,'surface1', [gas])
 
 
-# In[8]:
+# In[9]:
 
 
 gas()
 
 
-# In[9]:
+# In[10]:
 
 
 print(", ".join(gas.species_names))
 
 
-# In[10]:
+# In[11]:
 
 
 print(", ".join(surf.species_names))
@@ -109,7 +138,7 @@ print(", ".join(surf.species_names))
 # 
 # 
 
-# In[11]:
+# In[12]:
 
 
 # unit conversion factors to SI
@@ -117,7 +146,7 @@ cm = 0.01 # m
 minute = 60.0  # s
 
 
-# In[12]:
+# In[13]:
 
 
 #######################################################################
@@ -148,7 +177,7 @@ print(f"Catalyst area per gas volume {cat_area_per_gas_vol :.2e} m/m3")
 print(f"\nCatalyst area per volume in use for this simulation: {cat_area_per_vol :.2e} m2/m3")
 
 
-# In[13]:
+# In[14]:
 
 
 output_filename = 'surf_pfr_output.csv'
@@ -231,7 +260,7 @@ plt.barh(np.arange(len(gas.delta_entropy)),gas.delta_entropy)
 plt.barh(len(gas.delta_entropy)+np.arange(len(surf.delta_entropy)),surf.delta_entropy)
 plt.title('∆S')
 plt.show()plt.plot(gas.concentrations, gas.chemical_potentials, 'o')plt.plot(surf.concentrations, surf.chemical_potentials, 'o')
-# In[14]:
+# In[15]:
 
 
 def report_rates(n=8):
@@ -260,7 +289,7 @@ def report_rates(n=8):
 report_rates()
 
 
-# In[15]:
+# In[16]:
 
 
 def report_rate_constants(n=8):
@@ -281,16 +310,31 @@ def report_rate_constants(n=8):
 report_rate_constants()
 
 
-# In[16]:
-
-
-surf
-
-
 # In[17]:
 
 
-def save_flux_diagrams(*phases):
+def fix_surface_rates(surf):
+    """
+    Fix the surface reaction rates that are too fast
+    """
+    for i in np.argsort(abs(surf.reverse_rate_constants))[-1:0:-1]:
+        if surf.reverse_rate_constants[i] < 1e21:
+            break
+        print(f"Before: {i:3d} : {surf.reaction_equation(i):48s}  {surf.reverse_rate_constants[i]:8.1e}")
+        multiplier = 1e21 / surf.reverse_rate_constants[i]
+        surf.set_multiplier(multiplier, i)
+        print(f"After:  {i:3d} : {surf.reaction_equation(i):48s}  {surf.reverse_rate_constants[i]:8.1e}")
+fix_surface_rates(surf)
+
+
+# In[18]:
+
+
+def save_flux_diagrams(*phases, suffix=''):
+    """
+    Saves the flux diagrams. The filenames have a suffix if provided,
+    so you can keep them separate and not over-write.
+    """
     for element in 'CHONX':
         for phase_object in phases:
             phase = phase_object.name
@@ -299,8 +343,8 @@ def save_flux_diagrams(*phases):
             diagram.title = f'Reaction path diagram following {element} in {phase}'
             diagram.label_threshold = 0.01
 
-            dot_file = f'reaction_path_{element}_{phase}.dot'
-            img_file = f'reaction_path_{element}_{phase}.png'
+            dot_file = f"reaction_path_{element}_{phase}{'_' if suffix else ''}{suffix}.dot"
+            img_file = f"reaction_path_{element}_{phase}{'_' if suffix else ''}{suffix}.png"
             img_path = os.path.join(os.getcwd(), img_file)
             diagram.write_dot(dot_file)
             #print(diagram.get_data())
@@ -309,9 +353,10 @@ def save_flux_diagrams(*phases):
             os.system(f'dot {dot_file} -Tpng -o{img_file} -Gdpi=200')
             print(f"Wrote graphviz output file to '{img_path}'.")
 
-def show_flux_diagrams(*phases, embed=False):
+def show_flux_diagrams(*phases, suffix='', embed=False):
     """
     Shows the flux diagrams in the notebook.
+    Loads them from disk.
     Does not embed them, to keep the .ipynb file small,
     unless embed=True. Use embed=True if you might over-write the files,
     eg. you want to show flux at different points.
@@ -320,7 +365,7 @@ def show_flux_diagrams(*phases, embed=False):
     for element in 'CHONX':
         for phase_object in phases:
             phase = phase_object.name
-            img_file = f'reaction_path_{element}_{phase}.png'
+            img_file = f"reaction_path_{element}_{phase}{'_' if suffix else ''}{suffix}.png"
             display(IPython.display.HTML(f'<hr><h2>{element} {phase}</h2>'))
             if embed:
                 display(IPython.display.Image(filename=img_file,width=400,embed=True))
@@ -347,7 +392,7 @@ def integrated_flux_diagrams():
     
 
 
-# In[18]:
+# In[19]:
 
 
 gas.TPX = temperature_kelvin, pressure, feed_mole_fractions
@@ -355,7 +400,7 @@ surf.coverages = 'X(1):1.0'
 #surf.coverages = starting_coverages
 
 
-# In[19]:
+# In[20]:
 
 
 # The plug flow reactor is represented by a linear chain of zero-dimensional
@@ -399,8 +444,8 @@ sim = ct.ReactorNet([r])
 sim.max_err_test_fails = 24
 
 # set relative and absolute tolerances on the simulation
-sim.rtol = 1.0e-10
-sim.atol = 1.0e-23
+sim.rtol = rtol
+sim.atol = atol
 
 sim.verbose = False
 
@@ -432,8 +477,9 @@ for n in range(NReactors):
         surf.set_multiplier(0.)
     if n == int(0.001 * NReactors / length): # after 1 mm, catalyst
         surf.set_multiplier(1)
-        save_flux_diagrams(gas, surf)
-        show_flux_diagrams(gas, surf, embed=True)
+        fix_surface_rates(surf)
+        save_flux_diagrams(gas, surf, suffix='1mm')
+        show_flux_diagrams(gas, surf, suffix='1mm', embed=True)
     
     # Set the state of the reservoir to match that of the previous reactor
     gas.TDY = TDY = r.thermo.TDY
@@ -442,7 +488,7 @@ for n in range(NReactors):
     sim.reinitialize()
     try:
 #       the default is residual_threshold = sim.rtol*10
-        sim.advance_to_steady_state(residual_threshold = sim.rtol*1000)
+        sim.advance_to_steady_state(residual_threshold = residual_threshold)
 
     except ct.CanteraError:
         t = sim.time
@@ -486,13 +532,13 @@ with open("integration_flux_data.txt",'w') as f:
             
 
 
-# In[20]:
+# In[ ]:
 
 
 sim.time
 
 
-# In[21]:
+# In[ ]:
 
 
 gas.TDY = TDY
@@ -500,44 +546,44 @@ r.syncState()
 r.thermo.T
 
 
-# In[22]:
+# In[ ]:
 
 
 r.thermo.X - gas.X
 
 
-# In[23]:
+# In[ ]:
 
 
 report_rate_constants()
 
 
-# In[24]:
+# In[ ]:
 
 
 sim.verbose
 
 
-# In[25]:
+# In[ ]:
 
 
 plt.barh(np.arange(len(gas.net_rates_of_progress)),gas.net_rates_of_progress)
 
 
-# In[26]:
+# In[ ]:
 
 
 gas.T
 
 
-# In[27]:
+# In[ ]:
 
 
 data = pd.read_csv(output_filename)
 data
 
 
-# In[28]:
+# In[ ]:
 
 
 def xlabels():
@@ -553,7 +599,7 @@ def xlabels():
     plt.xlabel("Distance down reactor")
 
 
-# In[29]:
+# In[ ]:
 
 
 data['T (C)'].plot()
@@ -561,7 +607,7 @@ plt.ylabel('T (C)')
 xlabels()
 
 
-# In[30]:
+# In[ ]:
 
 
 data[['NX(705)']].plot()
@@ -569,7 +615,7 @@ plt.ylabel('Surface coverage')
 xlabels()
 
 
-# In[31]:
+# In[ ]:
 
 
 data[['NH2OH(3)', 'HNO3(4)', 'CH3OH(5)']].plot()
@@ -577,20 +623,20 @@ plt.ylabel('Mole fraction')
 xlabels()
 
 
-# In[32]:
+# In[ ]:
 
 
 list(data.columns)[:4]
 
 
-# In[33]:
+# In[ ]:
 
 
 data[['T (C)', 'alpha']].plot()
 xlabels()
 
 
-# In[34]:
+# In[ ]:
 
 
 ax1 = data['T (C)'].plot()
@@ -607,13 +653,13 @@ plt.savefig('temperature-and-alpha.pdf')
 plt.show()
 
 
-# In[35]:
+# In[ ]:
 
 
 data.columns
 
 
-# In[36]:
+# In[ ]:
 
 
 data[['gas_heat','surface_heat']].plot()
@@ -623,7 +669,7 @@ plt.savefig('gas_and_surface_heat.pdf')
 plt.show()
 
 
-# In[37]:
+# In[ ]:
 
 
 ax1 = data[['gas_heat','surface_heat']].plot()
@@ -641,7 +687,7 @@ plt.savefig('heats-and-alpha.pdf')
 plt.show()
 
 
-# In[38]:
+# In[ ]:
 
 
 data[['T (C)']].plot()
@@ -652,20 +698,20 @@ plt.savefig('temperature.pdf')
 plt.show()
 
 
-# In[39]:
+# In[ ]:
 
 
 data[['alpha']].plot(logy=True)
 xlabels()
 
 
-# In[40]:
+# In[ ]:
 
 
 data.plot(x='T (C)',y='alpha')
 
 
-# In[41]:
+# In[ ]:
 
 
 specs = list(data.columns)
@@ -677,13 +723,13 @@ adsorbates = [s for s in specs if 'X' in s]
 excluded, gas_species, adsorbates
 
 
-# In[42]:
+# In[ ]:
 
 
 data[gas_species[0:5]].plot(logy=True, logx=True)
 
 
-# In[43]:
+# In[ ]:
 
 
 for i in range(0,len(gas_species),10):
@@ -696,7 +742,7 @@ for i in range(0,len(gas_species),10):
     
 
 
-# In[44]:
+# In[ ]:
 
 
 for i in range(0,len(adsorbates),10):
@@ -709,7 +755,7 @@ for i in range(0,len(adsorbates),10):
     plt.show()
 
 
-# In[45]:
+# In[ ]:
 
 
 main_gas_species = data[gas_species].max().sort_values(ascending=False)[:10].keys()
@@ -722,7 +768,7 @@ plt.savefig(f'gas_mole_fractions_top10.pdf')
 plt.show()
 
 
-# In[46]:
+# In[ ]:
 
 
 main_adsorbates = data[adsorbates].max().sort_values(ascending=False)[:10].keys()
@@ -736,7 +782,7 @@ plt.show()
     
 
 
-# In[47]:
+# In[ ]:
 
 
 for a in main_adsorbates:
@@ -744,13 +790,13 @@ for a in main_adsorbates:
     print(s, s.composition)
 
 
-# In[48]:
+# In[ ]:
 
 
 surf.coverages
 
 
-# In[49]:
+# In[ ]:
 
 
 surf.set_multiplier(1)
