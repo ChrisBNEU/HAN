@@ -1,0 +1,6 @@
+C3H6flux comp2.genext2(D_C3H6*comp2.C3H6py*1[m]/rp) Boundary flux C3H6
+COflux comp2.genext2(D_CO*comp2.COpy*1[m]/rp) Boundary flux CO
+CO2flux comp2.genext2(D_CO2*comp2.CO2py*1[m]/rp) Boundary flux CO2
+H2Oflux comp2.genext2(D_H2O*comp2.H2Opy*1[m]/rp) Boundary flux H2O
+O2flux comp2.genext2(D_O2*comp2.O2py*1[m]/rp) Boundary flux O2
+u u_feed*(P_feed/comp1.P) Linear velocity

@@ -1,0 +1,17 @@
+P_feed 1[atm] Feed pressure
+Tr 600[K] Reactor temperature
+u_feed 75[cm/s] Linear inflow velocity
+por_b 1-rho_b/rho_p Porosity of the bed (void/total)
+por_pel 0.38 Porosity of catalyst pellet
+rho_b 0.51[g/cm^3] Density of bed
+rho_p 4[g/cm^3] Density of pellet
+Rr 9[mm] Reactor radius
+Ra pi*Rr^2 Reactor area
+Ctot_feed P_feed/R_const/Tr Total feed concentration
+x_NH3_feed 0.031075110263184432 Molar fraction of ammonia in feed
+x_HH2OH_feed 0.31940968187635516 Molar fraction of hydroxylamine in feed
+x_HNO3_feed 0.35048479213953954 Molar fraction of nitric acid in feed
+x_H2O_feed 0.09201819554070598  Molar fraction of H2O in feed
+x_CH3OH_feed 0.20701222018021495  Molar fraction of methanol in feed
+Ap 3/rp Surface area of particles per unit volume
+rp 0.7[mm] Particle radius

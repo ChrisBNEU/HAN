@@ -1,0 +1,5 @@
+C3H6bulk comp1.genext1(comp1.C3H6)*por_pel Bulk concentration C3H6
+CObulk comp1.genext1(comp1.CO)*por_pel Bulk concentration CO
+CO2bulk comp1.genext1(comp1.CO2)*por_pel Bulk concentration CO2
+H2Obulk comp1.genext1(comp1.H2O)*por_pel Bulk concentration H2O
+O2bulk comp1.genext1(comp1.O2)*por_pel Bulk concentration O2
