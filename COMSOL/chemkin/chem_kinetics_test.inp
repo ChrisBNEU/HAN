@@ -1,0 +1,8 @@
+REACTIONS    KCAL/MOLE   MOLES
+
+! Reaction index: Chemkin #1; RMG #692
+! Library reaction: NOx2018
+! Flux pairs: NO2_9_, O2_8_; NO2_9_, NO_10_; NO2_9_, NO_10_; 
+NO2_9_+NO2_9_<=>O2_8_+NO_10_+NO_10_                   4.500000e+12 0.000     27.599   
+
+

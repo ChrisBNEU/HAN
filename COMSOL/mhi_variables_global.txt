@@ -1,0 +1,3 @@
+Ctot (Cinert_feed+comp1.CO+comp1.O2+comp1.CO2+comp1.C3H6+comp1.H2O) Total concentration
+KCO Aco*exp(-Eco/R_const/Tr) Adsorption constant for CO
+KC3H6 Ac3h6*exp(-Ec3h6/R_const/Tr) Adsorption constant for C3H6

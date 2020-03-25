@@ -1,0 +1,870 @@
+ELEMENTS
+	H
+	D /2.014/
+	T /3.016/
+	C
+	CI /13.003/
+	O
+	OI /18.000/
+	N
+	Ne
+	Ar
+	He
+	Si
+	S
+	Cl
+	I
+	X /195.083/
+END
+
+SPECIES
+    Ne                  ! Ne
+    NH3_2_              ! NH3_2_
+    NH2OH_3_            ! NH2OH_3_
+    HNO3_4_             ! HNO3_4_
+    CH3OH_5_            ! CH3OH_5_
+    H2O_6_              ! H2O_6_
+    N2_7_               ! N2_7_
+    O2_8_               ! O2_8_
+    NO2_9_              ! NO2_9_
+    NO_10_              ! NO_10_
+    N2O_11_             ! N2O_11_
+    CO2_12_             ! CO2_12_
+    H2_13_              ! H2_13_
+    CO_14_              ! CO_14_
+    CH4_15_             ! CH4_15_
+    C2H6_16_            ! C2H6_16_
+    CH2O_17_            ! CH2O_17_
+    CH3_18_             ! CH3_18_
+    C3H8_19_            ! C3H8_19_
+    H_20_               ! H_20_
+    C2H5_21_            ! C2H5_21_
+    HCO_22_             ! HCO_22_
+    CH3CHO_23_          ! CH3CHO_23_
+    OH_24_              ! OH_24_
+    C2H4_25_            ! C2H4_25_
+    HNO_87_             ! HNO_87_
+    H2NO_88_            ! H2NO_88_
+    HNOH_93_            ! HNOH_93_
+    H2NO3_239_          ! [O-][NH+]_O_[O]_239_
+    S_1282_             ! ON=[N+]_O_[O-]_1282_
+
+END
+
+REACTIONS    KCAL/MOLE   MOLES
+
+! Reaction index: Chemkin #1; RMG #692
+! Library reaction: NOx2018
+! Flux pairs: NO2_9_, O2_8_; NO2_9_, NO_10_; NO2_9_, NO_10_; 
+NO2_9_+NO2_9_=O2_8_+NO_10_+NO_10_                   4.500000e+12 0.000     27.599   
+
+! Reaction index: Chemkin #2; RMG #723
+! Library reaction: NOx2018
+! Flux pairs: N2O_11_, NO2_9_; NO_10_, N2_7_; 
+NO_10_+N2O_11_=NO2_9_+N2_7_                         5.300000e+05 2.230     46.280   
+
+! Reaction index: Chemkin #3; RMG #857
+! Library reaction: NOx2018
+! Flux pairs: CO_14_, CO2_12_; NO2_9_, NO_10_; 
+NO2_9_+CO_14_=NO_10_+CO2_12_                        9.000000e+13 0.000     33.800   
+
+! Reaction index: Chemkin #4; RMG #858
+! Library reaction: NOx2018
+! Flux pairs: CO_14_, CO2_12_; N2O_11_, N2_7_; 
+N2O_11_+CO_14_=N2_7_+CO2_12_                        2.700000e+11 0.000     20.237   
+
+! Reaction index: Chemkin #5; RMG #63
+! Library reaction: NOx2018
+! Flux pairs: CH2O_17_, H2_13_; CH2O_17_, CO_14_; 
+CH2O_17_+M_=>H2_13_+CO_14_+M_                      3.700e+13 0.000     71.969   
+
+    LOW/ 4.400e+38 -6.100    93.932   /
+
+! Reaction index: Chemkin #6; RMG #223
+! Library reaction: NOx2018
+! Flux pairs: CH3_18_, C2H6_16_; CH3_18_, C2H6_16_; 
+CH3_18_+CH3_18__+M_=C2H6_16__+M_                    9.500e+14 -0.538    0.179    
+
+    LOW/ 1.269e+41 -7.000    2.762    /
+    TROE/ 6.200e-01 73        1.18e+03  1e+30    /
+
+! Reaction index: Chemkin #7; RMG #23
+! Library reaction: BurkeH2O2inN2
+! Flux pairs: H2_13_, H_20_; H2_13_, H_20_; 
+H2_13_+M=H_20_+H_20_+M                              4.577e+19 -1.400    104.380  
+CO_14_/1.90/ H2O_6_/12.00/ H2_13_/2.50/ CO2_12_/3.80/ 
+
+! Reaction index: Chemkin #8; RMG #65
+! Library reaction: NOx2018
+! Flux pairs: CH2O_17_, CO_14_; H_20_, H_20_; H_20_, H2_13_; 
+H_20_+CH2O_17_=H_20_+H2_13_+CO_14_                  1.000e+00 0.000     0.000    
+    PLOG/ 0.040000  7.200e+08 1.903     11.733   /
+    PLOG/ 1.000000  5.100e+07 2.182     11.524   /
+    PLOG/ 10.000000 1.100e+09 1.812     13.163   /
+
+! Reaction index: Chemkin #9; RMG #82
+! Library reaction: NOx2018
+! Flux pairs: H_20_, CH4_15_; CH3_18_, CH4_15_; 
+H_20_+CH3_18_+M_=CH4_15_+M_                       2.300e+14 0.032     0.144    
+CO2_12_/4.00/ CH4_15_/3.85/ C2H6_16_/4.50/ H2_13_/4.00/ H2O_6_/10.00/ N2_7_/1.40/ CO_14_/1.40/ 
+    LOW/ 2.700e+35 -5.345    3.380    /
+    TROE/ 3.950e-01 164       4.25e+03  1.25e+06 /
+
+! Reaction index: Chemkin #10; RMG #83
+! Library reaction: NOx2018
+! Flux pairs: CH4_15_, CH3_18_; H_20_, H2_13_; 
+H_20_+CH4_15_=H2_13_+CH3_18_                        4.100000e+03 3.156     8.755    
+
+! Reaction index: Chemkin #11; RMG #109
+! Library reaction: NOx2018
+! Flux pairs: CH2O_17_, CO_14_; CH3_18_, H_20_; CH3_18_, CH4_15_; 
+CH2O_17_+CH3_18_=H_20_+CO_14_+CH4_15_               1.900000e+11 0.887     24.224   
+
+! Reaction index: Chemkin #12; RMG #714
+! Library reaction: NOx2018
+! Flux pairs: HNO3_4_, NO2_9_; H_20_, H2O_6_; 
+H_20_+HNO3_4_=NO2_9_+H2O_6_                         6.100000e+01 3.300     6.285    
+
+! Reaction index: Chemkin #13; RMG #1522
+! Library reaction: Nitrogen_Glarborg_Zhang_et_al
+! Flux pairs: N2_7_, N2_7_; H_20_, H2_13_; H_20_, H2_13_; 
+N2_7_+H_20_+H_20_=N2_7_+H2_13_                      5.400000e+18 -1.300    0.000    
+
+! Reaction index: Chemkin #14; RMG #1523
+! Library reaction: Nitrogen_Glarborg_Zhang_et_al
+! Flux pairs: H2_13_, H2_13_; H_20_, H2_13_; H_20_, H2_13_; 
+H_20_+H_20_+H2_13_=H2_13_+H2_13_                    1.000000e+17 -0.600    0.000    
+
+! Reaction index: Chemkin #15; RMG #1524
+! Library reaction: Nitrogen_Glarborg_Zhang_et_al
+! Flux pairs: H2O_6_, H2O_6_; H_20_, H2_13_; H_20_, H2_13_; 
+H_20_+H_20_+H2O_6_=H2_13_+H2O_6_                    1.000000e+19 -1.000    0.000    
+
+! Reaction index: Chemkin #16; RMG #112
+! Library reaction: NOx2018
+! Flux pairs: CH3_18_, C2H5_21_; CH3_18_, H_20_; 
+CH3_18_+CH3_18_=H_20_+C2H5_21_                      5.400000e+13 0.000     16.055   
+
+! Reaction index: Chemkin #17; RMG #224
+! Library reaction: NOx2018
+H_20_+C2H6_16_=H2_13_+C2H5_21_                      7.400000e+03 3.100     5.340    
+DUPLICATE
+! Reaction index: Chemkin #18; RMG #224
+! Library reaction: NOx2018
+H_20_+C2H6_16_=H2_13_+C2H5_21_                      3.300000e+14 0.000     13.667   
+DUPLICATE
+
+
+! Reaction index: Chemkin #19; RMG #229
+! Library reaction: NOx2018
+! Flux pairs: C2H6_16_, C2H5_21_; CH3_18_, CH4_15_; 
+CH3_18_+C2H6_16_=CH4_15_+C2H5_21_                   3.500000e+01 3.440     10.384   
+
+! Reaction index: Chemkin #20; RMG #233
+! Library reaction: NOx2018
+! Flux pairs: H_20_, C2H6_16_; C2H5_21_, C2H6_16_; 
+H_20_+C2H5_21_+M_=C2H6_16__+M_                     5.200e+17 -0.990    1.580    
+CO2_12_/2.00/ CH4_15_/2.00/ N2_7_/1.00/ C2H6_16_/3.00/ H2_13_/2.00/ H2O_6_/6.00/ CO_14_/1.50/ 
+    LOW/ 1.990e+41 -7.080    6.685    /
+    TROE/ 8.422e-01 125       2.22e+03  6.88e+03 /
+
+! Reaction index: Chemkin #21; RMG #62
+! Library reaction: NOx2018
+! Flux pairs: CH2O_17_, H_20_; CH2O_17_, HCO_22_; 
+CH2O_17__+M_=H_20_+HCO_22__+M_                      8.000e+15 0.000     87.726   
+
+    LOW/ 1.300e+36 -5.500    93.932   /
+
+! Reaction index: Chemkin #22; RMG #64
+! Library reaction: NOx2018
+H_20_+CH2O_17_=H2_13_+HCO_22_                       1.000e+00 0.000     0.000    
+    PLOG/ 0.040000  7.400e+23 -2.732    16.379   /
+    PLOG/ 1.000000  1.400e+23 -2.355    17.519   /
+    PLOG/ 10.000000 7.300e+23 -2.665    17.634   /
+DUPLICATE
+! Reaction index: Chemkin #23; RMG #64
+! Library reaction: NOx2018
+H_20_+CH2O_17_=H2_13_+HCO_22_                       1.000e+00 0.000     0.000    
+    PLOG/ 0.040000  2.100e+10 1.057     3.720    /
+    PLOG/ 1.000000  1.600e+15 -0.444    5.682    /
+    PLOG/ 10.000000 4.200e+09 1.294     3.591    /
+DUPLICATE
+
+
+! Reaction index: Chemkin #24; RMG #74
+! Library reaction: NOx2018
+! Flux pairs: HCO_22_, H_20_; HCO_22_, CO_14_; 
+HCO_22__+M_=H_20_+CO_14__+M_                        4.900e+16 -0.930    19.724   
+H2O_6_/15.00/ CH4_15_/5.00/ CO2_12_/3.00/ H2_13_/2.00/ O2_8_/1.50/ N2_7_/1.50/ CO_14_/1.50/ 
+    LOW/ 7.400e+21 -2.360    19.383   /
+    TROE/ 1.030e-01 139       1.09e+04  4.55e+03 /
+
+! Reaction index: Chemkin #25; RMG #75
+! Library reaction: NOx2018
+! Flux pairs: HCO_22_, CO_14_; H_20_, H2_13_; 
+H_20_+HCO_22_=H2_13_+CO_14_                         1.100000e+14 0.000     0.000    
+
+! Reaction index: Chemkin #26; RMG #81
+! Library reaction: NOx2018
+! Flux pairs: HCO_22_, CH2O_17_; HCO_22_, CO_14_; 
+HCO_22_+HCO_22_=CO_14_+CH2O_17_                     2.700000e+13 0.000     0.000    
+
+! Reaction index: Chemkin #27; RMG #108
+! Library reaction: NOx2018
+! Flux pairs: CH2O_17_, HCO_22_; CH3_18_, CH4_15_; 
+CH2O_17_+CH3_18_=HCO_22_+CH4_15_                    3.500000e+05 2.157     6.234    
+
+! Reaction index: Chemkin #28; RMG #110
+! Library reaction: NOx2018
+! Flux pairs: HCO_22_, CO_14_; CH3_18_, CH4_15_; 
+HCO_22_+CH3_18_=CO_14_+CH4_15_                      1.000e+00 0.000     0.000    
+    PLOG/ 0.050000  2.900e+18 -1.840    2.134    /
+    PLOG/ 0.100000  8.700e+18 -1.970    2.684    /
+    PLOG/ 1.000000  1.800e+20 -2.300    4.781    /
+    PLOG/ 10.000000 1.100e+21 -2.450    7.417    /
+
+! Reaction index: Chemkin #29; RMG #244
+! Library reaction: NOx2018
+! Flux pairs: C2H6_16_, C2H5_21_; HCO_22_, CH2O_17_; 
+HCO_22_+C2H6_16_=CH2O_17_+C2H5_21_                  2.300000e+00 3.740     16.933   
+
+! Reaction index: Chemkin #30; RMG #245
+! Library reaction: NOx2018
+! Flux pairs: C2H5_21_, C2H6_16_; HCO_22_, CO_14_; 
+HCO_22_+C2H5_21_=CO_14_+C2H6_16_                    4.300000e+13 0.000     0.000    
+
+! Reaction index: Chemkin #31; RMG #868
+! Library reaction: NOx2018
+! Flux pairs: HCO_22_, CO2_12_; NO2_9_, H_20_; NO2_9_, NO_10_; 
+NO2_9_+HCO_22_=NO_10_+H_20_+CO2_12_                 2.300000e+13 0.000     0.000    
+
+! Reaction index: Chemkin #32; RMG #377
+! Library reaction: NOx2018
+! Flux pairs: CH3CHO_23_, HCO_22_; CH3CHO_23_, CH3_18_; 
+CH3CHO_23__+M_=HCO_22_+CH3_18__+M_                  2.700e+22 -1.740    86.355   
+CO2_12_/2.86/ H2_13_/2.86/ CH4_15_/4.23/ C2H6_16_/4.23/ N2_7_/1.43/ H2O_6_/8.57/ CO_14_/2.14/ 
+    LOW/ 1.100e+59 -11.300   95.912   /
+    TROE/ 1.800e-01 462       1.68e+05  1.58e+06 /
+
+! Reaction index: Chemkin #33; RMG #379
+! Library reaction: NOx2018
+! Flux pairs: CH3CHO_23_, CO_14_; CH3CHO_23_, CH4_15_; 
+CH3CHO_23_=CO_14_+CH4_15_                           1.000e+00 0.000     0.000    
+    PLOG/ 0.050000  5.100e+45 -9.850    89.018   /
+    PLOG/ 0.100000  1.400e+45 -9.650    87.925   /
+    PLOG/ 1.000000  1.900e+45 -9.430    89.415   /
+    PLOG/ 10.000000 1.600e+45 -9.100    92.793   /
+
+! Reaction index: Chemkin #34; RMG #21
+! Library reaction: BurkeH2O2inN2
+! Flux pairs: OH_24_, H2O_6_; H2_13_, H_20_; 
+OH_24_+H2_13_=H_20_+H2O_6_                          2.160000e+08 1.510     3.430    
+
+! Reaction index: Chemkin #35; RMG #30
+! Library reaction: BurkeH2O2inN2
+! Flux pairs: H2O_6_, H_20_; H2O_6_, OH_24_; 
+H2O_6_+M=H_20_+OH_24_+M                             6.064e+27 -3.322    120.790  
+H2_13_/3.00/ H2O_6_/0.00/ CO_14_/1.90/ CO2_12_/3.80/ O2_8_/1.50/ N2_7_/2.00/ 
+
+! Reaction index: Chemkin #36; RMG #31
+! Library reaction: BurkeH2O2inN2
+! Flux pairs: H2O_6_, H2O_6_; H2O_6_, H_20_; H2O_6_, OH_24_; 
+H2O_6_+H2O_6_=H_20_+OH_24_+H2O_6_                   1.006000e+26 -2.440    120.180  
+
+! Reaction index: Chemkin #37; RMG #45
+! Library reaction: BurkeH2O2inN2
+! Flux pairs: OH_24_, O2_8_; OH_24_, H2_13_; 
+OH_24_+OH_24_=O2_8_+H2_13_                          2.000000e+11 0.510     50.500   
+
+! Reaction index: Chemkin #38; RMG #50
+! Library reaction: NOx2018
+! Flux pairs: CO_14_, CO2_12_; OH_24_, H_20_; 
+OH_24_+CO_14_=H_20_+CO2_12_                         1.000e+00 0.000     0.000    
+    PLOG/ 0.013150  2.100e+05 1.900     -1.064   /
+    PLOG/ 0.131500  2.500e+05 1.880     -1.043   /
+    PLOG/ 1.315000  8.700e+05 1.730     -0.685   /
+    PLOG/ 13.158000 6.800e+06 1.480     0.048    /
+    PLOG/ 131.580000 2.300e+07 1.350     0.974    /
+
+! Reaction index: Chemkin #39; RMG #68
+! Library reaction: NOx2018
+! Flux pairs: CH2O_17_, HCO_22_; OH_24_, H2O_6_; 
+OH_24_+CH2O_17_=H2O_6_+HCO_22_                      1.000e+00 0.000     0.000    
+    PLOG/ 0.040000  3.600e+09 1.167     -0.206   /
+    PLOG/ 1.000000  1.900e+09 1.256     -0.302   /
+    PLOG/ 10.000000 1.100e+09 1.330     -0.392   /
+
+! Reaction index: Chemkin #40; RMG #69
+! Library reaction: NOx2018
+! Flux pairs: CH2O_17_, CO_14_; OH_24_, H_20_; OH_24_, H2O_6_; 
+OH_24_+CH2O_17_=H_20_+H2O_6_+CO_14_                 1.000e+00 0.000     0.000    
+    PLOG/ 0.040000  7.000e+10 0.911     8.646    /
+    PLOG/ 1.000000  7.200e+10 0.892     9.310    /
+    PLOG/ 10.000000 8.400e+10 0.879     9.843    /
+
+! Reaction index: Chemkin #41; RMG #78
+! Library reaction: NOx2018
+! Flux pairs: HCO_22_, CO_14_; OH_24_, H2O_6_; 
+OH_24_+HCO_22_=H2O_6_+CO_14_                        1.100000e+14 0.000     0.000    
+
+! Reaction index: Chemkin #42; RMG #85
+! Library reaction: NOx2018
+! Flux pairs: CH4_15_, CH3_18_; OH_24_, H2O_6_; 
+OH_24_+CH4_15_=H2O_6_+CH3_18_                       1.000000e+06 2.182     2.506    
+
+! Reaction index: Chemkin #43; RMG #98
+! Library reaction: NOx2018
+! Flux pairs: OH_24_, CH3OH_5_; CH3_18_, CH3OH_5_; 
+OH_24_+CH3_18_=CH3OH_5_                             1.000e+00 0.000     0.000    
+    PLOG/ 0.001316  6.900e+30 -6.638    2.829    /
+    PLOG/ 0.013158  1.100e+32 -6.637    3.364    /
+    PLOG/ 0.131579  1.500e+32 -6.361    3.954    /
+    PLOG/ 1.315790  5.600e+30 -5.648    4.214    /
+    PLOG/ 13.157900 1.400e+27 -4.333    3.685    /
+    PLOG/ 131.579000 1.300e+22 -2.664    2.451    /
+
+! Reaction index: Chemkin #44; RMG #100
+! Library reaction: NOx2018
+! Flux pairs: CH3_18_, CH2O_17_; OH_24_, H2_13_; 
+OH_24_+CH3_18_=H2_13_+CH2O_17_                      1.000e+00 0.000     0.000    
+    PLOG/ 0.001316  3.900e+09 0.254     -1.221   /
+    PLOG/ 0.013158  2.000e+10 0.060     -0.624   /
+    PLOG/ 0.131579  2.800e+11 -0.250    0.498    /
+    PLOG/ 1.315790  3.600e+12 -0.532    2.042    /
+    PLOG/ 13.157900 2.200e+12 -0.432    3.415    /
+    PLOG/ 131.579000 2.400e+09 0.453     3.791    /
+
+! Reaction index: Chemkin #45; RMG #106
+! Library reaction: NOx2018
+! Flux pairs: CH3_18_, CH2O_17_; O2_8_, OH_24_; 
+O2_8_+CH3_18_=OH_24_+CH2O_17_                       1.900000e+11 0.000     9.842    
+
+! Reaction index: Chemkin #46; RMG #226
+! Library reaction: NOx2018
+! Flux pairs: C2H6_16_, C2H5_21_; OH_24_, H2O_6_; 
+OH_24_+C2H6_16_=H2O_6_+C2H5_21_                     1.600000e+06 2.224     0.741    
+
+! Reaction index: Chemkin #47; RMG #688
+! Library reaction: NOx2018
+! Flux pairs: NO2_9_, NO_10_; H_20_, OH_24_; 
+NO2_9_+H_20_=NO_10_+OH_24_                          1.300000e+14 0.000     0.362    
+
+! Reaction index: Chemkin #48; RMG #712
+! Library reaction: NOx2018
+! Flux pairs: NO2_9_, HNO3_4_; OH_24_, HNO3_4_; 
+NO2_9_+OH_24__+M_=HNO3_4__+M_                       3.000e+13 0.000     0.000    
+
+    LOW/ 2.938e+25 -3.000    0.000    /
+    TROE/ 4.000e-01 1e-30     1e+30     1e+30    /
+
+! Reaction index: Chemkin #49; RMG #718
+! Library reaction: NOx2018
+! Flux pairs: N2O_11_, OH_24_; H_20_, N2_7_; 
+N2O_11_+H_20_=N2_7_+OH_24_                          6.400000e+07 1.835     13.492   
+
+! Reaction index: Chemkin #50; RMG #870
+! Library reaction: NOx2018
+! Flux pairs: HCO_22_, CO_14_; NO2_9_, OH_24_; NO2_9_, NO_10_; 
+NO2_9_+HCO_22_=NO_10_+OH_24_+CO_14_                 5.000000e+12 0.000     0.000    
+
+! Reaction index: Chemkin #51; RMG #232
+! Library reaction: NOx2018
+! Flux pairs: H_20_, C2H5_21_; C2H4_25_, C2H5_21_; 
+H_20_+C2H4_25__+M_=C2H5_21__+M_                     1.400e+09 1.463     1.355    
+CO_14_/1.50/ H2_13_/2.00/ H2O_6_/10.00/ N2_7_/1.20/ CO2_12_/3.00/ 
+    LOW/ 2.000e+39 -6.642    5.769    /
+    TROE/ -5.690e-01 299       9.15e+03  152      /
+
+! Reaction index: Chemkin #52; RMG #237
+! Library reaction: NOx2018
+! Flux pairs: C2H5_21_, C2H4_25_; OH_24_, H2O_6_; 
+OH_24_+C2H5_21_=H2O_6_+C2H4_25_                     1.000e+00 0.000     0.000    
+    PLOG/ 0.001000  1.300e+19 -1.960    0.273    /
+    PLOG/ 0.010000  1.200e+19 -1.953    0.239    /
+    PLOG/ 0.100000  4.100e+19 -2.101    0.625    /
+    PLOG/ 1.000000  7.900e+22 -2.989    3.863    /
+    PLOG/ 10.000000 2.800e+24 -3.329    7.749    /
+    PLOG/ 100.000000 4.700e+18 -1.581    7.999    /
+
+! Reaction index: Chemkin #53; RMG #247
+! Library reaction: NOx2018
+! Flux pairs: C2H5_21_, C2H4_25_; CH3_18_, CH4_15_; 
+CH3_18_+C2H5_21_=CH4_15_+C2H4_25_                   9.000000e+11 0.000     0.000    
+
+! Reaction index: Chemkin #54; RMG #249
+! Library reaction: NOx2018
+! Flux pairs: C2H5_21_, C2H6_16_; C2H5_21_, C2H4_25_; 
+C2H5_21_+C2H5_21_=C2H4_25_+C2H6_16_                 1.500000e+12 0.000     0.000    
+
+! Reaction index: Chemkin #55; RMG #260
+! Library reaction: NOx2018
+! Flux pairs: C2H4_25_, CH2O_17_; OH_24_, CH3_18_; 
+OH_24_+C2H4_25_=CH2O_17_+CH3_18_                    1.000e+00 0.000     0.000    
+    PLOG/ 0.010000  5.400e+00 2.920     -1.733   /
+    PLOG/ 0.025000  3.200e+01 2.710     -1.172   /
+    PLOG/ 0.100000  5.600e+02 2.360     -0.181   /
+    PLOG/ 1.000000  1.800e+05 1.680     2.061    /
+    PLOG/ 10.000000 2.400e+09 0.560     6.007    /
+    PLOG/ 100.000000 2.800e+13 -0.500    11.455   /
+
+! Reaction index: Chemkin #56; RMG #261
+! Library reaction: NOx2018
+! Flux pairs: C2H4_25_, CH3CHO_23_; OH_24_, H_20_; 
+OH_24_+C2H4_25_=H_20_+CH3CHO_23_                    1.000e+00 0.000     0.000    
+    PLOG/ 0.010000  2.400e-07 5.300     -2.051   /
+    PLOG/ 0.025000  8.700e-05 4.570     -0.618   /
+    PLOG/ 0.100000  4.000e-01 3.540     1.882    /
+    PLOG/ 1.000000  2.400e-02 3.910     1.723    /
+    PLOG/ 10.000000 8.300e+08 1.010     10.507   /
+    PLOG/ 100.000000 6.800e+09 0.810     13.867   /
+
+! Reaction index: Chemkin #57; RMG #1746
+! Template reaction: R_Recombination
+! Flux pairs: C2H5_21_, C3H8_19_; CH3_18_, C3H8_19_; 
+! Matched reaction 10 CH3 + C2H5 <=> C3H8 in R_Recombination/training
+! This reaction matched rate rule [Root_N-1R->H_N-1CNOS->N_N-1COS->O_1CS->C_N-1C-inRing_Ext-2R-R_Sp-3R!H-2R_3R!H->C_2R->C]
+! family: R_Recombination
+CH3_18_+C2H5_21_=C3H8_19_                           1.230000e+15 -0.562    0.021    
+
+! Reaction index: Chemkin #58; RMG #2367
+! Template reaction: Disproportionation
+! Flux pairs: H_20_, H2_13_; C2H5_21_, C2H4_25_; 
+! Matched reaction 4 H + C2H5 <=> H2 + C2H4 in Disproportionation/training
+! This reaction matched rate rule [H_rad;Cmethyl_Csrad]
+! family: Disproportionation
+H_20_+C2H5_21_=H2_13_+C2H4_25_                      1.083000e+13 0.000     0.000    
+
+! Reaction index: Chemkin #59; RMG #2432
+! Template reaction: Disproportionation
+! Flux pairs: HCO_22_, C2H4_25_; C2H5_21_, CH2O_17_; 
+! Estimated using average of templates [Y_rad;Cmethyl_Csrad] + [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;Cmethyl_Csrad]
+! Euclidian distance = 2.0
+! Multiplied by reaction path degeneracy 3.0
+! family: Disproportionation
+HCO_22_+C2H5_21_=CH2O_17_+C2H4_25_                  5.972864e+14 -0.340    0.000    
+
+! Reaction index: Chemkin #60; RMG #646
+! Library reaction: NOx2018
+! Flux pairs: NH2OH_3_, H2NO_88_; H_20_, H2_13_; 
+H_20_+NH2OH_3_=H2_13_+H2NO_88_                      2.400000e+08 1.500     5.067    
+
+! Reaction index: Chemkin #61; RMG #650
+! Library reaction: NOx2018
+! Flux pairs: NH2OH_3_, H2NO_88_; OH_24_, H2O_6_; 
+OH_24_+NH2OH_3_=H2O_6_+H2NO_88_                     1.500000e+05 2.280     -1.296   
+
+! Reaction index: Chemkin #62; RMG #1737
+! Template reaction: R_Recombination
+! Flux pairs: H_20_, NH2OH_3_; H2NO_88_, NH2OH_3_; 
+! BM rule fitted to 2 training reactions at node Root_1R->H_N-2R->S_N-2CHNO->H_N-2CNO-inRing_Ext-2CNO-R_N-Sp-3R!H=2CCNNOO_2CNO->O
+!     Total Standard Deviation in ln_k_: 1.83123636332
+! Exact match found for rate rule [Root_1R->H_N-2R->S_N-2CHNO->H_N-2CNO-inRing_Ext-2CNO-R_N-Sp-3R!H=2CCNNOO_2CNO->O]
+! Euclidian distance = 0
+! family: R_Recombination
+H_20_+H2NO_88_=NH2OH_3_                             2.612150e+12 0.326     0.000    
+
+! Reaction index: Chemkin #63; RMG #1874
+! Template reaction: CO_Disproportionation
+! Flux pairs: H2NO_88_, NH2OH_3_; HCO_22_, CO_14_; 
+! Estimated using template [O_sec_rad;HCO] for rate rule [O_rad/NonDeN;HCO]
+! Euclidian distance = 1.0
+! family: CO_Disproportionation
+H2NO_88_+HCO_22_=NH2OH_3_+CO_14_                    1.240000e+23 -3.290    2.355    
+
+! Reaction index: Chemkin #64; RMG #1880
+! Template reaction: H_Abstraction
+! Flux pairs: CH3_18_, CH4_15_; NH2OH_3_, H2NO_88_; 
+! Matched reaction 716 H3NO-2 + CH3_r3 <=> CH4b + H2NO-2 in H_Abstraction/training
+! This reaction matched rate rule [O/H/NonDeN;C_methyl]
+! family: H_Abstraction
+NH2OH_3_+CH3_18_=H2NO_88_+CH4_15_                   8.200000e+05 1.870     17.650   
+
+! Reaction index: Chemkin #65; RMG #1882
+! Template reaction: H_Abstraction
+! Flux pairs: C2H5_21_, C2H6_16_; NH2OH_3_, H2NO_88_; 
+! Estimated using template [O_sec;C_rad/H2/Cs\H3] for rate rule [O/H/NonDeN;C_rad/H2/Cs\H3]
+! Euclidian distance = 1.0
+! family: H_Abstraction
+NH2OH_3_+C2H5_21_=H2NO_88_+C2H6_16_                 1.188742e-03 4.353     1.778    
+
+! Reaction index: Chemkin #66; RMG #1886
+! Template reaction: H_Abstraction
+! Flux pairs: HCO_22_, CH2O_17_; NH2OH_3_, H2NO_88_; 
+! Estimated using template [O_sec;CO_rad] for rate rule [O/H/NonDeN;CO_pri_rad]
+! Euclidian distance = 1.4142135623730951
+! family: H_Abstraction
+NH2OH_3_+HCO_22_=H2NO_88_+CH2O_17_                  1.582731e-04 4.663     41.320   
+
+! Reaction index: Chemkin #67; RMG #1895
+! Template reaction: Disproportionation
+! Estimated using average of templates [O_rad;Cmethyl_Csrad] + [O_rad/NonDeN;XH_s_Rrad] for rate rule [O_rad/NonDeN;Cmethyl_Csrad]
+! Euclidian distance = 2.0
+! Multiplied by reaction path degeneracy 3.0
+! family: Disproportionation
+H2NO_88_+C2H5_21_=NH2OH_3_+C2H4_25_                 2.508007e+09 1.345     -0.800   
+
+! Reaction index: Chemkin #68; RMG #1840
+! Template reaction: Disproportionation
+! Estimated using template [O_sec_rad;NH_s_Rrad] for rate rule [O_rad/NonDeN;N5H_s_Rrad]
+! Euclidian distance = 1.4142135623730951
+! family: Disproportionation
+H2NO_88_+H2NO3_239_=HNO3_4_+NH2OH_3_                2.900000e+04 2.690     -1.600   
+
+! Reaction index: Chemkin #69; RMG #1903
+! Template reaction: Disproportionation
+! Estimated using template [O_pri_rad;NH_s_Rrad] for rate rule [O_pri_rad;N5H_s_Rrad]
+! Euclidian distance = 1.0
+! family: Disproportionation
+OH_24_+H2NO3_239_=HNO3_4_+H2O_6_                    1.904881e+06 2.000     -1.190   
+
+! Reaction index: Chemkin #70; RMG #1929
+! Template reaction: Disproportionation
+! Estimated using template [H_rad;NH_s_Rrad] for rate rule [H_rad;N5H_s_Rrad]
+! Euclidian distance = 1.0
+! family: Disproportionation
+H_20_+H2NO3_239_=HNO3_4_+H2_13_                     3.585124e+08 1.500     0.223    
+
+! Reaction index: Chemkin #71; RMG #1933
+! Template reaction: Disproportionation
+! Estimated using average of templates [Y_rad;NH_s_Rrad] + [Cs_rad;XH_s_Rrad] for rate rule [C_methyl;N5H_s_Rrad]
+! Euclidian distance = 2.23606797749979
+! family: Disproportionation
+H2NO3_239_+CH3_18_=HNO3_4_+CH4_15_                  3.816421e+09 0.882     0.220    
+
+! Reaction index: Chemkin #72; RMG #1935
+! Template reaction: Disproportionation
+! Estimated using template [C_rad/H2/Cs;XH_s_Rrad] for rate rule [C_rad/H2/Cs;N5H_s_Rrad]
+! Euclidian distance = 2.0
+! family: Disproportionation
+H2NO3_239_+C2H5_21_=HNO3_4_+C2H6_16_                2.306766e+12 -0.070    1.200    
+
+! Reaction index: Chemkin #73; RMG #1939
+! Template reaction: Disproportionation
+! Estimated using template [CO_pri_rad;XH_s_Rrad] for rate rule [CO_pri_rad;N5H_s_Rrad]
+! Euclidian distance = 2.0
+! family: Disproportionation
+H2NO3_239_+HCO_22_=HNO3_4_+CH2O_17_                 1.810000e+14 0.000     0.000    
+
+! Reaction index: Chemkin #74; RMG #1950
+! Template reaction: R_Addition_MultipleBond
+! Flux pairs: H_20_, H2NO3_239_; HNO3_4_, H2NO3_239_; 
+! Estimated using an average for rate rule [R_R;HJ]
+! Euclidian distance = 0
+! family: R_Addition_MultipleBond
+H_20_+HNO3_4_=H2NO3_239_                            9.891731e+15 -1.157    5.132    
+
+! Reaction index: Chemkin #75; RMG #657
+! Library reaction: NOx2018
+! Flux pairs: H2NO_88_, H_20_; H2NO_88_, HNO_87_; 
+H2NO_88_+M=H_20_+HNO_87_+M                          2.800e+24 -2.830    64.915   
+H2O_6_/10.00/ 
+
+! Reaction index: Chemkin #76; RMG #659
+! Library reaction: NOx2018
+! Flux pairs: H2NO_88_, HNO_87_; H_20_, H2_13_; 
+H_20_+H2NO_88_=HNO_87_+H2_13_                       3.000000e+07 2.000     2.000    
+
+! Reaction index: Chemkin #77; RMG #662
+! Library reaction: NOx2018
+! Flux pairs: H2NO_88_, HNO_87_; OH_24_, H2O_6_; 
+OH_24_+H2NO_88_=HNO_87_+H2O_6_                      1.000000e+14 0.000     0.000    
+
+! Reaction index: Chemkin #78; RMG #666
+! Library reaction: NOx2018
+! Flux pairs: H2NO_88_, HNO_87_; NO_10_, HNO_87_; 
+NO_10_+H2NO_88_=HNO_87_+HNO_87_                     2.000000e+04 2.000     13.000   
+
+! Reaction index: Chemkin #79; RMG #678
+! Library reaction: NOx2018
+! Flux pairs: NO_10_, HNO_87_; H_20_, HNO_87_; 
+NO_10_+H_20__+M_=HNO_87__+M_                        1.500e+15 -0.410    0.000    
+N2_7_/1.60/ 
+    LOW/ 2.400e+14 0.206     -1.550   /
+    TROE/ 8.200e-01 1e-30     1e+30     1e+30    /
+
+! Reaction index: Chemkin #80; RMG #679
+! Library reaction: NOx2018
+! Flux pairs: HNO_87_, NO_10_; H_20_, H2_13_; 
+H_20_+HNO_87_=NO_10_+H2_13_                         6.600000e+10 0.940     0.495    
+
+! Reaction index: Chemkin #81; RMG #681
+! Library reaction: NOx2018
+! Flux pairs: HNO_87_, NO_10_; OH_24_, H2O_6_; 
+OH_24_+HNO_87_=NO_10_+H2O_6_                        1.200000e+09 1.189     0.334    
+
+! Reaction index: Chemkin #82; RMG #684
+! Library reaction: NOx2018
+! Flux pairs: HNO_87_, N2O_11_; HNO_87_, H2O_6_; 
+HNO_87_+HNO_87_=N2O_11_+H2O_6_                      9.000000e+08 0.000     3.100    
+
+! Reaction index: Chemkin #83; RMG #722
+! Library reaction: NOx2018
+! Flux pairs: N2O_11_, HNO_87_; OH_24_, NO_10_; 
+N2O_11_+OH_24_=NO_10_+HNO_87_                       1.200000e-04 4.330     25.080   
+
+! Reaction index: Chemkin #84; RMG #866
+! Library reaction: NOx2018
+! Flux pairs: HCO_22_, CO_14_; NO_10_, HNO_87_; 
+NO_10_+HCO_22_=HNO_87_+CO_14_                       6.900000e+12 0.000     0.000    
+
+! Reaction index: Chemkin #85; RMG #867
+! Library reaction: NOx2018
+! Flux pairs: HCO_22_, CH2O_17_; HNO_87_, NO_10_; 
+HNO_87_+HCO_22_=NO_10_+CH2O_17_                     5.800000e-01 3.840     0.115    
+
+! Reaction index: Chemkin #86; RMG #883
+! Library reaction: NOx2018
+! Flux pairs: CH3_18_, CH4_15_; H2NO_88_, HNO_87_; 
+H2NO_88_+CH3_18_=HNO_87_+CH4_15_                    1.600000e+06 1.870     2.961    
+
+! Reaction index: Chemkin #87; RMG #884
+! Library reaction: NOx2018
+! Flux pairs: CH3_18_, CH4_15_; HNO_87_, NO_10_; 
+HNO_87_+CH3_18_=NO_10_+CH4_15_                      1.500000e+11 0.760     0.348    
+
+! Reaction index: Chemkin #88; RMG #1856
+! Template reaction: H_Abstraction
+! Flux pairs: HNO_87_, NO_10_; H2NO_88_, NH2OH_3_; 
+! Estimated using template [N3d/H/NonDe;O_rad] for rate rule [N3d/H/NonDeO;O_rad/NonDeN]
+! Euclidian distance = 2.23606797749979
+! family: H_Abstraction
+HNO_87_+H2NO_88_=NO_10_+NH2OH_3_                    2.400000e+06 2.000     -1.190   
+
+! Reaction index: Chemkin #89; RMG #2217
+! Template reaction: H_Abstraction
+! Flux pairs: HNO_87_, NO_10_; C2H5_21_, C2H6_16_; 
+! Estimated using template [N3d/H/NonDeO;Cs_rad] for rate rule [N3d/H/NonDeO;C_rad/H2/Cs\H3]
+! Euclidian distance = 3.0
+! family: H_Abstraction
+HNO_87_+C2H5_21_=NO_10_+C2H6_16_                    8.200000e+05 1.870     0.950    
+
+! Reaction index: Chemkin #90; RMG #2227
+! Template reaction: Disproportionation
+! Flux pairs: C2H5_21_, C2H4_25_; NO_10_, HNO_87_; 
+! Estimated using template [N3d_rad;XH_s_Rrad] for rate rule [N3d_rad/O;Cmethyl_Csrad]
+! Euclidian distance = 2.23606797749979
+! Multiplied by reaction path degeneracy 3.0
+! family: Disproportionation
+NO_10_+C2H5_21_=HNO_87_+C2H4_25_                    4.200000e+04 2.690     -1.610   
+
+! Reaction index: Chemkin #91; RMG #2869
+! Template reaction: Disproportionation
+! Flux pairs: H2NO_88_, HNO_87_; C2H5_21_, C2H6_16_; 
+! Estimated using template [Y_rad;N3s/H2_s_Orad] for rate rule [C_rad/H2/Cs;N3s/H2_s_Orad]
+! Euclidian distance = 3.0
+! Multiplied by reaction path degeneracy 2.0
+! family: Disproportionation
+H2NO_88_+C2H5_21_=HNO_87_+C2H6_16_                  3.200000e+06 1.870     2.960    
+
+! Reaction index: Chemkin #92; RMG #2876
+! Template reaction: Disproportionation
+! Flux pairs: H2NO_88_, HNO_87_; HCO_22_, CH2O_17_; 
+! Estimated using template [Y_rad;N3s/H2_s_Orad] for rate rule [CO_pri_rad;N3s/H2_s_Orad]
+! Euclidian distance = 2.0
+! Multiplied by reaction path degeneracy 2.0
+! family: Disproportionation
+H2NO_88_+HCO_22_=HNO_87_+CH2O_17_                   3.200000e+06 1.870     2.960    
+
+! Reaction index: Chemkin #93; RMG #2903
+! Template reaction: Disproportionation
+! Flux pairs: H2NO_88_, HNO_87_; H2NO_88_, NH2OH_3_; 
+! Estimated using template [O_sec_rad;N3s/H2_s_Orad] for rate rule [O_rad/NonDeN;N3s/H2_s_Orad]
+! Euclidian distance = 1.0
+! Multiplied by reaction path degeneracy 2.0
+! family: Disproportionation
+H2NO_88_+H2NO_88_=HNO_87_+NH2OH_3_                  5.800000e+04 2.690     -1.600   
+
+! Reaction index: Chemkin #94; RMG #3412
+! Template reaction: Disproportionation
+! Flux pairs: H2NO3_239_, HNO3_4_; NO_10_, HNO_87_; 
+! Estimated using average of templates [N3_rad;NH_s_Rrad] + [N3d_rad;XH_s_Rrad] for rate rule [N3d_rad/O;N5H_s_Rrad]
+! Euclidian distance = 2.23606797749979
+! family: Disproportionation
+NO_10_+H2NO3_239_=HNO_87_+HNO3_4_                   1.128682e+05 2.315     -1.380   
+
+! Reaction index: Chemkin #95; RMG #645
+! Library reaction: NOx2018
+! Flux pairs: NH2OH_3_, HNOH_93_; H_20_, H2_13_; 
+H_20_+NH2OH_3_=H2_13_+HNOH_93_                      4.800000e+08 1.500     6.249    
+
+! Reaction index: Chemkin #96; RMG #649
+! Library reaction: NOx2018
+! Flux pairs: NH2OH_3_, HNOH_93_; OH_24_, H2O_6_; 
+OH_24_+NH2OH_3_=H2O_6_+HNOH_93_                     1.500000e+04 2.610     -3.537   
+
+! Reaction index: Chemkin #97; RMG #658
+! Library reaction: NOx2018
+! Flux pairs: H2NO_88_, HNOH_93_; 
+H2NO_88_+M=HNOH_93_+M                               1.100e+29 -4.000    44.000   
+H2O_6_/10.00/ 
+
+! Reaction index: Chemkin #98; RMG #668
+! Library reaction: NOx2018
+! Flux pairs: HNOH_93_, H_20_; HNOH_93_, HNO_87_; 
+HNOH_93_+M=H_20_+HNO_87_+M                          2.000e+24 -2.840    58.934   
+H2O_6_/10.00/ 
+
+! Reaction index: Chemkin #99; RMG #670
+! Library reaction: NOx2018
+! Flux pairs: HNOH_93_, HNO_87_; H_20_, H2_13_; 
+H_20_+HNOH_93_=HNO_87_+H2_13_                       4.800000e+08 1.500     0.378    
+
+! Reaction index: Chemkin #100; RMG #672
+! Library reaction: NOx2018
+! Flux pairs: HNOH_93_, HNO_87_; OH_24_, H2O_6_; 
+OH_24_+HNOH_93_=HNO_87_+H2O_6_                      2.400000e+06 2.000     -1.192   
+
+! Reaction index: Chemkin #101; RMG #1738
+! Template reaction: R_Recombination
+! Flux pairs: HNOH_93_, NH2OH_3_; H_20_, NH2OH_3_; 
+! BM rule fitted to 2 training reactions at node Root_1R->H_N-2R->S_N-2CHNO->H_N-2CNO-inRing_Ext-2CNO-R_N-Sp-3R!H=2CCNNOO
+!     Total Standard Deviation in ln_k_: 2.07317938705
+! Exact match found for rate rule [Root_1R->H_N-2R->S_N-2CHNO->H_N-2CNO-inRing_Ext-2CNO-R_N-Sp-3R!H=2CCNNOO]
+! Euclidian distance = 0
+! family: R_Recombination
+H_20_+HNOH_93_=NH2OH_3_                             7.277920e+12 0.315     0.000    
+
+! Reaction index: Chemkin #102; RMG #1838
+! Template reaction: Disproportionation
+! Estimated using template [N3s_rad/H/NonDeO;XH_s_Rrad] for rate rule [N3s_rad/H/NonDeO;N5H_s_Rrad]
+! Euclidian distance = 2.0
+! family: Disproportionation
+HNOH_93_+H2NO3_239_=HNO3_4_+NH2OH_3_                2.900000e+04 2.690     -1.600   
+
+! Reaction index: Chemkin #103; RMG #1857
+! Template reaction: H_Abstraction
+! Flux pairs: HNO_87_, NO_10_; HNOH_93_, NH2OH_3_; 
+! Estimated using template [N3d/H/NonDeO;N3s_rad] for rate rule [N3d/H/NonDeO;N3s_rad_pri]
+! Euclidian distance = 1.0
+! family: H_Abstraction
+HNO_87_+HNOH_93_=NO_10_+NH2OH_3_                    9.200000e+05 1.940     -1.150   
+
+! Reaction index: Chemkin #104; RMG #1875
+! Template reaction: CO_Disproportionation
+! Estimated using template [N3_rad;HCO] for rate rule [N3s_rad/H/NonDeO;HCO]
+! Euclidian distance = 4.0
+! family: CO_Disproportionation
+HNOH_93_+HCO_22_=NH2OH_3_+CO_14_                    7.100000e+12 0.000     0.000    
+
+! Reaction index: Chemkin #105; RMG #1881
+! Template reaction: H_Abstraction
+! Flux pairs: CH3_18_, CH4_15_; NH2OH_3_, HNOH_93_; 
+! Matched reaction 710 H3NO + CH3_r3 <=> CH4b + H2NO in H_Abstraction/training
+! This reaction matched rate rule [N3s/H2/NonDeO;C_methyl]
+! family: H_Abstraction
+NH2OH_3_+CH3_18_=HNOH_93_+CH4_15_                   3.200000e+06 1.870     6.350    
+
+! Reaction index: Chemkin #106; RMG #1883
+! Template reaction: H_Abstraction
+! Flux pairs: C2H5_21_, C2H6_16_; NH2OH_3_, HNOH_93_; 
+! Estimated using template [N3s/H2/NonDeO;Cs_rad] for rate rule [N3s/H2/NonDeO;C_rad/H2/Cs\H3]
+! Euclidian distance = 3.0
+! Multiplied by reaction path degeneracy 2.0
+! family: H_Abstraction
+NH2OH_3_+C2H5_21_=HNOH_93_+C2H6_16_                 3.200000e+06 1.870     6.350    
+
+! Reaction index: Chemkin #107; RMG #1887
+! Template reaction: H_Abstraction
+! Flux pairs: HCO_22_, CH2O_17_; NH2OH_3_, HNOH_93_; 
+! Estimated using template [N3s/H2/NonDeO;Y_rad] for rate rule [N3s/H2/NonDeO;CO_pri_rad]
+! Euclidian distance = 2.0
+! Multiplied by reaction path degeneracy 2.0
+! family: H_Abstraction
+NH2OH_3_+HCO_22_=HNOH_93_+CH2O_17_                  4.800000e+06 2.000     -0.330   
+
+! Reaction index: Chemkin #108; RMG #1894
+! Template reaction: Disproportionation
+! Flux pairs: HNOH_93_, NH2OH_3_; C2H5_21_, C2H4_25_; 
+! Estimated using template [N3s_rad/H/NonDeO;XH_s_Rrad] for rate rule [N3s_rad/H/NonDeO;Cmethyl_Csrad]
+! Euclidian distance = 2.0
+! Multiplied by reaction path degeneracy 3.0
+! family: Disproportionation
+HNOH_93_+C2H5_21_=NH2OH_3_+C2H4_25_                 8.700000e+04 2.690     -1.600   
+
+! Reaction index: Chemkin #109; RMG #2787
+! Template reaction: H_Abstraction
+! Flux pairs: NH2OH_3_, H2NO_88_; HNOH_93_, NH2OH_3_; 
+! Estimated using template [O_sec;N3s_rad] for rate rule [O/H/NonDeN;N3s_rad_pri]
+! Euclidian distance = 1.4142135623730951
+! family: H_Abstraction
+HNOH_93_+NH2OH_3_=H2NO_88_+NH2OH_3_                 9.200000e+05 1.940     2.785    
+
+! Reaction index: Chemkin #110; RMG #3602
+! Template reaction: Disproportionation
+! Flux pairs: HNOH_93_, NH2OH_3_; HNOH_93_, HNO_87_; 
+! Estimated using template [N3s_rad/H/NonDeO;O_Rrad] for rate rule [N3s_rad/H/NonDeO;O_Nrad]
+! Euclidian distance = 1.0
+! family: Disproportionation
+HNOH_93_+HNOH_93_=HNO_87_+NH2OH_3_                  2.900000e+04 2.690     -1.600   
+
+! Reaction index: Chemkin #111; RMG #3603
+! Template reaction: Disproportionation
+! Estimated using template [N3s_rad;N3s/H2_s_Orad] for rate rule [N3s_rad/H/NonDeO;N3s/H2_s_Orad]
+! Euclidian distance = 3.0
+! Multiplied by reaction path degeneracy 2.0
+! family: Disproportionation
+H2NO_88_+HNOH_93_=HNO_87_+NH2OH_3_                  3.600000e+06 1.940     -1.150   
+DUPLICATE
+
+! Reaction index: Chemkin #112; RMG #3604
+! Template reaction: Disproportionation
+! Estimated using average of templates [O_sec_rad;O_Nrad] + [O_rad/NonDeN;O_Rrad] for rate rule [O_rad/NonDeN;O_Nrad]
+! Euclidian distance = 1.0
+! family: Disproportionation
+H2NO_88_+HNOH_93_=HNO_87_+NH2OH_3_                  2.919932e+04 2.690     -1.600   
+DUPLICATE
+
+! Reaction index: Chemkin #113; RMG #3643
+! Template reaction: Disproportionation
+! Flux pairs: CH3_18_, CH4_15_; HNOH_93_, HNO_87_; 
+! Matched reaction 108 H2NO-3 + CH3 <=> CH4 + HNO-3 in Disproportionation/training
+! This reaction matched rate rule [C_methyl;O_Nrad]
+! family: Disproportionation
+HNOH_93_+CH3_18_=HNO_87_+CH4_15_                    1.600000e+06 1.870     2.100    
+
+! Reaction index: Chemkin #114; RMG #3644
+! Template reaction: Disproportionation
+! Flux pairs: C2H5_21_, C2H6_16_; HNOH_93_, HNO_87_; 
+! Estimated using template [C_rad/H2/Cs;O_Rrad] for rate rule [C_rad/H2/Cs;O_Nrad]
+! Euclidian distance = 1.0
+! family: Disproportionation
+HNOH_93_+C2H5_21_=HNO_87_+C2H6_16_                  2.410000e+12 0.000     0.000    
+
+! Reaction index: Chemkin #115; RMG #3649
+! Template reaction: Disproportionation
+! Flux pairs: HCO_22_, HNO_87_; HNOH_93_, CH2O_17_; 
+! Estimated using template [CO_pri_rad;O_Rrad] for rate rule [CO_pri_rad;O_Nrad]
+! Euclidian distance = 1.0
+! family: Disproportionation
+HNOH_93_+HCO_22_=HNO_87_+CH2O_17_                   1.810000e+14 0.000     0.000    
+
+! Reaction index: Chemkin #116; RMG #3736
+! Template reaction: Disproportionation
+! Flux pairs: NO_10_, HNO_87_; HNOH_93_, HNO_87_; 
+! Estimated using template [N3d_rad;O_Rrad] for rate rule [N3d_rad/O;O_Nrad]
+! Euclidian distance = 1.4142135623730951
+! family: Disproportionation
+! Ea raised from -6.7 to 22.6 kJ/mol to match endothermicity of reaction.
+NO_10_+HNOH_93_=HNO_87_+HNO_87_                     1.400000e+04 2.690     5.409    
+
+! Reaction index: Chemkin #117; RMG #5000
+! Template reaction: Disproportionation
+! Flux pairs: HNOH_93_, HNO_87_; H2NO_88_, NH2OH_3_; 
+! Estimated using average of templates [O_sec_rad;O_Nrad] + [O_rad/NonDeN;O_Rrad] for rate rule [O_rad/NonDeN;O_Nrad]
+! Euclidian distance = 1.0
+! family: Disproportionation
+H2NO_88_+HNOH_93_=HNO_87_+NH2OH_3_                  2.919932e+04 2.690     -1.600   
+DUPLICATE
+
+! Reaction index: Chemkin #118; RMG #5001
+! Template reaction: Disproportionation
+! Flux pairs: H2NO_88_, HNO_87_; HNOH_93_, NH2OH_3_; 
+! Estimated using template [N3s_rad;N3s/H2_s_Orad] for rate rule [N3s_rad/H/NonDeO;N3s/H2_s_Orad]
+! Euclidian distance = 3.0
+! Multiplied by reaction path degeneracy 2.0
+! family: Disproportionation
+H2NO_88_+HNOH_93_=HNO_87_+NH2OH_3_                  3.600000e+06 1.940     -1.150   
+DUPLICATE
+
+END
+
