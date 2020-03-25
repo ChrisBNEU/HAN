@@ -22,7 +22,7 @@ database(
     kineticsFamilies =['default', 
 	# specifying exactly which surface families we want to use
 	# can also just use 'surface' for default surface families
-        'Surface_Abstraction',
+    'Surface_Abstraction',
 	'Surface_Abstraction_vdW',
 	'Surface_Addition_Single_vdW',
 	'Surface_Adsorption_Abstraction_vdW',
@@ -292,6 +292,7 @@ simulator(
     rtol=1e-12,
 )
 
+# First 100 species added with epsilon (move to core) e=0.25 (quite loose)
 model(
     toleranceKeepInEdge=0.0,
     toleranceMoveToCore=0.25,
@@ -303,6 +304,8 @@ model(
     maxNumSpecies=100,
 )
 
+# reduce epsilon to e=0.1
+# turn on pruning to keep edge below 50,000 (very high)
 model(
     toleranceKeepInEdge=0.0,
     toleranceMoveToCore=0.1,
@@ -314,6 +317,7 @@ model(
     filterReactions=False, # NotImplemented for SurfaceReactor
 )
 
+# reduce epsilon to e=0.01
 model(
     toleranceKeepInEdge=0.0,
     toleranceMoveToCore=0.01,
