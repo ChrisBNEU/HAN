@@ -1,0 +1,221 @@
+! Species         Shape    LJ-depth  LJ-diam   DiplMom   Polzblty  RotRelaxNum Data     
+! Name            Index    epsilon/k_B sigma     mu        alpha     Zrot      Source   
+Ne                  0     148.600     3.758     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! X(1)                None
+NH3(2)              2     481.001     2.920     1.470     0.000    10.000    ! GRI-Mech
+NH2OH(3)            2     116.700     3.492     0.000     0.000     1.000    ! NOx2018
+HNO3(4)             2     400.000     4.200     0.200     0.000     1.000    ! NOx2018
+CH3OH(5)            2     481.802     3.626     0.000     0.000     1.000    ! GRI-Mech
+H2O(6)              2     809.102     2.641     0.000     1.760     4.000    ! PrimaryTransportLibrary
+N2(7)               1      97.530     3.621     0.000     1.760     4.000    ! PrimaryTransportLibrary
+O2(8)               1     106.700     3.467     0.000     0.000     0.000    ! PrimaryTransportLibrary
+NO2(9)              2     200.001     3.500     0.000     0.000     1.000    ! GRI-Mech
+NO(10)              1      97.530     3.621     0.000     1.760     4.000    ! GRI-Mech
+N2O(11)             1     232.401     3.828     0.000     0.000     1.000    ! GRI-Mech
+CO2(12)             1     195.201     3.941     0.000     0.000     0.000    ! PrimaryTransportLibrary
+H2(13)              1      59.700     2.833     0.000     0.000     0.000    ! PrimaryTransportLibrary
+CO(14)              1      91.700     3.690     0.000     1.760     4.000    ! PrimaryTransportLibrary
+CH4(15)             2     141.400     3.746     0.000     2.600    13.000    ! GRI-Mech
+C2H6(16)            2     252.301     4.302     0.000     0.000     1.500    ! GRI-Mech
+CH2O(17)            2     498.002     3.590     0.000     0.000     2.000    ! GRI-Mech
+CH3(18)             2     144.001     3.800     0.000     0.000     0.000    ! GRI-Mech
+C3H8(19)            2     266.801     4.982     0.000     0.000     1.000    ! GRI-Mech
+H(20)               0     145.000     2.050     0.000     0.000     0.000    ! GRI-Mech
+C2H5(21)            2     252.301     4.302     0.000     0.000     1.500    ! GRI-Mech
+HCO(22)             2     498.002     3.590     0.000     0.000     0.000    ! GRI-Mech
+CH3CHO(23)          2     436.001     3.970     0.000     0.000     2.000    ! GRI-Mech
+OH(24)              1      80.000     2.750     0.000     0.000     0.000    ! GRI-Mech
+C2H4(25)            2     280.801     3.971     0.000     0.000     1.500    ! GRI-Mech
+! H2OX(30)            None
+! H3NOX(205)          None
+! HX(26)              None
+! HNO3X(208)          None
+! CH4OX(211)          None
+! H2NOX(204)          None
+! HOX(29)             None
+! HNOX(512)           None
+H2NO(88)            2     116.700     3.492     0.000     0.000     1.000    ! GRI-Mech
+! NX(539)             None
+! HNX(511)            None
+! OX(27)              None
+H2NO3(231)          2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! CH3OX(210)          None
+! CH2OX(659)          None
+! CHOX(675)           None
+! CH2X(34)            None
+! CHX(35)             None
+! CX(33)              None
+! SX(708)             None
+HNOH(93)            2     116.700     3.492     0.000     0.000     1.000    ! GRI-Mech
+! H2NX(201)           None
+! H3NX(202)           None
+HNO2(94)            2     350.000     3.950     1.639     0.000     1.000    ! NOx2018
+HONO(92)            2     350.000     3.950     1.639     0.000     1.000    ! NOx2018
+! H2X(216)            None
+NO3(95)             2     400.000     4.200     0.200     0.000     1.000    ! NOx2018
+HNO(87)             2     116.700     3.492     0.000     0.000     1.000    ! GRI-Mech
+H3NO3(626)          2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! H2NOX(203)          None
+! H2N2X(602)          None
+N2O2(378)           2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! OCX(32)             None
+S(567)              2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+HNO(549)            2     110.700     4.443     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+NO(1160)            1     110.700     4.443     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! SX(540)             None
+! SX(1251)            None
+S(1268)             2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+ONONO(331)          2     341.100     5.784     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! SX(1279)            None
+! NOX(214)            None
+CH2OH(45)           2     417.002     3.690     1.700     0.000     2.000    ! GRI-Mech
+S(1443)             2     341.100     5.784     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(1482)             2     341.100     5.784     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(1458)             2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! CNOX(1420)          None
+NH2(85)             2      80.000     2.650     0.000     2.260     4.000    ! GRI-Mech
+NH(86)              1      80.000     2.650     0.000     0.000     4.000    ! GRI-Mech
+! N2OX(1412)          None
+S(1414)             2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(1422)             2     237.100     5.118     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! CH3NX(699)          None
+! CH2NX(707)          None
+CH3O(46)            2     417.002     3.690     1.700     0.000     2.000    ! GRI-Mech
+H3NO(550)           2     110.700     4.443     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+CHNO2(385)          2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(1654)             2     341.100     5.784     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(2008)             2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! NO2X(206)           None
+! SX(544)             None
+! SX(2870)            None
+! CH2OX(221)          None
+C2H4(200)           2     110.700     4.443     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! SX(962)             None
+! HONOX(797)          None
+S(1899)             2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(1713)             2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(254)              2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(3890)             2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(3723)             2     237.100     5.118     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(4205)             2     341.100     5.784     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+HOCN(104)           2     232.401     3.828     0.000     0.000     1.000    ! GRI-Mech
+S(4810)             2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(4743)             2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(4711)             2     341.100     5.784     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(4716)             2     399.300     5.949     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+S(5350)             2     341.100     5.784     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+! CH3X(28)            None
+! CO2X(31)            None
+O(36)               0      80.000     2.750     0.000     0.000     0.000    ! GRI-Mech
+HOCO(41)            2     498.000     3.590     0.000     0.000     2.000    ! NOx2018
+HO2(39)             2     107.400     3.458     0.000     0.000     1.000    ! GRI-Mech
+H2O2(40)            2     289.300     4.196     0.000     0.000     0.000    ! PrimaryTransportLibrary
+CH2(42)             2     144.001     3.800     0.000     0.000     0.000    ! GRI-Mech
+CH2(S)(43)          2     144.001     3.800     0.000     0.000     0.000    ! GRI-Mech
+CH(44)              1      80.000     2.750     0.000     0.000     0.000    ! GRI-Mech
+HCOH(47)            2     110.700     4.443     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+CH3OO(48)           2     417.000     3.690     1.700     0.000     2.000    ! NOx2018
+CH2CO(49)           2     436.001     3.970     0.000     0.000     2.000    ! GRI-Mech
+C2H3(50)            2     209.001     4.100     0.000     0.000     1.000    ! GRI-Mech
+C(51)               0      71.400     3.298     0.000     0.000     0.000    ! GRI-Mech
+C2H2(52)            1     209.001     4.100     0.000     0.000     2.500    ! GRI-Mech
+C2H(53)             1     209.001     4.100     0.000     0.000     2.500    ! GRI-Mech
+Ar(37)              0     136.501     3.330     0.000     0.000     0.000    ! GRI-Mech
+CH3OOH(54)          2     481.800     3.626     0.000     0.000     1.000    ! NOx2018
+CH2OOH(55)          2     417.000     3.690     1.700     0.000     2.000    ! NOx2018
+HOCH2O(56)          2     470.600     4.410     0.000     0.000     1.500    ! NOx2018
+HOCHO(57)           2     481.800     3.626     1.700     0.000     1.000    ! NOx2018
+C2H5O(58)           2     362.600     4.530     0.000     0.000     1.500    ! NOx2018
+C2H5O2(59)          2     395.000     4.037     1.300     0.000     1.000    ! NOx2018
+C2H5O2(60)          2     395.000     4.037     1.300     0.000     1.000    ! NOx2018
+cC2H4O(61)          2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+CH2CHO(62)          2     436.001     3.970     0.000     0.000     2.000    ! GRI-Mech
+H2CC(63)            2     209.000     4.100     0.000     0.000     2.500    ! NOx2018
+CH3CO(64)           2     436.001     3.970     0.000     0.000     2.000    ! GRI-Mech
+C2H4O(65)           2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+C2H5O(66)           2     362.600     4.530     0.000     0.000     1.500    ! NOx2018
+C2H3O2(67)          2     395.000     4.037     1.300     0.000     1.000    ! NOx2018
+CHCHO(68)           2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+OCHCHO(69)          2     440.200     4.010     0.000     0.000     2.000    ! NOx2018
+HCCO(70)            2     150.001     2.500     0.000     0.000     1.000    ! GRI-Mech
+HCCOH(71)           2     436.001     3.970     0.000     0.000     2.000    ! GRI-Mech
+CHCHOH(72)          2     224.701     4.162     0.000     0.000     1.000    ! GRI-Mech
+C2(73)              1      97.530     3.621     0.000     1.760     4.000    ! GRI-Mech
+C2O(74)             1     232.401     3.828     0.000     0.000     1.000    ! GRI-Mech
+C2H6O(75)           2     362.600     4.530     0.000     0.000     1.500    ! NOx2018
+C2H5O(76)           2     362.600     4.530     0.000     0.000     1.500    ! NOx2018
+C2H5O3(77)          2     395.000     4.037     1.300     0.000     1.000    ! NOx2018
+cC2H3O(78)          2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+C2H3O3(79)          2     435.500     4.860     0.000     0.000     1.000    ! NOx2018
+OCHCO(80)           2     440.200     4.010     0.000     0.000     2.000    ! NOx2018
+C2H6O2(81)          2     395.000     4.037     1.300     0.000     1.000    ! NOx2018
+C2H5O2(82)          2     395.000     4.037     1.300     0.000     1.000    ! NOx2018
+C2H4O2(83)          2     395.000     4.037     1.300     0.000     1.000    ! NOx2018
+OCHO(84)            2     498.000     3.590     0.000     0.000     2.000    ! NOx2018
+HON(89)             2     116.700     3.492     0.000     0.000     1.000    ! NOx2018
+N(90)               0      71.400     3.298     0.000     0.000     0.000    ! GRI-Mech
+NNH(91)             2      71.400     3.798     0.000     0.000     1.000    ! GRI-Mech
+N2H2(96)            2      71.400     3.798     0.000     0.000     1.000    ! GRI-Mech
+H2N2(97)            2      71.400     3.798     0.000     0.000     1.000    ! NOx2018
+N2H3(98)            2     200.001     3.900     0.000     0.000     1.000    ! GRI-Mech
+N2H4(99)            2     205.000     4.230     0.000     4.260     1.500    ! GRI-Mech
+HCN(100)            1     569.002     3.630     0.000     0.000     1.000    ! GRI-Mech
+CN(101)             1      75.000     3.856     0.000     0.000     1.000    ! NOx2018
+HNC(102)            1     569.000     3.630     0.000     0.000     1.000    ! NOx2018
+NCO(103)            1     232.401     3.828     0.000     0.000     1.000    ! GRI-Mech
+HNCO(105)           2     232.401     3.828     0.000     0.000     1.000    ! GRI-Mech
+NCCN(106)           1     374.000     4.361     0.000     0.000     1.000    ! NOx2018
+HNCN(107)           2     422.220     5.329     2.000     0.000     1.000    ! NOx2018
+NCN(108)            1     232.401     3.828     0.000     0.000     1.000    ! GRI-Mech
+HNCNH(109)          2     422.220     5.329     2.000     0.000     1.000    ! NOx2018
+HCNO(110)           2     232.401     3.828     0.000     0.000     1.000    ! GRI-Mech
+CH3CN(111)          2     422.220     5.329     3.500     0.000     1.000    ! NOx2018
+CH2CN(112)          2     422.220     5.329     3.500     0.000     1.000    ! NOx2018
+CH2NH(113)          2     417.000     3.690     1.700     0.000     2.000    ! NOx2018
+H2CN(114)           1     569.002     3.630     0.000     0.000     1.000    ! GRI-Mech
+CH3NO(115)          2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+CH4N(116)           2     481.800     3.626     0.000     0.000     1.000    ! NOx2018
+NCNOH(117)          2     531.400     4.687     0.000     0.000     0.000    ! Epsilon & sigma estimated with fixed Lennard Jones Parameters. This is the fallback method! Try improving transport databases!
+NCNO(118)           2     232.401     3.828     0.000     0.000     1.000    ! GRI-Mech
+CH2NO(119)          2     232.400     3.828     0.000     0.000     1.000    ! NOx2018
+S(120)              2     252.000     4.760     0.000     0.000     1.000    ! NOx2018
+S(121)              2     252.000     4.760     0.000     0.000     1.000    ! NOx2018
+S(122)              2     357.000     5.176     0.000     0.000     1.000    ! NOx2018
+S(123)              2     357.000     5.180     0.000     0.000     1.000    ! NOx2018
+S(124)              2     232.400     3.828     0.000     0.000     1.000    ! NOx2018
+S(125)              2     232.400     3.828     0.000     0.000     1.000    ! NOx2018
+S(126)              2     503.072     5.340     1.670     8.880     1.000    ! NOx2018
+S(127)              2     503.072     5.340     1.670     8.800     1.000    ! NOx2018
+S(128)              2     503.072     5.340     1.670     8.880     1.000    ! NOx2018
+S(129)              2     503.072     5.340     1.670     8.880     1.000    ! NOx2018
+S(130)              2     232.400     3.828     0.000     0.000     1.000    ! NOx2018
+S(131)              2     459.500     5.036     1.700     0.000     1.000    ! NOx2018
+S(132)              2     496.000     5.200     0.000     0.000     1.000    ! NOx2018
+CH5N(133)           2     481.800     3.626     0.000     0.000     1.000    ! NOx2018
+CH3NH(134)          2     481.800     3.626     0.000     0.000     1.000    ! NOx2018
+HCNH(135)           2     569.000     3.630     0.000     0.000     1.000    ! NOx2018
+C2H7N(136)          2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+C2H6N(137)          2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+C2H6N(138)          2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+C2H6N(139)          2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+C2H5N(140)          2     303.400     4.810     0.000     0.000     1.000    ! NOx2018
+C2H5N(141)          2     303.400     4.810     0.000     0.000     1.000    ! NOx2018
+CH3NO(142)          2     307.800     4.140     0.000     0.000     1.000    ! NOx2018
+C2H4N(143)          2     307.800     4.140     0.000     0.000     1.000    ! NOx2018
+C2H4N(144)          2     307.800     4.140     0.000     0.000     1.000    ! NOx2018
+C2H4N(145)          2     307.800     4.140     0.000     0.000     1.000    ! NOx2018
+H2NCO(146)          2     307.800     4.140     0.000     0.000     1.000    ! NOx2018
+C2H4N(147)          2     307.800     4.140     0.000     0.000     1.000    ! NOx2018
+C2H4N(148)          2     307.800     4.140     0.000     0.000     1.000    ! NOx2018
+C2H3N(149)          2     260.000     4.850     0.000     0.000     1.000    ! NOx2018
+C2H3N(150)          2     260.000     4.850     0.000     0.000     1.000    ! NOx2018
+C2H3N(151)          2     260.000     4.850     0.000     0.000     1.000    ! NOx2018
+C2H3N(152)          2     260.000     4.850     0.000     0.000     1.000    ! NOx2018
+CHCNH(153)          2     252.000     4.760     0.000     0.000     1.000    ! NOx2018
+C2H3N(154)          2     260.000     4.850     0.000     0.000     1.000    ! NOx2018
+C2H4N(155)          2     307.800     4.140     0.000     0.000     1.000    ! NOx2018
+C2H6N(156)          2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+C2H7N(157)          2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+C2H6N(158)          2     436.000     3.970     0.000     0.000     2.000    ! NOx2018
+C2H5N(159)          2     303.400     4.810     0.000     0.000     1.000    ! NOx2018
+C2H4N(160)          2     307.800     4.140     0.000     0.000     1.000    ! NOx2018

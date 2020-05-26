@@ -1,0 +1,132 @@
+Phases:
+- Species:
+  - name: Ne
+    radicalelectrons: 0
+    smiles: '[Ne]'
+    thermo:
+      polys:
+      - Tmax: 1000.0
+        Tmin: 200.0
+        coefs:
+        - 2.5
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - -745.375
+        - 3.35532
+        type: NASApolynomial
+      - Tmax: 6000.0
+        Tmin: 1000.0
+        coefs:
+        - 2.5
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - -745.375
+        - 3.35532
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: X
+    radicalelectrons: 0
+    smiles: '[Pt]'
+    thermo:
+      polys:
+      - Tmax: 1554.8012228918622
+        Tmin: 100.0
+        coefs:
+        - 0.0071013949779717075
+        - -4.2561952172907606e-05
+        - 8.985330163154979e-08
+        - -7.801936493183879e-11
+        - 2.3246547057093034e-14
+        - -0.8761017116922224
+        - -0.03112112285342439
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 1554.8012228918622
+        coefs:
+        - 0.1602999000373324
+        - -0.00025223540870055025
+        - 1.141812750848844e-07
+        - -1.214716534443988e-11
+        - 3.857900250276946e-16
+        - -70.81008848910423
+        - -0.9095275299580801
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: N2O4
+    radicalelectrons: 2
+    smiles: O[N][O]
+    thermo:
+      polys:
+      - Tmax: 991.7004174842667
+        Tmin: 100.0
+        coefs:
+        - 3.2576390996678564
+        - 0.017756548767085014
+        - -2.2984733631851966e-05
+        - 1.4325313405382504e-08
+        - -3.514154685389914e-12
+        - 14532.654090532355
+        - 10.246092526668894
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 991.7004174842667
+        coefs:
+        - 6.615802370139953
+        - 0.004211434930112702
+        - -2.4969594293610987e-06
+        - 5.524455466529892e-10
+        - -4.211044615203125e-14
+        - 13866.59778791166
+        - -5.927105903763967
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: HONO
+    radicalelectrons: 0
+    smiles: ON=O
+    thermo:
+      polys:
+      - Tmax: 1030.6705889919845
+        Tmin: 100.0
+        coefs:
+        - 3.583241858996181
+        - 0.006779563837632916
+        - 2.8076803236495185e-06
+        - -7.928467176486066e-09
+        - 3.2600192666446426e-12
+        - -10522.988961411706
+        - 7.642254676599575
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 1030.6705889919845
+        coefs:
+        - 5.618615168570868
+        - 0.004454772374313371
+        - -1.9217210452571733e-06
+        - 3.782402645297748e-10
+        - -2.7720160645646777e-14
+        - -11238.629534192269
+        - -3.675082659137405
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  name: phase
+Reactions:
+- kinetics:
+    A: 10000000000.0
+    Ea: 0.0
+    n: 0.0
+    type: Arrhenius
+  products:
+  - HONO
+  radicalchange: -2
+  reactants:
+  - N2O4
+  type: ElementaryReaction
+Units: {}

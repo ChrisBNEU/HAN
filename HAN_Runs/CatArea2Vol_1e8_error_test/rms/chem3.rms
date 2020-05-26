@@ -1,0 +1,92 @@
+Phases:
+- Species:
+  - name: Ne
+    radicalelectrons: 0
+    smiles: '[Ne]'
+    thermo:
+      polys:
+      - Tmax: 1000.0
+        Tmin: 200.0
+        coefs:
+        - 2.5
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - -745.375
+        - 3.35532
+        type: NASApolynomial
+      - Tmax: 6000.0
+        Tmin: 1000.0
+        coefs:
+        - 2.5
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - -745.375
+        - 3.35532
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: X
+    radicalelectrons: 0
+    smiles: '[Pt]'
+    thermo:
+      polys:
+      - Tmax: 1554.8012228918622
+        Tmin: 100.0
+        coefs:
+        - 0.0071013949779717075
+        - -4.2561952172907606e-05
+        - 8.985330163154979e-08
+        - -7.801936493183879e-11
+        - 2.3246547057093034e-14
+        - -0.8761017116922224
+        - -0.03112112285342439
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 1554.8012228918622
+        coefs:
+        - 0.1602999000373324
+        - -0.00025223540870055025
+        - 1.141812750848844e-07
+        - -1.214716534443988e-11
+        - 3.857900250276946e-16
+        - -70.81008848910423
+        - -0.9095275299580801
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: N2O4
+    radicalelectrons: 4
+    smiles: '[O][N]OO[N][O]'
+    thermo:
+      polys:
+      - Tmax: 794.9837898176321
+        Tmin: 100.0
+        coefs:
+        - 1.713482196597401
+        - 0.060832385693254526
+        - -0.00012493754489696312
+        - 1.3010394766536678e-07
+        - -5.135037901689485e-11
+        - 56305.48338998952
+        - 20.01660330246271
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 794.9837898176321
+        coefs:
+        - 4.088322109684064
+        - 0.026197678643002657
+        - -1.6783848323126086e-05
+        - 3.5122202878316217e-09
+        - -2.528963504888053e-13
+        - 56644.75509881408
+        - 13.612909225894365
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  name: phase
+Reactions: []
+Units: {}

@@ -1,0 +1,726 @@
+Phases:
+- Species:
+  - name: Ne
+    radicalelectrons: 0
+    smiles: '[Ne]'
+    thermo:
+      polys:
+      - Tmax: 1000.0
+        Tmin: 200.0
+        coefs:
+        - 2.5
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - -745.375
+        - 3.35532
+        type: NASApolynomial
+      - Tmax: 6000.0
+        Tmin: 1000.0
+        coefs:
+        - 2.5
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - -745.375
+        - 3.35532
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: X
+    radicalelectrons: 0
+    smiles: '[Pt]'
+    thermo:
+      polys:
+      - Tmax: 1554.8012228918622
+        Tmin: 100.0
+        coefs:
+        - 0.0071013949779717075
+        - -4.2561952172907606e-05
+        - 8.985330163154979e-08
+        - -7.801936493183879e-11
+        - 2.3246547057093034e-14
+        - -0.8761017116922224
+        - -0.03112112285342439
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 1554.8012228918622
+        coefs:
+        - 0.1602999000373324
+        - -0.00025223540870055025
+        - 1.141812750848844e-07
+        - -1.214716534443988e-11
+        - 3.857900250276946e-16
+        - -70.81008848910423
+        - -0.9095275299580801
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: N2O4
+    radicalelectrons: 4
+    smiles: '[O][N]OO[N][O]'
+    thermo:
+      polys:
+      - Tmax: 794.9837898176321
+        Tmin: 100.0
+        coefs:
+        - 1.713482196597401
+        - 0.060832385693254526
+        - -0.00012493754489696312
+        - 1.3010394766536678e-07
+        - -5.135037901689485e-11
+        - 56305.48338998952
+        - 20.01660330246271
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 794.9837898176321
+        coefs:
+        - 4.088322109684064
+        - 0.026197678643002657
+        - -1.6783848323126086e-05
+        - 3.5122202878316217e-09
+        - -2.528963504888053e-13
+        - 56644.75509881408
+        - 13.612909225894365
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: NO2
+    radicalelectrons: 1
+    smiles: '[O-][N+]=O'
+    thermo:
+      polys:
+      - Tmax: 1003.6375044933536
+        Tmin: 100.0
+        coefs:
+        - 3.9501640814260552
+        - -0.0011087409676299009
+        - 1.3409543627978931e-05
+        - -1.5310030670008182e-08
+        - 5.309858976762096e-12
+        - 2973.295763914677
+        - 6.194603331354309
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 1003.6375044933536
+        coefs:
+        - 4.429899131500095
+        - 0.0028457252218090042
+        - -1.2684417201991107e-06
+        - 2.6383252898309854e-10
+        - -2.0219834191266306e-14
+        - 2581.539364035827
+        - 2.4064694608299253
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: '[O][N]OON=O'
+    radicalelectrons: 2
+    smiles: '[O][N]OON=O'
+    thermo:
+      polys:
+      - Tmax: 805.975242524736
+        Tmin: 100.0
+        coefs:
+        - 1.6787184676234106
+        - 0.05911858714171092
+        - -0.00011213247795309567
+        - 1.0851311426847215e-07
+        - -4.038322069718704e-11
+        - 35073.64594840021
+        - 20.971731696032478
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 805.975242524736
+        coefs:
+        - 6.24132566353311
+        - 0.021089503683080286
+        - -1.272323434161699e-05
+        - 2.6020159615223877e-09
+        - -1.8492726133748493e-13
+        - 34837.88377091495
+        - 3.0439718093097587
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: '[N]=O'
+    radicalelectrons: 3
+    smiles: '[N]=O'
+    thermo:
+      polys:
+      - Tmax: 1128.494954961344
+        Tmin: 100.0
+        coefs:
+        - 4.154733823602707
+        - -0.0038592708034533465
+        - 8.964586674705516e-06
+        - -7.490119616284792e-09
+        - 2.1446539545917446e-12
+        - 37862.315001400515
+        - 5.070360787357437
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 1128.494954961344
+        coefs:
+        - 3.736784872649122
+        - 0.0003462752129058865
+        - -2.463365516562474e-07
+        - 9.03708646698636e-11
+        - -8.559160334133248e-15
+        - 37783.18799029405
+        - 6.3687111587350005
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: '[O]O[N][O]'
+    radicalelectrons: 3
+    smiles: '[O]O[N][O]'
+    thermo:
+      polys:
+      - Tmax: 841.6519555393256
+        Tmin: 100.0
+        coefs:
+        - 2.989904272908639
+        - 0.028416609878729134
+        - -6.193682223991625e-05
+        - 6.54362847396272e-08
+        - -2.5284860663133336e-11
+        - 37562.436834023814
+        - 12.538860051709149
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 841.6519555393256
+        coefs:
+        - 3.186716586736331
+        - 0.012704182515970176
+        - -7.598162667767966e-06
+        - 1.5345865226970133e-09
+        - -1.0755276798611052e-13
+        - 38052.69475122518
+        - 14.73256911575317
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: '[O][N]OO[N]OO[N]OO[N][O]'
+    radicalelectrons: 6
+    smiles: '[O][N]OO[N]OO[N]OO[N][O]'
+    thermo:
+      polys:
+      - Tmax: 756.0456838543145
+        Tmin: 100.0
+        coefs:
+        - -1.898788305996211
+        - 0.1506327700539556
+        - -0.00029511811955052766
+        - 2.9712607301873934e-07
+        - -1.167170168544202e-10
+        - 111943.87620963082
+        - 34.00677167057612
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 756.0456838543145
+        coefs:
+        - 9.194256105784422
+        - 0.05642961904068287
+        - -3.775967947735886e-05
+        - 8.0631523700289e-09
+        - -5.890883382946005e-13
+        - 111281.4868353695
+        - -9.696119781244912
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: O2
+    radicalelectrons: 0
+    smiles: '[O][O]'
+    thermo:
+      polys:
+      - Tmax: 1074.555468040618
+        Tmin: 100.0
+        coefs:
+        - 3.537321807989779
+        - -0.0012157093040009118
+        - 5.316178259087367e-06
+        - -4.894434235003974e-09
+        - 1.4584504243536916e-12
+        - -1038.5884610525936
+        - 4.683684059746704
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 1074.555468040618
+        coefs:
+        - 3.1538242484353245
+        - 0.0016780380179646451
+        - -7.699710218169019e-07
+        - 1.5127471415541145e-10
+        - -1.0878180054966004e-14
+        - -1040.8187832111532
+        - 6.167538840972681
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: O
+    radicalelectrons: 2
+    smiles: '[O]'
+    thermo:
+      polys:
+      - Tmax: 3459.6003738367535
+        Tmin: 100.0
+        coefs:
+        - 2.4999999999985736
+        - 9.243846020396786e-15
+        - -1.3677983665251473e-17
+        - 6.6618476899264674e-21
+        - -1.0010691239894123e-24
+        - 29230.24412855092
+        - 5.1261642726946866
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 3459.6003738367535
+        coefs:
+        - 2.4999999912187763
+        - 9.204555459946046e-12
+        - -3.586082925321867e-15
+        - 6.151989221655697e-19
+        - -3.920418005700823e-23
+        - 29230.244135197896
+        - 5.1261643267759816
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: ONOOJ
+    radicalelectrons: 1
+    smiles: '[O]ON=O'
+    thermo:
+      polys:
+      - Tmax: 867.1713838297693
+        Tmin: 100.0
+        coefs:
+        - 3.0079910907508776
+        - 0.02569594424176595
+        - -5.037068484247254e-05
+        - 4.789732872010362e-08
+        - -1.697508678961157e-11
+        - 15168.3152137756
+        - 12.57554333452454
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 867.1713838297693
+        coefs:
+        - 5.0046153067968415
+        - 0.007755471056850099
+        - -4.235996245041921e-06
+        - 8.196446713175837e-10
+        - -5.5766601740455124e-14
+        - 15150.298480848616
+        - 5.120283855176322
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: ONOONO
+    radicalelectrons: 0
+    smiles: O=NOON=O
+    thermo:
+      polys:
+      - Tmax: 851.80419473497
+        Tmin: 100.0
+        coefs:
+        - 1.6988819880636088
+        - 0.05796228522404666
+        - -0.00011122349968308294
+        - 1.0282264054483208e-07
+        - -3.588028879182639e-11
+        - 13571.791382310503
+        - 15.692356444928983
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 851.80419473497
+        coefs:
+        - 7.732585517153178
+        - 0.014607328050043708
+        - -8.424951950878339e-06
+        - 1.6644945494231924e-09
+        - -1.1480586797084158e-13
+        - 13088.831442916346
+        - -9.250197627110198
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: '[O][N]OO[N]OON=O'
+    radicalelectrons: 3
+    smiles: '[O][N]OO[N]OON=O'
+    thermo:
+      polys:
+      - Tmax: 769.4423828286759
+        Tmin: 100.0
+        coefs:
+        - -0.12385812993745256
+        - 0.10396150209129278
+        - -0.00019692444020632356
+        - 1.9142536978373685e-07
+        - -7.267048629753686e-11
+        - 62892.687938673036
+        - 27.954865644047583
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 769.4423828286759
+        coefs:
+        - 8.81366657540661
+        - 0.03617091627175335
+        - -2.3190525535520853e-05
+        - 4.872486456828384e-09
+        - -3.526010325921401e-13
+        - 62148.66609488258
+        - -8.718383176633331
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  - name: 'NO'
+    radicalelectrons: 1
+    smiles: '[N]=O'
+    thermo:
+      polys:
+      - Tmax: 1406.982542224905
+        Tmin: 100.0
+        coefs:
+        - 3.557183686060114
+        - -0.0008905935171088806
+        - 2.9855950540024144e-06
+        - -2.0869397047293838e-09
+        - 4.659706042971862e-13
+        - 9952.396738974085
+        - 4.552506794287003
+        type: NASApolynomial
+      - Tmax: 5000.0
+        Tmin: 1406.982542224905
+        coefs:
+        - 2.9379400155038358
+        - 0.0017543021087910238
+        - -7.770359650042501e-07
+        - 1.426586300441561e-10
+        - -9.578929257615807e-15
+        - 10039.111000111121
+        - 7.440351848725514
+        type: NASApolynomial
+      type: NASA
+    type: Species
+  name: phase
+Reactions:
+- kinetics:
+    A: 5000000000000.0
+    Ea: 0.0
+    n: 0.0
+    type: Arrhenius
+  products:
+  - NO2
+  - NO2
+  radicalchange: -2
+  reactants:
+  - N2O4
+  type: ElementaryReaction
+- kinetics:
+    A: 10000000000.0
+    Ea: 0.0
+    n: 0.0
+    type: Arrhenius
+  products:
+  - '[O][N]OON=O'
+  radicalchange: -2
+  reactants:
+  - N2O4
+  type: ElementaryReaction
+- kinetics:
+    A: 260000.00000000012
+    Ea: 241608.41868906748
+    n: 0.0
+    type: Arrhenius
+  products:
+  - '[O][N]OON=O'
+  radicalchange: 0
+  reactants:
+  - NO2
+  - NO2
+  type: ElementaryReaction
+- kinetics:
+    A: 12314.465824468754
+    Ea: -2003.4572404738215
+    n: 0.9681077692998774
+    type: Arrhenius
+  products:
+  - N2O4
+  radicalchange: -2
+  reactants:
+  - '[N]=O'
+  - '[O]O[N][O]'
+  type: ElementaryReaction
+- kinetics:
+    A: 526000000.0
+    Ea: 3887.6424384885254
+    n: -1.1
+    type: Arrhenius
+  products:
+  - '[O][N]OO[N]OO[N]OO[N][O]'
+  radicalchange: -2
+  reactants:
+  - N2O4
+  - N2O4
+  type: ElementaryReaction
+- kinetics:
+    A: 5000000000000.0
+    Ea: 0.0
+    n: 0.0
+    type: Arrhenius
+  products:
+  - '[O][N]OON=O'
+  - '[O][N]OON=O'
+  radicalchange: -2
+  reactants:
+  - '[O][N]OO[N]OO[N]OO[N][O]'
+  type: ElementaryReaction
+- kinetics:
+    A: 753657747.2566704
+    Ea: 5837.652678637649
+    n: -0.375
+    type: Arrhenius
+  products:
+  - '[O]O[N][O]'
+  radicalchange: 0
+  reactants:
+  - O2
+  - '[N]=O'
+  type: ElementaryReaction
+- kinetics:
+    arr:
+      A: 6165.000000000001
+      Ea: 0.0
+      n: -0.5
+      type: Arrhenius
+    efficiencies: {}
+    type: ThirdBody
+  products:
+  - O2
+  radicalchange: -4
+  reactants:
+  - O
+  - O
+  type: ElementaryReaction
+- kinetics:
+    A: 23.399320294789323
+    Ea: 44334.94556303305
+    n: 2.021
+    type: Arrhenius
+  products:
+  - '[O]O[N][O]'
+  radicalchange: 0
+  reactants:
+  - O
+  - NO2
+  type: ElementaryReaction
+- kinetics:
+    A: 12314.465824468754
+    Ea: -2003.4572404738215
+    n: 0.9681077692998774
+    type: Arrhenius
+  products:
+  - '[O][N]OON=O'
+  radicalchange: -2
+  reactants:
+  - '[N]=O'
+  - ONOOJ
+  type: ElementaryReaction
+- kinetics:
+    A: 10000000000.0
+    Ea: 0.0
+    n: 0.0
+    type: Arrhenius
+  products:
+  - ONOOJ
+  radicalchange: -2
+  reactants:
+  - '[O]O[N][O]'
+  type: ElementaryReaction
+- kinetics:
+    A: 24628.93164893751
+    Ea: -2003.4572404738215
+    n: 0.9681077692998774
+    type: Arrhenius
+  products:
+  - ONOOJ
+  radicalchange: -2
+  reactants:
+  - O
+  - NO2
+  type: ElementaryReaction
+- kinetics:
+    A: 12314.465824468754
+    Ea: -2003.4572404738215
+    n: 0.9681077692998774
+    type: Arrhenius
+  products:
+  - '[O][N]OON=O'
+  radicalchange: -2
+  reactants:
+  - '[N]=O'
+  - ONOOJ
+  type: ElementaryReaction
+- kinetics:
+    A: 212954.0
+    Ea: 62831.30480445083
+    n: 0.348287
+    type: Arrhenius
+  products:
+  - ONOONO
+  radicalchange: -2
+  reactants:
+  - NO2
+  - NO2
+  type: ElementaryReaction
+- kinetics:
+    A: 10000000000.0
+    Ea: 0.0
+    n: 0.0
+    type: Arrhenius
+  products:
+  - ONOONO
+  radicalchange: -2
+  reactants:
+  - '[O][N]OON=O'
+  type: ElementaryReaction
+- kinetics:
+    A: 488000.0
+    Ea: 29550.290481252072
+    n: 0.2
+    type: Arrhenius
+  products:
+  - '[O][N]OO[N]OON=O'
+  radicalchange: -2
+  reactants:
+  - NO2
+  - N2O4
+  type: ElementaryReaction
+- kinetics:
+    A: 260000.00000000012
+    Ea: 206112.9235992296
+    n: 0.0
+    type: Arrhenius
+  products:
+  - '[O][N]OO[N]OON=O'
+  radicalchange: 0
+  reactants:
+  - NO2
+  - '[O][N]OON=O'
+  type: ElementaryReaction
+- kinetics:
+    A: 10000000000000.0
+    Ea: 0.0
+    n: 0.0
+    type: Arrhenius
+  products:
+  - NO2
+  - '[O][N]OO[N]OON=O'
+  radicalchange: -2
+  reactants:
+  - '[O][N]OO[N]OO[N]OO[N][O]'
+  type: ElementaryReaction
+- kinetics:
+    A: 5000000000000.0
+    Ea: 0.0
+    n: 0.0
+    type: Arrhenius
+  products:
+  - NO2
+  - ONOONO
+  radicalchange: -2
+  reactants:
+  - '[O][N]OO[N]OON=O'
+  type: ElementaryReaction
+- kinetics:
+    T1: 100000.0
+    T2: 1.0e+30
+    T3: 1000.0
+    a: 0.75
+    arrhigh:
+      A: 1300000000.0000002
+      Ea: 0.0
+      n: -0.75
+      type: Arrhenius
+    arrlow:
+      A: 4720000000000.001
+      Ea: 6485.2
+      n: -2.87
+      type: Arrhenius
+    efficiencies: {}
+    type: Troe
+  products:
+  - NO2
+  radicalchange: -2
+  reactants:
+  - O
+  - 'NO'
+  type: ElementaryReaction
+- kinetics:
+    A: 110000000.00000001
+    Ea: 0.0
+    n: -0.52
+    type: Arrhenius
+  products:
+  - O2
+  - 'NO'
+  radicalchange: -2
+  reactants:
+  - O
+  - NO2
+  type: ElementaryReaction
+- kinetics:
+    A: 4500000.000000001
+    Ea: 115474.216
+    n: 0.0
+    type: Arrhenius
+  products:
+  - O2
+  - 'NO'
+  - 'NO'
+  radicalchange: 0
+  reactants:
+  - NO2
+  - NO2
+  type: ElementaryReaction
+- kinetics:
+    A: 122000.0
+    Ea: 0.0
+    n: 0.2
+    type: Arrhenius
+  products:
+  - '[O][N]OON=O'
+  radicalchange: -2
+  reactants:
+  - 'NO'
+  - '[O]O[N][O]'
+  type: ElementaryReaction
+- kinetics:
+    A: 117000.0
+    Ea: 51708.375176581976
+    n: 0.0
+    type: Arrhenius
+  products:
+  - ONOOJ
+  radicalchange: 0
+  reactants:
+  - O2
+  - 'NO'
+  type: ElementaryReaction
+- kinetics:
+    A: 122000.0
+    Ea: 0.0
+    n: 0.2
+    type: Arrhenius
+  products:
+  - ONOONO
+  radicalchange: -2
+  reactants:
+  - 'NO'
+  - ONOOJ
+  type: ElementaryReaction
+Units: {}
